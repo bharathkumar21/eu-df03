@@ -1,0 +1,74 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "distRetrieveAddrChgResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"distRetrieveAddrChgAcctDetails": {"type": "object","$ref": "#/definitions/distRetrieveAddrChgAcctDetails"},
+		"distRetrieveAddrChgTitleList": {"title": "distRetrieveAddrChgTitleList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/distRetrieveAddrChgTitleList"}}
+	},
+	 "required": ["resultInfo", "distRetrieveAddrChgAcctDetails", "distRetrieveAddrChgTitleList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+
+		"distRetrieveAddrChgDetails": {"type": "object",
+			"properties": {
+				"distDateFrom": {"type": "string"},
+				"distDateTo": {"type": "string"},
+				"distAddrNo": {"type": "integer"},
+				"distAriaMpiNo": {"type": "integer"},
+				"distDeliveryDays": {"type": "string"}
+			},
+			"required": ["distDateFrom", "distDateTo", "distAddrNo", "distAriaMpiNo", "distDeliveryDays"], 
+			"additionalProperties": false
+		},
+		"distRetrieveAddrChgAcctDetails": {"type": "object",
+			"properties": {
+				"ariaAccountNo": {"type": "integer"},
+				"ariaAccountID": {"type": "string"}
+			},	
+			"required": ["ariaAccountNo", "ariaAccountID"], 
+			"additionalProperties": false
+		},
+		"distRetrieveAddrChgTitleDetails": {"type": "object",
+			"properties": {
+				"distTitleCode": {"type": "string"},
+				"distRetrieveAddrChgDetails": {"title": "distRetrieveAddrChgDetails", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/distRetrieveAddrChgDetails"}}
+			},
+			"required": ["distTitleCode", "distRetrieveAddrChgDetails"],
+			"additionalProperties": false
+		},
+
+		"distRetrieveAddrChgTitleList": {"type": "object",
+			"properties": {
+				"distRetrieveAddrChgTitleDetails": {"title": "distRetrieveAddrChgTitleDetails", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/distRetrieveAddrChgTitleDetails"}}
+			},
+			"required": ["distRetrieveAddrChgTitleDetails"],
+			"additionalProperties": false
+		},
+
+		"msgAuthDetails": {"type": "object",
+			"properties": {
+				"clientNo": {"type": "integer"},
+				"authKey": {"type": "string"},
+				"requestDateTime": {"type": "string"},
+				"signatureValue": {"type": "string"},
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"}
+			},
+			"required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "ariaAccountID", "ariaAccountNo"],
+			"additionalProperties": false
+		}
+	}
+}

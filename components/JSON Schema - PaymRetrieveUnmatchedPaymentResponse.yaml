@@ -1,0 +1,194 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "PaymRetrieveUnmatchedPaymentResponse",
+	"description": "Part of WFMAPS-12",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"properties": {
+				"resultText": {
+					"type": "string"
+				},
+				"resultCode": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"resultText",
+				"resultCode"
+			],
+			"additionalProperties": false
+		},
+		"paymRetrieveUnmatchedPaymentResponseList": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"paymRetrieveUnmatchedPaymentDetails": {
+						"type": "object",
+						"properties": {
+							"paymentID": {
+								"type": "string"
+							},
+							"paymentStatus": {
+								"type": "string",
+								"enum": [
+									"PENDING",
+									"APPROVED",
+									"REJECTED",
+									"FAILED"
+								]
+							},
+							"paymentMatchStatus": {
+								"type": "string",
+								"enum": [
+									"UNMATCHED",
+									"MATCHED",
+									"POSTED"
+								]
+							},
+							"paymentRegistrationDate": {
+								"type": "string"
+							},
+							"paymentUpdateDate": {
+								"type": "string"
+							},
+							"paymentMatchDate": {
+								"type": "string"
+							},
+							"paymentPostedDate": {
+								"type": "string"
+							},
+							"ariaAccountNo": {
+								"type": "integer"
+							},
+							"paymentSource": {
+								"type": "string"
+							},
+							"paymentNote": {
+								"type": "string"
+							},
+							"paymentOrigin": {
+								"type": "string",
+								"enum": [
+									"BANK",
+									"CREDITCARD",
+									"MANUAL"
+								]
+							}
+						},
+						"required": [
+							"paymentID",
+							"paymentStatus",
+							"paymentMatchStatus",
+							"paymentRegistrationDate"
+						]
+					},
+					"paymRetrieveUnmatchedPaymentInfo": {
+						"type": "object",
+						"properties": {
+							"paymentTransNo ": {
+								"type": "string"
+							},
+							"paymentReceiptNo": {
+								"type": "string"
+							},
+							"paymentBankDate": {
+								"type": "string"
+							},
+							"paymentAgreementID": {
+								"type": "string"
+							},
+							"paymentAuditRef": {
+								"type": "string"
+							},
+							"customerInvRef": {
+								"type": "string"
+							},
+							"paymentAmount": {
+								"type": "number"
+							},
+							"custAddrLine1": {
+								"type": "string"
+							},
+							"custAddrLine2": {
+								"type": "string"
+							},
+							"custAddrLine3": {
+								"type": "string"
+							},
+							"custAddrLine4": {
+								"type": "string"
+							},
+							"custPostalCode": {
+								"type": "string"
+							},
+							"custPostalCity": {
+								"type": "string"
+							},
+							"custCountryCode": {
+								"type": "string"
+							},
+							"bankAcctNumber": {
+								"type": "integer"
+							},
+							"bankIBANNumber": {
+								"type": "string"
+							},
+							"bankSwiftAddr": {
+								"type": "string"
+							}
+						}
+					},
+					"paymRetrieveUnmatchedPaymentInvoices": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"ariaInvoiceSeqNo": {
+									"type": "integer"
+								},
+								"ariaInvoiceNo": {
+									"type": "integer"
+								},
+								"ariaStatementNo": {
+									"type": "integer"
+								},
+								"ariaStatementID": {
+									"type": "string"
+								},
+								"ariaStatementID2": {
+									"type": "string"
+								},
+								"ariaBillingGroupID": {
+									"type": "string"
+								},
+								"ariaInvoiceDate": {
+									"type": "string",
+									"maxLength": 10
+								},
+								"ariaInvoiceDueDate": {
+									"type": "string",
+									"maxLength": 10
+								},
+								"ariaInvoiceAmount": {
+									"type": "number"
+								}
+							}
+						}
+					}
+				},
+				"required": [
+					"paymRetrieveUnmatchedPaymentDetails"
+				],
+				"additionalProperties": false
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"paymRetrieveUnmatchedPaymentResponseList"
+	],
+	"additionalProperties": false
+}

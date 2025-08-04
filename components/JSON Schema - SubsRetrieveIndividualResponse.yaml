@@ -1,0 +1,94 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "subsRetrieveIndividualResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"subsRetrieveIndividualCriteria": {"$ref": "#/definitions/subsRetrieveIndividualCriteria"},
+		"subsRetrieveIndividualList": {"title": "subsRetrieveIndividualList","type": "array","minItems": 1,"items": {"$ref": "#/definitions/subsRetrieveIndividualList"}}
+	},
+	"required": ["resultInfo", "subsRetrieveIndividualCriteria", "subsRetrieveIndividualList"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "integer"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+		
+		"subsRetrieveIndividualAddAddrInfo": {"type": "object",
+			"properties": {
+				"distAddrType": {"type": "integer"},
+				"distAddrTypeTranslations": {"type": "object","$ref": "#/definitions/solmTranslationGroup"}
+			},	
+			"required": ["distAddrType", "distAddrTypeTranslations"], 
+			"additionalProperties": false
+		},
+		"subsRetrieveIndividualAddrInfo": {"type": "object",
+			"properties": {
+				"distAddrNo": {"type": "integer"},
+				"distAddrName": {"type": "string","maxLength": 100},
+				"distAddrLine1": {"type": "string", "maxLength": 300},
+				"distAddrLine2": {"type": "string", "maxLength": 300},
+				"distAddrLine3": {"type": "string", "maxLength": 300},
+				"distAddrCountryCode": {"type": "string", "maxLength": 2},
+				"distAddrPostalCode": {"type": "string", "maxLength": 15},
+				"distAddrCity": {"type": "string", "maxLength": 32},
+				"distAddrLocality": {"type": "string", "maxLength": 32},
+				"distAddrStateProv": {"type": "string", "maxLength": 10},
+				"distStreetName": {"type": "string", "maxLength": 300},
+				"distStreetNo": {"type": "string", "maxLength": 300},
+				"distFlatNo": {"type": "string", "maxLength": 300},
+				"distFlatSpec": {"type": "string", "maxLength": 300},
+				"distFlatFloor": {"type": "string", "maxLength": 300},
+				"distEntranceNo": {"type": "string", "maxLength": 300},
+				"distPublAddrNo": {"type": "string", "maxLength": 300}
+			},
+			"required": ["distAddrNo", "distAddrName", "distAddrLine1", "distAddrLine2", "distAddrLine3", "distAddrCountryCode", "distAddrPostalCode", "distAddrCity", "distAddrLocality", "distAddrStateProv","distStreetName", "distStreetNo", "distFlatNo", "distFlatSpec", "distFlatFloor", "distEntranceNo", "distPublAddrNo"], 
+			"additionalProperties": false
+		},
+		"subsRetrieveIndividualList": {"type": "object",
+			"properties": {
+				"subjectName": {"type": "string"},
+				"subjectID": {"type": "string"},
+				"subsRetrieveIndividualAddrInfo": {"type": "object","$ref": "#/definitions/subsRetrieveIndividualAddrInfo"},
+				"subsRetrieveIndividualAddAddrInfo": {"type": "object","$ref": "#/definitions/subsRetrieveIndividualAddAddrInfo"},
+				"subjectDeliveryDays": {"type": "string", "maxLength": 7}
+			},
+			"required": ["subjectName", "subjectID", "subsRetrieveIndividualAddrInfo", "subsRetrieveIndividualAddAddrInfo", "subjectDeliveryDays"], 
+			"additionalProperties": false
+		},
+		
+		"subsRetrieveIndividualCriteria": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaMPINo": {"type": "integer"},
+				"ariaMPIID": {"type": "string"}
+			},
+			"required":["ariaAccountID", "ariaAccountNo", "ariaMPINo", "ariaMPIID"],
+			"additionalProperties": false
+		}
+	}
+}

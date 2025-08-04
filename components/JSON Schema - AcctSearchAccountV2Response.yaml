@@ -1,0 +1,154 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "acctSearchAccountV2Response",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"acctSearchAccountV2Paging": {
+			"$ref": "#/definitions/acctSearchAccountV2Paging"
+		},
+		"acctSearchAccountV2List": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/acctSearchAccountV2List"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"cctSearchAccountV2Paging",
+		"acctSearchAccountV2List"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"acctSearchAccountV2Paging": {
+			"type": "object",
+			"properties": {
+				"pagingRowLimit": {
+					"type": "integer"
+				},
+				"pagingRowValue": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"pagingRowLimit",
+				"pagingRowValue"
+			],
+			"additionalProperties": false
+		},
+		"acctSearchAccountV2List": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaUserID": {
+					"type": "string"
+				},
+				"acctCurrencyCode": {
+					"type": "string"
+				},
+				"acctBalance": {
+					"type": "number"
+				},
+				"acctStatusCode": {
+					"type": "integer"
+				},
+				"acctStatusCodeText": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"lastName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"fullName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"addressLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"postalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"postalCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"homePhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"cellPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"workPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"emailAddress": {
+					"type": "string",
+					"maxLength": 320
+				},
+				"taxpayerID": {
+					"type": "string",
+					"maxLength": 320
+				},
+				"acctStartDate": {
+					"type": "string"
+				},
+				"customerType": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaUserID",
+				"acctCurrencyCode",
+				"acctBalance",
+				"acctStatusCode",
+				"acctStatusCodeText"
+			],
+			"additionalProperties": false
+		}
+	}
+}

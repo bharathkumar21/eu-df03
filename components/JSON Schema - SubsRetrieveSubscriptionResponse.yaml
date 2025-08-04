@@ -1,0 +1,1716 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsRetrieveSubscriptionResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsRetrieveSubscriptionResponseDetails": {
+			"$ref": "#/definitions/subsRetrieveSubscriptionResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsRetrieveSubscriptionResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"groupQueueList": {
+			"type": "object",
+			"properties": {
+				"queueID": {
+					"type": "string"
+				},
+				"queueActionCode": {
+					"type": "string"
+				},
+				"queueExecuteDateTime": {
+					"type": "string"
+				},
+				"queueStatus": {
+					"type": "string",
+					"enum": [
+						"PENDING",
+						"EXECUTED",
+						"DELETED"
+					]
+				},
+				"queueUpdateDateTime": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"queueID",
+				"queueActionCode",
+				"queueExecuteDateTime",
+				"queueStatus",
+				"queueUpdateDateTime"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionFutureChanges": {
+			"type": "object",
+			"properties": {
+				"groupQueueID": {
+					"type": "string"
+				},
+				"groupQueueActionCode": {
+					"type": "string",
+					"enum": [
+						"ACTIVATION",
+						"CANCELLATION"
+					]
+				},
+				"queueExecuteDateTime": {
+					"type": "string"
+				},
+				"groupQueueList": {
+					"title": "groupQueueList",
+					"type": "array",
+					"maxItems": 1,
+					"items": {
+						"$ref": "#/definitions/groupQueueList"
+					}
+				}
+			},
+			"required": [
+				"groupQueueID",
+				"groupQueueActionCode",
+				"queueExecuteDateTime",
+				"groupQueueList"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionAddressInfo": {
+			"type": "object",
+			"properties": {
+				"distAddrName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"distCoAddr": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"distAddrLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrCountryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"distAddrPostalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"distAddrCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"distStreetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distStreetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAppartmentNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distEntranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distPublAddrNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo5": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo6": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDirection": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDistributionRoute": {
+					"type": "string"
+				},
+				"distDistributionMethod": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"distAddrName",
+				"distCoAddr",
+				"distAddrLine1",
+				"distAddrLine2",
+				"distAddrLine3",
+				"distAddrLine4",
+				"distAddrCountryCode",
+				"distAddrPostalCode",
+				"distAddrCity",
+				"distAddrLocality",
+				"distAddrStateProv",
+				"distStreetName",
+				"distStreetNo",
+				"distAppartmentNo",
+				"distFlatNo",
+				"distFlatSpec",
+				"distFlatFloor",
+				"distEntranceNo",
+				"distPublAddrNo",
+				"distAddInfo1",
+				"distAddInfo2",
+				"distAddInfo3",
+				"distAddInfo4",
+				"distAddInfo5",
+				"distAddInfo6",
+				"distDirection",
+				"distDistributionRoute",
+				"distDistributionMethod"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDeliveryAddress": {
+			"type": "object",
+			"properties": {
+				"deliveryFrom": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"deliveryTo": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"deliveryDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"deliveryAddrNo": {
+					"type": "integer"
+				},
+				"deliveryAddress": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionAddressInfo",
+					"title": "deliveryAddress"
+				}
+			},
+			"required": [
+				"deliveryFrom",
+				"deliveryTo",
+				"deliveryDays",
+				"deliveryAddrNo",
+				"deliveryAddress"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDeliveryInfo": {
+			"type": "object",
+			"properties": {
+				"currDeliveryAddress": {
+					"title": "currDeliveryAddress",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionDeliveryAddress"
+					}
+				}
+			},
+			"required": [
+				"currDeliveryAddress"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionTitleInfo": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "titleNameTranslations"
+				},
+				"titleDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "titleDescTranslations"
+				},
+				"titleDomain": {
+					"type": "string",
+					"maxLength": 300
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleNameTranslations",
+				"titleDescTranslations",
+				"titleDomain"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionBundlePIList": {
+			"type": "object",
+			"properties": {
+				"bundlePIID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"bundlePIID"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionBundleDetail": {
+			"type": "object",
+			"properties": {
+				"bundleID": {
+					"type": "string"
+				},
+				"bundleName": {
+					"type": "string"
+				},
+				"bundleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "bundleNameTranslations"
+				},
+				"bundleDesc": {
+					"type": "string"
+				},
+				"bundleDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "bundleDescTranslations"
+				},
+				"bundlePlanID": {
+					"type": "string"
+				},
+				"bundleRecurringRSID": {
+					"type": "string"
+				},
+				"bundlePIList": {
+					"title": "subsRetrieveSubscriptionBundlePIList",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionBundlePIList"
+					}
+				}
+			},
+			"required": [
+				"bundleID",
+				"bundleName",
+				"bundleNameTranslations",
+				"bundleDesc",
+				"bundleDescTranslations",
+				"bundlePlanID",
+				"bundleRecurringRSID",
+				"bundlePIList"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDiscountDetail": {
+			"type": "object",
+			"properties": {
+				"discountID": {
+					"type": "string"
+				},
+				"discountName": {
+					"type": "string"
+				},
+				"discountNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "discountNameTranslations"
+				},
+				"discountDesc": {
+					"type": "string"
+				},
+				"discountDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "discountDescTranslations"
+				},
+				"discountCouponCode": {
+					"type": "string"
+				},
+				"discountValueType": {
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+						"P",
+						"V"
+					]
+				},
+				"discountValue": {
+					"type": "integer"
+				},
+				"discountPercentage": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"discountID",
+				"discountName",
+				"discountNameTranslations",
+				"discountDesc",
+				"discountDescTranslations",
+				"discountCouponCode"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDigitalTitle": {
+			"type": "object",
+			"properties": {
+				"subsRetrieveSubscriptionTitleInfo": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionTitleInfo",
+					"type": "object",
+					"title": "subsRetrieveSubscriptionTitleInfo"
+				},
+				"subsRetrieveSubscriptionAccessFeatures": {
+					"title": "subsRetrieveSubscriptionAccessFeatures",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionAccessFeatures"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionAccessFeatures": {
+			"type": "object",
+			"properties": {
+				"accessFeature": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"accessFeature"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionCampaignDetails": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string"
+				},
+				"campaignName": {
+					"type": "string"
+				},
+				"campaignNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "campaignNameTranslations"
+				},
+				"campaignDesc": {
+					"type": "string"
+				},
+				"campaignDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "campaignDescTranslations"
+				},
+				"campaignDurationLength": {
+					"type": "integer"
+				},
+				"campaignDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campaignDurationEndDate": {
+					"type": "string"
+				},
+				"campaignBillingCode": {
+					"type": "string",
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campaignBillingSKU": {
+					"type": "string"
+				},
+				"campaignBillingPrice": {
+					"type": "number"
+				},
+				"campaignStartDate": {
+					"type": "string"
+				},
+				"campaignEndDate": {
+					"type": "string"
+				},
+				"campaignType": {
+					"type": "string"
+				},
+				"subsRetrieveSubscriptionCampaignTBDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionCampaignTBDetails"
+				}
+			},
+			"required": [
+				"campaignID",
+				"campaignName",
+				"campaignNameTranslations",
+				"campaignDesc",
+				"campaignDescTranslations",
+				"campaignDurationLength",
+				"campaignDurationUnit",
+				"campaignDurationEndDate",
+				"campaignBillingCode",
+				"campaignBillingSKU",
+				"campaignBillingPrice",
+				"campaignStartDate",
+				"campaignEndDate",
+				"campaignType"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDates": {
+			"type": "object",
+			"properties": {
+				"dateEarliestDeliveryChange": {
+					"type": "string"
+				},
+				"dateEarliestCancellation": {
+					"type": "string"
+				},
+				"dateNextBilling": {
+					"type": "string"
+				},
+				"dateNextSubscriptionStart": {
+					"type": "string"
+				},
+				"dateNextSubscriptionEnd": {
+					"type": "string"
+				},
+				"dateLastBilling": {
+					"type": "string"
+				},
+				"dateCurrentSubscriptionStart": {
+					"type": "string"
+				},
+				"dateCurrentSubscriptionEnd": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"dateEarliestDeliveryChange",
+				"dateEarliestCancellation",
+				"dateNextBilling",
+				"dateNextSubscriptionStart",
+				"dateNextSubscriptionEnd",
+				"dateLastBilling",
+				"dateCurrentSubscriptionStart",
+				"dateCurrentSubscriptionEnd"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionList": {
+			"type": "object",
+			"properties": {
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planAccessDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"planName": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planNameTranslations"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planDescTranslations"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"instOfferingType": {
+					"type": "string",
+					"enum": [
+						"CAMPAIGN",
+						"BUNDLE",
+						"PRODUCT"
+					]
+				},
+				"instStatusCode": {
+					"type": "integer"
+				},
+				"instStatusCodeText": {
+					"type": "string"
+				},
+				"instUnits": {
+					"type": "integer"
+				},
+				"instLastBillDate": {
+					"type": "string"
+				},
+				"instNextBillDate": {
+					"type": "string"
+				},
+				"instBillThruDate": {
+					"type": "string"
+				},
+				"instBillDay": {
+					"type": "integer"
+				},
+				"instBillLagDays": {
+					"type": "integer"
+				},
+				"instBillInterval": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsRetrieveSubscriptionBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"instUsageBillInterval": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any usage-based services. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsRetrieveSubscriptionBillingFrequency which also contains this information in addition to the weekly and daily billing.",
+					"type": "integer"
+				},
+				"instCreateDate": {
+					"type": "string"
+				},
+				"instProvisionDate": {
+					"type": "string"
+				},
+				"instDeprovisionDate": {
+					"type": "string"
+				},
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "string"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "scheduleNameTranslations"
+				},
+				"instDunningStatus": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"ACTIVE"
+					]
+				},
+				"instDunningStep": {
+					"type": "integer"
+				},
+				"instDunningDegradeDate": {
+					"type": "string"
+				},
+				"planProductTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"planSelectedDeliveryDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"campaignDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionCampaignDetails",
+					"title": "subsRetrieveSubscriptionCampaignDetails"
+				},
+				"bundleDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionBundleDetail",
+					"title": "subsRetrieveSubscriptionBundleDetail"
+				},
+				"discountDetailsList": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionDiscountDetailsList",
+					"title": "subsRetrieveSubscriptionDiscountDetailsList"
+				},
+				"titleDetails": {
+					"title": "subsRetrieveSubscriptionTitleInfo",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionTitleInfo"
+					},
+					"minitems": 0
+				},
+				"subsRetrieveSubscriptionDigitalTitle": {
+					"title": "subsRetrieveSubscriptionDigitalTitle",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionDigitalTitle"
+					},
+					"minitems": 0
+				},
+				"channelCode": {
+					"type": "string"
+				},
+				"sourceCode": {
+					"type": "string"
+				},
+				"deliveryInfo": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionDeliveryInfo",
+					"title": "subsRetrieveSubscriptionDeliveryInfo"
+				},
+				"instanceDates": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionDates",
+					"title": "subsRetrieveSubscriptionDates"
+				},
+				"subsRetrieveSubscriptionFutureChanges": {
+					"title": "subsRetrieveSubscriptionFutureChanges",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionFutureChanges"
+					},
+					"minitems": 0
+				},
+				"allowUpgrade": {
+					"type": "boolean"
+				},
+				"allowDowngrade": {
+					"type": "boolean"
+				},
+				"eligibleForSharing": {
+					"type": "boolean"
+				},
+				"discountDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionDiscountDetail",
+					"title": "subsRetrieveSubscriptionDiscountDetail"
+				},
+				"SubsRetrieveSubscriptionSharingDetails": {
+					"$ref": "#/definitions/SubsRetrieveSubscriptionSharingDetails"
+				},
+				"subsRetrieveSubscriptionAddInfo": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionAddInfo"
+				},
+				"subsRetrieveSubscriptionBillingFrequency": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionBillingFrequency"
+				},
+				"subsRetrieveSubscriptionRolloverDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionRolloverDetails"
+				},
+				"subsRetrieveSubscriptionContractRolloverDetails": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionContractRolloverDetails"
+				},
+				"subsRetrieveSubscriptionContractDetails": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionContractDetails"
+					}
+				},
+				"cancellationOptions": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"subsRetrieveSubscriptionPendingChanges": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionPendingChanges"
+					}
+				},
+				"nonbillableGroup": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"ariaPIID",
+				"ariaPINo",
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planAccessDays",
+				"planName",
+				"planNameTranslations",
+				"planDesc",
+				"planDescTranslations",
+				"planProductType",
+				"instOfferingType",
+				"instStatusCode",
+				"instStatusCodeText",
+				"instUnits",
+				"instLastBillDate",
+				"instNextBillDate",
+				"instBillThruDate",
+				"instBillDay",
+				"instBillLagDays",
+				"instBillInterval",
+				"instUsageBillInterval",
+				"instCreateDate",
+				"instProvisionDate",
+				"instDeprovisionDate",
+				"ariaBillingGroupID",
+				"ariaDunningGroupID",
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"instDunningStatus",
+				"instDunningStep",
+				"instDunningDegradeDate",
+				"subsRetrieveSubscriptionFutureChanges"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"subsRetrieveSubscriptionList": {
+					"title": "subsRetrieveSubscriptionList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionList"
+					}
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"subsRetrieveSubscriptionList"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveSubscriptionDiscountDetailsList": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/subsRetrieveSubscriptionDiscountDetail"
+			}
+		},
+		"SubsRetrieveSubscriptionSharingOwner": {
+			"type": "object",
+			"properties": {
+				"SharingUUID": {
+					"type": "string"
+				},
+				"SharingStatus": {
+					"type": "string",
+					"maxLength": 8,
+					"enum": [
+						"ACCEPTED",
+						"ISSUED"
+					]
+				},
+				"SharingStatusDate": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingRegistrationDate": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingExpiryDate": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingMemberAriaAccountNo": {
+					"type": "integer"
+				},
+				"SharingMemberAriaMPINo": {
+					"type": "integer"
+				},
+				"SharingMemberName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"SharingMemberTelephone": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingMemberEmail": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"SharingMemberPhoneNo": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingMemberExternalID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"SharingUUID",
+				"SharingStatus",
+				"SharingStatusDate",
+				"SharingRegistrationDate",
+				"SharingExpiryDate"
+			]
+		},
+		"SubsRetrieveSubscriptionSharingMember": {
+			"type": "object",
+			"properties": {
+				"SharingUUID": {
+					"type": "string"
+				},
+				"SharingSTATUS": {
+					"type": "string",
+					"enum": [
+						"ACCEPTED",
+						"ISSUED"
+					]
+				},
+				"SharingStatusDate": {
+					"type": "string",
+					"maxLength": 60
+				},
+				"SharingRegistrationDate": {
+					"type": "string",
+					"maxLength": 60
+				},
+				"SharingExpiryDate": {
+					"type": "string",
+					"maxLength": 60
+				},
+				"SharingMasterAriaAccountNo": {
+					"type": "integer"
+				},
+				"SharingMasterAriaMPINo": {
+					"type": "integer"
+				},
+				"SharingMasterName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"SharingMasterTelephone": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"SharingMasterEmail": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"SharingUUID",
+				"SharingSTATUS",
+				"SharingStatusDate",
+				"SharingRegistrationDate",
+				"SharingExpiryDate",
+				"SharingMasterAriaAccountNo",
+				"SharingMasterAriaMPINo",
+				"SharingMasterName",
+				"SharingMasterTelephone",
+				"SharingMasterEmail"
+			]
+		},
+		"SubsRetrieveSubscriptionSharingDetails": {
+			"type": "object",
+			"properties": {
+				"SharingMaxShares": {
+					"type": "integer"
+				},
+				"SharingCurrentShares": {
+					"type": "integer"
+				},
+				"SharingDetailsOwner": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/SubsRetrieveSubscriptionSharingOwner"
+					}
+				},
+				"SharingDetailsMember": {
+					"$ref": "#/definitions/SubsRetrieveSubscriptionSharingMember"
+				}
+			}
+		},
+		"subsRetrieveSubscriptionAddInfo": {
+			"type": "object",
+			"properties": {
+				"subjectID": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"subjectInfo1": {
+					"type": "string"
+				},
+				"subjectInfo2": {
+					"type": "string"
+				},
+				"subjectInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo1": {
+					"type": "string"
+				},
+				"subscriptionInfo2": {
+					"type": "string"
+				},
+				"subscriptionInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo4": {
+					"type": "string"
+				},
+				"subscriptionInfo5": {
+					"type": "string"
+				}
+			}
+		},
+		"subsRetrieveSubscriptionRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers and trials as defined on the product in the ARIA product catalog. If no rollover or trial information is available, the structure is not present in the response",
+			"type": "object",
+			"properties": {
+				"rolloverPlanDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"initFreePeriodDuration": {
+					"type": "integer"
+				},
+				"initFreePeriodDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanStatusDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusCode": {
+					"type": "integer",
+					"enum": [
+						1,
+						41,
+						61
+					]
+				}
+			}
+		},
+		"subsRetrieveSubscriptionContractRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers that can be used when creating contracts. The definition of this information is taken directly from the ARIA product catalog. If no contract rollover information is available, the structure is not present in the response. ",
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planName": {
+					"type": "string"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"subsRetrieveSubscriptionContractRolloverRateSchedules": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionContractRolloverRateSchedules"
+					}
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planName",
+				"planDesc",
+				"planNameTranslations",
+				"planDescTranslations",
+				"planProductType",
+				"subsRetrieveSubscriptionContractRolloverRateSchedules"
+			]
+		},
+		"subsRetrieveSubscriptionContractRolloverRateSchedules": {
+			"description": "The structure contains details on how contracts can be used to roll from one rate schedule to another",
+			"type": "object",
+			"properties": {
+				"currentAriaScheduleID": {
+					"type": "string"
+				},
+				"currentAriaScheduleNo": {
+					"type": "integer"
+				},
+				"currentAriaScheduleName": {
+					"type": "string"
+				},
+				"currentScheduleNameTranslations": {
+					"title": "currentScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"rolloverAriaScheduleID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNo": {
+					"type": "integer"
+				},
+				"rolloverAriaScheduleName": {
+					"type": "string"
+				},
+				"rolloverScheduleNameTranslations": {
+					"title": "rolloverScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"currentAriaScheduleID",
+				"currentAriaScheduleNo",
+				"currentAriaScheduleName",
+				"currentScheduleNameTranslations",
+				"rolloverAriaScheduleID",
+				"rolloverAriaScheduleNo",
+				"rolloverAriaScheduleName",
+				"rolloverScheduleNameTranslations"
+			]
+		},
+		"subsRetrieveSubscriptionBillingFrequency": {
+			"description": "The data elements of the subsRetrieveSubscriptionBillingFrequency are used to define the billing frequencies for the recurring and usage-based charges",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "integer"
+				},
+				"billingFrequencyUsage": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"subsRetrieveSubscriptionContractDetails": {
+			"description": "an optional array structure that contains details on existing contracts in place for the current subscription. If no details are available, then array is empty. ",
+			"type": "object",
+			"properties": {
+				"ariaContractNo": {
+					"type": "integer"
+				},
+				"ariaContractID": {
+					"type": "string"
+				},
+				"ariaContractScope": {
+					"type": "string",
+					"enum": [
+						"ACCOUNT",
+						"SUBSCRIPTION"
+					]
+				},
+				"ariaContractTypeNo": {
+					"type": "integer"
+				},
+				"contractType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"CONTINUE",
+						"CONTINUE-RESET",
+						"RENEW",
+						"RENEW-RESET",
+						"TERMINATE",
+						"TERMINATE-PRORATE",
+						"ROLLOVER"
+					]
+				},
+				"contractDuration": {
+					"type": "integer"
+				},
+				"contractStartDate": {
+					"type": "string"
+				},
+				"contractEndDate": {
+					"type": "string"
+				},
+				"ariaContractStatus": {
+					"type": "integer",
+					"enum": [
+						-3,
+						-2,
+						-1,
+						0,
+						1,
+						99
+					]
+				}
+			},
+			"required": [
+				"ariaContractNo",
+				"ariaContractID",
+				"ariaContractScope",
+				"ariaContractTypeNo",
+				"contractType",
+				"ariaContractStatus"
+			]
+		},
+		"subsRetrieveSubscriptionPendingChanges": {
+			"description": "a optional array structure holding details on any pending future changes scheduled for the subscription. Only certain types of pending changes will be returned.",
+			"type": "object",
+			"properties": {
+				"queueID": {
+					"type": "string"
+				},
+				"queueExecuteDateTime": {
+					"type": "string"
+				},
+				"queueActionCode": {
+					"type": "string",
+					"enum": [
+						"CANCELLATION",
+						"MODIFICATION",
+						"REPLACEMENT",
+						"ACTIVATION",
+						"ASSIGNMENT"
+					]
+				},
+				"subsRetrieveSubscriptionPendingChangesCancellation": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionPendingChangesCancellation"
+				},
+				"subsRetrieveSubscriptionPendingChangesModification": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionPendingChangesModification"
+				},
+				"subsRetrieveSubscriptionPendingChangesReplacement": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionPendingChangesReplacement"
+				},
+				"subsRetrieveSubscriptionPendingChangesActivation": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionPendingChangesActivation"
+				},
+				"subsRetrieveSubscriptionPendingChangesAssignment": {
+					"$ref": "#/definitions/subsRetrieveSubscriptionPendingChangesAssignment"
+				}
+			},
+			"required": [
+				"queueID",
+				"queueExecuteDateTime",
+				"queueActionCode"
+			]
+		},
+		"subsRetrieveSubscriptionPendingChangesCancellation": {
+			"description": "a new optional structure holding details related to cancellation. Is present only if queueActionCode contains \"CANCELLATION\".",
+			"type": "object",
+			"properties": {
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"cancellationDate": {
+					"type": "string"
+				},
+				"cancelReasonCode": {
+					"type": "string"
+				},
+				"cancelReasonText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"changeMethod",
+				"cancellationDate",
+				"cancelReasonCode"
+			]
+		},
+		"subsRetrieveSubscriptionPendingChangesModification": {
+			"description": "a new optional structure holding details related to cancellation. Is present only if queueActionCode contains \"MODIFICATION\".",
+			"type": "object",
+			"properties": {
+				"numberOfUnits": {
+					"type": "integer"
+				},
+				"statusCode": {
+					"type": "integer"
+				},
+				"channelCode": {
+					"type": "string"
+				},
+				"sourceCode": {
+					"type": "string"
+				},
+				"selectedDeliveryDays": {
+					"type": "string"
+				},
+				"subjectID": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"subjectInfo1": {
+					"type": "string"
+				},
+				"subjectInfo2": {
+					"type": "string"
+				},
+				"subjectInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo1": {
+					"type": "string"
+				},
+				"subscriptionInfo2": {
+					"type": "string"
+				},
+				"subscriptionInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo4": {
+					"type": "string"
+				},
+				"subscriptionInfo5": {
+					"type": "string"
+				}
+			}
+		},
+		"subsRetrieveSubscriptionPendingChangesReplacement": {
+			"description": "a new optional structure holding details related to cancellation. Is present only if queueActionCode contains \"REPLACEMENT\". ",
+			"type": "object",
+			"properties": {
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanName": {
+					"type": "string"
+				},
+				"ariaPlanNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				},
+				"ariaRateScheduleName": {
+					"type": "string"
+				},
+				"ariaRateScheduleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"numberOfUnits": {
+					"type": "integer"
+				},
+				"selectedDeliveryDays": {
+					"type": "string"
+				},
+				"selectedDeliveryCharges": {
+					"type": "string"
+				},
+				"distAddrNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"changeMethod"
+			]
+		},
+		"subsRetrieveSubscriptionPendingChangesActivation": {
+			"description": "a new optional structure holding details related to cancellation. Is present only if queueActionCode contains \"ACTIVATION\".",
+			"type": "object",
+			"properties": {
+				"recurringBillDate": {
+					"type": "string"
+				},
+				"campaignID": {
+					"type": "string"
+				},
+				"campaignDateStart": {
+					"type": "string"
+				},
+				"campaignDateEnd": {
+					"type": "string"
+				},
+				"statusCode": {
+					"type": "integer"
+				},
+				"subjectID": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"subjectInfo1": {
+					"type": "string"
+				},
+				"subjectInfo2": {
+					"type": "string"
+				},
+				"subjectInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo1": {
+					"type": "string"
+				},
+				"subscriptionInfo2": {
+					"type": "string"
+				},
+				"subscriptionInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo4": {
+					"type": "string"
+				},
+				"subscriptionInfo5": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"recurringBillDate",
+				"statusCode"
+			]
+		},
+		"subsRetrieveSubscriptionPendingChangesAssignment": {
+			"description": "a new optional structure holding details related to cancellation. Is present only if queueActionCode contains \"ASSIGNMENT\".",
+			"type": "object",
+			"properties": {
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupNo": {
+					"type": "integer"
+				}
+			}
+		},
+		"subsRetrieveSubscriptionCampaignTBDetails": {
+			"description": "a structure that holds general campaign information if the subscription was created based on a term-based campaign. Is present only if campaignType equals “TERM-BASED”. ",
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				},
+				"campaignOfferID": {
+					"type": "string"
+				},
+				"offerName": {
+					"type": "string"
+				},
+				"offerDesc": {
+					"type": "string"
+				},
+				"offerType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER"
+					]
+				},
+				"initialTitleCode": {
+					"type": "string"
+				},
+				"initialAriaPlanID": {
+					"type": "string"
+				},
+				"initialAriaRateScheduleID": {
+					"type": "string"
+				},
+				"subsRetrieveSubscriptionCampaignTBActions": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveSubscriptionCampaignTBActions"
+					}
+				}
+			},
+			"required": [
+				"offerID",
+				"campaignOfferID",
+				"offerName",
+				"offerDesc",
+				"offerType",
+				"subsRetrieveSubscriptionCampaignTBActions"
+			]
+		},
+		"subsRetrieveSubscriptionCampaignTBActions": {
+			"description": "a structure that holds information of the actions that form foundation of the term-based campaign. The information is returned sorted in ascending order on offerActionStartDate",
+			"type": "object",
+			"properties": {
+				"offerActionNo": {
+					"type": "integer"
+				},
+				"offerCurrentIndicator": {
+					"type": "boolean"
+				},
+				"offerActionStartDate": {
+					"type": "string"
+				},
+				"offerActionEndDate": {
+					"type": "string"
+				},
+				"offerActionType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER",
+						"CONTINUE",
+						"TERMINATE"
+					]
+				},
+				"offerActionDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"offerActionDuration": {
+					"type": "integer"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offerActionNo",
+				"offerCurrentIndicator",
+				"offerActionStartDate",
+				"offerActionType",
+				"offerActionDurationUnit",
+				"offerActionDuration",
+				"titleCode",
+				"ariaPlanID",
+				"ariaRateScheduleID"
+			]
+		}
+	}
+}

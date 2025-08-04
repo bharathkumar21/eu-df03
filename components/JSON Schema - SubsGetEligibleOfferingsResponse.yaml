@@ -1,0 +1,1416 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsGetEligibleOfferingsResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"offeringsOfferingList": {
+			"title": "offeringsOfferingList",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/subsGetEligibleOfferingsOfferingList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"offeringsOfferingList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsCharges": {
+			"type": "object",
+			"properties": {
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				},
+				"discountedCostExclVAT": {
+					"type": "number"
+				},
+				"discountedCostVAT": {
+					"type": "number"
+				},
+				"discountedCostInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT",
+				"discountedCostExclVAT",
+				"discountedCostVAT",
+				"discountedCostInclVAT"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingRates": {
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"title": "scheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFreqRecurring": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligibleOfferingsBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligibleOfferingsBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"rateRecurringExclVAT": {
+					"type": "number"
+				},
+				"rateRecurringInclVAT": {
+					"type": "number"
+				},
+				"subsGetEligibleOfferingsBillingFrequency": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsBillingFrequency"
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"rateRecurringExclVAT",
+				"rateRecurringInclVAT",
+				"subsGetEligibleOfferingsBillingFrequency"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPrices": {
+			"type": "object",
+			"properties": {
+				"offeringPriceType": {
+					"type": "string",
+					"enum": [
+						"CAMPAIGN",
+						"STANDARD",
+						"SPECIAL"
+					]
+				},
+				"offeringRates": {
+					"title": "subsGetEligibleOfferingsOfferingRates",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingRates"
+					}
+				}
+			},
+			"required": [
+				"offeringPriceType",
+				"offeringRates"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRateTiers": {
+			"type": "object",
+			"properties": {
+				"tierNo": {
+					"type": "integer"
+				},
+				"tierDescTranslations": {
+					"title": "tierDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"tierFrom": {
+					"type": "integer"
+				},
+				"tierTo": {
+					"type": "integer"
+				},
+				"rateExclVAT": {
+					"type": "number"
+				},
+				"rateVAT": {
+					"type": "number"
+				},
+				"rateInclVAT": {
+					"type": "number"
+				},
+				"discountedRateExclVAT": {
+					"type": "number"
+				},
+				"discountedRateVAT": {
+					"type": "number"
+				},
+				"discountedRateInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"tierNo",
+				"tierDescTranslations",
+				"tierFrom",
+				"tierTo",
+				"rateExclVAT",
+				"rateVAT",
+				"rateInclVAT",
+				"discountedRateExclVAT",
+				"discountedRateVAT",
+				"discountedRateInclVAT"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRateServices": {
+			"type": "object",
+			"properties": {
+				"ariaServiceID": {
+					"type": "string"
+				},
+				"ariaServiceNo": {
+					"type": "string"
+				},
+				"chargeType": {
+					"type": "string",
+					"enum": [
+						"CHARGE",
+						"CHARGE-DEL-POSTAL",
+						"CHARGE-DEL-AIRMAIL"
+					]
+				},
+				"serviceNameTranslations": {
+					"title": "serviceNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"serviceDescTranslations": {
+					"title": "serviceDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"ariaVATGroupID": {
+					"type": "string"
+				},
+				"ariaVATRate": {
+					"type": "number"
+				},
+				"offeringPlanRateTiers": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRateTiers",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateTiers"
+					}
+				},
+				"offeringPlanRateTiersFuture": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRateTiersFuture",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateTiersFuture"
+					}
+				}
+			},
+			"required": [
+				"ariaServiceID",
+				"ariaServiceNo",
+				"chargeType",
+				"serviceNameTranslations",
+				"serviceDescTranslations",
+				"ariaVATGroupID",
+				"ariaVATRate",
+				"offeringPlanRateTiers"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRates": {
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "string"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"title": "scheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFreqRecurring": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligibleOfferingsBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligible¬¬Offerings-BillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				},
+				"discountedCostExclVAT": {
+					"type": "number"
+				},
+				"discountedCostVAT": {
+					"type": "number"
+				},
+				"discountedCostInclVAT": {
+					"type": "number"
+				},
+				"offeringPlanRateServices": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRateServices",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateServices"
+					}
+				},
+				"subsGetEligibleOfferingsBillingFrequency": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsBillingFrequency"
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT",
+				"discountedCostExclVAT",
+				"discountedCostVAT",
+				"discountedCostInclVAT",
+				"offeringPlanRateServices",
+				"subsGetEligibleOfferingsBillingFrequency"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRateTiersFuture": {
+			"type": "object",
+			"properties": {
+				"priceChangeDate": {
+					"type": "string"
+				},
+				"offeringPlanRateTiers": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRateTiers",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateTiers"
+					}
+				}
+			},
+			"required": [
+				"priceChangeDate",
+				"offeringPlanRateTiers"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRateOverviewFuture": {
+			"type": "object",
+			"properties": {
+				"priceChangeDate": {
+					"type": "string"
+				},
+				"subscriptionCharges": {
+					"title": "subscriptionCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"deliveryCharges": {
+					"title": "deliveryCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"otherCharges": {
+					"title": "otherCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"totalCharges": {
+					"title": "totalCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				}
+			},
+			"required": [
+				"priceChangeDate",
+				"subscriptionCharges",
+				"deliveryCharges",
+				"otherCharges",
+				"totalCharges"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanRateOverview": {
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "string"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"title": "scheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFreqRecurring": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligibleOfferingsBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"description": "an existing optional attribute that contains the number of months between each billing of any recurring fees. This attribute is filled only for monthly, quarterly, semi-annual, and annual billing and should no longer be used. Instead use subsGetEligibleOfferingsBillingFrequency which also contains this information in addition to the weekly and daily billing. ",
+					"type": "integer"
+				},
+				"subscriptionCharges": {
+					"title": "subscriptionCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"deliveryCharges": {
+					"title": "deliveryCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"otherCharges": {
+					"title": "otherCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"totalCharges": {
+					"title": "totalCharges",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsCharges"
+				},
+				"subsGetEligibleOfferingsBillingFrequency": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsBillingFrequency"
+				},
+				"subsGetEligibleOfferingsOfferingPlanRateOverviewFuture": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateOverviewFuture"
+					}
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"subscriptionCharges",
+				"deliveryCharges",
+				"otherCharges",
+				"totalCharges",
+				"subsGetEligibleOfferingsBillingFrequency"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPlanDetail": {
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offeringPlanRates": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRates",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRates"
+					}
+				},
+				"offeringEligibleForBundles": {
+					"type": "boolean"
+				},
+				"offeringEligibleForDiscounts": {
+					"type": "boolean"
+				},
+				"offeringPlanRateOverview": {
+					"title": "subsGetEligibleOfferingsOfferingPlanRateOverview",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanRateOverview"
+					}
+				},
+				"planAccessDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"subsGetEligibleOfferingsSharingInfo": {
+					"title": "subsGetEligibleOfferingsSharingInfo",
+					"type": "object",
+					"minItems": 0,
+					"$ref": "#/definitions/subsGetEligibleOfferingsSharingInfo"
+				},
+				"subsGetEligibleOfferingsPrimaryTitle": {
+					"title": "subsGetEligibleOfferingsPrimaryTitle",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsTitleDetails"
+					}
+				},
+				"subsGetEligibleOfferingsDigitalTitle": {
+					"title": "subsGetEligibleOfferingsDigitalTitle",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsDigitalTitle"
+					}
+				},
+				"subsGetEligibleOfferingsRolloverDetails": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsRolloverDetails"
+				},
+				"subsGetEligibleOfferingsContractRolloverDetails": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsContractRolloverDetails"
+				},
+				"subsGetEligibleOfferingsContractInfo": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsContractInfo"
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planNameTranslations",
+				"planDescTranslations",
+				"offeringPlanRates",
+				"offeringEligibleForBundles",
+				"offeringEligibleForDiscounts"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsSharingInfo": {
+			"type": "object",
+			"properties": {
+				"offeringEligibleForSharing": {
+					"type": "boolean"
+				},
+				"offeringEligibleForSharingCnt": {
+					"type": "integer"
+				},
+				"offeringEligibleForSharingPlanID": {
+					"type": "string"
+				},
+				"offeringEligibleForSharingPlanName": {
+					"type": "string"
+				},
+				"offeringEligibleForSharingPlanDesc": {
+					"type": "string"
+				},
+				"offeringEligibleForsharingPlanNameTranslations": {
+					"title": "offeringEligibleForsharingPlanNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offeringEligibleForsharingPlanDescTranslations": {
+					"title": "offeringEligibleForsharingPlanDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"offeringEligibleForSharing",
+				"offeringEligibleForSharingCnt",
+				"offeringEligibleForSharingPlanID",
+				"offeringEligibleForSharingPlanName",
+				"offeringEligibleForSharingPlanDesc",
+				"offeringEligibleForsharingPlanNameTranslations",
+				"offeringEligibleForsharingPlanDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsPrimaryTitle": {
+			"type": "object",
+			"properties": {
+				"subsGetEligibleOfferingsTitleDetails": {
+					"title": "subsGetEligibleOfferingsTitleDetails",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsTitleDetails"
+				}
+			},
+			"required": [
+				"subsGetEligibleOfferingsTitleDetails"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsDigitalTitle": {
+			"type": "object",
+			"properties": {
+				"subsGetEligibleOfferingsTitleDetails": {
+					"title": "subsGetEligibleOfferingsTitleDetails",
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsTitleDetails"
+				},
+				"subsGetEligibleOfferingsAccessFeatures": {
+					"title": "subsGetEligibleOfferingsAccessFeatures",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsAccessFeatures"
+					}
+				}
+			},
+			"required": [
+				"subsGetEligibleOfferingsTitleDetails",
+				"subsGetEligibleOfferingsAccessFeatures"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsTitleDetails": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"titleName": {
+					"type": "string"
+				},
+				"titleDesc": {
+					"type": "string"
+				},
+				"titleNameTranslations": {
+					"title": "titleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDescTranslations": {
+					"title": "titleDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleNameTranslations",
+				"titleDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsAccessFeatures": {
+			"type": "object",
+			"properties": {
+				"accessFeature": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"accessFeature"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingCampaignDetail": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string"
+				},
+				"campaignNameTranslations": {
+					"title": "campaignNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campaignDescTranslations": {
+					"title": "campaignDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campaignDurationLength": {
+					"type": "integer"
+				},
+				"campaignDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campaignDurationEndDate": {
+					"type": "string"
+				},
+				"campaignBillingCode": {
+					"type": "string",
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campaignBillingSKU": {
+					"type": "string"
+				},
+				"campaignBillingPrice": {
+					"type": "number"
+				},
+				"campEnablePreferences": {
+					"type": "string",
+					"enum": [
+						"ENABLED",
+						"DISABLED"
+					]
+				},
+				"campaignType": {
+					"type": "string",
+					"enum": [
+						"ORDER",
+						"TERM-BASED"
+					]
+				},
+				"subsGetEligibleOfferingsOfferingCampDetailPrefList": {
+					"type": "array",
+					"minItems": 1,
+					"items": [
+						{
+							"$ref": "#/definitions/subsGetEligibleOfferingsOfferingCampDetailPrefList"
+						}
+					]
+				},
+				"subsGetEligibleOfferingsCampaignOfferList": {
+					"type": "array",
+					"minItems": 1,
+					"items": [
+						{
+							"$ref": "#/definitions/subsGetEligibleOfferingsCampaignOfferList"
+						}
+					]
+				}
+			},
+			"required": [
+				"campaignID",
+				"campaignNameTranslations",
+				"campaignDescTranslations",
+				"campaignDurationLength",
+				"campaignDurationUnit",
+				"campaignDurationEndDate",
+				"campaignBillingCode",
+				"campaignBillingSKU",
+				"campaignBillingPrice",
+				"campaignType"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsCampaignOfferList": {
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				},
+				"offerName": {
+					"type": "string"
+				},
+				"offerDesc": {
+					"type": "string"
+				},
+				"offerType": {
+					"type": "string"
+				},
+				"offerStatus": {
+					"type": "string",
+					"enum": [
+						"DEPRECATED",
+						"DEFINITION",
+						"ACTIVE"
+					]
+				}
+			},
+			"required": [
+				"offerID",
+				"offerName",
+				"offerDesc",
+				"offerType",
+				"offerStatus"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingBundlePIList": {
+			"type": "object",
+			"properties": {
+				"offeringBundlePIID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offeringBundlePIID"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingBundleDetail": {
+			"type": "object",
+			"properties": {
+				"bundleID": {
+					"type": "string"
+				},
+				"bundleNameTranslations": {
+					"title": "bundleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"bundleDescTranslations": {
+					"title": "bundleDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"bundlePlanID": {
+					"type": "string"
+				},
+				"bundleRecurringRSID": {
+					"type": "string"
+				},
+				"bundleGLCode": {
+					"type": "string"
+				},
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				},
+				"discountedCostExclVAT": {
+					"type": "number"
+				},
+				"discountedCostVAT": {
+					"type": "number"
+				},
+				"discountedCostInclVAT": {
+					"type": "number"
+				},
+				"offeringBundlePIList": {
+					"title": "subsGetEligibleOfferingsOfferingBundlePIList",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingBundlePIList"
+					}
+				}
+			},
+			"required": [
+				"bundleID",
+				"bundleNameTranslations",
+				"bundleDescTranslations",
+				"bundlePlanID",
+				"bundleRecurringRSID",
+				"bundleGLCode",
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT",
+				"discountedCostExclVAT",
+				"discountedCostVAT",
+				"discountedCostInclVAT",
+				"offeringBundlePIList"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingDiscountDetail": {
+			"type": "object",
+			"properties": {
+				"discountID": {
+					"type": "string"
+				},
+				"discountNameTranslations": {
+					"title": "discountNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"discountDescTranslations": {
+					"title": "discountDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"discountEligibilityCount": {
+					"type": "integer"
+				},
+				"discountPct": {
+					"type": "number"
+				},
+				"discountGLCode": {
+					"type": "string"
+				},
+				"discountValueType": {
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+						"P",
+						"V"
+					]
+				},
+				"discountValue": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"discountID",
+				"discountNameTranslations",
+				"discountDescTranslations",
+				"discountEligibilityCount"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingPayMethodReqd": {
+			"type": "object",
+			"properties": {
+				"paymentMethodReqd": {
+					"type": "string",
+					"enum": [
+						"ANY",
+						"CREDITCARD",
+						"DIRECTDEBIT",
+						"NETTERM",
+						"VIPPS"
+					]
+				}
+			},
+			"required": [
+				"paymentMethodReqd"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingDetail": {
+			"type": "object",
+			"properties": {
+				"offeringSeqNo": {
+					"type": "integer"
+				},
+				"offeringType": {
+					"type": "string",
+					"enum": [
+						"CAMPAIGN",
+						"BUNDLE",
+						"PRODUCT"
+					]
+				},
+				"productType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"productTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"productTypeVariantCnt": {
+					"type": "integer"
+				},
+				"productPriceModel": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"PRICE-ADJUST"
+					]
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"titleDomain": {
+					"type": "string"
+				},
+				"isPurchaseRestricted": {
+					"type": "boolean"
+				},
+				"isDeliveryRestricted": {
+					"type": "boolean"
+				},
+				"isPaymentRestricted": {
+					"type": "boolean"
+				},
+				"paymentMethodReqd": {
+					"title": "subsGetEligibleOfferingsOfferingPayMethodReqd",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPayMethodReqd"
+					}
+				},
+				"offeringNameTranslations": {
+					"title": "offeringNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offeringDescTranslations": {
+					"title": "offeringDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offeringDiscountApplied": {
+					"type": "boolean"
+				},
+				"offeringSortSequence": {
+					"type": "integer"
+				},
+				"offeringUUID": {
+					"type": "string"
+				},
+				"dateEarliestDeliveryChange": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offeringSeqNo",
+				"offeringType",
+				"productType",
+				"productTypeVariant",
+				"productTypeVariantCnt",
+				"productPriceModel",
+				"titleCode",
+				"titleDomain",
+				"isPurchaseRestricted",
+				"isDeliveryRestricted",
+				"isPaymentRestricted",
+				"paymentMethodReqd",
+				"offeringNameTranslations",
+				"offeringDescTranslations",
+				"offeringDiscountApplied",
+				"offeringSortSequence",
+				"offeringUUID",
+				"dateEarliestDeliveryChange"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferings": {
+			"type": "object",
+			"properties": {
+				"offeringDetail": {
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingDetail"
+				},
+				"offeringPlanDetail": {
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingPlanDetail"
+				},
+				"offeringCampaignDetail": {
+					"type": "object",
+					"minItems": 0,
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingCampaignDetail"
+				},
+				"offeringCampaignList": {
+					"title": "subsGetEligibleOfferingsOfferingCampaignDetail",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsOfferingCampaignDetail"
+					}
+				},
+				"offeringBundleDetail": {
+					"type": "object",
+					"minItems": 0,
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingBundleDetail"
+				},
+				"offeringDiscountDetail": {
+					"type": "object",
+					"minItems": 0,
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingDiscountDetail"
+				}
+			},
+			"required": [
+				"offeringDetail",
+				"offeringPlanDetail",
+				"offeringBundleDetail",
+				"offeringDiscountDetail"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingList": {
+			"type": "object",
+			"properties": {
+				"offerings": {
+					"type": "object",
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferings"
+				}
+			},
+			"required": [
+				"offerings"
+			],
+			"additionalProperties": false
+		},
+		"subsGetEligibleOfferingsOfferingCampDetailPrefInfo": {
+			"type": "object",
+			"properties": {
+				"campPrefCode": {
+					"type": "string"
+				},
+				"campPrefName": {
+					"type": "string"
+				},
+				"campPrefDesc": {
+					"type": "string"
+				},
+				"campPrefNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campPrefDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campPrefCode",
+				"campPrefName",
+				"campPrefDesc",
+				"campPrefNameTranslations",
+				"campPrefDescTranslations"
+			]
+		},
+		"subsGetEligibleOfferingsOfferingCampDetailPrefList": {
+			"type": "object",
+			"properties": {
+				"subsGetEligibleOfferingsOfferingCampDetailPrefInfo": {
+					"$ref": "#/definitions/subsGetEligibleOfferingsOfferingCampDetailPrefInfo"
+				}
+			},
+			"required": [
+				"subsGetEligibleOfferingsOfferingCampDetailPrefInfo"
+			]
+		},
+		"subsGetEligibleOfferingsRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers and trials as defined on the product in the ARIA product catalog. If no rollover or trial information is available, the structure is not present in the response",
+			"type": "object",
+			"properties": {
+				"rolloverPlanDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"initFreePeriodDuration": {
+					"type": "integer"
+				},
+				"initFreePeriodDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanStatusDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusCode": {
+					"type": "integer",
+					"enum": [
+						1,
+						41,
+						61
+					]
+				}
+			}
+		},
+		"subsGetEligibleOfferingsContractRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers that can be used when creating contracts. The definition of this information is taken directly from the ARIA product catalog. If no contract rollover information is available, the structure is not present in the response. ",
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planName": {
+					"type": "string"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"subsGetEligibleOfferingsContractRolloverRateSchedules": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsGetEligibleOfferingsContractRolloverRateSchedules"
+					}
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planName",
+				"planDesc",
+				"planNameTranslations",
+				"planDescTranslations",
+				"planProductType",
+				"subsGetEligibleOfferingsContractRolloverRateSchedules"
+			]
+		},
+		"subsGetEligibleOfferingsContractRolloverRateSchedules": {
+			"description": "The structure contains details on how contracts can be used to roll from one rate schedule to another",
+			"type": "object",
+			"properties": {
+				"currentAriaScheduleID": {
+					"type": "string"
+				},
+				"currentAriaScheduleNo": {
+					"type": "integer"
+				},
+				"currentAriaScheduleName": {
+					"type": "string"
+				},
+				"currentScheduleNameTranslations": {
+					"title": "currentScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"rolloverAriaScheduleID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNo": {
+					"type": "integer"
+				},
+				"rolloverAriaScheduleName": {
+					"type": "string"
+				},
+				"rolloverScheduleNameTranslations": {
+					"title": "rolloverScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"currentAriaScheduleID",
+				"currentAriaScheduleNo",
+				"currentAriaScheduleName",
+				"currentScheduleNameTranslations",
+				"rolloverAriaScheduleID",
+				"rolloverAriaScheduleNo",
+				"rolloverAriaScheduleName",
+				"rolloverScheduleNameTranslations"
+			]
+		},
+		"subsGetEligibleOfferingsBillingFrequency": {
+			"description": "The data elements of the subsGetEligibleSubscriptionBillingFrequency are used to define the billing frequencies for the recurring and usage-based charges",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "integer"
+				},
+				"billingFrequencyUsage": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"subsGetEligibleOfferingsContractInfo": {
+			"description": "a optional structure that contains details on contracts available for this offering. The contract details are per AMPS definition and is not related to the ARIA product catalog contract definitions.",
+			"type": "object",
+			"properties": {
+				"contractOption": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"ON-CREATION",
+						"ON-REQUEST"
+					]
+				},
+				"contractType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"CONTINUE",
+						"CONTINUE-RESET",
+						"RENEW",
+						"RENEW-RESET",
+						"TERMINATE",
+						"TERMINATE-PRORATE",
+						"ROLLOVER"
+					]
+				},
+				"contractDuration": {
+					"type": "integer"
+				},
+				"contractEndDate": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

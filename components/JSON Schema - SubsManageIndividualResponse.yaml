@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "subsManageIndividualResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"subsManageIndividualResponseDetails": {"title": "subsManageIndividualResponseDetails","type": "array","minItems": 1,"items": {"$ref": "#/definitions/subsManageIndividualResponseDetails"}}
+	},
+	"required": ["resultInfo", "subsManageIndividualResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": 
+		{
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"subsManageIndividualResponseDetails": 
+		{
+			"type": "object",
+			"properties": {
+				"actionDirective": {"type": "string","enum": ["ADD", "MODIFY", "REMOVE"]},
+				"actionResultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+				"ariaPINo": {"type": "integer"},
+				"ariaPIID": {"type": "string", "maxLength": 100},
+				"ariaPlanNo": {"type": "integer"},
+				"ariaPlanID": {"type": "string", "maxLength": 100},
+				"ariaMPINo": {"type": "integer"},
+				"ariaMPIID": {"type": "string", "maxLength": 100}
+			},
+			"required": ["actionDirective", "actionResultInfo", "ariaPINo", "ariaPIID", "ariaPlanNo", "ariaPlanID", "ariaMPINo", "ariaMPIID"], 
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	
+	"title": "AcctCompleteCCUpdateResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"acctCompleteCCUpdateResponseDetails": {"$ref": "#/definitions/acctCompleteCCUpdateResponseDetails"}
+	},
+	"required": ["resultInfo", "acctCompleteCCUpdateResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"acctCompleteCCUpdateResponseDetails": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaPaymentMethodID": {"type": "string"},
+				"ariaPaymentMethodNo": {"type": "integer"},
+				"ariaBillingGroupID": {"type": "string"},
+				"ariaDunningGroupID": {"type": "string"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "ariaPaymentMethodID", "ariaPaymentMethodNo", "ariaBillingGroupID", "ariaDunningGroupID"], 
+			"additionalProperties": false
+		}
+	}
+}

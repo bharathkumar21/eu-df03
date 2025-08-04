@@ -1,0 +1,321 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "distManageAddrResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"distManageAddrAccountInfo": {
+			"type": "object",
+			"$ref": "#/definitions/distManageAddrAccountInfo"
+		},
+		"distManageAddrListResponse": {
+			"title": "distManageAddrListResponse",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/distManageAddrListResponse"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"distManageAddrAccountInfo",
+		"distManageAddrListResponse"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"distManageAddrInfo": {
+			"type": "object",
+			"properties": {
+				"distAddrType": {
+					"type": "integer"
+				},
+				"distAddrNo": {
+					"type": "integer"
+				},
+				"distAddrName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"distAddrLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distApartmentNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distCoAddr": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDirections": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrCountryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"distAddrPostalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"distAddrCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"distStreetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distStreetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distEntranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distPublAddrNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo5": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo6": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDistributionRoute": {
+					"type": "string"
+				},
+				"distDistributionMethod": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"distAddrNo",
+				"distAddrName",
+				"distAddrLine1",
+				"distAddrLine2",
+				"distAddrLine3",
+				"distAddrCountryCode",
+				"distAddrPostalCode",
+				"distAddrCity",
+				"distAddrLocality",
+				"distAddrStateProv",
+				"distStreetName",
+				"distStreetNo",
+				"distFlatNo",
+				"distFlatSpec",
+				"distFlatFloor",
+				"distEntranceNo",
+				"distPublAddrNo",
+				"distAddInfo1",
+				"distAddInfo2",
+				"distAddInfo3",
+				"distAddInfo4",
+				"distAddInfo5",
+				"distAddInfo6",
+				"distAddrLine4",
+				"distApartmentNo",
+				"distCoAddr",
+				"distDirections",
+				"distDistributionMethod",
+				"distDistributionRoute"
+			],
+			"additionalProperties": false
+		},
+		"distManageAddrActionInfoResponse": {
+			"type": "object",
+			"properties": {
+				"distManageAddrAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE",
+						"STATUS"
+					]
+				},
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"distManageAddrAction",
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"distManageAddrStatus": {
+			"type": "object",
+			"properties": {
+				"addressStatus": {
+					"type": "string",
+					"enum": [
+						"ACTIVE",
+						"INACTIVE"
+					]
+				},
+				"addressTitleCode": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"distManageAddrListResponse": {
+			"type": "object",
+			"properties": {
+				"distManageAddrActionInfoResponse": {
+					"type": "object",
+					"$ref": "#/definitions/distManageAddrActionInfoResponse"
+				},
+				"distManageAddrInfo": {
+					"type": "object",
+					"$ref": "#/definitions/distManageAddrInfo"
+				},
+				"distManageAddrTypeTrans": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"distManageAddrStatus": {
+					"type": "object",
+					"$ref": "#/definitions/distManageAddrStatus"
+				}
+			},
+			"required": [
+				"distManageAddrActionInfoResponse",
+				"distManageAddrInfo",
+				"distManageAddrTypeTrans"
+			],
+			"additionalProperties": false
+		},
+		"distManageAddrAccountInfo": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

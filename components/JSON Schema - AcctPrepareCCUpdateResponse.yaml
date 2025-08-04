@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	
+	"title": "AcctPrepareCCUpdateResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"acctPrepareCCUpdateResponseDetails": {"$ref": "#/definitions/acctPrepareCCUpdateResponseDetails"}
+	},
+	"required": ["resultInfo", "acctPrepareCCUpdateResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"acctPrepareCCUpdateResponseDetails": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaSessionID": {"type": "string"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "ariaSessionID"], 
+			"additionalProperties": false
+		}
+	}
+}

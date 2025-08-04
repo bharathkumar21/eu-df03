@@ -1,0 +1,150 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "CampManageCampPrefCodesResponse",
+	"description": "Response from add/modify/remove of campaign preference codes",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campManageCampPrefCodeResponseList": {
+			"type": "array",
+			"minItems": 1,
+			"items": [
+				{
+					"$ref": "#/definitions/campManageCampPrefCodeResponseList"
+				}
+			]
+		}
+	},
+	"required": [
+		"resultInfo",
+		"campManageCampPrefCodeResponseList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"campManageCampPrefCodeResponseList": {
+			"type": "object",
+			"properties": {
+				"campManageCampPrefCodeActionInfoResponse": {
+					"$ref": "#/definitions/campManageCampPrefCodeActionInfoResponse"
+				},
+				"campManageCampPrefCodeInfo": {
+					"$ref": "#/definitions/campManageCampPrefCodeInfo"
+				},
+				"campManageCampPrefCodeAddInfo": {
+					"$ref": "#/definitions/campManageCampPrefCodeAddInfo"
+				}
+			},
+			"required": [
+				"campManageCampPrefCodeActionInfoResponse",
+				"campManageCampPrefCodeInfo"
+			]
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampPrefCodeInfo": {
+			"type": "object",
+			"properties": {
+				"campPrefCode": {
+					"type": "string"
+				},
+				"campPrefName": {
+					"type": "string"
+				},
+				"campPrefDesc": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"campPrefCode",
+				"campPrefName",
+				"campPrefDesc"
+			]
+		},
+		"campManageCampPrefCodeAddInfo": {
+			"type": "object",
+			"properties": {
+				"campPrefNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campPrefDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campPrefNameTranslations",
+				"campPrefDescTranslations"
+			]
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampPrefCodeActionInfoResponse": {
+			"type": "object",
+			"properties": {
+				"actionCode": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				},
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

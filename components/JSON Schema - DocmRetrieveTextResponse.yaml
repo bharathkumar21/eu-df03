@@ -1,0 +1,68 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "docmRetrieveTextResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"docmRetrieveTextDocumentList": {"title": "docmRetrieveTextDocumentList", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/docmRetrieveTextDocumentList"}}
+	},
+	 "required": ["resultInfo", "docmRetrieveTextDocumentList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "string"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+		
+		"docmRetrieveTextTextList": {"type": "object",
+			"properties": {
+				"docmTextNumber": {"type": "integer"},
+				"docmTextValue": {"type": "string"},
+				"textValueTranslations": {"title": "textValueTranslations","type": "object","$ref": "#/definitions/solmTranslationGroup"}
+			},	
+			"required": ["docmTextNumber", "docmTextValue", "textValueTranslations"], 
+			"additionalProperties": false
+		},
+		"docmRetrieveTextGroupList": {"type": "object",
+			"properties": {
+				"docmTextGroupID": {"type": "string", "maxLength": 10},
+				"docmTextGroupName": {"type": "string"},
+				"docmRetrieveTextTextList": {"title": "docmRetrieveTextTextList", "type": "array", "minItems": 0, "items": {"$ref": "#/definitions/docmRetrieveTextTextList"}}
+			},	
+			"required": ["docmTextGroupID", "docmTextGroupName", "docmRetrieveTextTextList"], 
+			"additionalProperties": false
+		},
+		"docmRetrieveTextDocumentList": {"type": "object",
+			"properties": {
+				"docmDocumentType": {"type": "string", "maxLength": 20},
+				"docmRetrieveTextGroupList": {"title": "docmRetrieveTextGroupList", "type": "array", "minItems": 0, "items": {"$ref": "#/definitions/docmRetrieveTextGroupList"}}
+			},
+			"required": ["docmDocumentType", "docmRetrieveTextGroupList"],
+			"additionalProperties": false
+		}
+	}
+}

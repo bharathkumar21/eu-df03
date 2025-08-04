@@ -1,0 +1,1999 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "JSON Schema AcctGDPRShowAccountDataResponse by Aasim Saeed of Aria Systems",
+    "type": "object",
+    "title": "AcctGDPRShowAcctDataResponse",
+    "properties": {
+        "resultInfo": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer"
+                },
+                "resultText": {
+                    "type": "string"
+                }
+            }
+        },
+        "AcctGDPRShowAcctDataResponseDetails": {
+            "type": "object",
+            "$ref": "#/definitions/.acctGDPRShowAcctDataResponseDetails"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        ".acctGDPRShowAcctDataResponseDetails": {
+            "type": "object",
+            "properties": {
+                "acctComplaints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.acctComplaints"
+                    }
+                },
+                "acctComments":{
+                    "type" : "object",
+                    "description" : "",
+                    "properties" : {
+                      "error_code" : {
+                        "description" : "Aria-assigned error identifier. 0 indicates no error.\n",
+                        "type" : "integer",
+                        "format" : "int64"
+                      },
+                      "error_msg" : {
+                        "description" : "Description of any error that occurred.  \"OK\" if there was no error.\n",
+                        "type" : "string"
+                      },
+                      "acct_comments" : {
+                        "description" : "",
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "#/definitions/AcctComment"
+                        }
+                      }
+                    }
+                  },
+                "acctSubscriptions": {
+                    "type" : "object",
+                    "description" : "",
+                    "properties" : {
+                      "error_code" : {
+                        "description" : "Aria-assigned error identifier. 0 indicates no error.\n",
+                        "type" : "integer",
+                        "format" : "int64"
+                      },
+                      "error_msg" : {
+                        "description" : "Description of any error that occurred.  \"OK\" if there was no error.\n",
+                        "type" : "string"
+                      },
+                      "record_count" : {
+                        "description" : "Returns a total count of the number of records.",
+                        "type" : "integer",
+                        "format" : "int64"
+                      },
+                      "all_acct_plans_m" : {
+                        "description" : "",
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "#/definitions/.allAcctPlansM"
+                        }
+                      },
+                      "acct_locale_name" : {
+                        "description" : "Name of the account level locale.",
+                        "type" : "string"
+                      },
+                      "acct_locale_no_2" : {
+                        "description" : "Aria-assigned unique identifier of the locale used for translations. This value is unique across all Aria-managed accounts.\n",
+                        "type" : "integer",
+                        "format" : "int64"
+                      }
+                    }
+                },
+                "acctTransHistory":{ 
+                    "type": "object",
+                    "$ref": "#/definitions/.acctTransHistory"
+                },
+                "acctContactAddresses": 
+                    {
+                        "type" : "object",
+                        "description" : "",
+                        "properties" : {
+                          "account_contact" : {
+                            "description" : "Account contact",
+                            "type" : "array",
+                            "items" : {
+                              "$ref" : "#/definitions/AccountContact"
+                            }
+                          },
+                          "billing_contacts" : {
+                            "description" : "Array of billing contacts",
+                            "type" : "array",
+                            "items" : {
+                              "$ref" : "#/definitions/BillingContact"
+                            }
+                          },
+                          "backup_contacts" : {
+                            "description" : "Array of backup contacts",
+                            "type" : "array",
+                            "items" : {
+                              "$ref" : "#/definitions/BackupContact"
+                            }
+                          },
+                          "statement_contacts" : {
+                            "description" : "Array of statement contacts",
+                            "type" : "array",
+                            "items" : {
+                              "$ref" : "#/definitions/StatementContact"
+                            }
+                          },
+                          "other_contacts" : {
+                            "description" : "List of contacts saved on the account not currently used as an account contact, billing contact, or statement contact.",
+                            "type" : "array",
+                            "items" : {
+                              "$ref" : "#/definitions/OtherContact"
+                            }
+                          },
+                          "error_code" : {
+                            "description" : "Aria-assigned error identifier. 0 indicates no error.\n",
+                            "type" : "integer",
+                            "format" : "int64"
+                          },
+                          "error_msg" : {
+                            "description" : "Description of any error that occurred.  \"OK\" if there was no error.\n",
+                            "type" : "string"
+                          }
+                        }
+                },
+                "acctDeliveryAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.acctAddress"
+                    }
+                },
+                "GDPRFinanceRetentionMonths": {
+                    "type": "integer"
+                },
+                "acctDateToAnonymize": {
+                    "type": "string"
+                },
+                "acctDeliveryAddressChanges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.acctAddrChanges"
+                    }
+                },
+                "AcctPaymentMethodsAndTerms" : {
+                    "type" : "object",
+                    "description" : "",
+                    "properties" : {
+                      "account_payment_methods" : {
+                        "description" : "An Array of account payment methods.",
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "#/definitions/AccountPaymentMethod"
+                        }
+                      },
+                      "account_payment_terms" : {
+                        "description" : "An Array of account payment terms.",
+                        "type" : "array",
+                        "items" : {
+                          "$ref" : "#/definitions/AccountPaymentTerm"
+                        }
+                      },
+                      "error_code" : {
+                        "description" : "Aria-assigned error identifier. 0 indicates no error.\n",
+                        "type" : "integer",
+                        "format" : "int64"
+                      },
+                      "error_msg" : {
+                        "description" : "Description of any error that occurred.  \"OK\" if there was no error.\n",
+                        "type" : "string"
+                      }
+                    }
+                  }
+            }
+        },
+        ".acctComplaints": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "CompComplaintFileName": {
+                    "type": "string"
+                },
+                "CompNotes": {
+                    "type": "string"
+                },
+                "CompRedeliveryProcessingStatus": {
+                    "type": "string"
+                },
+                "CompComplaintID": {
+                    "type": "string"
+                },
+                "CompComplaintHeadline": {
+                    "type": "string"
+                },
+                "CompComplaintDesc": {
+                    "type": "string"
+                },
+                "CompCodeID": {
+                    "type": "string"
+                },
+                "CompComplaintDate": {
+                    "type": "string"
+                },
+                "CompComplaintStatus": {
+                    "type": "string"
+                },
+                "CompRedeliveryOrdered": {
+                    "type": "boolean"
+                },
+                "CompRedeliveryType": {
+                    "type": "string"
+                },
+                "CompUpdatedByUser": {
+                    "type": "string"
+                },
+                "CompProcessingStatus": {
+                    "type": "string"
+                },
+                "CompAriaAccountNo": {
+                    "type": "integer"
+                },
+                "CompAriaAccountID": {
+                    "type": "string"
+                },
+                "CompAriaMPINo": {
+                    "type": "integer"
+                },
+                "CompAriaMPIID": {
+                    "type": "string"
+                },
+                "CompComplaintRegDate": {
+                    "type": "string"
+                },
+                "CompComplaintUpdateDate": {
+                    "type": "string"
+                },
+                "CompTitleCode": {
+                    "type": "string"
+                },
+                "CompResolutionNotes": {
+                    "type": "string"
+                },
+                "CompRedeliveryAddrNo": {
+                    "type": "integer"
+                },
+                "CompRedeliveryFileName": {
+                    "type": "string"
+                },
+                "CompRedeliveryCount": {
+                    "type": "integer"
+                },
+                "serviceCreditApplied": {
+                    "type": "boolean"
+                },
+                "ariaServiceCreditID": {
+                    "type": "integer"
+                },
+                "CompCompensationAmount": {
+                    "type": "number"
+                }
+            }
+        },
+        ".allAcctPlansM": {
+            "type": "object",
+            "description": "",
+            "properties": {
+                "plan_no": {
+                    "description": "Aria-assigned unique plan identifier",
+                    "type": "integer"
+                },
+                "plan_name": {
+                    "description": "Plan Name",
+                    "type": "string"
+                },
+                "plan_desc": {
+                    "description": "Text description of this plan",
+                    "type": "string"
+                },
+                "plan_instance_no": {
+                    "description": "Unique plan instance number for each assigned master plan.",
+                    "type": "integer"
+                },
+                "client_plan_instance_id": {
+                    "description": "Unique client-defined ID for each assigned master plan.",
+                    "type": "string"
+                },
+                "plan_date": {
+                    "description": "Date on which the account was assigned to their current plan.\n",
+                    "type": "string"
+                },
+                "plan_units": {
+                    "description": "Number of plan units the account is billed for.\n",
+                    "type": "number"
+                },
+                "last_bill_date": {
+                    "description": "The date the account was last billed",
+                    "type": "string"
+                },
+                "next_bill_date": {
+                    "description": "Date the account will be evaluated for invoicing, whether or not it results in any actual charges.\n",
+                    "type": "string"
+                },
+                "bill_thru_date": {
+                    "description": "Date the accounts forward charges have been billed through.\n",
+                    "type": "string"
+                },
+                "bill_day": {
+                    "description": "Day of the month that the account is billed.",
+                    "type": "integer"
+                },
+                "recurring_billing_interval": {
+                    "description": "Number of months between billing cycles\n",
+                    "type": "integer"
+                },
+                "usage_billing_interval": {
+                    "description": "Number of months between billing cycles\n",
+                    "type": "integer"
+                },
+                "billing_ind": {
+                    "description": "Indicates whether or not this plan is billable\n",
+                    "type": "integer"
+                },
+                "display_ind": {
+                    "description": "Indicates whether or not the plan is marked as \"displayable\". 0 means not displayable. 1 means displayable.\n",
+                    "type": "integer"
+                },
+                "rollover_months": {
+                    "description": "Number of months in which the account will change from the current plan to the pre-defined rollover plan.\n",
+                    "type": "integer"
+                },
+                "rollover_plan_no": {
+                    "description": "Pre-defined plan to which the account will change based on the defined rollover_months value; the rollover record is created when an account is placed on a plan with a defined rollover plan.\n",
+                    "type": "integer"
+                },
+                "early_cancel_fee": {
+                    "description": "Fee charged for early cancellations.",
+                    "type": "number"
+                },
+                "early_cancel_min_months": {
+                    "description": "Number of months during which early cancellation fees would apply on master plan cancellation. Not applicable to supplemental plans.\n",
+                    "type": "integer"
+                },
+                "suspension_period": {
+                    "description": "Pre-defined period in days in which an account will degrade to Suspended status (-1) if action is not taken such as a plan or status change.\n",
+                    "type": "integer"
+                },
+                "initial_plan_status": {
+                    "description": "Default status used when master plan is initially assigned on an account.\n",
+                    "type": "integer"
+                },
+                "rollover_plan_status": {
+                    "description": "Status used for the master plan instance at the completion of the rollover period.\n",
+                    "type": "integer"
+                },
+                "rollover_plan_status_duration": {
+                    "description": "Duration of the plan status rollover period, after which the initial plan status on the master plan instance will change to the pre-defined rollover plan status (used in conjuction with rollover_plan_status_uom_cd).\n",
+                    "type": "integer"
+                },
+                "rollover_plan_status_uom_cd": {
+                    "description": "Units associated with the duration of the plan status rollover period after which the initial plan status on the master plan instance will change to the pre-defined rollover plan status. (used in conjunction with rollover_plan_status_duration).\n",
+                    "type": "integer"
+                },
+                "init_free_period_duration": {
+                    "description": "Duration of the initial free period (used in conjunction with init_free_period_uom_cd).",
+                    "type": "integer"
+                },
+                "init_free_period_uom_cd": {
+                    "description": "Units associated with the duration of the initial free period (used in conjunction with init_free_period_duration).",
+                    "type": "integer"
+                },
+                "rollover_plan_duration": {
+                    "description": "Duration of the plan rollover period (used in conjunction with rollover_plan_uom_cd).",
+                    "type": "integer"
+                },
+                "rollover_plan_uom_cd": {
+                    "description": "Units associated with the duration of the plan rollover period (used in conjunction with rollover_plan_duration).",
+                    "type": "integer"
+                },
+                "initial_plan_status_cd": {
+                    "description": "Default status used when master plan is initially assigned on an account.\n",
+                    "type": "integer"
+                },
+                "rollover_plan_status_cd": {
+                    "description": "Status used for the master plan instance at the completion of the plan status rollover period.\n",
+                    "type": "integer"
+                },
+                "billing_group_no": {
+                    "description": "The billing group number.",
+                    "type": "integer"
+                },
+                "client_billing_group_id": {
+                    "description": "Client-defined billing group ID.",
+                    "type": "string"
+                },
+                "dunning_group_no": {
+                    "description": "Dunning group number",
+                    "type": "integer"
+                },
+                "client_dunning_group_id": {
+                    "description": "Client-defined unique identifier for dunning group",
+                    "type": "string"
+                },
+                "plan_2_assign_on_susp": {
+                    "description": "Plan to assign when an account on this plan is suspended.\n",
+                    "type": "integer"
+                },
+                "default_notify_method": {
+                    "description": "Default notification method given to an account that is assigned to this plan.\n",
+                    "type": "integer"
+                },
+                "prepaid_ind": {
+                    "description": "Indicates whether or not this plan is prepaid\n",
+                    "type": "integer"
+                },
+                "currency_cd": {
+                    "description": "The 3-character ISO-compliant currency code in lowercase for monetary values used in the context of this API method.\n",
+                    "type": "string"
+                },
+                "rate_schedule_no": {
+                    "description": "Aria-assigned unique rate schedule number",
+                    "type": "integer"
+                },
+                "rate_schedule_name": {
+                    "description": "Name of the rate schedule",
+                    "type": "string"
+                },
+                "rate_sched_is_default_ind": {
+                    "description": "Indicates whether or not the account is using the plans default rate schedule. 0 means the account is using an alternate rate schedule. 1 means the account is using the default rate schedule.\n",
+                    "type": "integer"
+                },
+                "supp_plan_ind": {
+                    "description": "Indicates whether or not the plan is a supplemental plan. If it is \"1\", then the plan is a supplemental plan and if it is \"0\", then the plan is a master plan.\n",
+                    "type": "integer"
+                },
+                "plan_instance_status_cd": {
+                    "description": "Current status code of the plan instance.\n",
+                    "type": "integer"
+                },
+                "plan_instance_status_label": {
+                    "description": "Current status of the plan instance.\n",
+                    "type": "string"
+                },
+                "plan_instance_status_date": {
+                    "description": "Most recent date on which the status of the plan instance changed.",
+                    "type": "string"
+                },
+                "dunning_state": {
+                    "description": "Dunning state assigned to the master plan instance. In Progress indicates the master plan is in dunning. None indicates the master plan is not in dunning. Note that dunning state is applicable only for master plans and is set to Complete by the system once the dunning process is completed.\n",
+                    "type": "integer"
+                },
+                "dunning_step": {
+                    "description": "Current dunning step of the plan instance (applicable only for master plans currently in dunning).",
+                    "type": "integer"
+                },
+                "dunning_degrade_date": {
+                    "description": "Next future date on which the plan instance would advance to the next dunning step (applicable only for master plans currently in dunning).",
+                    "type": "string"
+                },
+                "plan_assignment_date": {
+                    "description": "The date on which the current plan was assigned on this plan instance.",
+                    "type": "string"
+                },
+                "plan_deprovisioned_date": {
+                    "description": "The date on which the current plan on this plan instance was suspended, cancelled or terminated.",
+                    "type": "string"
+                },
+                "client_receipt_id": {
+                    "description": "The API receipt ID used while creating this plan instance.\n",
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "client_plan_id": {
+                    "description": "Client-defined Plan ID for which to query available child plans",
+                    "type": "string"
+                },
+                "client_rollover_plan_id": {
+                    "description": "Pre-defined plan to which the account will change based on the defined rollover_months value; the rollover record is created when an account is placed on a plan with a defined client rollover plan ID.\n",
+                    "type": "string"
+                },
+                "client_plan_2_assign_on_susp": {
+                    "description": "CDID of the plan to be assigned when an account on this plan is suspended.\n",
+                    "type": "string"
+                },
+                "client_rate_schedule_id": {
+                    "description": "Client assigned unique rate schedule number",
+                    "type": "string"
+                },
+                "proration_invoice_timing_cd": {
+                    "description": "Indicates whether to defer the pro-rated charges to the next anniversary date or to create a seperate invoice immediately.\n",
+                    "type": "string"
+                },
+                "product_fields": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductField"
+                    }
+                },
+                "plan_instance_fields_detail": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PlanInstanceFieldsDetail"
+                    }
+                },
+                "master_plan_instance_no": {
+                    "description": "Master plan instance number for each supplemental plan.",
+                    "type": "integer"
+                },
+                "client_master_plan_instance_id": {
+                    "description": "Client master plan instance ID for each supplemental plan.",
+                    "type": "string"
+                },
+                "parent_plan_instance_no": {
+                    "description": "Parent plan instance number to identify each supplemental plan and child supplemental plan heirarchy.",
+                    "type": "integer"
+                },
+                "client_parent_plan_instance_id": {
+                    "description": "Client parent plan instance ID to identify each supplemental plan and child supplemental plan heirarchy.",
+                    "type": "string"
+                },
+                "plan_instance_services": {
+                    "description": "A multidimensional array of Services for this plan\n",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PlanInstanceService"
+                    }
+                },
+                "surcharges_all": {
+                    "description": "A multidimensional array of Surcharges for this plan'\n",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SurchargesAll"
+                    }
+                },
+                "contract_rollover_plan_no": {
+                    "description": "Pre-defined plan to be used as the rollover plan at the completion of the contract.\n",
+                    "type": "integer"
+                },
+                "contract_rollover_client_plan_id": {
+                    "description": "Client-defined ID of the pre-defined plan to be used as the rollover plan at the completion of a contract.\n",
+                    "type": "string"
+                },
+                "contract_rollover_rate_sched_no": {
+                    "description": "Pre-defined rate schedule to be used as the rollover rate schedule at the completion of the contract",
+                    "type": "integer"
+                },
+                "contract_rollover_client_rate_sched_id": {
+                    "description": "Client-defined ID of the pre-defined rate schedule to be used as the rollover rate schedule at the completion of the contract",
+                    "type": "string"
+                },
+                "po_num": {
+                    "description": "Purchase order number assigned to the plan instance.",
+                    "type": "string"
+                },
+                "available_from_dt": {
+                    "description": "Start date of assigned rate schedule",
+                    "type": "string"
+                },
+                "available_to_dt": {
+                    "description": "End date of assigned rate schedule",
+                    "type": "string"
+                },
+                "followup_rs_no": {
+                    "description": "Aria internal ID of follow-up default rate schedule for the assigned rate schedule",
+                    "type": "integer"
+                },
+                "client_followup_rs_id": {
+                    "description": "Client-defined ID of followup rate schedule for the assigned rate schedule",
+                    "type": "string"
+                },
+                "usage_accumulation_reset_months": {
+                    "description": "The number of reset months for each plan",
+                    "type": "integer"
+                },
+                "usage_accumulation_reset_months_renewal_option": {
+                    "description": "Determines whether the usage accumulation reset months will automatically reset to same value at the end of the current period or will expire at end of current period.\n",
+                    "type": "integer"
+                },
+                "usage_accumulation_reset_counter": {
+                    "description": "Number of months since last reset. Once this value reaches the usage_accumulation_reset_months value, it will reset to 0 (zero).",
+                    "type": "integer"
+                },
+                "bill_lag_days": {
+                    "description": "Bill lag days refer to the number of days prior to (negative) or after (positive) an account billing date at which an invoice should be generated for this Master Plan Instance.   Negative bill lag days are typically used for subscription-based services (often subscription-based services paid using net-terms), in which the user would like to send out invoices to customers well in advance of the real invoice date.   Positive bill lag days are typically used for usage-based services.  \n",
+                    "type": "integer"
+                }
+            }
+        },
+        ".acctAddress": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "DistAddInfo3": {
+                    "type": "string"
+                },
+                "DistAddInfo2": {
+                    "type": "string"
+                },
+                "DistAddInfo1": {
+                    "type": "string"
+                },
+                "DistAddrCountryCode": {
+                    "type": "string"
+                },
+                "DistAddrLocality": {
+                    "type": "string"
+                },
+                "DistAddrStateProv": {
+                    "type": "string"
+                },
+                "DistAriaAcctNo": {
+                    "type": "integer"
+                },
+                "DistAddrNo": {
+                    "type": "integer"
+                },
+                "DistAddrName": {
+                    "type": "string"
+                },
+                "DistAddrLine1": {
+                    "type": "string"
+                },
+                "DistAddrLine2": {
+                    "type": "string"
+                },
+                "DistAddrLine3": {
+                    "type": "string"
+                },
+                "DistAddrCity": {
+                    "type": "string"
+                },
+                "DistAddrPostalCode": {
+                    "type": "string"
+                },
+                "DistAddrType": {
+                    "type": "integer"
+                },
+                "DistFlatNo": {
+                    "type": "string"
+                },
+                "DistStreetNo": {
+                    "type": "string"
+                },
+                "DistStreetName": {
+                    "type": "string"
+                },
+                "DistPublAddrNo": {
+                    "type": "string"
+                },
+                "DistEntranceNo": {
+                    "type": "string"
+                },
+                "DistFlatFloor": {
+                    "type": "string"
+                },
+                "DistFlatSpec": {
+                    "type": "string"
+                },
+                "DistAddrLine4": {
+                    "type": "string"
+                },
+                "DistCoAddr": {
+                    "type": "string"
+                },
+                "DistApartmentNo": {
+                    "type": "string"
+                },
+                "DistDirections": {
+                    "type": "string"
+                }
+            }
+        },
+        ".acctAddrChanges": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "DistAriaAcctNo": {
+                    "type": "integer"
+                },
+                "DistTitleCode": {
+                    "type": "string"
+                },
+                "DistDateFrom": {
+                    "type": "string"
+                },
+                "DistDateTo": {
+                    "type": "string"
+                },
+                "DistAddrNo": {
+                    "type": "integer"
+                },
+                "DistAriaMpiNo": {
+                    "type": "integer"
+                },
+                "DistDeliveryDays": {
+                    "type": "string"
+                }
+            }
+        },
+        ".acctTransHistory": {
+            "type": "object",
+            "properties" : {
+                "error_code" : {
+                  "description" : "Aria-assigned error identifier. 0 indicates no error.\n",
+                  "type" : "integer",
+                  "format" : "int64"
+                },
+                "error_msg" : {
+                  "description" : "Description of any error that occurred.  \"OK\" if there was no error.\n",
+                  "type" : "string"
+                },
+                "history" : {
+                  "description" : "",
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/History"
+                  }
+                }
+            }
+        },
+
+        "ProductField": {
+            "type": "object",
+            "description": "",
+            "properties": {
+                "field_name": {
+                    "description": "Name of the product field associated with the plan in the product catalog.",
+                    "type": "string"
+                },
+                "field_value": {
+                    "description": "Value associated with the product field as defined in the product catalog.",
+                    "type": "string"
+                }
+            }
+        },
+        "PlanInstanceFieldsDetail": {
+            "type": "object",
+            "description": "",
+            "properties": {
+                "field_name": {
+                    "description": "Name of the plan instance field",
+                    "type": "string"
+                },
+                "field_value": {
+                    "description": "Value associated with the plan instance field",
+                    "type": "string"
+                }
+            }
+        },
+        "PlanInstanceService": {
+            "type": "object",
+            "description": "A multidimensional array of Services for this plan\\n",
+            "properties": {
+                "service_no": {
+                    "description": "The services for this plan\n",
+                    "type": "integer"
+                },
+                "service_desc": {
+                    "description": "Description of this service",
+                    "type": "string"
+                },
+                "is_recurring_ind": {
+                    "description": "Indicates whether or not this service is a recurring service\n",
+                    "type": "integer"
+                },
+                "is_usage_based_ind": {
+                    "description": "Indicates whether or not this service is a usage based service\n",
+                    "type": "integer"
+                },
+                "usage_type": {
+                    "description": "The usage type supported by this usage based service\n",
+                    "type": "integer"
+                },
+                "taxable_ind": {
+                    "description": "Indicates whether or not this service is taxable\n",
+                    "type": "integer"
+                },
+                "is_tax_ind": {
+                    "description": "Indicates whether or not this service is a tax based service\n",
+                    "type": "integer"
+                },
+                "is_arrears_ind": {
+                    "description": "Indicates whether or not this service is an arrears based service\n",
+                    "type": "integer"
+                },
+                "is_setup_ind": {
+                    "description": "Indicates whether or not this service is a setup bases service\n",
+                    "type": "integer"
+                },
+                "is_misc_ind": {
+                    "description": "Indicates whether or not this service is a miscellaneous service\n",
+                    "type": "integer"
+                },
+                "is_donation_ind": {
+                    "description": "Indicates whether or not this service is a donation based service\n",
+                    "type": "integer"
+                },
+                "is_order_based_ind": {
+                    "description": "Indicates whether or not this service is an order based service\n",
+                    "type": "integer"
+                },
+                "is_cancellation_ind": {
+                    "description": "Indicates whether or not this service is a cancellation based service\n",
+                    "type": "integer"
+                },
+                "coa_id": {
+                    "description": "Chart of accounts ID",
+                    "type": "string"
+                },
+                "ledger_code": {
+                    "description": "This field is deprecated in favor of coa_id",
+                    "type": "string"
+                },
+                "client_coa_code": {
+                    "description": "The client-defined override for coa_id",
+                    "type": "string"
+                },
+                "display_ind": {
+                    "description": "Indicates if this service is displayable or not",
+                    "type": "integer"
+                },
+                "tiered_pricing_rule": {
+                    "description": "The Tiered Pricing Rule",
+                    "type": "integer"
+                },
+                "is_min_fee_ind": {
+                    "description": "Indicates whether or not this service is a minimum fee.\n",
+                    "type": "integer"
+                },
+                "client_service_id": {
+                    "description": "The client-defined Service ID for this plan.\n",
+                    "type": "string"
+                },
+                "usage_type_cd": {
+                    "description": "Denotes which usage type to record.",
+                    "type": "string"
+                },
+                "all_service_supp_fields": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AllServiceSuppField"
+                    }
+                },
+                "fulfillment_based_ind": {
+                    "description": "Indicates if the service is Fulfillment Based or not.",
+                    "type": "integer"
+                },
+                "plan_service_rates": {
+                    "description": "Represents the rates for the default rate schedule for the default currency for the plan",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PlanServiceRate"
+                    }
+                },
+                "usage_type_name": {
+                    "description": "The human-readable name of this usage type\n",
+                    "type": "string"
+                },
+                "usage_type_desc": {
+                    "description": "The long description of this usage type\n",
+                    "type": "string"
+                },
+                "usage_type_code": {
+                    "description": "Client-assigned identifier for the type of usage being recorded.\n",
+                    "type": "string"
+                },
+                "usage_unit_label": {
+                    "description": "The display-level description of the units this usage represents.\n",
+                    "type": "string"
+                },
+                "apply_usage_rates_daily": {
+                    "description": "Indicates whether or not this usage-based service is rated on a daily basis.\n",
+                    "type": "integer"
+                },
+                "svc_location_no": {
+                    "description": "The Aria-assigned unique identifier for the origin location for the specified service associated with the plan. Depending on taxation configuration, this address may be used for tax calculations.\n",
+                    "type": "integer"
+                },
+                "client_svc_location_id": {
+                    "description": "The client-defined unique identifier for the origin location for the service associated with the plan. Depending on taxation configuration, this address may be used for tax calculations.\n",
+                    "type": "string"
+                },
+                "svc_location_name": {
+                    "description": "The name of the origin location for the service.",
+                    "type": "string"
+                },
+                "svc_location_company_name": {
+                    "description": "Company name of the service location.",
+                    "type": "string"
+                },
+                "svc_location_address1": {
+                    "description": "First address line of the service location.",
+                    "type": "string"
+                },
+                "svc_location_address2": {
+                    "description": "Second address line of the service location. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                    "type": "string"
+                },
+                "svc_location_address3": {
+                    "description": "Third address line of the service location.",
+                    "type": "string"
+                },
+                "svc_location_city": {
+                    "description": "City of the service location.",
+                    "type": "string"
+                },
+                "svc_location_locality": {
+                    "description": "Locality of the service location.",
+                    "type": "string"
+                },
+                "svc_location_state_prov": {
+                    "description": "State or Province of the service location. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                    "type": "string"
+                },
+                "svc_location_country": {
+                    "description": "Country of the location contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                    "type": "string"
+                },
+                "svc_location_postal_cd": {
+                    "description": "Postal/Zip code for the service location address.",
+                    "type": "string"
+                },
+                "dest_contact_no": {
+                    "description": "The Aria-assigned unique identifier for the destination contact for the specified service associated with the plan. Depending on taxation configuration, this address may be used for tax calculations.\n",
+                    "type": "integer"
+                },
+                "tax_inclusive_ind": {
+                    "description": "This flag denotes if a rate is inclusive of the taxes. Value of 1 means tax inclusive rates and a value of 0 (default) means tax exclusive rates.\n",
+                    "type": "integer"
+                }
+            }
+        },
+        "AllServiceSuppField": {
+            "type": "object",
+            "description": "An array containing the inventory item service's supplemental fields' field_name, field_desc, field_order_no, and field_value.",
+            "properties": {
+                "field_name": {
+                    "description": "The machine-readable name of this field",
+                    "type": "string"
+                },
+                "field_desc": {
+                    "description": "The human-readable name of this field",
+                    "type": "string"
+                },
+                "field_order_no": {
+                    "description": "The sort order of this field",
+                    "type": "integer"
+                },
+                "field_value": {
+                    "description": "The value stored in this field",
+                    "type": "string"
+                }
+            }
+        },
+        "PlanServiceRate": {
+            "type": "object",
+            "description": "Represents the rates for the default rate schedule for the default currency for the plan",
+            "properties": {
+                "rate_seq_no": {
+                    "description": "Sequential number in the rate schedule for dertermining tiers",
+                    "type": "integer"
+                },
+                "from_unit": {
+                    "description": "Tiered Units (from) This value represents the start of a tiered range of values.\n",
+                    "type": "number"
+                },
+                "to_unit": {
+                    "description": "Tiered Units (to) This value represents the end of the range for a single tier of values.\n",
+                    "type": "number"
+                },
+                "rate_per_unit": {
+                    "description": "The cost per unit of this service over the time period the plan is billed for",
+                    "type": "number"
+                },
+                "future_rate_per_unit": {
+                    "description": "The future cost per unit of this service over the time period the plan is billed for",
+                    "type": "number"
+                },
+                "monthly_fee": {
+                    "description": "If the plan interval is more than one month, this field will rate per unit per month",
+                    "type": "number"
+                },
+                "client_rate_schedule_id": {
+                    "description": "Client assigned unique rate schedule number",
+                    "type": "string"
+                },
+                "rate_tier_description": {
+                    "description": "Rate Tier Description",
+                    "type": "string"
+                }
+            }
+        },
+        "SurchargesAll": {
+            "type": "object",
+            "description": "A multidimensional array of Surcharges for this plan'\\n",
+            "properties": {
+                "surcharge_no": {
+                    "description": "Surcharge number for this plan",
+                    "type": "integer"
+                },
+                "surcharge_name": {
+                    "description": "Surcharge name for this plan",
+                    "type": "string"
+                },
+                "client_surcharge_id": {
+                    "description": "Client-defined surcharge ID.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "description for surcharge.",
+                    "type": "string"
+                },
+                "ext_description": {
+                    "description": "External Description for surcharge.",
+                    "type": "string"
+                },
+                "surcharge_type": {
+                    "description": "Surcharge type for the plan.",
+                    "type": "string"
+                },
+                "currency": {
+                    "description": "Currency for this surcharge plan\n",
+                    "type": "string"
+                },
+                "tax_group": {
+                    "description": "If taxable, the tax group this item belongs to",
+                    "type": "string"
+                },
+                "invoice_app_method": {
+                    "description": "Invoice application method of this plan surcharge",
+                    "type": "string"
+                },
+                "rev_gl_code": {
+                    "description": "Revenue Account GL Code for this plan surcharge",
+                    "type": "string"
+                },
+                "ar_gl_code": {
+                    "description": "Accounts Recievable GL Code for this plan surcharge",
+                    "type": "string"
+                },
+                "surcharge_rate": {
+                    "description": "A multidimensional array of Surcharges Rate for this plan'\n",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SurchargeRate"
+                    }
+                }
+            }
+        },
+        "SurchargeRate": {
+            "type": "object",
+            "description": "Represents the rates for the default rate schedule for the default currency for the plan\\n",
+            "properties": {
+                "rate_seq_no": {
+                    "description": "Sequential number in the rate schedule for dertermining tiers",
+                    "type": "integer"
+                },
+                "from_unit": {
+                    "description": "Tiered Units (from) This value represents the start of a tiered range of values.\n",
+                    "type": "number"
+                },
+                "to_unit": {
+                    "description": "Tiered Units (to) This value represents the end of the range for a single tier of values.\n",
+                    "type": "number"
+                },
+                "rate_per_unit": {
+                    "description": "The cost per unit of this service over the time period the plan is billed for",
+                    "type": "number"
+                },
+                "include_zero": {
+                    "description": "This indicator indicates whether the rate schedule has includes zero or not.",
+                    "type": "integer"
+                },
+                "rate_sched_is_assigned_ind": {
+                    "description": "This indicator indicates the assigned rate schedule for the surcharge.",
+                    "type": "integer"
+                },
+                "rate_tier_description": {
+                    "description": "Rate Tier Description",
+                    "type": "string"
+                }
+            }
+        },
+        "History" : {
+            "type" : "object",
+            "description" : "",
+            "properties" : {
+              "transaction_id" : {
+                "description" : "The globally-unique ID for this transaction across all transactions",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "transaction_type" : {
+                "description" : "The numeric code for the type of transaction being returned.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "transaction_desc" : {
+                "description" : "The long description of this transaction",
+                "type" : "string"
+              },
+              "transaction_amount" : {
+                "description" : "The amount of this transaction",
+                "type" : "number"
+              },
+              "transaction_applied_amount" : {
+                "description" : "The amount of this transaction actually applied to the account balance, if different than above",
+                "type" : "number"
+              },
+              "transaction_currency" : {
+                "description" : "The currency this transaction was recorded in",
+                "type" : "string"
+              },
+              "transaction_create_date" : {
+                "description" : "The creation datetime of this transaction",
+                "type" : "string"
+              },
+              "transaction_void_date" : {
+                "description" : "If this transaction was voided, the void datetime",
+                "type" : "string"
+              },
+              "statement_no" : {
+                "description" : "The ID of the statement on which this transaction appears, if any",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "transaction_void_reason" : {
+                "description" : "A human-readable reason for this transaction to be voided, if any",
+                "type" : "string"
+              },
+              "client_receipt_id" : {
+                "description" : "Client-defined unique identifier used to track related system actions\n",
+                "type" : "string",
+                "maxLength" : 50
+              },
+              "transaction_comments" : {
+                "description" : "Client-defined comments on this transaction",
+                "type" : "string"
+              },
+              "transaction_source_id" : {
+                "description" : "A code defining the originating source of the transaction, such as a write-off number, payment ID, etc.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "transaction_ref_code" : {
+                "description" : "External reference code for this transaction, such as a check number or external reference code",
+                "type" : "string"
+              },
+              "credit_reason_code_description" : {
+                "description" : "The reason for the credit this transaction represents",
+                "type" : "string"
+              },
+              "csr_comments" : {
+                "description" : "CSR-generated comments for this transaction line, if any",
+                "type" : "string"
+              },
+              "seq_statement_id" : {
+                "description" : "The unique sequential statement number.",
+                "type" : "string"
+              },
+              "invoice_no" : {
+                "description" : "The Aria-assigned unique identifier of a given invoice.",
+                "type" : "integer",
+                "format" : "int64"
+              }
+            }
+          },
+        "AccountContact" : {
+            "type" : "object",
+            "description" : "Account contact",
+            "properties" : {
+              "contact_no" : {
+                "description" : "The Aria-assigned unique identifier for the contact.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "first_name" : {
+                "description" : "First name of the account contact",
+                "type" : "string"
+              },
+              "middle_initial" : {
+                "description" : "Middle initial of the account contact",
+                "type" : "string"
+              },
+              "last_name" : {
+                "description" : "Last name of the account contact",
+                "type" : "string"
+              },
+              "company_name" : {
+                "description" : "Company name of the account contact",
+                "type" : "string"
+              },
+              "address1" : {
+                "description" : "First address line of the contact.",
+                "type" : "string"
+              },
+              "address2" : {
+                "description" : "Second address line of the contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                "type" : "string"
+              },
+              "address3" : {
+                "description" : "The third line of the address",
+                "type" : "string"
+              },
+              "city" : {
+                "description" : "City of the account contact",
+                "type" : "string"
+              },
+              "locality" : {
+                "description" : "Use this field instead of the state_prov field to designate the state, province or other local designation as appropriate for addresses in all countries other than the United States, Australia, and Canada. This field is ignored for all United States, Australia and Canada addresses.\n",
+                "type" : "string"
+              },
+              "state_prov" : {
+                "description" : "State or Province of the contact. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                "type" : "string"
+              },
+              "country_cd" : {
+                "description" : "Country of the account contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                "type" : "string"
+              },
+              "postal_cd" : {
+                "description" : "Postal code of the account contact",
+                "type" : "string"
+              },
+              "phone" : {
+                "description" : "Phone number of the account contact",
+                "type" : "string"
+              },
+              "phone_ext" : {
+                "description" : "Phone extension of the account contact",
+                "type" : "string"
+              },
+              "cell_phone" : {
+                "description" : "Cell phone number of the account contact",
+                "type" : "string"
+              },
+              "work_phone" : {
+                "description" : "Work phone number of the account contact",
+                "type" : "string"
+              },
+              "work_phone_ext" : {
+                "description" : "Work phone extension of the account contact",
+                "type" : "string"
+              },
+              "fax" : {
+                "description" : "Fax phone number of the account contact",
+                "type" : "string"
+              },
+              "email" : {
+                "description" : "Email of the account contact",
+                "type" : "string"
+              },
+              "birthdate" : {
+                "description" : "Birthdate of the contact in yyyy-mm-dd format.",
+                "type" : "string"
+              },
+              "address_match_score" : {
+                "description" : "Match score for the account contact address",
+                "type" : "number"
+              },
+              "address_verification_cd_2" : {
+                "description" : "Verification code for the account contact address",
+                "type" : "string"
+              }
+            }
+          },  
+        "BillingContact" : {
+            "type" : "object",
+            "description" : "Array of billing contacts",
+            "properties" : {
+              "bill_contact_no" : {
+                "description" : "The Aria-assigned unique identifier for the contact on this account to be used as the billing contact for the payment method. If bill_contact_no is included in the API request, all other billing contact parameters are ignored.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "bill_first_name" : {
+                "description" : "First name of the billing contact.",
+                "type" : "string"
+              },
+              "bill_middle_initial" : {
+                "description" : "Middle initial of the billing contact.",
+                "type" : "string"
+              },
+              "bill_last_name" : {
+                "description" : "Last name of the billing contact.",
+                "type" : "string"
+              },
+              "bill_company_name" : {
+                "description" : "Company name of the billing contact.",
+                "type" : "string"
+              },
+              "bill_address1" : {
+                "description" : "First address line of the billing contact.",
+                "type" : "string"
+              },
+              "bill_address2" : {
+                "description" : "Second address line of the billing contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                "type" : "string"
+              },
+              "bill_address3" : {
+                "description" : "The third line of the billing address.",
+                "type" : "string"
+              },
+              "bill_city" : {
+                "description" : "City of the billing contact.",
+                "type" : "string"
+              },
+              "bill_locality" : {
+                "description" : "Use this field instead of the state_prov field to designate the state, province or other local designation as appropriate for addresses in all countries other than the United States, Australia, and Canada. This field is ignored for all United States, Australia and Canada addresses.\n",
+                "type" : "string"
+              },
+              "bill_state_prov" : {
+                "description" : "State or Province of the billing contact. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                "type" : "string"
+              },
+              "bill_country" : {
+                "description" : "Country of the billing contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                "type" : "string"
+              },
+              "bill_postal_cd" : {
+                "description" : "Postal code for the billing contact.",
+                "type" : "string"
+              },
+              "bill_phone" : {
+                "description" : "Phone number of the billing contact.",
+                "type" : "string"
+              },
+              "bill_phone_ext" : {
+                "description" : "Phone extension of the billing contact.",
+                "type" : "string"
+              },
+              "bill_cell_phone" : {
+                "description" : "Cell phone number of the billing contact.",
+                "type" : "string"
+              },
+              "bill_work_phone" : {
+                "description" : "Work phone number of the billing contact.",
+                "type" : "string"
+              },
+              "bill_work_phone_ext" : {
+                "description" : "Work phone extension of the billing contact",
+                "type" : "string"
+              },
+              "bill_fax" : {
+                "description" : "Fax number of the billing contact.",
+                "type" : "string"
+              },
+              "bill_email" : {
+                "description" : "Email of the billing contact.",
+                "type" : "string"
+              },
+              "bill_birthdate" : {
+                "description" : "Birthdate of the billing contact.\n",
+                "type" : "string"
+              },
+              "bill_address_match_score" : {
+                "description" : "Match score for the billing contact address",
+                "type" : "number"
+              },
+              "bill_billing_group_no" : {
+                "description" : "System-defined billing group number for the billing contact",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "bill_client_billing_group_id" : {
+                "description" : "Client-defined billing group identifier for the billing contact",
+                "type" : "string"
+              },
+              "bill_address_verification_cd_2" : {
+                "description" : "Verification code for the billing contact address",
+                "type" : "string"
+              }
+            }
+          },
+        "StatementContact" : {
+            "type" : "object",
+            "description" : "Array of statement contacts",
+            "properties" : {
+              "stat_contact_no" : {
+                "description" : "The Aria-assigned unique identifier for the contact.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "stat_first_name" : {
+                "description" : "First name of the statement contact",
+                "type" : "string"
+              },
+              "stat_middle_initial" : {
+                "description" : "Middle initial of the statement contact",
+                "type" : "string"
+              },
+              "stat_last_name" : {
+                "description" : "Last name of the statement contact",
+                "type" : "string"
+              },
+              "stat_company_name" : {
+                "description" : "Company name of the statement contact",
+                "type" : "string"
+              },
+              "stat_address1" : {
+                "description" : "First address line of the statement contact",
+                "type" : "string"
+              },
+              "stat_address2" : {
+                "description" : "Second address line of the statement contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                "type" : "string"
+              },
+              "stat_address3" : {
+                "description" : "Third address line of the statement contact",
+                "type" : "string"
+              },
+              "stat_city" : {
+                "description" : "City of the statement contact",
+                "type" : "string"
+              },
+              "stat_locality" : {
+                "description" : "Locality of the statement contact",
+                "type" : "string"
+              },
+              "stat_state_prov" : {
+                "description" : "State or Province of the billing contact. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                "type" : "string"
+              },
+              "stat_country" : {
+                "description" : "Country of the statement contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                "type" : "string"
+              },
+              "stat_postal_cd" : {
+                "description" : "Postal code of the statement contact",
+                "type" : "string"
+              },
+              "stat_phone" : {
+                "description" : "Phone number of the statement contact",
+                "type" : "string"
+              },
+              "stat_phone_ext" : {
+                "description" : "Phone extension of the statement contact",
+                "type" : "string"
+              },
+              "stat_cell_phone" : {
+                "description" : "Cell phone number of the statement contact",
+                "type" : "string"
+              },
+              "stat_work_phone" : {
+                "description" : "Work phone number of the statement contact",
+                "type" : "string"
+              },
+              "stat_work_phone_ext" : {
+                "description" : "Work phone extension of the statement contact",
+                "type" : "string"
+              },
+              "stat_fax" : {
+                "description" : "Fax phone number of the statement contact",
+                "type" : "string"
+              },
+              "stat_email" : {
+                "description" : "Email of the statement contact",
+                "type" : "string"
+              },
+              "stat_birthdate" : {
+                "description" : "Date of birth of the statement contact",
+                "type" : "string"
+              },
+              "stat_address_match_score" : {
+                "description" : "Match score for the statement contact address",
+                "type" : "number"
+              },
+              "stat_billing_group_no" : {
+                "description" : "System-defined billing group number for the statement contact",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "stat_client_billing_group_id" : {
+                "description" : "Client-defined billing group identifier for the statement contact",
+                "type" : "string"
+              },
+              "stat_address_verification_cd_2" : {
+                "description" : "Verification code for the statement contact address",
+                "type" : "string"
+              }
+            }
+          },
+        "OtherContact" : {
+            "type" : "object",
+            "description" : "List of contacts saved on the account not currently used as an account contact, billing contact, or statement contact.",
+            "properties" : {
+              "other_contact_no" : {
+                "description" : "The Aria-assigned unique identifier for the contact.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "other_first_name" : {
+                "description" : "The first name of the contact.",
+                "type" : "string"
+              },
+              "other_middle_initial" : {
+                "description" : "The middle initial of the contact.",
+                "type" : "string"
+              },
+              "other_last_name" : {
+                "description" : "The last name of the contact.",
+                "type" : "string"
+              },
+              "other_company_name" : {
+                "description" : "The company name of the contact.",
+                "type" : "string"
+              },
+              "other_address1" : {
+                "description" : "The first address line of the contact.",
+                "type" : "string"
+              },
+              "other_address2" : {
+                "description" : "Second address line of the contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                "type" : "string"
+              },
+              "other_address3" : {
+                "description" : "The third address line of the contact.",
+                "type" : "string"
+              },
+              "other_city" : {
+                "description" : "The city of the contact.",
+                "type" : "string"
+              },
+              "other_locality" : {
+                "description" : "The locality of the contact.",
+                "type" : "string"
+              },
+              "other_state_prov" : {
+                "description" : "The state or province of the contact. Note that only the official postal-service codes or states, provinces, and   territories in the United States, Australia and Canada are supported. Use the other_locality field for states, provinces, or territories in other countries.\n",
+                "type" : "string"
+              },
+              "other_country_cd" : {
+                "description" : "The country of the contact. Provide the ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                "type" : "string"
+              },
+              "other_postal_cd" : {
+                "description" : "The postal/zip code of the contact.",
+                "type" : "string"
+              },
+              "other_phone" : {
+                "description" : "The phone number of the contact.",
+                "type" : "string"
+              },
+              "other_phone_ext" : {
+                "description" : "The phone number extension of the contact.",
+                "type" : "string"
+              },
+              "other_cell_phone" : {
+                "description" : "The cell phone number of the contact.",
+                "type" : "string"
+              },
+              "other_work_phone" : {
+                "description" : "The work phone number of the contact.",
+                "type" : "string"
+              },
+              "other_work_phone_ext" : {
+                "description" : "The work phone number extension of the contact.",
+                "type" : "string"
+              },
+              "other_fax" : {
+                "description" : "The fax number of the contact.",
+                "type" : "string"
+              },
+              "other_email" : {
+                "description" : "The email address of the contact.",
+                "type" : "string"
+              },
+              "other_birthdate" : {
+                "description" : "The birthdate of the contact.",
+                "type" : "string"
+              },
+              "other_address_match_score" : {
+                "description" : "Match score for the contact address.",
+                "type" : "number"
+              },
+              "other_address_verification_cd_2" : {
+                "description" : "Verification code for the contact address.",
+                "type" : "string"
+              }
+            }
+          },
+        "BackupContact" : {
+            "type" : "object",
+            "description" : "Array of backup contacts",
+            "properties" : {
+              "bkup_contact_no" : {
+                "description" : "The Aria-assigned unique identifier for the contact.",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "bkup_first_name" : {
+                "description" : "First name of the backup contact",
+                "type" : "string"
+              },
+              "bkup_middle_initial" : {
+                "description" : "Middle initial of the backup contact",
+                "type" : "string"
+              },
+              "bkup_last_name" : {
+                "description" : "Last name of the backup contact",
+                "type" : "string"
+              },
+              "bkup_company_name" : {
+                "description" : "Company name of the backup contact",
+                "type" : "string"
+              },
+              "bkup_address1" : {
+                "description" : "First address line of the backup contact",
+                "type" : "string"
+              },
+              "bkup_address2" : {
+                "description" : "Second address line of the backup contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                "type" : "string"
+              },
+              "bkup_address3" : {
+                "description" : "Third address line of the backup contact",
+                "type" : "string"
+              },
+              "bkup_city" : {
+                "description" : "City of the backup contact",
+                "type" : "string"
+              },
+              "bkup_locality" : {
+                "description" : "Locality of the backup contact",
+                "type" : "string"
+              },
+              "bkup_state_prov" : {
+                "description" : "State or Province of the billing contact. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                "type" : "string"
+              },
+              "bkup_country" : {
+                "description" : "Country of the backup contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                "type" : "string"
+              },
+              "bkup_postal_cd" : {
+                "description" : "Postal code of the backup contact",
+                "type" : "string"
+              },
+              "bkup_phone" : {
+                "description" : "Phone number of the backup contact",
+                "type" : "string"
+              },
+              "bkup_phone_ext" : {
+                "description" : "Phone extension of the backup contact",
+                "type" : "string"
+              },
+              "bkup_cell_phone" : {
+                "description" : "Cell phone number of the backup contact",
+                "type" : "string"
+              },
+              "bkup_work_phone" : {
+                "description" : "Work phone number of the backup contact",
+                "type" : "string"
+              },
+              "bkup_work_phone_ext" : {
+                "description" : "Work phone extension of the backup contact",
+                "type" : "string"
+              },
+              "bkup_fax" : {
+                "description" : "Fax phone number of the backup contact",
+                "type" : "string"
+              },
+              "bkup_email" : {
+                "description" : "Email of the backup contact",
+                "type" : "string"
+              },
+              "bkup_birthdate" : {
+                "description" : "Date of birth of the backup contact",
+                "type" : "string"
+              },
+              "bkup_address_match_score" : {
+                "description" : "Match score for the backup contact address",
+                "type" : "number"
+              },
+              "bkup_billing_group_no" : {
+                "description" : "System-defined billing group number for the backup contact",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "bkup_client_billing_group_id" : {
+                "description" : "Client-defined billing group identifier for the backup contact",
+                "type" : "string"
+              },
+              "bkup_address_verification_cd_2" : {
+                "description" : "Verification code for the backup contact address",
+                "type" : "string"
+              }
+            }
+          },
+        "AccountPaymentMethod": {
+            "type": "object",
+            "properties": {
+                "bill_first_name": {
+                    "description": "First name of the billing contact.",
+                    "type": "string"
+                },
+                "bill_middle_initial": {
+                    "description": "Middle initial of the billing contact.",
+                    "type": "string"
+                },
+                "bill_last_name": {
+                    "description": "Last name of the billing contact.",
+                    "type": "string"
+                },
+                "bill_company_name": {
+                    "description": "Company name of the billing contact.",
+                    "type": "string"
+                },
+                "bill_address1": {
+                    "description": "First address line of the billing contact.",
+                    "type": "string"
+                },
+                "bill_address2": {
+                    "description": "Second address line of the billing contact. If you want to delete existing data in this field, leaving it blank, you must enter a '~' in this field.\n",
+                    "type": "string"
+                },
+                "bill_address3": {
+                    "description": "The third line of the billing address.",
+                    "type": "string"
+                },
+                "bill_city": {
+                    "description": "City of the billing contact.",
+                    "type": "string"
+                },
+                "bill_locality": {
+                    "description": "Use this field instead of the state_prov field to designate the state, province or other local designation as appropriate for addresses in all countries other than the United States, Australia, and Canada. This field is ignored for all United States, Australia and Canada addresses.\n",
+                    "type": "string"
+                },
+                "bill_state_prov": {
+                    "description": "State or Province of the billing contact. The official postal-service codes for all United States, Australia and Canada states, provinces, and territories. This field does not support states, provinces or territories from other countries. Use the locality field for other countries.\n",
+                    "type": "string"
+                },
+                "bill_country": {
+                    "description": "Country of the billing contact. The ISO-compliant 2-character country code abbreviation in uppercase.\n",
+                    "type": "string"
+                },
+                "bill_postal_cd": {
+                    "description": "Postal code for the billing contact.",
+                    "type": "string"
+                },
+                "bill_address_verification_code": {
+                    "description": "Billing address verification code for the billing contact address.",
+                    "type": "string"
+                },
+                "bill_address_match_score": {
+                    "description": "Billing address match score for the billing contact address.",
+                    "type": "number"
+                },
+                "bill_phone": {
+                    "description": "Phone number of the billing contact.",
+                    "type": "string"
+                },
+                "bill_phone_ext": {
+                    "description": "Phone extension of the billing contact.",
+                    "type": "string"
+                },
+                "bill_cell_phone": {
+                    "description": "Cell phone number of the billing contact.",
+                    "type": "string"
+                },
+                "bill_work_phone": {
+                    "description": "Work phone number of the billing contact.",
+                    "type": "string"
+                },
+                "bill_work_phone_ext": {
+                    "description": "This is the work phone extension for the billing contact work phone.\n",
+                    "type": "string"
+                },
+                "bill_fax": {
+                    "description": "Fax number of the billing contact.",
+                    "type": "string"
+                },
+                "bill_email": {
+                    "description": "Email of the billing contact.",
+                    "type": "string"
+                },
+                "bill_birthdate": {
+                    "description": "Birthdate of the billing contact.\n",
+                    "type": "string"
+                },
+                "pay_method_name": {
+                    "description": "The name of this payment method",
+                    "type": "string"
+                },
+                "client_payment_method_id": {
+                    "description": "The method ID for the payment method.",
+                    "type": "string"
+                },
+                "pay_method_description": {
+                    "description": "Description for the pay method.",
+                    "type": "string"
+                },
+                "pay_method_type": {
+                    "description": "This is the method_id corresponding to a payment method such as credit card, Electronic Check, Pre-Paid, Net Terms, etc. nullable: true default: -1\n",
+                    "type": "integer"
+                },
+                "suffix": {
+                    "description": "The last 4 digits of the account number",
+                    "type": "string"
+                },
+                "cc_expire_mm": {
+                    "description": "Expiration month for the credit card payment instrument.\n",
+                    "type": "integer"
+                },
+                "cc_expire_yyyy": {
+                    "description": "Expiration year for the credit card payment instrument.\n",
+                    "type": "integer"
+                },
+                "cc_type": {
+                    "description": "The type of credit card used for the original payment.",
+                    "type": "string"
+                },
+                "bank_routing_num": {
+                    "description": "The American Banking Association (ABA) routing number for the financial institution.\n",
+                    "type": "string"
+                },
+                "bill_agreement_id": {
+                    "description": "Unique ID of the bill agreement (also referred to as a token).\n",
+                    "type": "string"
+                },
+                "bank_swift_cd": {
+                    "description": "SWIFT code is a standard format of Bank Identifier Codes (BIC). It is used for the Direct Debit payment method. It consists of 8 or 11 alphanumeric characters. Only hyphen and space are allowed to format the SWIFT code. It is required for IBAN.\n",
+                    "type": "string"
+                },
+                "bank_country_cd": {
+                    "description": "Country of the bank. The ISO-compliant 2-character country code abbreviation in uppercase. Used for the Direct Debit payment method. It is required for IBAN and BBAN.\n",
+                    "type": "string"
+                },
+                "mandate_id": {
+                    "description": "Used for the Direct Debit payment method. A mandate is signed by the debtor to authorize the creditor to collect a payment and to instruct the bank of the debtor to pay those collections.\n",
+                    "type": "string"
+                },
+                "bank_id_cd": {
+                    "description": "Up to 10 digit numeric bank identifier code. Used for the Direct Debit payment method. Used in Europe.  Only hyphen and space are allowed to format the bank ID code. It is required for BBAN.\n",
+                    "type": "string"
+                },
+                "bank_branch_cd": {
+                    "description": "Up to 10 digit numeric bank branch code. Used for the Direct Debit payment method. Used in Europe.  Only hyphen and space are allowed to format the bank branch code.\n",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The staus is \"1\", the payment method is enabled for the account, if the status is as \"0\" the payment method is disabled for this account.\n",
+                    "type": "integer"
+                },
+                "payment_method_no": {
+                    "description": "Aria-assigned sequence number for this payment method.",
+                    "type": "integer"
+                },
+                "persistent_ind": {
+                    "description": "If true, this payment method persists on the account. Otherwise it was  used for a one-time payment.",
+                    "type": "integer"
+                },
+                "from_date": {
+                    "description": "The beginning effective date with time for this payment method on this account.",
+                    "type": "string"
+                },
+                "to_date": {
+                    "description": "The ending effective date with time for this payment method on this account.  If none, this is the current form of payment.",
+                    "type": "string"
+                },
+                "bill_info_api_receipt_id": {
+                    "description": "The receipt ID used in the initial API call which created this billing info record.",
+                    "type": "string"
+                },
+                "proc_card_available_balance": {
+                    "description": "Additional information passed back from processor for available balance on prepaid, gift card, and in some cases credit cards, if available.",
+                    "type": "number"
+                },
+                "proc_prepaid_ind": {
+                    "description": "Additional information passed back from processor identifying this card as a prepaid card (if available).",
+                    "type": "string"
+                },
+                "proc_prepaid_reloadable": {
+                    "description": "Additional information passed back from processor identifying whether prepaid card is reloadable (if available).",
+                    "type": "string"
+                },
+                "proc_prepaid_card_type": {
+                    "description": "Additional information passed back from processor to categorize the type of prepaid card (if available).",
+                    "type": "string"
+                },
+                "proc_affluence_type": {
+                    "description": "Additional information passed back from processor indicating if card is affluent.",
+                    "type": "string"
+                },
+                "proc_issuing_country": {
+                    "description": "Additional information passed back from processor indicating issuing country for the card.",
+                    "type": "string"
+                },
+                "proc_card_product_type": {
+                    "description": "Additional information passed back from processor indicating whether the submitted card is a commercial or consumer card, providing you with additional data useful when analyzing sales patterns and/or planning marketing campaigns.",
+                    "type": "string"
+                },
+                "proc_signature_debit_ind": {
+                    "description": "Additional information passed back from processor identifying this card as a signature debit card.",
+                    "type": "string"
+                },
+                "proc_pinless_debit_ind": {
+                    "description": "Additional information passed back from processor identifying this card as PINless debit eligible.",
+                    "type": "string"
+                },
+                "proc_durbin_regulated_ind": {
+                    "description": "Additional information passed back from processor identifying this card as Durbin Regulated.",
+                    "type": "string"
+                }
+            }
+        },
+        "AccountPaymentTerm" : {
+            "type" : "object",
+            "description" : "An Array of account payment terms.",
+            "properties" : {
+              "payment_terms_type" : {
+                "description" : "Payment Terms Type from Payment Terms configuration. Can be Net Terms or EAN/GLN.",
+                "type" : "string"
+              },
+              "client_payment_term_id" : {
+                "description" : "Client Payment Term ID from Payment Terms configuration.\n",
+                "type" : "string"
+              },
+              "payment_terms_name" : {
+                "description" : "Payment Terms Name from Payment Terms configuration.\n",
+                "type" : "string"
+              },
+              "payment_terms_no" : {
+                "description" : "Payment Terms Number from Payment Terms configuration.\n",
+                "type" : "integer",
+                "format" : "int64"
+              },
+              "ean_gln_num" : {
+                "description" : "'EAN or GLN Number from billing group that is only applicable if payment_option=\"Terms\" and pmt_terms_type=\"EAN/GLN\"'\n",
+                "type" : "string"
+              },
+              "ean_gln_requisition_num" : {
+                "description" : "'EAN or GLN Requisition Number from billing group that is only applicable if payment_option=\"Terms\" and pmt_terms_type=\"EAN/GLN\"'\n",
+                "type" : "string"
+              }
+            }
+          },
+          "AcctComment" : {
+            "type" : "object",
+            "description" : "",
+            "properties" : {
+              "comment_author" : {
+                "description" : "User/Author of the comment.",
+                "type" : "string"
+              },
+              "comment_date_time" : {
+                "description" : "Time/date stamp the comment was created",
+                "type" : "string"
+              },
+              "comment" : {
+                "description" : "The body of the comment.",
+                "type" : "string"
+              },
+              "application_id" : {
+                "description" : "The application identifier in which the API/UI is being used.(Example: Sales Force).",
+                "type" : "string",
+                "maxLength" : 300
+              },
+              "application_date" : {
+                "description" : "The application date/timestamp, when the application is called from UI/API.",
+                "type" : "string",
+                "maxLength" : 300
+              },
+              "comment_no" : {
+                "description" : "This provides a unique identifier per comment to identify possible duplicate entries.",
+                "type" : "number"
+              }
+            }
+          }
+    }
+}

@@ -1,0 +1,209 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campRetrieveOfferDetailResponse",
+	"description": "API used to retrieve offers, based on the criteria provided. This API returns all details on an offer, including translations and information on campaigns on which it is linked. ",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campRetrieveOfferDetailResponseList": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/campRetrieveOfferDetailResponseList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveOfferDetailResponseList": {
+			"type": "object",
+			"properties": {
+				"campRetrieveOfferDetailInfo": {
+					"$ref": "#/definitions/campRetrieveOfferDetailInfo"
+				}
+			},
+			"required": [
+				"campRetrieveOfferDetailInfo"
+			]
+		},
+		"campRetrieveOfferDetailInfo": {
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				},
+				"offerName": {
+					"type": "string"
+				},
+				"offerNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offerDesc": {
+					"type": "string"
+				},
+				"offerDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offerType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER"
+					]
+				},
+				"offerStatus": {
+					"type": "string",
+					"enum": [
+						"DEFINITION",
+						"ACTIVE",
+						"DEPRECATED"
+					]
+				},
+				"initialTitleCode": {
+					"type": "string"
+				},
+				"initialAriaPlanID": {
+					"type": "string"
+				},
+				"initialAriaRateScheduleID": {
+					"type": "string"
+				},
+				"campRetrieveOfferDetailActionInfo": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campRetrieveOfferDetailActionInfo"
+					}
+				},
+				"campRetrieveOfferDetailCampaign": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/campRetrieveOfferDetailCampaign"
+					}
+				}
+			},
+			"required": [
+				"offerID",
+				"offerName",
+				"offerNameTranslations",
+				"offerDesc",
+				"offerDescTranslations",
+				"offerType",
+				"offerStatus",
+				"campRetrieveOfferDetailActionInfo"
+				"initialTitleCode",
+				"initialAriaPlanID",
+				"initialAriaRateScheduleID"
+			]
+		},
+		"campRetrieveOfferDetailActionInfo": {
+			"type": "object",
+			"properties": {
+				"offerActionNo": {
+					"type": "integer"
+				},
+				"offerActionType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER",
+						"CONTINUE",
+						"TERMINATE"
+					]
+				},
+				"offerActionDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"offerActionDuration": {
+					"type": "integer"
+				},
+				"offerActionEndDate": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offerActionType",
+				"offerActionDurationUnit",
+				"titleCode",
+				"ariaPlanID",
+				"ariaRateScheduleID"
+			]
+		},
+		"campRetrieveOfferDetailCampaign": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

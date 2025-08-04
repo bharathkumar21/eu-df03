@@ -1,0 +1,78 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsCheckRestrictionResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"subsCheckRestrictionErrors": {"title": "subsCheckRestrictionErrors","type": "array","minItems": 0,"items": {"$ref": "#/definitions/subsCheckRestrictionErrors"}},
+		"subsCheckRestrictionAddCharge": {"title": "subsCheckRestrictionAddCharge","type": "array","minItems": 0,"items": {"$ref": "#/definitions/subsCheckRestrictionAddCharge"}}
+	},
+	"required": ["resultInfo", "subsCheckRestrictionErrors", "subsCheckRestrictionAddCharge"],
+	"additionalProperties": false,
+	
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "integer"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+
+		"subsCheckRestrictionCharges": {"type": "object",
+			"properties": {
+				"costExclVAT": {"type": "number"},
+				"costVAT": {"type": "number"},
+				"costInclVAT": {"type": "number"},
+				"discountedCostExclVAT": {"type": "number"},
+				"discountedCostVAT": {"type": "number"},
+				"discountedCostInclVAT": {"type": "number"}
+			},
+			"required": ["costExclVAT", "costVAT", "costInclVAT", "discountedCostExclVAT", "discountedCostVAT", "discountedCostInclVAT"],
+			"additionalProperties": false
+		},
+		"subsCheckRestrictionAddCharge": {"type": "object",
+			"properties": {
+				"ariaScheduleID": {"type": "string"},
+				"ariaScheduleNo": {"type": "integer"},
+				"scheduleNameTranslations": {"title": "scheduleNameTranslations", "type": "object", "$ref": "#/definitions/solmTranslationGroup"},
+				"currencyCode": {"type": "string"},
+				"billingFreqRecurring": {"type": "integer"},
+				"billingFreqUsage": {"type": "integer"},
+				"subscriptionCharges": {"title": "subscriptionCharges", "type": "object", "$ref": "#/definitions/subsCheckRestrictionCharges"},
+				"deliveryCharges": {"title": "deliveryCharges", "type": "object", "$ref": "#/definitions/subsCheckRestrictionCharges"},
+				"otherCharges": {"title": "otherCharges", "type": "object", "$ref": "#/definitions/subsCheckRestrictionCharges"},
+				"totalCharges": {"title": "totalCharges", "type": "object", "$ref": "#/definitions/subsCheckRestrictionCharges"}
+			},
+			"required": ["ariaScheduleID", "ariaScheduleNo", "scheduleNameTranslations", "currencyCode", "billingFreqRecurring", "billingFreqUsage", "subscriptionCharges", "deliveryCharges", "otherCharges", "totalCharges"],
+			"additionalProperties": false
+		},
+
+		"subsCheckRestrictionErrors": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode", "resultText"],
+			"additionalProperties": false
+		}
+	}
+}

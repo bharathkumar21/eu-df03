@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "AcctRetrieveCommentResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"acctRetrieveCommentsList": {"title": "acctRetrieveCommentsList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/acctRetrieveCommentsInfo"}}
+	},
+	 "required": ["resultInfo", "acctRetrieveCommentsList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"acctRetrieveCommentsInfo": {"type": "object",
+			"properties": {
+				"acctCommentAuthor": {"type": "string"},
+				"acctCommentDateTime": {"type": "string"},
+				"acctCommentText": {"type": "string"},
+				"acctApplicationID": {"type": "string"},
+				"acctApplicationDateTime": {"type": "string"},
+				"acctCommentNo": {"type": "integer"}
+			},
+			"required": ["acctCommentAuthor", "acctCommentDateTime", "acctCommentText", "acctApplicationID", "acctApplicationDateTime", "acctCommentNo"], 
+			"additionalProperties": false
+		}
+	}
+}

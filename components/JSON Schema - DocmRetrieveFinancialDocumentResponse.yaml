@@ -1,0 +1,978 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "DocmRetrieveFinancialDocumentResponse",
+  "type": "object",
+  "properties": {
+    "resultInfo": {
+      "type": "object",
+      "$ref": "#/definitions/resultInfo"
+    },
+    "docmRetrieveFinancialDocumentList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/docmRetrieveFinancialDocumentList"
+      }
+    }
+  },
+  "required": [
+    "resultInfo",
+    "docmRetrieveFinancialDocumentList"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "resultInfo": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "integer"
+        },
+        "resultText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "resultCode",
+        "resultText"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentList": {
+      "type": "object",
+      "properties": {
+        "documentType": {
+          "type": "string",
+          "enum": [
+            "INVOICE",
+            "CREDITNOTE"
+          ]
+        },
+        "documentDate": {
+          "type": "string"
+        },
+        "ariaTransNo": {
+          "type": "integer"
+        },
+        "docmRetrieveFinancialDocumentInvoice": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentInvoice"
+        },
+        "docmRetrieveFinancialDocumentCreditnote": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentCreditnote"
+        }
+      },
+      "required": [
+        "documentType",
+        "documentDate",
+        "transID"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentBillingGroup": {
+      "type": "object",
+      "properties": {
+        "paymentOption": {
+          "type": "string"
+        },
+        "paymentOptionName": {
+          "type": "string"
+        },
+        "paymentOptionVariant": {
+          "type": "string"
+        },
+        "paymentOptionVariantName": {
+          "type": "string"
+        },
+        "titleCode": {
+          "type": "string"
+        },
+        "deliveryOption": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "paymentOption",
+        "paymentOptionName",
+        "paymentOptionVariant",
+        "paymentOptionVariantName",
+        "titleCode",
+        "deliveryOption"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentInvoice": {
+      "type": "object",
+      "properties": {
+        "ariaInvoiceNo": {
+          "type": "integer"
+        },
+        "ariaBillingGroupNo": {
+          "type": "integer"
+        },
+        "ariaBillingGroupID": {
+          "type": "string"
+        },
+        "ariaStatementNo": {
+          "type": "integer"
+        },
+        "ariaStatementSeqStr1": {
+          "type": "string"
+        },
+        "ariaStatementSeqStr2": {
+          "type": "string"
+        },
+        "customerInvRef": {
+          "type": "string"
+        },
+        "invoiceType": {
+          "type": "string",
+          "enum": [
+            "RECURRING",
+            "PRORATED",
+            "CAMPAIGN",
+            "FINAL"
+          ]
+        },
+        "invoiceDate": {
+          "type": "string"
+        },
+        "invoiceDueDate": {
+          "type": "string"
+        },
+        "invoiceStatus": {
+          "type": "string",
+          "enum": [
+            "PAID",
+            "PARTIAL",
+            "UNPAID",
+            "VOIDED/REMOVED",
+            "MIGRATED"
+          ]
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "amountDue": {
+          "type": "number"
+        },
+        "overallRecurringFromDate": {
+          "type": "string"
+        },
+        "overallRecurringToDate": {
+          "type": "string"
+        },
+        "overallUsageFromDate": {
+          "type": "string"
+        },
+        "overallUsageToDate": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "customStatusLabel": {
+          "type": "string"
+        },
+        "customStatusLabelDesc": {
+          "type": "string"
+        },
+        "clientInvoiceNotes": {
+          "type": "string"
+        },
+        "docmRetrieveFinancialDocumentBillingGroup": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentBillingGroup"
+        },
+        "docmRetrieveFinancialDocumentRef": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentRef"
+          }
+        },
+        "docmRetrieveFinancialDocumentSubscription": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentSubscription"
+          }
+        },
+        "docmRetrieveFinancialDocumentInvoiceItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentInvoiceItem"
+          }
+        },
+        "docmRetrieveFinancialDocumentTax": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentTax"
+          }
+        }
+      },
+      "required": [
+        "ariaInvoiceNo",
+        "ariaBillingGroupNo",
+        "ariaBillingGroupID",
+        "ariaStatementNo",
+        "customerInvRef",
+        "invoiceDate",
+        "invoiceDueDate",
+        "invoiceStatus",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT",
+        "amountDue",
+        "overallRecurringFromDate",
+        "overallRecurringToDate",
+        "overallUsageFromDate",
+        "overallUsageToDate",
+        "currencyCode",
+        "docmRetrieveFinancialDocumentBillingGroup"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentCreditnote": {
+      "type": "object",
+      "properties": {
+        "ariaCreditnoteNo": {
+          "type": "integer"
+        },
+        "ariaCreditnoteID": {
+          "type": "string"
+        },
+        "creditnoteDate": {
+          "type": "string"
+        },
+        "creditnoteStatus": {
+          "type": "string",
+          "enum": [
+            "RAISED",
+            "COMPLETE",
+            "FAILED"
+          ]
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedDate": {
+          "type": "string"
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "creditCustomerComments": {
+          "type": "string"
+        },
+        "creditComments": {
+          "type": "string"
+        },
+        "reasonCode": {
+          "type": "integer"
+        },
+        "creditNoteType": {
+          "type": "string",
+          "enum": [
+            "INVOICE",
+            "GENERAL",
+            "PRICE-CHANGE",
+            "CANCELLATION"
+          ]
+        },
+        "docmRetrieveFinancialDocumentRef": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentRef"
+          }
+        },
+        "docmRetrieveFinancialDocumentSubscription": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentSubscription"
+          }
+        },
+        "docmRetrieveFinancialDocumentCreditnoteItem": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentCreditnoteItem"
+          }
+        },
+        "docmRetrieveFinancialDocumentTax": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/docmRetrieveFinancialDocumentTax"
+          }
+        }
+      },
+      "required": [
+        "ariaCreditnoteNo",
+        "ariaCreditnoteID",
+        "creditnoteDate",
+        "creditnoteStatus",
+        "createdDate",
+        "createdBy",
+        "updatedDate",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT",
+        "reasonCode",
+        "creditNoteType"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentRef": {
+      "type": "object",
+      "properties": {
+        "refTransType": {
+          "type": "string",
+          "enum": [
+            "INVOICE",
+            "CREDITNOTE",
+            "CASHCREDIT",
+            "PAYMENT"
+          ]
+        },
+        "refTransDate": {
+          "type": "string"
+        },
+        "refTransUpdateDate": {
+          "type": "string"
+        },
+        "refTransID": {
+          "type": "string"
+        },
+        "refTimingCode": {
+          "type": "string"
+        },
+        "refTransAmount": {
+          "type": "number"
+        },
+        "docmRetrieveFinancialDocumentRefInvoice": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentRefInvoice"
+        },
+        "docmRetrieveFinancialDocumentRefCreditnote": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentRefCreditnote"
+        },
+        "docmRetrieveFinancialDocumentRefCashCredit": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentRefCashCredit"
+        },
+        "docmRetrieveFinancialDocumentRefPayment": {
+          "type": "object",
+          "$ref": "#/definitions/docmRetrieveFinancialDocumentRefPayment"
+        }
+      },
+      "required": [
+        "refTransType",
+        "refTransDate",
+        "refTransUpdateDate",
+        "refTransID",
+        "refTransAmount"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentRefInvoice": {
+      "type": "object",
+      "properties": {
+        "ariaInvoiceNo": {
+          "type": "integer"
+        },
+        "ariaBillingGroupNo": {
+          "type": "integer"
+        },
+        "ariaBillingGroupID": {
+          "type": "string"
+        },
+        "ariaStatementNo": {
+          "type": "integer"
+        },
+        "customerInvRef": {
+          "type": "string"
+        },
+        "invoiceDate": {
+          "type": "string"
+        },
+        "invoiceDueDate": {
+          "type": "string"
+        },
+        "invoiceStatus": {
+          "type": "string",
+          "enum": [
+            "PAID",
+            "PARTIAL",
+            "UNPAID",
+            "VOIDED/REMOVED",
+            "MIGRATED"
+          ]
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "amountDue": {
+          "type": "number"
+        },
+        "currencyCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ariaInvoiceNo",
+        "ariaBillingGroupNo",
+        "ariaBillingGroupID",
+        "ariaStatementNo",
+        "customerInvRef",
+        "invoiceDate",
+        "invoiceDueDate",
+        "invoiceStatus",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT",
+        "amountDue",
+        "currencyCode"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentRefCreditnote": {
+      "type": "object",
+      "properties": {
+        "ariaCreditnoteNo": {
+          "type": "integer"
+        },
+        "ariaCreditnoteID": {
+          "type": "string"
+        },
+        "creditnoteDate": {
+          "type": "string"
+        },
+        "creditnoteStatus": {
+          "type": "string",
+          "enum": [
+            "RAISED",
+            "COMPLETE",
+            "FAILED"
+          ]
+        },
+        "createdDate": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedDate": {
+          "type": "string"
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "creditCustomerComments": {
+          "type": "string"
+        },
+        "creditComments": {
+          "type": "string"
+        },
+        "reasonCode": {
+          "type": "integer"
+        },
+        "creditNoteType": {
+          "type": "string",
+          "enum": [
+            "INVOICE",
+            "GENERAL",
+            "PRICE-CHANGE",
+            "CANCELLATION"
+          ]
+        }
+      },
+      "required": [
+        "ariaCreditnoteNo",
+        "ariaCreditnoteID",
+        "creditnoteDate",
+        "creditnoteStatus",
+        "createdDate",
+        "createdBy",
+        "updatedDate",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT",
+        "reasonCode",
+        "creditNoteType"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentRefPayment": {
+      "type": "object",
+      "properties": {
+        "paymentID": {
+          "type": "string"
+        },
+        "ariaTransNo": {
+          "type": "integer"
+        },
+        "paymentSource": {
+          "type": "string",
+          "enum": [
+            "MANUAL",
+            "BANK",
+            "CREDITCARD",
+            "DIRECTDEBIT",
+            "MIGRATION",
+            "INTERNAL"
+          ]
+        },
+        "paymentOrigin": {
+          "type": "string"
+        },
+        "paymentDate": {
+          "type": "string"
+        },
+        "paymentRegistrationDate": {
+          "type": "string"
+        },
+        "paymentAmount": {
+          "type": "number"
+        },
+        "paymentThresholdAmount": {
+          "type": "number"
+        },
+        "paymentBankReference": {
+          "type": "string"
+        },
+        "paymentCurrency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "paymentID",
+        "ariaTransNo",
+        "paymentSource",
+        "paymentOrigin",
+        "paymentDate",
+        "paymentRegistrationDate",
+        "paymentAmount",
+        "paymentThresholdAmount",
+        "paymentCurrency"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentRefCashCredit": {
+      "type": "object",
+      "properties": {
+        "ariaTransNo": {
+          "type": "integer"
+        },
+        "cashCreditDate": {
+          "type": "string"
+        },
+        "cashCreditAmount": {
+          "type": "number"
+        },
+        "reasonCode": {
+          "type": "integer"
+        },
+        "reasonCodeText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ariaTransNo",
+        "cashCreditDate",
+        "cashCreditAmount",
+        "reasonCode",
+        "reasonCodeText"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentSubscription": {
+      "type": "object",
+      "properties": {
+        "ariaMPIID": {
+          "type": "string"
+        },
+        "ariaMPINo": {
+          "type": "integer"
+        },
+        "ariaPlanID": {
+          "type": "string"
+        },
+        "ariaPlanNo": {
+          "type": "integer"
+        },
+        "ariaPlanName": {
+          "type": "string"
+        },
+        "planNameTranslations": {
+          "type": "object",
+          "title": "planNameTranslations",
+          "$ref": "#/definitions/solmTranslationGroup"
+        },
+        "planDescTranslations": {
+          "type": "object",
+          "title": "planDescTranslations",
+          "$ref": "#/definitions/solmTranslationGroup"
+        }
+      },
+      "required": [
+        "ariaMPIID",
+        "ariaMPINo",
+        "ariaPlanID",
+        "ariaPlanNo",
+        "ariaPlanName",
+        "planNameTranslations",
+        "planDescTranslations"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentInvoiceItem": {
+      "type": "object",
+      "properties": {
+        "lineItemNo": {
+          "type": "integer"
+        },
+        "ariaUnits": {
+          "type": "number"
+        },
+        "ariaMPIID": {
+          "type": "string"
+        },
+        "ariaMPINo": {
+          "type": "integer"
+        },
+        "ariaPIID": {
+          "type": "string"
+        },
+        "ariaPINo": {
+          "type": "integer"
+        },
+        "ariaPlanID": {
+          "type": "string"
+        },
+        "ariaPlanNo": {
+          "type": "integer"
+        },
+        "ariaTransactionID": {
+          "type": "integer"
+        },
+        "lineItemType": {
+          "type": "string",
+          "enum": [
+            "RECURRING",
+            "TAX/VAT",
+            "SERVICE CREDIT",
+            "COUPON CREDIT",
+            "ACTIVATION",
+            "USAGE",
+            "RECURRING ARREARS",
+            "ORDER",
+            "SURCHARGE"
+          ]
+        },
+        "chargeLineType": {
+          "type": "string",
+          "enum": [
+            "CHARGE",
+            "CREDIT"
+          ]
+        },
+        "chargeType": {
+          "type": "string",
+          "enum": [
+            "CHARGE",
+            "CHARGE-DEL-POSTAL",
+            "CHARGE-DEL-AIRMAIL"
+          ]
+        },
+        "ariaServiceID": {
+          "type": "string"
+        },
+        "ariaServiceNo": {
+          "type": "integer"
+        },
+        "ariaServiceName": {
+          "type": "string"
+        },
+        "ariaServiceDesc": {
+          "type": "string"
+        },
+        "serviceTaxGroupID": {
+          "type": "string"
+        },
+        "serviceTaxPercentage": {
+          "type": "integer"
+        },
+        "ariaOrderItemSKU": {
+          "type": "string"
+        },
+        "ariaOrderItemNo": {
+          "type": "integer"
+        },
+        "recurringPeriodStartDate": {
+          "type": "string"
+        },
+        "recurringPeriodEndDate": {
+          "type": "string"
+        },
+        "usagePeriodStartDate": {
+          "type": "string"
+        },
+        "usagePeriodEndDate": {
+          "type": "string"
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "creditReasonCode": {
+          "type": "integer"
+        },
+        "creditReasonText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lineItemNo",
+        "ariaUnits",
+        "ariaMPIID",
+        "ariaMPINo",
+        "ariaPIID",
+        "ariaPINo",
+        "ariaPlanID",
+        "ariaPlanNo",
+        "ariaTransactionID",
+        "lineItemType",
+        "chargeLineType",
+        "chargeType",
+        "ariaServiceID",
+        "ariaServiceNo",
+        "ariaServiceName",
+        "ariaServiceDesc",
+        "serviceTaxGroupID",
+        "serviceTaxPercentage",
+        "recurringPeriodStartDate",
+        "recurringPeriodEndDate",
+        "usagePeriodStartDate",
+        "usagePeriodEndDate",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentCreditnoteItem": {
+      "type": "object",
+      "properties": {
+        "lineItemNo": {
+          "type": "integer"
+        },
+        "ariaUnits": {
+          "type": "number"
+        },
+        "ariaMPIID": {
+          "type": "string"
+        },
+        "ariaMPINo": {
+          "type": "integer"
+        },
+        "ariaPIID": {
+          "type": "string"
+        },
+        "ariaPINo": {
+          "type": "integer"
+        },
+        "ariaPlanID": {
+          "type": "string"
+        },
+        "ariaPlanNo": {
+          "type": "integer"
+        },
+        "ariaPlanName": {
+          "type": "string"
+        },
+        "ariaTransactionID": {
+          "type": "integer"
+        },
+        "chargeLineType": {
+          "type": "string",
+          "enum": [
+            "CHARGE",
+            "CREDIT"
+          ]
+        },
+        "chargeType": {
+          "type": "string",
+          "enum": [
+            "CHARGE",
+            "CHARGE-DEL-POSTAL",
+            "CHARGE-DEL-AIRMAIL"
+          ]
+        },
+        "ariaServiceID": {
+          "type": "string"
+        },
+        "ariaServiceNo": {
+          "type": "integer"
+        },
+        "ariaServiceName": {
+          "type": "string"
+        },
+        "serviceChargeGroup": {
+          "type": "string"
+        },
+        "serviceTaxGroupID": {
+          "type": "string"
+        },
+        "serviceTaxPercentage": {
+          "type": "number"
+        },
+        "ariaOrderItemSKU": {
+          "type": "string"
+        },
+        "ariaOrderItemNo": {
+          "type": "integer"
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        },
+        "reasonCode": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "lineItemNo",
+        "ariaUnits",
+        "ariaMPIID",
+        "ariaMPINo",
+        "ariaPIID",
+        "ariaPINo",
+        "ariaPlanID",
+        "ariaPlanNo",
+        "ariaPlanName",
+        "ariaTransactionID",
+        "chargeLineType",
+        "chargeType",
+        "ariaServiceID",
+        "ariaServiceNo",
+        "ariaServiceName",
+        "serviceChargeGroup",
+        "serviceTaxGroupID",
+        "serviceTaxPercentage",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT",
+        "reasonCode"
+      ],
+      "additionalProperties": false
+    },
+    "docmRetrieveFinancialDocumentTax": {
+      "type": "object",
+      "properties": {
+        "taxGroupID": {
+          "type": "string"
+        },
+        "taxGroupNo": {
+          "type": "integer"
+        },
+        "taxGroupName": {
+          "type": "string"
+        },
+        "taxPercentage": {
+          "type": "number"
+        },
+        "amountExclVAT": {
+          "type": "number"
+        },
+        "amountVAT": {
+          "type": "number"
+        },
+        "amountInclVAT": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "taxGroupID",
+        "taxGroupNo",
+        "taxGroupName",
+        "taxPercentage",
+        "amountExclVAT",
+        "amountVAT",
+        "amountInclVAT"
+      ],
+      "additionalProperties": false
+    },
+    "solmTranslationGroup": {
+      "type": "object",
+      "properties": {
+        "solmRefTransNo": {
+          "type": "string"
+        },
+        "solmTranslationEntry": {
+          "title": "solmTranslationEntry",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/solmTranslationEntry"
+          }
+        }
+      },
+      "required": [
+        "solmRefTransNo",
+        "solmTranslationEntry"
+      ],
+      "additionalProperties": false
+    },
+    "solmTranslationEntry": {
+      "type": "object",
+      "properties": {
+        "solmLocaleID": {
+          "type": "string"
+        },
+        "solmRefTransText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "solmLocaleID",
+        "solmRefTransText"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

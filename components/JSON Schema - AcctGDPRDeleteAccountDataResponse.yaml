@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "AcctGDPRDeleteAcctDataResponse",
+  "type": "object",
+	"properties": {
+        "resultInfo": {
+            "$ref": "#/definitions/resultInfoDetails"
+        },
+        "AcctGDPRDeleteAcctDataResponseDetails": {
+            "title": "AcctGDPRDeleteAcctDataResponseDetails",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/AcctGDPRDeleteAcctDataResponseDetails"
+            }
+        }
+    },
+    "required": [
+        "resultInfo",
+        "AcctGDPRDeleteAcctDataResponseDetails"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "resultInfoDetails": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer"
+                },
+                "resultText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resultCode",
+                "resultText"
+            ],
+            "additionalProperties": false
+        },
+		"AcctGDPRDeleteAcctDataResponseDetails": {
+      "type": "object",
+      "properties": {
+        "AriaAccountID": {"type": "string"},
+		"AriaAccountNo": {"type": "integer"},
+		"acctDateToAnonymise": {"type": "string"}
+         },
+      "required": [
+       "AriaAccountID",
+		"AriaAccountNo",
+		"acctDateToAnonymise"
+      ],
+      "additionalProperties": false
+    }
+    }
+  }

@@ -1,0 +1,70 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "solmManageParamConfigResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"solmManageParamConfigResponseList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/solmManageParamConfigResponseList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"solmManageParamConfigResponseList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"solmManageParamConfigAction": {
+			"type": "object",
+			"properties": {
+				"actionCode": {
+					"type": "string",
+					"enum": [
+						"MODIFY",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"actionCode"
+			]
+		},
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmManageParamConfigResponseList": {
+			"type": "object",
+			"properties": {
+				"resultInfo": {
+					"$ref": "#/definitions/resultInfoDetails"
+				},
+				"solmManageParamConfigAction": {
+					"$ref": "#/definitions/solmManageParamConfigAction"
+				}
+			},
+			"required": [
+				"resultInfo",
+				"solmManageParamConfigAction"
+			]
+		}
+	}
+}

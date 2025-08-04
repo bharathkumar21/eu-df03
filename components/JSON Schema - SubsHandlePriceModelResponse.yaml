@@ -1,0 +1,68 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "subsHandlePriceModelResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"subsHandlePriceModelResponseDetails": {"$ref": "#/definitions/subsHandlePriceModelResponseDetails"}
+	},
+	"required": ["resultInfo", "subsHandlePriceModelResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+
+		"subsHandlePriceModelCustomTiers": {"type": "object",
+			"properties": {
+				"tierNo": {"type": "integer"},
+				"tierFrom": {"type": "integer"},
+				"tierTo": {"type": "integer"},
+				"rateExclVAT": {"type": "number"},
+				"rateVAT": {"type": "number"},
+				"rateInclVAT": {"type": "number"},
+				"discountedRateExclVAT": {"type": "number"},
+				"discountedRateVAT": {"type": "number"},
+				"discountedRateInclVAT": {"type": "number"}
+			},
+			"required": ["tierNo", "tierFrom", "tierTo", "rateExclVAT", "rateVAT", "rateInclVAT", "discountedRateExclVAT", "discountedRateVAT", "discountedRateInclVAT"], 
+			"additionalProperties": false
+		},
+		"subsHandlePriceModelCustomRates": {"type": "object",
+			"properties": {
+				"ariaServiceID": {"type": "string"},
+				"ariaServiceNo": {"type": "string"},
+				"chargeType": {"type": "string"},
+				"ariaVATGroupID": {"type": "string"},
+				"ariaVATRate": {"type": "number"},
+				"priceModelCustomTiers": {"title": "subsHandlePriceModelCustomTiers","type": "array","minItems": 1,"items": {"$ref": "#/definitions/subsHandlePriceModelCustomTiers"}}
+			},
+			"required": ["ariaServiceID", "ariaServiceNo", "chargeType", "ariaVATGroupID", "ariaVATRate", "priceModelCustomTiers"], 
+			"additionalProperties": false
+		},
+		
+		"subsHandlePriceModelSpecification": {"type": "object",
+			"properties": {
+				"productPriceModelSpec": {"type": "string"}
+			},
+			"required": ["productPriceModelSpec"], 
+			"additionalProperties": false
+		},
+		
+		"subsHandlePriceModelResponseDetails": {"type": "object",
+			"properties": {
+				"priceModelSpecification": {"title": "subsHandlePriceModelSpecification","type": "array", "items": {"$ref": "#/definitions/subsHandlePriceModelSpecification"}},
+				"priceModelCustomRates": {"title": "subsHandlePriceModelCustomRates","type": "array", "minItems": 0,  "items": {"$ref": "#/definitions/subsHandlePriceModelCustomRates"}}
+			},
+			"required": ["priceModelSpecification", "priceModelCustomRates"], 
+			"additionalProperties": false
+		}
+	}
+}

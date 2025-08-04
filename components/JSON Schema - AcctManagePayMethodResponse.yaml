@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "AcctManagePayMethodResponse",
+	"type": "object",
+	"properties": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"acctManagePayMethodResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaPayMethodNo": {
+					"type": "integer"
+				},
+				"ariaPayMethodID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaPayMethodNo",
+				"ariaPayMethodID"
+			],
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"resultInfoDetails",
+		"acctManagePayMethodResponseDetails"
+	],
+	"additionalProperties": false
+}

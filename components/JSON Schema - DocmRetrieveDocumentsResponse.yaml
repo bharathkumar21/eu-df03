@@ -1,0 +1,392 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "DocmRetrieveDocumentsResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"DocmRetrieveDocumentsResponseDetails": {
+			"$ref": "#/definitions/DocmRetrieveDocumentsResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"DocmRetrieveDocumentsResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"docmRetrieveDocumentsMPIDetails": {
+			"type": "object",
+			"properties": {
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"ariaPlanName": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "planNameTranslations"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "planDescTranslations"
+				}
+			},
+			"required": [
+				"ariaMPIID",
+				"ariaMPINo",
+				"ariaPlanID",
+				"ariaPlanNo",
+				"ariaPlanName",
+				"planNameTranslations",
+				"planDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"docmRetrieveDocumentsInvoice": {
+			"type": "object",
+			"properties": {
+				"ariaInvoiceNo": {
+					"type": "integer"
+				},
+				"ariaStatementNo": {
+					"type": "string"
+				},
+				"ariaStatementID": {
+					"type": "string"
+				},
+				"invoiceDate": {
+					"type": "string"
+				},
+				"invoiceDueDate": {
+					"type": "string"
+				},
+				"invoiceDueAmount": {
+					"type": "number"
+				},
+				"invoiceNetAmount": {
+					"type": "number"
+				},
+				"invoiceVATAmount": {
+					"type": "number"
+				},
+				"invoiceGrossAmount": {
+					"type": "number"
+				},
+				"invoiceRef": {
+					"type": "string"
+				},
+				"subscriptionPeriodStart": {
+					"type": "string"
+				},
+				"subscriptionPeriodEnd": {
+					"type": "string"
+				},
+				"paymentOption": {
+					"type": "string"
+				},
+				"paymentOptionVariant": {
+					"type": "string"
+				},
+				"paymentTermID": {
+					"type": "string"
+				},
+				"invoiceStatus": {
+					"type": "string",
+					"enum": [
+						"PAID",
+						"UNPAID",
+						"VOIDED"
+					]
+				},
+				"invoicePaidByPayments": {
+					"type": "number"
+				},
+				"invoicePaidByCredits": {
+					"type": "number"
+				},
+				"invoicePaidByReversals": {
+					"type": "number"
+				},
+				"invoicePaidByAll": {
+					"type": "number"
+				},
+				"subscriptionList": {
+					"title": "subscriptionList",
+					"type": "array",
+					"maxItems": 1,
+					"items": {
+						"$ref": "#/definitions/docmRetrieveDocumentsMPIDetails"
+					}
+				},
+				"docmRetrieveDocumentsInvoiceCharges": {
+					"$ref": "#/definitions/docmRetrieveDocumentsInvoiceCharges"
+				}
+			},
+			"required": [
+				"ariaInvoiceNo",
+				"ariaStatementNo",
+				"ariaStatementID",
+				"invoiceDate",
+				"invoiceDueDate",
+				"invoiceDueAmount",
+				"invoiceNetAmount",
+				"invoiceVATAmount",
+				"invoiceGrossAmount",
+				"invoiceRef",
+				"subscriptionPeriodStart",
+				"subscriptionPeriodEnd",
+				"paymentOption",
+				"paymentOptionVariant",
+				"paymentTermID",
+				"invoiceStatus",
+				"subscriptionList"
+			],
+			"additionalProperties": false
+		},
+		"docmRetrieveDocumentsList": {
+			"type": "object",
+			"properties": {
+				"documentID": {
+					"type": "string"
+				},
+				"documentDate": {
+					"type": "string"
+				},
+				"documentType": {
+					"type": "string",
+					"enum": [
+						"INVOICE",
+						"CREDITNOTE",
+						"DUNNING"
+					]
+				},
+				"docmRetrieveDocumentsInvoiceDetails": {
+					"$ref": "#/definitions/docmRetrieveDocumentsInvoice",
+					"title": "docmRetrieveDocumentsInvoice"
+				}
+			},
+			"required": [
+				"documentID",
+				"documentDate",
+				"documentType",
+				"docmRetrieveDocumentsInvoiceDetails"
+			],
+			"additionalProperties": false
+		},
+		"DocmRetrieveDocumentsResponseDetails": {
+			"type": "object",
+			"properties": {
+				"docmRetrieveDocumentsList": {
+					"title": "docmRetrieveDocumentsList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/docmRetrieveDocumentsList"
+					}
+				}
+			},
+			"required": [
+				"docmRetrieveDocumentsList"
+			],
+			"additionalProperties": false
+		},
+		"docmRetrieveDocumentsInvoiceCharges": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/docmRetrieveDocumentsInvoiceChargeList"
+			}
+		},
+		"docmRetrieveDocumentsInvoiceChargeList": {
+			"type": "object",
+			"properties": {
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string"
+				},
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "planNameTranslations"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "planDescTranslations"
+				},
+				"ariaTransactionID": {
+					"type": "integer"
+				},
+				"chargeLineType": {
+					"type": "string",
+					"enum": [
+						"CREDIT",
+						"CHARGE"
+					]
+				},
+				"chargeType": {
+					"type": "string",
+					"enum": [
+						"CHARGE",
+						"CHARGE-DEL-POSTAL",
+						"CHARGE-DEL-AIRMAIL"
+					]
+				},
+				"ariaServiceID": {
+					"type": "string"
+				},
+				"ariaServiceNo": {
+					"type": "integer"
+				},
+				"ariaServiceName": {
+					"type": "string"
+				},
+				"serviceNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "planNameTranslations"
+				},
+				"serviceChargeGroup": {
+					"type": "string"
+				},
+				"serviceTaxGroupID": {
+					"type": "string"
+				},
+				"serviceTaxPercentage": {
+					"type": "number"
+				},
+				"ariaOrderItemID": {
+					"type": "string"
+				},
+				"ariaOrderItemNo": {
+					"type": "integer"
+				},
+				"periodStartDate": {
+					"type": "string"
+				},
+				"periodEndDate": {
+					"type": "string"
+				},
+				"chargeAmountExclVAT": {
+					"type": "number"
+				},
+				"chargeAmountVAT": {
+					"type": "number"
+				},
+				"chargeAmountInclVAT": {
+					"type": "number"
+				},
+				"chargePeriodDays": {
+					"type": "integer"
+				},
+				"creditReasonCode": {
+					"type": "integer"
+				},
+				"discountID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaMPIID",
+				"ariaMPINo",
+				"ariaPIID",
+				"ariaPINo",
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planNameTranslations",
+				"planDescTranslations",
+				"ariaTransactionID",
+				"chargeLineType",
+				"chargeType",
+				"ariaServiceID",
+				"ariaServiceNo",
+				"ariaServiceName",
+				"serviceNameTranslations",
+				"serviceChargeGroup",
+				"serviceTaxGroupID",
+				"serviceTaxPercentage",
+				"periodStartDate",
+				"periodEndDate",
+				"chargeAmountExclVAT",
+				"chargeAmountVAT",
+				"chargeAmountInclVAT",
+				"chargePeriodDays"
+			]
+		}
+	}
+}

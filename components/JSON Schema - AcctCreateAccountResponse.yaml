@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "acctCreateAccountResponse",
+  "type": "object",
+  "properties": {
+    "resultInfo": { "$ref": "#/definitions/resultInfoDetails" },
+    "acctCreateAccountResponseDetails": { "$ref": "#/definitions/acctCreateAccountResponseDetails" }
+  },
+  "required": ["resultInfo", "acctCreateAccountResponseDetails"],
+  "additionalProperties": false,
+  "definitions": {
+    "resultInfoDetails": {
+      "type": "object",
+      "properties": {
+        "resultCode": { "type": "integer" },
+        "resultText": { "type": "string" }
+      },
+      "required": ["resultCode", "resultText"],
+      "additionalProperties": false
+    },
+    "acctCreateAccountBillingGroupDetails": {
+      "type": "object",
+      "properties": {
+        "ariaBillingGroupID": { "type": "string", "maxLength": 100 },
+        "ariaStmtContactNo": { "type": "integer" },
+        "billingGroupName": { "type": "string", "maxLength": 100 },
+        "billingGroupDesc": { "type": "string", "maxLength": 1000 },
+        "notifyMethod": { "type": "string", "maxLength": 10, "enum": ["NONE", "HTML", "TEXT", "PDF", "XML"] },
+        "paymentTerms": { "type": "string", "maxLength": 100, "enum": ["BANKGIRO", "EHF"]},
+        "paymentEANNum": { "type": "string", "maxLength": 50 },
+        "paymentEANRequisitionNum": { "type": "string", "maxLength": 50 },
+        "primaryPaymentMethodID": { "type": "string", "maxLength": 100 },
+        "backupPaymentMethodID": { "type": "string", "maxLength": 100 },
+        "ariaDunningGroupID": { "type": "string", "maxLength": 100 },
+        "dunningGroupName": { "type": "string", "maxLength": 100 },
+        "dunningGroupDesc": { "type": "string", "maxLength": 1000 },
+        "dunningProcessID": { "type": "string", "maxLength": 100 },
+		"acctCreateAccountPayOptionInfo": { "$ref": "#/definitions/acctCreateAccountPayOptionInfo" }
+      },
+      "required": [
+        "ariaBillingGroupID",
+        "ariaStmtContactNo",
+        "billingGroupName",
+        "billingGroupDesc",
+        "notifyMethod",
+        "paymentTerms",
+        "paymentEANNum",
+        "paymentEANRequisitionNum",
+        "primaryPaymentMethodID",
+        "backupPaymentMethodID",
+        "ariaDunningGroupID",
+        "dunningGroupName",
+        "dunningGroupDesc",
+        "dunningProcessID"
+      ],
+      "additionalProperties": false
+    },
+    "acctCreateAccountPaymentMethodDetails": {
+      "type": "object",
+      "properties": {
+        "ariaPaymentMethodID": { "type": "string", "maxLength": 100 },
+        "ariaPaymentMethodNo": { "type": "integer" },
+        "payMethodType": { "type": "string", "enum": ["CC", "CC-TOKEN", "OTHER"] },
+        "ariaBillContactNo": { "type": "integer" },
+        "creditCardMasked": { "type": "string", "maxLength": 100 },
+        "creditCardType": { "type": "string", "maxLength": 100 },
+        "creditCardExpMonth": { "type": "string", "maxLength": 2 },
+        "creditCardExpYear": { "type": "string", "maxLength": 4 }
+      },
+      "required": [
+        "ariaPaymentMethodID",
+        "ariaPaymentMethodNo",
+        "payMethodType",
+        "ariaBillContactNo",
+        "creditCardMasked",
+        "creditCardType",
+        "creditCardExpMonth",
+        "creditCardExpYear"
+      ],
+      "additionalProperties": false
+    },
+    "acctCreateAccountResponseDetails": {
+      "type": "object",
+      "properties": {
+        "ariaAccountID": { "type": "string", "maxLength": 50 },
+        "ariaAccountNo": { "type": "integer" },
+        "userID": { "type": "string", "maxLength": 32 },
+        "ariaAcctContactNo": { "type": "integer" },
+        "ariaSpecPlanMPIID": { "type": "string" },
+        "ariaSpecPlanMPINo": { "type": "integer" },
+        "acctCreateAccountBillingGroupDetails": {
+          "title": "acctCreateAccountBillingGroupDetails",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/acctCreateAccountBillingGroupDetails"
+          }
+        },
+        "acctCreateAccountPaymentMethodDetails": {
+          "title": "acctCreateAccountPaymentMethodDetails",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/acctCreateAccountPaymentMethodDetails"
+          }
+        }
+      },
+      "required": [
+        "ariaAccountID",
+        "ariaAccountNo",
+        "userID",
+        "ariaAcctContactNo",
+        "ariaSpecPlanMPIID",
+        "ariaSpecPlanMPINo",
+        "acctCreateAccountBillingGroupDetails"
+      ],
+      "additionalProperties": false
+    },
+    "acctCreateAccountPayOptionInfo": {
+      "type": "object",
+      "properties": { 
+		"payOptionID": {"type": "string"},
+        "payOptionVariant": {"type": "string"},
+        "paymentEANNum": {"type": "string"},
+        "paymentEANRequisitionNum": {"type": "string"}
+      },
+      "required": [ "payOptionID", "payOptionVariant", "paymentEANNum", "paymentEANRequisitionNum" ],
+      "additionalProperties": false
+    }
+  }
+}

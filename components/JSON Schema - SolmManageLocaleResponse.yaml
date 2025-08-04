@@ -1,0 +1,50 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "solmManageLocaleResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"solmManageLocaleListResponse": {"title": "solmManageLocaleListResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/solmManageLocaleListResponse"}}
+	},
+	 "required": ["resultInfo", "solmManageLocaleListResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"solmManageLocaleInfo": {"type": "object",
+			"properties": {
+				"localeID": {"type": "string", "maxlength": 100},
+				"localeName": {"type": "string", "maxLength": 1000} 
+			},
+			"required": ["localeID", "localeName"], 
+			"additionalProperties": false
+		},
+		"solmManageLocaleInfoResponse": {"type": "object",
+			"properties": {
+				"solmManageLocaleAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["solmManageLocaleAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"solmManageLocaleListResponse": {"type": "object",
+			"properties": {
+				"solmManageLocaleInfoResponse": {"type": "object", "$ref": "#/definitions/solmManageLocaleInfoResponse"},
+				"solmManageLocaleInfo": {"type": "object", "$ref": "#/definitions/solmManageLocaleInfo"}
+			},
+			"required": ["solmManageLocaleInfoResponse", "solmManageLocaleInfo"],
+			"additionalProperties": false
+		}
+	}
+}

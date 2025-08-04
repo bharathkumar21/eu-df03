@@ -1,0 +1,53 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "bndlManageBndlSelectionResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"bndlManageBndlSelectionListResponse": {"title": "bndlManageBndlSelectionListResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/bndlManageBndlSelectionListResponse"}}
+	},
+	 "required": ["resultInfo", "bndlManageBndlSelectionListResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"bndlManageBndlSelectionInfo": {"type": "object",
+			"properties": {
+				"bndlCheckSeqNo": {"type": "integer"},
+				"bndlStartDate": {"type": "string", "maxLength": 10},
+				"bndlEndDate": {"type": "string", "maxLength": 10},
+				"bndlID": {"type": "string", "maxLength": 100}
+			},
+			"required": ["bndlCheckSeqNo", "bndlStartDate", "bndlEndDate", "bndlID"], 
+			"additionalProperties": false
+		},
+		"bndlManageBndlSelectionInfoResponse": {"type": "object",
+			"properties": {
+				"bndlManageBndlSelectionAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["bndlManageBndlSelectionAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"bndlManageBndlSelectionListResponse": {"type": "object",
+			"properties": {
+				"bndlManageBndlSelectionInfoResponse": {"type": "object", "$ref": "#/definitions/bndlManageBndlSelectionInfoResponse"},
+				"bndlManageBndlSelectionInfo": {"type": "object", "$ref": "#/definitions/bndlManageBndlSelectionInfo"}
+			},
+			"required": ["bndlManageBndlSelectionInfoResponse", "bndlManageBndlSelectionInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

@@ -1,0 +1,200 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsRetrieveInvitesResponse",
+	"description": "API required to retrieve invitations for a given subscription. For owners it will show a list of members with which the current subscription is shared. For members it will show who is the owner of the main subscription.",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsRetrieveInvitesResponseDetails": {
+			"title": "subsRetrieveInvitesResponseDetails",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/subsRetrieveInvitesResponseDetails"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsRetrieveInvitesResponseDetails"
+	],
+	"additional properties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additional properties": false
+		},
+		"subsRetrieveInvitesResponseDetails": {
+			"type": "object",
+			"properties": {
+				"subsRetrieveInvitesInfo": {
+					"$ref": "#/definitions/subsRetrieveInvitesInfo",
+					"type": "object"
+				},
+				"subsRetrieveInvitesProductInfo": {
+					"$ref": "#/definitions/subsRetrieveInvitesProductInfo",
+					"type": "object"
+				}
+			},
+			"required": [
+				"subsRetrieveInvitesInfo",
+				"subsRetrieveInvitesProductInfo"
+			],
+			"additional properties": false
+		},
+		"subsRetrieveInvitesInfo": {
+			"type": "object",
+			"properties": {
+				"sharingUUID": {
+					"type": "string"
+				},
+				"sharingMasterAriaAccountNo": {
+					"type": "integer"
+				},
+				"sharingMasterAriaMPINo": {
+					"type": "integer"
+				},
+				"sharingStatus": {
+					"type": "string",
+					"enum": [
+						"ISSUED",
+						"ACCEPTED",
+						"REJECTED",
+						"EXPIRED",
+						"REVOKED",
+						"DISMISSED"
+					]
+				},
+				"sharingStatusDate": {
+					"type": "string"
+				},
+				"sharingRegistrationDate": {
+					"type": "string"
+				},
+				"sharingMemberAriaAccountNo": {
+					"type": "integer"
+				},
+				"sharingMemberAriaMPINo": {
+					"type": "integer"
+				},
+				"sharingMemberEmail": {
+					"type": "string"
+				},
+				"sharingMemberPhoneNo": {
+					"type": "string"
+				},
+				"sharingMemberExternalID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"sharingUUID",
+				"sharingMasterAriaAccountNo",
+				"sharingMasterAriaMPINo",
+				"sharingStatus",
+				"sharingStatusDate",
+				"sharingRegistrationDate"
+			],
+			"additional properties": false
+		},
+		"subsRetrieveInvitesProductInfo": {
+			"type": "object",
+			"properties": {
+				"planName": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"instStatusCode": {
+					"type": "integer"
+				},
+				"instStatusCodeText": {
+					"type": "string"
+				},
+				"eligibleForSharing": {
+					"type": "boolean"
+				},
+				"eligibleForSharingCnt": {
+					"type": "integer"
+				},
+				"eligibleForSharingPlan": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"planName",
+				"planDesc",
+				"planProductType",
+				"instStatusCode",
+				"instStatusCodeText"
+			],
+			"additional properties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additional properties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additional properties": false
+		}
+	}
+}

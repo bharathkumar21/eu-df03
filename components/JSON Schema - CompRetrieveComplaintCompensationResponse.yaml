@@ -1,0 +1,110 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "CompRetrieveComplaintCompensationResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"$ref": "#/definitions/resultInfo"
+		},
+		"compRetrieveComplaintCompensationInfo": {
+			"title": "compRetrieveComplaintCompensationInfo",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/compRetrieveComplaintCompensationInfo"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"compRetrieveComplaintCompensationInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfo": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintCompensationInfo": {
+			"type": "object",
+			"properties": {
+				"complaintValueID": {
+					"type": "string"
+				},
+				"compensationType": {
+					"type": "string",
+					"enum": [
+						"RETAIL",
+						"CAMPAIGN",
+						"PRODUCT",
+						"DEFAULT"
+					]
+				},
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				},
+				"campaignID": {
+					"type": "string"
+				},
+				"effectiveDate": {
+					"type": "string"
+				},
+				"complaintValueMon": {
+					"type": "number"
+				},
+				"complaintValueTue": {
+					"type": "number"
+				},
+				"complaintValueWed": {
+					"type": "number"
+				},
+				"complaintValueThu": {
+					"type": "number"
+				},
+				"complaintValueFri": {
+					"type": "number"
+				},
+				"complaintValueSat": {
+					"type": "number"
+				},
+				"complaintValueSun": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"compensationType",
+				"effectiveDate",
+				"complaintValueID",
+				"complaintValueMon",
+				"complaintValueTue",
+				"complaintValueWed",
+				"complaintValueThu",
+				"complaintValueFri",
+				"complaintValueSat",
+				"complaintValueSun"
+			],
+			"additionalProperties": false
+		}
+	}
+}

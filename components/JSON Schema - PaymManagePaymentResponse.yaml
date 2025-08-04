@@ -1,0 +1,91 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "PaymManagePaymentResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"paymManagePaymentResponseDetails": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/paymManagePaymentResponseDetails"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"paymManagePaymentResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"paymManagePaymentResponseDetails": {
+			"description": "an array structure holding the general information on the payment terms that have been processed by the JSON service",
+			"type": "object",
+			"properties": {
+				"paymManagePaymentResponseInfo": {
+					"$ref": "#/definitions/paymManagePaymentResponseInfo"
+				},
+				"paymManageResponsePaymentInfo": {
+					"$ref": "#/definitions/paymManageResponsePaymentInfo"
+				}
+			},
+			"required": [
+				"paymManagePaymentResponseInfo",
+				"paymManageResponsePaymentInfo"
+			]
+		},
+		"paymManagePaymentResponseInfo": {
+			"description": "contains the structure defining the outcome of processing for each payment term entry",
+			"type": "object",
+			"properties": {
+				"paymManageResponsePaymentAction": {
+					"type": "string",
+					"enum": [
+						"REGISTER",
+						"TRANSFER"
+					]
+				},
+				"actionResultInfo": {
+					"$ref": "#/definitions/resultInfoDetails"
+				}
+			},
+			"required": [
+				"paymManageResponsePaymentAction",
+				"actionResultInfo"
+			]
+		},
+		"paymManageResponsePaymentInfo": {
+			"description": "a structure holding general information on the payment captured in the request",
+			"type": "object",
+			"properties": {
+				"ariaTransactionID": {
+					"type": "integer"
+				},
+				"ariaTransactionFrom": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"ariaTransactionID"
+			]
+		}
+	}
+}

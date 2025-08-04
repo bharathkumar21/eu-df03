@@ -1,0 +1,304 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsListSubscriptionResponse",
+	"description": "Response structure to list subscriptions for a given account",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsListSubscriptionResponseDetails": {
+			"$ref": "#/definitions/subsListSubscriptionResponseDetails"
+		}
+	},
+	"definitions": {
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsListSubscriptionBillingFrequency": {
+			"description": "The overall structure holding details of billing frequencies for the recurring and usage-based charges.",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "number"
+				},
+				"billingFrequencyUsage": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"subsListSubscriptionResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"lastRowNo": {
+					"type": "integer"
+				},
+				"subsListSubscriptionList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsListSubscriptionList"
+					}
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"lastRowNo"
+			]
+		},
+		"subsListSubscriptionList": {
+			"type": "object",
+			"properties": {
+				"ariaMPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"ariaPlanName": {"type": "string"	},
+				"ariaPlanNameTranslations": {	"title": "ariaPlanNameTranslations","type": "object","$ref": "#/definitions/solmTranslationGroup"},
+				"ariaPlanDesc": {"type": "string"	},
+				"ariaPlanDescTranslations": {	"title": "ariaPlanDescTranslations","type": "object","$ref": "#/definitions/solmTranslationGroup"},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"planProductTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"titleDetails": {
+					"$ref": "#/definitions/subsListSubscriptionTitleDetails"
+				},
+				"titleDetailsDigital": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsListSubscriptionTitleDetails"
+					}
+				},
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "string"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"billingFrequencies": {
+					"$ref": "#/definitions/subsListSubscriptionBillingFrequency"
+				},
+				"planUnits": {
+					"type": "integer"
+				},
+				"ariaMPIStatusCode": {
+					"type": "integer"
+				},
+				"ariaMPIStatusText": {
+					"type": "string"
+				},
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupNo": {
+					"type": "integer"
+				},
+				"ariaBillingGroupTitleDetails": {
+					"$ref": "#/definitions/subsListSubscriptionTitleDetails"
+				},
+				"subjectID": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"subjectInfo1": {
+					"type": "string"
+				},
+				"subjectInfo2": {
+					"type": "string"
+				},
+				"subjectInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo1": {
+					"type": "string"
+				},
+				"subscriptionInfo2": {
+					"type": "string"
+				},
+				"subscriptionInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo4": {
+					"type": "string"
+				},
+				"subscriptionInfo5": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaMPIID",
+				"ariaMPINo",
+				"ariaPlanID",
+				"ariaPlanNo",
+				"ariaPlanName",
+				"ariaPlanDesc",
+				"planProductType",
+				"planProductTypeVariant",
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"planUnits",
+				"ariaMPIStatusCode",
+				"ariaMPIStatusText",
+				"ariaBillingGroupID",
+				"ariaBillingGroupNo",
+				"ariaDunningGroupID",
+				"ariaDunningGroupNo"
+			]
+		},
+		"subsListSubscriptionTitleDetails": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "titleNameTranslations"
+				},
+				"titleDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"title": "titleDescTranslations"
+				},
+				"titleDomain": {
+					"type": "string",
+					"maxLength": 300
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleNameTranslations",
+				"titleDescTranslations",
+				"titleDomain"
+			],
+			"additionalProperties": false
+		}
+	}
+}

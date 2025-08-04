@@ -1,0 +1,418 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campRetrieveCampDetailResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campRetrieveCampDetailList": {
+			"title": "campRetrieveCampDetailList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/campRetrieveCampDetailList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"campRetrieveCampDetailList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailInfo": {
+			"type": "object",
+			"properties": {
+				"campID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"campStatus": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"DEFINITION",
+						"TRIAL",
+						"ACTIVE",
+						"INACTIVE",
+						"DEPRECATED"
+					]
+				},
+				"campEligibility": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"ANY",
+						"INVITATION",
+						"RESTRICTION"
+					]
+				},
+				"campDurUnit": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campDurLength": {
+					"type": "integer"
+				},
+				"campDurEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campBillingCode": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campBillingSKU": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campBillingPrice": {
+					"type": "number"
+				},
+				"campEnablePreferences": {
+					"type": "string",
+					"enum": [
+						"ENABLED",
+						"DISABLED"
+					]
+				},
+				"campEndAction": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"TERMINATE"
+					]
+				},
+				"campType": {
+					"type": "string",
+					"enum": [
+						"ORDER",
+						"TERM-BASED"
+					]
+				},
+				"campRetrieveCampDetailOfferList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/campRetrieveCampDetailOfferList"
+					}
+				}
+			},
+			"required": [
+				"campID",
+				"campName",
+				"campDesc",
+				"campStatus",
+				"campEligibility",
+				"campDurUnit",
+				"campDurLength",
+				"campDurEndDate",
+				"campBillingCode",
+				"campBillingSKU",
+				"campBillingPrice"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailAddInfo": {
+			"type": "object",
+			"properties": {
+				"campNameTranslations": {
+					"title": "campNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campDescTranslations": {
+					"title": "campDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campNameTranslations",
+				"campDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailInfoTitles": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campRecurringRSID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"titleCode",
+				"campPlanID",
+				"campRecurringRSID"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailAddInfoTitles": {
+			"type": "object",
+			"properties": {
+				"titleName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleNameTranslations": {
+					"title": "titleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campPlanName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campPlanNameTranslations": {
+					"title": "campPlanNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titleName",
+				"titleNameTranslations",
+				"campPlanName",
+				"campPlanNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailListTitles": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampDetailInfoTitles": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampDetailInfoTitles"
+				},
+				"campRetrieveCampDetailAddInfoTitles": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampDetailAddInfoTitles"
+				}
+			},
+			"required": [
+				"campRetrieveCampDetailInfoTitles",
+				"campRetrieveCampDetailAddInfoTitles"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailList": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampDetailInfo": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampDetailInfo"
+				},
+				"campRetrieveCampDetailAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampDetailAddInfo"
+				},
+				"campRetrieveCampDetailListTitles": {
+					"title": "campRetrieveCampDetailListTitles",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campRetrieveCampDetailListTitles"
+					}
+				},
+				"campRetrieveCampDetailPrefList": {
+					"type": "array",
+					"items": [
+						{
+							"$ref": "#/definitions/campRetrieveCampDetailPrefList"
+						}
+					]
+				}
+			},
+			"required": [
+				"campRetrieveCampDetailInfo",
+				"campRetrieveCampDetailAddInfo",
+				"campRetrieveCampDetailListTitles"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampDetailPrefList": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampDetailPrefInfo": {
+					"$ref": "#/definitions/campRetrieveCampDetailPrefInfo"
+				}
+			},
+			"required": [
+				"campRetrieveCampDetailPrefInfo"
+			]
+		},
+		"campRetrieveCampDetailPrefInfo": {
+			"type": "object",
+			"properties": {
+				"campPrefCode": {
+					"type": "string"
+				},
+				"campPrefName": {
+					"type": "string"
+				},
+				"campPrefDesc": {
+					"type": "string"
+				},
+				"campPrefNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campPrefDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campPrefCode",
+				"campPrefName",
+				"campPrefDesc",
+				"campPrefNameTranslations",
+				"campPrefDescTranslations"
+			]
+		},
+		"campRetrieveCampDetailOfferList": {
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				},
+				"offerName": {
+					"type": "string"
+				},
+				"offerDesc": {
+					"type": "string"
+				},
+				"offerType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER"
+					]
+				},
+				"offerStatus": {
+					"type": "string",
+					"enum": [
+						"DEFINITION",
+						"ACTIVE",
+						"DEPRECATED"
+					]
+				}
+			},
+			"required": [
+				"offerID",
+				"offerName",
+				"offerDesc",
+				"offerType",
+				"offerStatus"
+			]
+		}
+	}
+}

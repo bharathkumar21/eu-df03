@@ -1,0 +1,267 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compManageComplaintResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"compManageComplaintListResponse": {
+			"title": "compManageComplaintListResponse",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/compManageComplaintListResponse"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"compManageComplaintListResponse"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintInfo": {
+			"type": "object",
+			"properties": {
+				"complaintID": {
+					"type": "string"
+				},
+				"complaintHeadline": {
+					"type": "string"
+				},
+				"complaintDesc": {
+					"type": "string"
+				},
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"complaintDate": {
+					"type": "string"
+				},
+				"complaintStatus": {
+					"type": "string"
+				},
+				"redeliveryOrdered": {
+					"type": "boolean"
+				},
+				"redeliveryType": {
+					"type": "string",
+					"enum": [
+						"MESSENGER",
+						"POST"
+					]
+				},
+				"updateUserID": {
+					"type": "string"
+				},
+				"processingStatus": {
+					"type": "string"
+				},
+				"complaintNotes": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"requestSourceID": {
+					"type": "string"
+				},
+				"compManageComplaintCompensationDetails": {
+					"type": "object",
+					"properties": {
+						"compensationValue": {
+							"type": "number"
+						},
+						"compensationType": {
+							"type": "string",
+							"enum": [
+								"RETAIL",
+								"CAMPAIGN",
+								"PRODUCT",
+								"DEFAULT"
+							]
+						},
+						"complaintCodeID": {
+							"type": "string"
+						},
+						"titleCode": {
+							"type": "string"
+						},
+						"ariaPlanID": {
+							"type": "string"
+						},
+						"ariaRateScheduleID": {
+							"type": "string"
+						},
+						"campaignID": {
+							"type": "string"
+						},
+						"overrideCreditType": {
+							"type": "string",
+							"enum": [
+								"CASH",
+								"SERVICE"
+							]
+						}
+					},
+					"required": [
+						"compensationType"
+					],
+					"additionalProperties": false
+				},
+				"compManageComplaintCompensationInfo": {
+					"type": "object",
+					"$ref": "#/definitions/compManageComplaintCompensationInfo"
+				},
+				"complaintChannelCode": {
+					"type": "string"
+				},
+				"complaintMediumCode": {
+					"type": "string"
+				},
+				"complaintAddField1": {
+					"type": "string"
+				},
+				"complaintAddField2": {
+					"type": "string"
+				},
+				"complaintAddField3": {
+					"type": "string"
+				},
+				"complaintAddField4": {
+					"type": "string"
+				},
+				"complaintAddField5": {
+					"type": "string"
+				},
+				"complaintNoOfUnits": {
+					"type": "integer"
+				},
+				"complaintSendToDist": {
+					"type": "string",
+					"enum": [
+						"SEND",
+						"DONTSEND",
+						"DEFAULT"
+					]
+				}
+			},
+			"required": [
+				"complaintID",
+				"complaintHeadline",
+				"complaintDesc",
+				"complaintCodeID",
+				"complaintDate",
+				"complaintStatus",
+				"redeliveryOrdered",
+				"redeliveryType",
+				"updateUserID",
+				"processingStatus",
+				"complaintNotes",
+				"ariaAccountNo",
+				"ariaAccountID",
+				"ariaMPINo",
+				"ariaMPIID",
+				"requestSourceID"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintCompensationInfo": {
+			"type": "object",
+			"properties": {
+				"compensationMethod": {
+					"type": "string",
+					"enum": [
+						"CSR",
+						"POST",
+						"WEB",
+						"AUTO",
+						"NULL"
+					]
+				},
+				"compensationAmount": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"compensationMethod",
+				"compensationAmount"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintInfoResponse": {
+			"type": "object",
+			"properties": {
+				"actionCode": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				},
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"actionCode",
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintListResponse": {
+			"type": "object",
+			"properties": {
+				"compManageComplaintInfoResponse": {
+					"type": "object",
+					"$ref": "#/definitions/compManageComplaintInfoResponse"
+				},
+				"compManageComplaintInfo": {
+					"type": "object",
+					"$ref": "#/definitions/compManageComplaintInfo"
+				},
+				"compManageComplaintCompensationInfo": {
+					"type": "object",
+					"$ref": "#/definitions/compManageComplaintCompensationInfo"
+				}
+			},
+			"required": [
+				"compManageComplaintInfoResponse",
+				"compManageComplaintInfo",
+				"compManageComplaintCompensationInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

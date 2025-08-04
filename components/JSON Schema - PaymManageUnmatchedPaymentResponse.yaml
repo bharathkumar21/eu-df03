@@ -1,0 +1,90 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "PaymManageUnmatchedPaymentResponse",
+	"description": "Response for PaymManageUnmatchPaymentRequest",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"paymManageUnmatchedPaymentResponseDetails": {
+			"type": "object",
+			"properties": {
+				"paymManageUnmatchedPaymentActionInfo": {
+					"type": "object",
+					"properties": {
+						"paymManageUnmatchedPaymentAction": {
+							"type": "string",
+							"enum": [
+								"MODIFY",
+								"APPROVE",
+								"REJECT"
+							]
+						}
+					},
+					"additionalProperties": false
+				},
+				"paymManageUnmatchedPaymentInfo": {
+					"type": "object",
+					"properties": {
+						"paymentID": {
+							"type": "string"
+						},
+						"paymentStatus": {
+							"type": "string",
+							"enum": [
+								"PENDING",
+								"APPROVED",
+								"REJECTED",
+								"FAILED"
+							]
+						},
+						"paymentMatchStatus": {
+							"type": "string",
+							"enum": [
+								"UNMATCHED",
+								"MATCHED",
+								"POSTED"
+							]
+						},
+						"paymentRegistrationDate": {
+							"type": "string"
+						},
+						"paymentUpdateDate": {
+							"type": "string"
+						},
+						"paymentMatchDate": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"paymentID"
+					],
+					"additionalProperties": false
+				}
+			},
+			"required": [
+				"paymManageUnmatchedPaymentActionInfo"
+			],
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"resultInfo",
+		"paymManageUnmatchedPaymentResponseDetails"
+	],
+	"additionalProperties": false
+}

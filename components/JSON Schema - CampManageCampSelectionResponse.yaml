@@ -1,0 +1,275 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campManageCampSelectionResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campManageCampSelectionListResponse": {
+			"title": "campManageCampSelectionListResponse",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/campManageCampSelectionListResponse"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"campManageCampSelectionListResponse"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionInfo": {
+			"type": "object",
+			"properties": {
+				"campCheckSeqNo": {
+					"type": "integer"
+				},
+				"campStartDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campCriteriaCode": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"ANY",
+						"ALL-PRODUCT",
+						"ANY-PRODUCT"
+					]
+				}
+			},
+			"required": [
+				"campCheckSeqNo",
+				"campStartDate",
+				"campEndDate",
+				"campID",
+				"campCriteriaCode"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionInfoResponse": {
+			"type": "object",
+			"properties": {
+				"campManageCampSelectionAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				},
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"campManageCampSelectionAction",
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionInfoPlans": {
+			"type": "object",
+			"properties": {
+				"campCriteriaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"campCriteriaPlanID"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionListPlans": {
+			"type": "object",
+			"properties": {
+				"campManageCampSelectionInfoPlans": {
+					"type": "object",
+					"$ref": "#/definitions/campManageCampSelectionInfoPlans"
+				}
+			},
+			"required": [
+				"campManageCampSelectionInfoPlans"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionInfoRest": {
+			"type": "object",
+			"properties": {
+				"campRestSeqNo": {
+					"type": "integer"
+				},
+				"campRestPeriod": {
+					"type": "integer"
+				},
+				"campRestOption": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"REFUSE",
+						"ALTERNATE",
+						"ANY-CAMPAIGN",
+						"SAME-CAMPAIGN",
+						"SAME-TITLE"
+					]
+				},
+				"campRestCampID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campActivePeriod": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"campRestSeqNo",
+				"campRestPeriod",
+				"campRestOption",
+				"campRestCampID"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionAddInfoRest": {
+			"type": "object",
+			"properties": {
+				"campRestCampName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campRestCampNameTranslations": {
+					"title": "campRestCampNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campRestCampName",
+				"campRestCampNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionListRest": {
+			"type": "object",
+			"properties": {
+				"campManageCampSelectionInfoRest": {
+					"type": "object",
+					"$ref": "#/definitions/campManageCampSelectionInfoRest"
+				},
+				"campManageCampSelectionAddInfoRest": {
+					"type": "object",
+					"$ref": "#/definitions/campManageCampSelectionAddInfoRest"
+				}
+			},
+			"required": [
+				"campManageCampSelectionInfoRest",
+				"campManageCampSelectionAddInfoRest"
+			],
+			"additionalProperties": false
+		},
+		"campManageCampSelectionListResponse": {
+			"type": "object",
+			"properties": {
+				"campManageCampSelectionInfoResponse": {
+					"type": "object",
+					"$ref": "#/definitions/campManageCampSelectionInfoResponse"
+				},
+				"campManageCampSelectionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/campManageCampSelectionInfo"
+				},
+				"campManageCampSelectionListPlans": {
+					"title": "campManageCampSelectionListPlans",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campManageCampSelectionListPlans"
+					}
+				},
+				"campManageCampSelectionListRest": {
+					"title": "campManageCampSelectionListRest",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campManageCampSelectionListRest"
+					}
+				}
+			},
+			"required": [
+				"campManageCampSelectionInfoResponse",
+				"campManageCampSelectionInfo",
+				"campManageCampSelectionListPlans",
+				"campManageCampSelectionListRest"
+			],
+			"additionalProperties": false
+		}
+	}
+}

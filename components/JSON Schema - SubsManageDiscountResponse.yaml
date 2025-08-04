@@ -1,0 +1,106 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "SubsManageDiscountsResponse",
+    "description": "JSON Schema for use with management of titles",
+    "type": "object",
+    "properties": {
+        "resultInfo": {
+            "$ref": "#/definitions/resultInfoDetails"
+        },
+        "SubsManageDiscountsResponse": {
+            "title": "SubsManageDiscountsResponse",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/SubsManageDiscountsResponse"
+            }
+        }
+    },
+    "required": [
+        "resultInfo",
+        "SubsManageDiscountsResponse"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "resultInfoDetails": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer"
+                },
+                "resultText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resultCode",
+                "resultText"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageDiscountsSubscriptionDetails": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaMPIID": {
+                    "type": "string"
+                },
+                "ariaMPINo": {
+                    "type": "integer"
+                }
+            },
+                "required": [
+                    "ariaAccountID",
+                    "ariaAccountNo",
+                    "ariaMPIID",
+                    "ariaMPINo"
+                ],
+                "additionalProperties": false
+        },
+        "subsManageDiscountsResponseDetails": {
+            "type": "object",
+            "properties": {
+                "actionDirective": {
+                    "type": "string",
+                    "enum": [
+                        "ADD",
+                        "MODIFY",
+                        "REMOVE"
+                    ]
+                },
+                "actionResultInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/resultInfoDetails"
+                }
+            },
+            "required": [
+                "actionDirective",
+                "actionResultInfo"
+            ],
+            "additionalProperties": false
+        },
+        "SubsManageDiscountsResponse": {
+            "type": "object",
+            "properties": {
+                "subsManageDiscountsResponseDetails": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageDiscountsResponseDetails"
+                },
+                "subsManageDiscountsSubscriptionDetails": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageDiscountsSubscriptionDetails"
+                }
+            },
+            "required": [
+                "subsManageDiscountsResponseDetails",
+                "subsManageDiscountsSubscriptionDetails"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

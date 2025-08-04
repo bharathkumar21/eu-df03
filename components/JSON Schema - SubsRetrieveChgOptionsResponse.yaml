@@ -1,0 +1,441 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "SubsRetrieveChgOptionsResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsRetrieveChgOptionsResponseDetails": {
+			"$ref": "#/definitions/subsRetrieveChgOptionsResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsRetrieveChgOptionsResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string"
+				},
+				"subsRetrieveChgOptionsUpgradeList": {
+					"title": "subsRetrieveChgOptionsUpgradeList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveChgOptionsPlansList"
+					}
+				},
+				"subsRetrieveChgOptionsDowngradeList": {
+					"title": "subsRetrieveChgOptionsDowngradeList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveChgOptionsPlansList"
+					}
+				},
+				"subsRetrieveChgOptionsSharingDetails": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsSharingDetails"
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaPINo",
+				"ariaPIID",
+				"subsRetrieveChgOptionsUpgradeList",
+				"subsRetrieveChgOptionsDowngradeList"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsPlansList": {
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanName": {
+					"type": "string"
+				},
+				"ariaPlanDesc": {
+					"type": "string"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"planProductTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"planDates": {
+					"type": "object",
+					"properties": {
+						"dateEarliestDeliveryChange": {
+							"type": "string"
+						}
+					}
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "discountDescTranslations"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "discountDescTranslations"
+				},
+				"changePlanRateOverview": {
+					"title": "changePlanRateOverview",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveChgOptionsRateOverview"
+					}
+				},
+				"changePlanCampaignDetails": {
+					"title": "changePlancampaignDetails",
+					"type": "array",
+					"maxItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveChgOptionsCampaignDetails"
+					}
+				},
+				"changeSharingEligibilityDetails": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsSharingEligibilityDetails"
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanName",
+				"ariaPlanDesc",
+				"planProductType",
+				"planProductTypeVariant",
+				"isDefault",
+				"planDates",
+				"changePlanRateOverview",
+				"changePlanCampaignDetails"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsRateOverview": {
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "integer"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "scheduleNameTranslations"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFreqRecurring": {
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"type": "integer"
+				},
+				"subscriptionCharges": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsRateCharges",
+					"type": "object",
+					"title": "subscriptionCharges"
+				},
+				"deliveryCharges": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsRateCharges",
+					"type": "object",
+					"title": "deliveryCharges"
+				},
+				"otherCharges": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsRateCharges",
+					"type": "object",
+					"title": "otherCharges"
+				},
+				"totalCharges": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsRateCharges",
+					"type": "object",
+					"title": "totalCharges"
+				},
+				"subsRetrieveChgOptionsBillingFrequency": {
+					"$ref": "#/definitions/subsRetrieveChgOptionsBillingFrequency"
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"subscriptionCharges",
+				"deliveryCharges",
+				"otherCharges",
+				"totalCharges",
+				"subsRetrieveChgOptionsBillingFrequency"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsCampaignDetails": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string"
+				},
+				"campaignNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "campaignNameTranslations"
+				},
+				"campaignDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "campaignDescTranslations"
+				},
+				"campaignDurationLength": {
+					"type": "integer"
+				},
+				"campaignDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campaignDurationEndDate": {
+					"type": "string"
+				},
+				"campaignBillingCode": {
+					"type": "string",
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campaignBillingSKU": {
+					"type": "string"
+				},
+				"campaignBillingPriceExclVAT": {
+					"type": "number"
+				},
+				"campaignBillingPriceInclVAT": {
+					"type": "number"
+				},
+				"campaignBillingPriceVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"campaignID",
+				"campaignNameTranslations",
+				"campaignDescTranslations",
+				"campaignDurationLength",
+				"campaignDurationUnit",
+				"campaignDurationEndDate",
+				"campaignBillingCode",
+				"campaignBillingSKU",
+				"campaignBillingPriceExclVAT",
+				"campaignBillingPriceInclVAT",
+				"campaignBillingPriceVAT"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsRateCharges": {
+			"type": "object",
+			"properties": {
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				},
+				"discountedCostExclVAT": {
+					"type": "number"
+				},
+				"discountedCostVAT": {
+					"type": "number"
+				},
+				"discountedCostInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT",
+				"discountedCostExclVAT",
+				"discountedCostVAT",
+				"discountedCostInclVAT"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveChgOptionsSharingDetails": {
+			"type": "object",
+			"properties": {
+				"EligibleForSharing": {
+					"type": "boolean"
+				},
+				"EligibleForSharingCnt": {
+					"type": "integer"
+				},
+				"EligibleForSharingPlan": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"EligibleForSharing",
+				"EligibleForSharingCnt"
+			]
+		},
+		"subsRetrieveChgOptionsBillingFrequency": {
+			"description": "The data elements of the BillingFrequency are used to define the billing frequencies for the recurring and usage-based charges",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "integer"
+				},
+				"billingFrequencyUsage": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"subsRetrieveChgOptionsSharingEligibilityDetails": {
+			"type": "object",
+			"properties": {
+				"EligibleForSharing": {
+					"type": "boolean"
+				},
+				"EligibleForSharingCnt": {
+					"type": "integer"
+				},
+				"EligibleForSharingPlan": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"EligibleForSharing",
+				"EligibleForSharingCnt",
+				"EligibleForSharingPlan"
+			]
+		}
+	}
+}

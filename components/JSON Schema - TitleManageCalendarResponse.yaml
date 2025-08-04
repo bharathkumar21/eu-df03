@@ -1,0 +1,71 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageCalendarResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"titleManageCalendarTitleInfo": {"type": "object", "$ref": "#/definitions/titleManageCalendarTitleInfo"},
+		"titleManageCalendarDetailsResponse": {"title": "titleManageCalendarDetailsResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageCalendarDetailsResponse"}}
+	},
+	 "required": ["resultInfo", "titleManageCalendarTitleInfo"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"titleManageCalendarTitleInfo": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string", "maxLength": 10}
+			},
+			"required": ["titleCode"], 
+			"additionalProperties": false
+		},
+		"titleManageCalendarInfo": {"type": "object",
+			"properties": {
+				"titlePublDate": {"type": "string", "maxLength": 10},
+				"titlePublDateType": {"type": "string", "maxLength": 1},
+				"titlePublOriginalDate": {"type": "string", "maxLength": 10},
+				"titlePublWeekNo": {"type": "integer"},
+				"titlePublWeekNoYear": {"type": "integer"},
+				"titlePublDayOfWeek": {"type": "integer"},
+				"titleDistFileGenDate": {"type": "string"},
+				"titleDistDateStart": {"type": "string", "maxLength": 10},
+				"titleDistDateEnd": {"type": "string", "maxLength": 10},
+				"dateID": {"type": "string"}
+			},
+			"required": ["titlePublDate", "titlePublDateType", "titlePublOriginalDate", "titlePublWeekNo", "titlePublWeekNoYear", "titlePublDayOfWeek", "titleDistDateStart", "titleDistDateEnd", "dateID"], 
+			"additionalProperties": false
+		},
+		"titleManageCalendarActionInfoResponse": {"type": "object",
+			"properties": {
+				"titleManageCalendarAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["titleManageCalendarAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"titleManageCalendarDetailsResponse": {"type": "object",
+			"properties": {
+				"titleManageCalendarActionInfoResponse": {"type": "object", "$ref": "#/definitions/titleManageCalendarActionInfoResponse"},
+				"titleManageCalendarInfo": {"type": "object", "$ref": "#/definitions/titleManageCalendarInfo"}
+			},
+			"required": ["titleManageCalendarActionInfoResponse", "titleManageCalendarInfo"],
+			"additionalProperties": false
+		}
+
+
+
+
+
+
+
+	}
+}

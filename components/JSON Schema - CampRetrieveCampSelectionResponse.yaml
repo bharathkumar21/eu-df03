@@ -1,0 +1,358 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campRetrieveCampSelectionResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campRetrieveCampSelectionList": {
+			"title": "campRetrieveCampSelectionList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/campRetrieveCampSelectionList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"campRetrieveCampSelectionList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionInfo": {
+			"type": "object",
+			"properties": {
+				"campCheckSeqNo": {
+					"type": "integer"
+				},
+				"campStartDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campCriteriaCode": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"ANY",
+						"ALL-PRODUCT",
+						"ANY-PRODUCT"
+					]
+				}
+			},
+			"required": [
+				"campCheckSeqNo",
+				"campStartDate",
+				"campEndDate",
+				"campID",
+				"campCriteriaCode"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionInfoPlans": {
+			"type": "object",
+			"properties": {
+				"campCriteriaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"campCriteriaPlanID"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionAddInfo": {
+			"type": "object",
+			"properties": {
+				"campName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campNameTranslations": {
+					"title": "campNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"campDescTranslations": {
+					"title": "campDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"campStatus": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"DEFINITION",
+						"TRIAL",
+						"ACTIVE",
+						"INACTIVE",
+						"DEPRECATED"
+					]
+				},
+				"campEligibility": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"ANY",
+						"INVITATION",
+						"RESTRICTION"
+					]
+				},
+				"campDurUnit": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campDurLength": {
+					"type": "integer"
+				},
+				"campDurEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campBillingCode": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campBillingPrice": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"campName",
+				"campNameTranslations",
+				"campDesc",
+				"campDescTranslations",
+				"campStatus",
+				"campEligibility",
+				"campDurUnit",
+				"campDurLength",
+				"campDurEndDate",
+				"campBillingCode",
+				"campBillingPrice"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionAddInfoPlans": {
+			"type": "object",
+			"properties": {
+				"campCriteriaPlanName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campCriteriaPlanNameTranslations": {
+					"title": "campCriteriaPlanNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campCriteriaPlanName",
+				"campCriteriaPlanNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionListPlans": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampSelectionInfoPlans": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionInfoPlans"
+				},
+				"campRetrieveCampSelectionAddInfoPlans": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionAddInfoPlans"
+				}
+			},
+			"required": [
+				"campRetrieveCampSelectionInfoPlans",
+				"campRetrieveCampSelectionAddInfoPlans"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionInfoRest": {
+			"type": "object",
+			"properties": {
+				"campRestSeqNo": {
+					"type": "integer"
+				},
+				"campRestPeriod": {
+					"type": "integer"
+				},
+				"campRestOption": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"REFUSE",
+						"ALTERNATE",
+						"ANY-CAMPAIGN",
+						"SAME-CAMPAIGN",
+						"SAME-TITLE"
+					]
+				},
+				"campRestCampID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campActivePeriod": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"campRestSeqNo",
+				"campRestPeriod",
+				"campRestOption",
+				"campRestCampID"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionAddInfoRest": {
+			"type": "object",
+			"properties": {
+				"campRestCampName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campRestCampNameTranslations": {
+					"title": "campRestCampNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"campRestCampName",
+				"campRestCampNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionListRest": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampSelectionInfoRest": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionInfoRest"
+				},
+				"campRetrieveCampSelectionAddInfoRest": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionAddInfoRest"
+				}
+			},
+			"required": [
+				"campRetrieveCampSelectionInfoRest",
+				"campRetrieveCampSelectionAddInfoRest"
+			],
+			"additionalProperties": false
+		},
+		"campRetrieveCampSelectionList": {
+			"type": "object",
+			"properties": {
+				"campRetrieveCampSelectionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionInfo"
+				},
+				"campRetrieveCampSelectionAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/campRetrieveCampSelectionAddInfo"
+				},
+				"campRetrieveCampSelectionListPlans": {
+					"title": "campRetrieveCampSelectionListPlans",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campRetrieveCampSelectionListPlans"
+					}
+				},
+				"campRetrieveCampSelectionListRest": {
+					"title": "campRetrieveCampSelectionListRest",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campRetrieveCampSelectionListRest"
+					}
+				}
+			},
+			"required": [
+				"campRetrieveCampSelectionInfo",
+				"campRetrieveCampSelectionAddInfo",
+				"campRetrieveCampSelectionListPlans",
+				"campRetrieveCampSelectionListRest"
+			],
+			"additionalProperties": false
+		}
+	}
+}

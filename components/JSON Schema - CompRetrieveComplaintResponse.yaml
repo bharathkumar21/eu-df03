@@ -1,0 +1,301 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compRetrieveComplaintResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"compRetrieveComplaintListResponse": {
+			"title": "compRetrieveComplaintListResponse",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/compRetrieveComplaintListResponse"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"compRetrieveComplaintListResponse"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "integer"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintInfo": {
+			"type": "object",
+			"properties": {
+				"complaintID": {
+					"type": "string"
+				},
+				"complaintHeadline": {
+					"type": "string"
+				},
+				"complaintDesc": {
+					"type": "string"
+				},
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"complaintDate": {
+					"type": "string"
+				},
+				"complaintStatus": {
+					"type": "string"
+				},
+				"redeliveryOrdered": {
+					"type": "boolean"
+				},
+				"redeliveryType": {
+					"type": "string",
+					"enum": [
+						"MESSENGER",
+						"POST"
+					]
+				},
+				"updateUserID": {
+					"type": "string"
+				},
+				"processingStatus": {
+					"type": "string"
+				},
+				"complaintNotes": {
+					"type": "string"
+				},
+				"complaintChannelCode": {
+					"type": "string"
+				},
+				"complaintMediumCode": {
+					"type": "string"
+				},
+				"complaintAddField1": {
+					"type": "string"
+				},
+				"complaintAddField2": {
+					"type": "string"
+				},
+				"complaintAddField3": {
+					"type": "string"
+				},
+				"complaintAddField4": {
+					"type": "string"
+				},
+				"complaintAddField5": {
+					"type": "string"
+				},
+				"compRetrieveComplaintFollowupList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/compRetrieveComplaintFollowup"
+					}
+				},
+				"complaintNoOfUnits": {
+					"type": "integer"
+				},
+				"complaintSendToDist": {
+					"type": "string"
+				},
+				"complaintUpdateDate": {
+					"type": "string"
+				},
+				"complaintCompensationAmount": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"complaintID",
+				"complaintHeadline",
+				"complaintDesc",
+				"complaintCodeID",
+				"complaintDate",
+				"complaintStatus",
+				"redeliveryOrdered",
+				"redeliveryType",
+				"updateUserID",
+				"processingStatus",
+				"complaintNotes",
+				"complaintNoOfUnits",
+				"complaintSendToDist"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintAddInfo": {
+			"type": "object",
+			"properties": {
+				"complaintCodeName": {
+					"type": "string"
+				},
+				"complaintCodeDesc": {
+					"type": "string"
+				},
+				"compCodeNameTranslations": {
+					"title": "compCodeNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"compCodeDescTranslations": {
+					"title": "compCodeDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"complaintCodeName",
+				"complaintCodeDesc",
+				"compCodeNameTranslations",
+				"compCodeDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintListResponse": {
+			"type": "object",
+			"properties": {
+				"compRetrieveComplaintInfo": {
+					"type": "object",
+					"$ref": "#/definitions/compRetrieveComplaintInfo"
+				},
+				"compRetrieveComplaintAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/compRetrieveComplaintAddInfo"
+				}
+			},
+			"required": [
+				"compRetrieveComplaintInfo",
+				"compRetrieveComplaintAddInfo"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintFollowup": {
+			"type": "object",
+			"properties": {
+				"followupID": {
+					"type": "string"
+				},
+				"followupDate": {
+					"type": "string"
+				},
+				"followupAction": {
+					"type": "string"
+				},
+				"followupNotes": {
+					"type": "string"
+				},
+				"followupStatus": {
+					"type": "string",
+					"enum": [
+						"PENDING",
+						"COMPLETE",
+						"CANCELLED"
+					]
+				},
+				"followupActionOwner": {
+					"type": "string"
+				},
+				"followupOutcome": {
+					"type": "string"
+				},
+				"followupUpdateDate": {
+					"type": "string"
+				},
+				"followupUpdateUser": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"followupID",
+				"followupDate",
+				"followupAction",
+				"followupNotes",
+				"followupStatus",
+				"followupActionOwner",
+				"followupOutcome",
+				"followupUpdateDate",
+				"followupUpdateUser"
+			]
+		}
+	}
+}

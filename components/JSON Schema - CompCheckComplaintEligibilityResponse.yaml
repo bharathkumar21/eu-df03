@@ -1,0 +1,192 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compCheckComplaintEligibilityResponse",
+	"description": "API to check whether a complaint can be raised by the customer on the specified date. ",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"compCheckComplaintEligibilityResponseInfo": {
+			"$ref": "#/definitions/compCheckComplaintEligibilityResponseInfo"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"compCheckComplaintEligibilityResponseInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"compCheckComplaintEligibilityResponseInfo": {
+			"type": "object",
+			"properties": {
+				"complaintEligible": {
+					"type": "boolean"
+				},
+				"ariaPlanID":{
+					"type": "string"
+				},
+				"ariaPlanName": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				},
+				"campaignID": {
+					"type": "string"
+				},
+				"campaignName": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				
+				"ineligibilityReasonCode": {
+					"type": "integer",
+					"enum": [
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				"compCheckComplaintEligibilityComplaintCodes": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/compCheckComplaintEligibilityComplaintCodes"
+					}
+				}
+			},
+			"required": [
+				"complaintEligible",
+				"ineligibilityReasonCode",
+				"compCheckComplaintEligibilityComplaintCodes"
+			]
+		},
+		"compCheckComplaintEligibilityComplaintCodes": {
+			"type": "object",
+			"properties": {
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"complaintCodeName": {
+					"type": "string"
+				},
+				"complaintCodeNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"complaintCodeDesc": {
+					"type": "string"
+				},
+				"complaintCodeDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"requestSourceID": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR"
+					]
+				},
+				"creditType": {
+					"type": "string",
+					"enum": [
+						"CASH",
+						"SERVICE"
+					]
+				},
+				"complaintAllowedCash": {
+					"type": "boolean"
+				},
+				"complaintAllowedService": {
+					"type": "boolean"
+				},
+				"creditAllowedCash": {
+					"type": "boolean"
+				},
+				"creditAllowedService": {
+					"type": "boolean"
+				},
+				"creditAutomaticallyCash": {
+					"type": "boolean"
+				},
+				"creditAutomaticallyService": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"complaintCodeID",
+				"ariaPlanID",
+				"ariaPlanName",
+				"ariaRateScheduleID",
+				"complaintCodeName",
+				"complaintCodeNameTranslations",
+				"complaintCodeDesc",
+				"complaintCodeDescTranslations",
+				"requestSourceID",
+				"creditType",
+				"complaintAllowedCash",
+				"complaintAllowedService",
+				"creditAllowedCash",
+				"creditAllowedService",
+				"creditAutomaticallyCash",
+				"creditAutomaticallyService"
+			]
+		}
+	}
+}

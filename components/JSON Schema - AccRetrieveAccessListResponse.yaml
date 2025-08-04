@@ -1,0 +1,43 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "accRetrieveAccessListResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"accRetrieveAccessListInfo": {"type": "object", "$ref": "#/definitions/accRetrieveAccessListInfo"}
+	},
+	 "required": ["resultInfo", "accRetrieveAccessListInfo"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"accRetrieveAccessListFeatureList": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string"},
+				"accessTitleCode": {"type": "string"},
+				"titleDomain": {"type": "string"},
+				"accessFeature": {"type": "string"},
+				"eligibleForSharing": {"type": "boolean"}
+			},
+			 "required": ["titleDomain", "accessFeature", "eligibleForSharing"],
+			 "additionalProperties": false
+		},
+		"accRetrieveAccessListInfo": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"numberOfAllotments": {"type": "integer"},
+				"accRetrieveAccessListFeatureList": {"title": "accRetrieveAccessListFeatureList","type": "array","items": {"$ref": "#/definitions/accRetrieveAccessListFeatureList"}}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "numberOfAllotments", "accRetrieveAccessListFeatureList"], 
+			"additionalProperties": false
+		}
+	}
+}

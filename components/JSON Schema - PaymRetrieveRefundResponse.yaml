@@ -1,0 +1,214 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymRetrieveRefundResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {
+            "$ref": "#/definitions/resultInfoDetails"
+        },
+        "PaymRetrieveRefundResponseDetails": {
+            "title": "PaymRetrieveRefundResponseDetails",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/paymRetrieveRefundResponseDetails"
+            }
+        }
+    },
+    "required": [
+        "resultInfo",
+        "PaymRetrieveRefundResponseDetails"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "resultInfoDetails": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer"
+                },
+                "resultText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resultCode",
+                "resultText"
+            ],
+            "additionalProperties": false
+        },
+        "paymRetrieveRefundResponseDetails": {
+            "type": "object",
+            "properties": {
+                "PaymRetrieveRefundAccountInfo": {
+                    "$ref": "#/definitions/paymRetrieveRefundAccountInfo"
+                },
+                "PaymRetrieveRefundRefundInfo": {
+                    "$ref": "#/definitions/paymRetrieveRefundRefundInfo"
+                }
+            },
+            "additionalProperties": false
+        },
+        "paymRetrieveRefundAccountInfo": {
+            "type": "object",
+            "properties": {
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaAccountID": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "custFullName": {
+                    "type": "string",
+                    "maxLength": 100
+                },
+                "custAddrLine1": {
+                    "type": "string"
+                },
+                "custAddrLine2": {
+                    "type": "string"
+                },
+                "custAddrLine3": {
+                    "type": "string"
+                },
+                "custAddrLine4": {
+                    "type": "string"
+                },
+                "custPostalCode": {
+                    "type": "string"
+                },
+                "custPostalCity": {
+                    "type": "string"
+                },
+                "custCountryCode": {
+                    "type": "string"
+                },
+                "custAddrLocality": {
+                    "type": "string"
+                },
+                "custAddrStateProv": {
+                    "type": "string"
+                },
+                "custCoAddr": {
+                    "type": "string"
+                },
+                "custStreetName": {
+                    "type": "string"
+                },
+                "custStreetNo": {
+                    "type": "string"
+                },
+                "custFlatNo": {
+                    "type": "string"
+                },
+                "custFlatSpec": {
+                    "type": "string"
+                },
+                "custFlatFloor": {
+                    "type": "string"
+                },
+                "custEntranceNo": {
+                    "type": "string"
+                },
+                "custApartmentNo": {
+                    "type": "string"
+                },
+                "bankAcctNumber": {
+                    "type": "string"
+                },
+                "bankIBANNumber": {
+                    "type": "string"
+                },
+                "bankSWIFTAddr": {
+                    "type": "string"
+                },
+                "paymentTransNo": {
+                    "type": "string"
+                },
+                "paymentReceiptNo": {
+                    "type": "string"
+                },
+                "paymentBankDate": {
+                    "type": "string"
+                },
+                "paymentAgreementID": {
+                    "type": "string"
+                },
+                "paymentAuditRef": {
+                    "type": "string"
+                },
+                "customerInvRef": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "paymRetrieveRefundRefundInfo": {
+            "type": "object",
+            "properties": {
+                "refundID": {
+                    "type": "string"
+                },
+                "refundNote": {
+                    "type": "string"
+                },
+                "refundStatus": {
+                    "type": "string",
+                    "enum": [
+                        "RAISED",
+                        "COMPLETE"
+                    ]
+                },
+                "refundMethod": {
+                    "type": "string",
+                    "enum": [
+                        "BANK",
+                        "ORIGINAL",
+                        "CHEQUE"
+                    ]
+                },
+                "refundTransferStatus": {
+                    "type": "string"
+                },
+                "refundTransferFilename": {
+                    "type": "string"
+                },
+                "refundSource": {
+                    "type": "string",
+                    "enum": [
+                        "CSR",
+                        "CUSTOMER",
+                        "SYSTEM"
+                    ]
+                },
+                "refundDate": {
+                    "type": "string"
+                },
+                "refundUpdateDate": {
+                    "type": "string"
+                },
+                "refundPostingDate": {
+                    "type": "string"
+                },
+                "refundTransferDate": {
+                    "type": "string"
+                },
+                "refundAmount": {
+                    "type": "number"
+                },
+                "paymentID": {
+                    "type": "string"
+                },
+                "refundProcess": {
+                    "type": "string",
+                    "enum": [
+                        "STANDARD",
+                        "INTERNAL"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

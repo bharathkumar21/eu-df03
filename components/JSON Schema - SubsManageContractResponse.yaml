@@ -1,0 +1,70 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsManageContractResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsManageContractResponseList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/subsManageContractResponseList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsManageContractResponseList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"subsManageContractResponseList": {
+			"type": "object",
+			"properties": {
+				"resultInfo": {
+					"$ref": "#/definitions/resultInfoDetails"
+				},
+				"subsManageContractAction": {
+					"type": "object",
+					"properties": {
+						"actionCode": {
+							"type": "string",
+							"enum": [
+								"ADD",
+								"MODIFY",
+								"REMOVE"
+							]
+						}
+					}
+				},
+				"ariaContractNo": {
+					"type": "integer"
+				},
+				"ariaContractID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"subsManageContractAction"
+			]
+		}
+	}
+}

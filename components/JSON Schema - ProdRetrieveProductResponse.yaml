@@ -1,0 +1,965 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "prodRetrieveProductResponse",
+	"description": "The overall response structure for ProdRetrieveProduct",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"prodRetrieveProductList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/prodRetrieveProductEntry"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"prodRetrieveProductList"
+	],
+	"definitions": {
+		"resultInfoDetails": {
+			"description": "A generic structure used to hold information on the outcome of the operation",
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"prodRetrieveProductEntry": {
+			"description": "The overall attribute that defines the product being returned",
+			"type": "object",
+			"properties": {
+				"prodRetrieveProductDetail": {
+					"$ref": "#/definitions/prodRetrieveProductDetail"
+				},
+				"prodRetrieveProductRateOverviewList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateOverviewEntry"
+					}
+				},
+				"prodRetrieveProductRateDetailList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateDetailEntry"
+					}
+				}
+			},
+			"required": [
+				"prodRetrieveProductDetail",
+				"prodRetrieveProductRateOverviewList",
+				"prodRetrieveProductRateDetailList"
+			]
+		},
+		"prodRetrieveProductDetail": {
+			"description": "A mandatory structure that defines the overall details on the product as returned to the caller",
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"ariaPlanName": {
+					"type": "string"
+				},
+				"ariaPlanDesc": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"productType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"productTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"productStatus": {
+					"type": "string",
+					"enum": [
+						"ACTIVE",
+						"INACTIVE"
+					]
+				},
+				"productPlanType": {
+					"type": "string",
+					"enum": [
+						"MASTER",
+						"SUPPLEMENTAL"
+					]
+				},
+				"productTypeVariantCnt": {
+					"type": "integer"
+				},
+				"productPriceModel": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"PRICE-ADJUST"
+					]
+				},
+				"planAccessDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"productEligibleForMultiPurchase": {
+					"type": "boolean"
+				},
+				"productEligibleForBundles": {
+					"type": "boolean"
+				},
+				"productEligibleForDiscounts": {
+					"type": "boolean"
+				},
+				"productEligibleForSharing": {
+					"type": "boolean"
+				},
+				"productEligibleForSharingCnt": {
+					"type": "integer"
+				},
+				"productEligibleForSharingPlanID": {
+					"type": "string"
+				},
+				"prodRetrieveProductTitleList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductTitleEntry"
+					}
+				},
+				"prodRetrieveProductTitleOfferingList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductTitleEntry"
+					}
+				},
+				"prodRetrieveProductDigitalTitleList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductDigitalTitleEntry"
+					}
+				},
+				"isPaymentRestricted": {
+					"type": "boolean"
+				},
+				"prodRetrieveProductPayMethodReqdList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductPayMethodReqdEntry"
+					}
+				},
+				"isPurchaseRestricted": {
+					"type": "boolean"
+				},
+				"isDeliveryRestricted": {
+					"type": "boolean"
+				},
+				"prodRetrieveProductDeliveryRestrictionList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductDeliveryRestriction"
+					}
+				},
+				"isDeliveryCharged": {
+					"type": "boolean"
+				},
+				"prodRetrieveProductDeliveryChargeList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductDeliveryCharge"
+					}
+				},
+				"prodRetrieveProductUpgradeList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductChangeEntry"
+					}
+				},
+				"prodRetrieveProductDownradeList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductChangeEntry"
+					}
+				},
+				"prodRetrieveProductRolloverDetails": {
+					"$ref": "#/definitions/prodRetrieveProductRolloverDetails"
+				},
+				"prodRetrieveProductContractRolloverDetails": {
+					"$ref": "#/definitions/prodRetrieveProductContractRolloverDetails"
+				},
+				"prodRetrieveProductContractInfo": {
+					"$ref": "#/definitions/prodRetrieveProductContractInfo"
+				},
+				"cancellationOptions": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"ariaPlanName",
+				"ariaPlanDesc",
+				"planNameTranslations",
+				"planDescTranslations",
+				"productType",
+				"productTypeVariant",
+				"productTypeVariantCnt",
+				"productPriceModel",
+				"productEligibleForMultiPurchase",
+				"productEligibleForBundles",
+				"productEligibleForDiscounts",
+				"productEligibleForSharing",
+				"productEligibleForSharingCnt",
+				"productEligibleForSharingPlanID",
+				"prodRetrieveProductTitleList",
+				"prodRetrieveProductTitleOfferingList",
+				"prodRetrieveProductUpgradeList",
+				"prodRetrieveProductDownradeList"
+			]
+		},
+		"prodRetrieveProductDeliveryRestriction": {
+			"description": "This structure contains details on a single delivery restriction that may apply for a given product. The structure de¬fines what geography the restriction applies for, and the range of postal codes or country codes to apply.",
+			"type": "object",
+			"properties": {
+				"deliveryRestriction": {
+					"type": "string",
+					"enum": [
+						"NATIONAL",
+						"INTERNATIONAL"
+					]
+				},
+				"deliveryRestrictionStart": {
+					"type": "string"
+				},
+				"deliveryRestrictionEnd": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"deliveryRestriction",
+				"deliveryRestrictionStart",
+				"deliveryRestrictionEnd"
+			]
+		},
+		"prodRetrieveProductDeliveryCharge": {
+			"description": "This structure contains details on a single delivery charge that may apply for a given product. The structure de¬fines what geography the charge applies for, the range of postal codes or country codes to apply, and the suffix of the rate schedule. Rate schedules ending on this value are used for a particular delivery charge.",
+			"type": "object",
+			"properties": {
+				"deliveryCharge": {
+					"type": "string",
+					"enum": [
+						"NATIONAL",
+						"INTERNATIONAL"
+					]
+				},
+				"deliveryChargeStart": {
+					"type": "string"
+				},
+				"deliveryChargeEnd": {
+					"type": "string"
+				},
+				"deliveryChargeSuffix": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"deliveryCharge",
+				"deliveryChargeStart",
+				"deliveryChargeEnd",
+				"deliveryChargeSuffix"
+			]
+		},
+		"prodRetrieveProductPayMethodReqdEntry": {
+			"description": "The overall structure defining the fields used for payment method restrictions.",
+			"type": "object",
+			"properties": {
+				"paymentMethodReqd": {
+					"type": "string",
+					"enum": [
+						"ANY",
+						"CREDITCARD",
+						"DIRECTDEBIT",
+						"NETTERM",
+						"VIPPS",
+						"NONE"
+					]
+				}
+			},
+			"required": [
+				"paymentMethodReqd"
+			]
+		},
+		"prodRetrieveProductTitleEntry": {
+			"description": "This data structure provides the general details on the title for which the product is available.",
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"titleName": {
+					"type": "string"
+				},
+				"titleDesc": {
+					"type": "string"
+				},
+				"titleNameTranslations": {
+					"title": "titleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDescTranslations": {
+					"title": "titleDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleNameTranslations",
+				"titleDescTranslations"
+			]
+		},
+		"prodRetrieveProductDigitalTitleEntry": {
+			"description": "This structure defines a single title offered to customers for digital access. The structure defines the title code and the access features applicable for the title.",
+			"type": "object",
+			"properties": {
+				"prodRetrieveProductTitleEntry": {
+					"$ref": "#/definitions/prodRetrieveProductTitleEntry"
+				},
+				"prodRetrieveProductAccessFeaturesList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductAccessFeatures"
+					}
+				}
+			},
+			"required": [
+				"prodRetrieveProductTitleEntry",
+				"prodRetrieveProductAccessFeaturesList"
+			]
+		},
+		"prodRetrieveProductAccessFeatures": {
+			"description": "This structure defines a single access feature, which can be used by external systems to grant access to various services for the given title.",
+			"type": "object",
+			"properties": {
+				"accessFeature": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"accessFeature"
+			]
+		},
+		"prodRetrieveProductChangeEntry": {
+			"description": "This structure defines a single update/downgrade entry for the current plan. The structure holds information on the plans to which the customer can upgrade or downgrade to, including details such as name, description, translations, and product type.",
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planNameTranslations",
+				"planDescTranslations",
+				"isDefault",
+				"planProductType"
+			]
+		},
+		"prodRetrieveProductRateOverviewEntryFuture": {
+			"type": "object",
+			"properties": {
+				"priceChangeDate": {
+					"type": "string"
+				},
+				"prodRetrieveProductRateOverviewSubscription": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewDelivery": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewOther": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewTotal": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				}
+			},
+			"required": [
+				"priceChangeDate",
+				"prodRetrieveProductRateOverviewSubscription",
+				"prodRetrieveProductRateOverviewDelivery",
+				"prodRetrieveProductRateOverviewOther",
+				"prodRetrieveProductRateOverviewTotal"
+			]
+		},
+		"prodRetrieveProductRateTierEntryFuture": {
+			"type": "object",
+			"properties": {
+				"priceChangeDate": {
+					"type": "string"
+				},
+				"prodRetrieveProductRateTierList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateTierEntry"
+					}
+				}
+			},
+			"required": [
+				"priceChangeDate",
+				"prodRetrieveProductRateTierList"
+			]
+		},
+		"prodRetrieveProductRateOverviewEntry": {
+			"description": "The overall structure holding details on each rate schedule and the associated cost.",
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "integer"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"title": "scheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFrequencies": {
+					"$ref": "#/definitions/prodRetrieveProductBillingFrequency"
+				},
+				"prodRetrieveProductRateOverviewSubscription": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewDelivery": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewOther": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewTotal": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateOverviewEntryFuture": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateOverviewEntryFuture"
+					}
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFrequencies",
+				"prodRetrieveProductRateOverviewSubscription",
+				"prodRetrieveProductRateOverviewDelivery",
+				"prodRetrieveProductRateOverviewOther",
+				"prodRetrieveProductRateOverviewTotal"
+			]
+		},
+		"prodRetrieveProductBillingFrequency": {
+			"description": "The overall structure holding details of billing frequencies for the recurring and usage-based charges.",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "integer"
+				},
+				"billingFrequencyUsage": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"prodRetrieveProductRateAmounts": {
+			"description": "The overall structure for the amount attributes",
+			"type": "object",
+			"properties": {
+				"rateExclVAT": {
+					"type": "number"
+				},
+				"rateVAT": {
+					"type": "number"
+				},
+				"rateInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"rateExclVAT",
+				"rateVAT",
+				"rateInclVAT"
+			]
+		},
+		"prodRetrieveProductRateDetailEntry": {
+			"description": "The overall structure holding details on rates per rate schedule and service defined within the product.",
+			"type": "object",
+			"properties": {
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "integer"
+				},
+				"ariaScheduleName": {
+					"type": "string"
+				},
+				"scheduleNameTranslations": {
+					"title": "scheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"isDefault": {
+					"type": "boolean"
+				},
+				"billingFrequencies": {
+					"$ref": "#/definitions/prodRetrieveProductBillingFrequency"
+				},
+				"ariaRateScheduleCost": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				},
+				"prodRetrieveProductRateServiceList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateServiceEntry"
+					}
+				}
+			},
+			"required": [
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"ariaScheduleName",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"isDefault",
+				"billingFrequencies",
+				"ariaRateScheduleCost",
+				"prodRetrieveProductRateServiceList"
+			]
+		},
+		"prodRetrieveProductRateServiceEntry": {
+			"description": "This data structure contains details of each charge service defined for the rate schedule and returned as part of the product. The services define the price point of the product and will contain the subscription charges, delivery charges, etc.",
+			"type": "object",
+			"properties": {
+				"ariaServiceID": {
+					"type": "string"
+				},
+				"ariaServiceNo": {
+					"type": "string"
+				},
+				"chargeType": {
+					"type": "string",
+					"enum": [
+						"CHARGE",
+						"CHARGE-DEL-POSTAL",
+						"CHARGE-DEL-AIRMAIL"
+					]
+				},
+				"serviceNameTranslations": {
+					"title": "serviceNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"ariaVATGroupID": {
+					"type": "string"
+				},
+				"ariaVATRate": {
+					"type": "number"
+				},
+				"prodRetrieveProductRateTierList": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateTierEntry"
+					}
+				},
+				"prodRetrieveProductRateTierListFuture": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductRateTierEntryFuture"
+					}
+				}
+			},
+			"required": [
+				"ariaServiceID",
+				"ariaServiceNo",
+				"chargeType",
+				"serviceNameTranslations",
+				"ariaVATGroupID",
+				"ariaVATRate",
+				"prodRetrieveProductRateTierList"
+			]
+		},
+		"solmTranslationEntry": {
+			"description": "A generic structure used to hold the translations",
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"description": "A generic structure used to hold the translations with reference number",
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"prodRetrieveProductRateTierEntry": {
+			"description": "This structure that defines the price tiers defined for the current service in the current rate schedule",
+			"type": "object",
+			"properties": {
+				"tierNo": {
+					"type": "integer"
+				},
+				"tierDescTranslations": {
+					"title": "tierDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"tierFrom": {
+					"type": "integer"
+				},
+				"tierTo": {
+					"type": "integer"
+				},
+				"ariaRateTierCost": {
+					"$ref": "#/definitions/prodRetrieveProductRateAmounts"
+				}
+			},
+			"required": [
+				"tierNo",
+				"tierDescTranslations",
+				"tierFrom",
+				"tierTo",
+				"ariaRateTierCost"
+			]
+		},
+		"prodRetrieveProductRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers and trials as defined on the product in the ARIA product catalog. If no rollover or trial information is available, the structure is not present in the response",
+			"type": "object",
+			"properties": {
+				"rolloverPlanDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"initFreePeriodDuration": {
+					"type": "integer"
+				},
+				"initFreePeriodDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusDuration": {
+					"type": "integer"
+				},
+				"rolloverPlanStatusDurationCode": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"MONTHS",
+						"WEEKS",
+						"QUARTERS",
+						"YEARS",
+						""
+					]
+				},
+				"rolloverPlanStatusCode": {
+					"type": "integer",
+					"enum": [
+						1,
+						41,
+						61
+					]
+				}
+			}
+		},
+		"prodRetrieveProductContractRolloverDetails": {
+			"description": "an optional structure that contains details on rollovers that can be used when creating contracts. The definition of this information is taken directly from the ARIA product catalog. If no contract rollover information is available, the structure is not present in the response. ",
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planName": {
+					"type": "string"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"title": "planNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planDescTranslations": {
+					"title": "planDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"prodRetrieveProductContractRolloverRateSchedules": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/prodRetrieveProductContractRolloverRateSchedules"
+					}
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planName",
+				"planDesc",
+				"planNameTranslations",
+				"planDescTranslations",
+				"planProductType",
+				"prodRetrieveProductContractRolloverRateSchedules"
+			]
+		},
+		"prodRetrieveProductContractRolloverRateSchedules": {
+			"description": "The structure contains details on how contracts can be used to roll from one rate schedule to another",
+			"type": "object",
+			"properties": {
+				"currentAriaScheduleID": {
+					"type": "string"
+				},
+				"currentAriaScheduleNo": {
+					"type": "integer"
+				},
+				"currentAriaScheduleName": {
+					"type": "string"
+				},
+				"currentScheduleNameTranslations": {
+					"title": "currentScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"rolloverAriaScheduleID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNo": {
+					"type": "integer"
+				},
+				"rolloverAriaScheduleName": {
+					"type": "string"
+				},
+				"rolloverScheduleNameTranslations": {
+					"title": "rolloverScheduleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"currentAriaScheduleID",
+				"currentAriaScheduleNo",
+				"currentAriaScheduleName",
+				"currentScheduleNameTranslations",
+				"rolloverAriaScheduleID",
+				"rolloverAriaScheduleNo",
+				"rolloverAriaScheduleName",
+				"rolloverScheduleNameTranslations"
+			]
+		},
+		"prodRetrieveProductContractInfo": {
+			"description": "an optional structure that contains details on contracts available for this product. The contract details are per AMPS definition and is not related to the ARIA product catalog contract definitions.",
+			"type": "object",
+			"properties": {
+				"contractOption": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"ON-CREATION",
+						"ON-REQUEST"
+					]
+				},
+				"contractType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"CONTINUE",
+						"CONTINUE-RESET",
+						"RENEW",
+						"RENEW-RESET",
+						"TERMINATE",
+						"TERMINATE-PRORATE",
+						"ROLLOVER"
+					]
+				},
+				"contractDuration": {
+					"type": "integer"
+				},
+				"contractEndDate": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

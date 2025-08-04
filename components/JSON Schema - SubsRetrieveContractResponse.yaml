@@ -1,0 +1,403 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsRetrieveContractResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsRetrieveContractResponseDetails": {
+			"$ref": "#/definitions/subsRetrieveContractResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveContractResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"subsRetrieveContractResponseList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveContractResponseList"
+					}
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaMPINo",
+				"ariaMPIID"
+			]
+		},
+		"subsRetrieveContractResponseList": {
+			"type": "object",
+			"properties": {
+				"subsRetrieveContractDetails": {
+					"$ref": "#/definitions/subsRetrieveContractDetails"
+				},
+				"subsRetrieveContractSubscriptions": {
+					"$ref": "#/definitions/subsRetrieveContractSubscriptions"
+				}
+			},
+			"required": [
+				"subsRetrieveContractDetails",
+				"subsRetrieveContractSubscriptions"
+			]
+		},
+		"subsRetrieveContractDetails": {
+			"type": "object",
+			"properties": {
+				"ariaContractNo": {
+					"type": "integer"
+				},
+				"ariaContractID": {
+					"type": "string"
+				},
+				"ariaContractScope": {
+					"type": "string",
+					"enum": [
+						"ACCOUNT",
+						"SUBSCRIPTION"
+					]
+				},
+				"ariaContractTypeNo": {
+					"type": "integer"
+				},
+				"contractType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"CONTINUE",
+						"CONTINUE-RESET",
+						"RENEW",
+						"RENEW-RESET",
+						"TERMINATE",
+						"TERMINATE-PRORATE",
+						"ROLLOVER"
+					]
+				},
+				"contractDuration": {
+					"type": "integer"
+				},
+				"contractStartDate": {
+					"type": "string"
+				},
+				"contractEndDate": {
+					"type": "string"
+				},
+				"ariaContractStatus": {
+					"type": "integer",
+					"enum": [
+						-3,
+						-2,
+						-1,
+						0,
+						1,
+						99
+					]
+				},
+				"ariaContractCreateComments": {
+					"type": "string"
+				},
+				"ariaContractCreateDate": {
+					"type": "string"
+				},
+				"ariaContractUpdateComments": {
+					"type": "string"
+				},
+				"ariaContractUpdateDate": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaContractNo",
+				"ariaContractID",
+				"ariaContractScope",
+				"ariaContractTypeNo",
+				"contractType",
+				"contractDuration",
+				"contractStartDate",
+				"contractEndDate",
+				"ariaContractStatus",
+				"ariaContractCreateDate"
+			]
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveContractSubscriptions": {
+			"type": "object",
+			"properties": {
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"planName": {
+					"type": "string"
+				},
+				"planNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planNameTranslations"
+				},
+				"planDesc": {
+					"type": "string"
+				},
+				"planDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planDescTranslations"
+				},
+				"planProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"planStatusCode": {
+					"type": "integer"
+				},
+				"planStatusCodeText": {
+					"type": "string"
+				},
+				"rolloverAriaPlanID": {
+					"type": "string"
+				},
+				"rolloverAriaPlanNo": {
+					"type": "integer"
+				},
+				"rolloverAriaPlanName": {
+					"type": "string"
+				},
+				"rolloverPlanNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planNameTranslations"
+				},
+				"rolloverAriaPlanDesc": {
+					"type": "string"
+				},
+				"rolloverAriaPlanDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planDescTranslations"
+				},
+				"rolloverPlanProductType": {
+					"type": "string",
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO",
+						"BUNDLE"
+					]
+				},
+				"rolloverAriaScheduleID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNo": {
+					"type": "integer"
+				},
+				"rolloverAriaScheduleName": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup",
+					"type": "object",
+					"title": "planDescTranslations"
+				},
+				"subsRetrieveContractCustomRate": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveContractCustomRate"
+					}
+				}
+			},
+			"required": [
+				"ariaPIID",
+				"ariaPINo",
+				"ariaPlanID",
+				"ariaPlanNo",
+				"planName",
+				"planNameTranslations",
+				"planDesc",
+				"planDescTranslations",
+				"planProductType",
+				"planStatusCode",
+				"planStatusCodeText",
+				"rolloverAriaPlanID",
+				"rolloverAriaPlanNo",
+				"rolloverAriaPlanName",
+				"rolloverPlanNameTranslations",
+				"rolloverAriaPlanDesc",
+				"rolloverAriaPlanDescTranslations",
+				"rolloverPlanProductType",
+				"rolloverAriaScheduleID",
+				"rolloverAriaScheduleNo",
+				"rolloverAriaScheduleName",
+				"rolloverAriaScheduleNameTranslations"
+			]
+		},
+		"subsRetrieveContractCustomRate": {
+			"type": "object",
+			"properties": {
+				"ariaServiceID": {
+					"type": "string"
+				},
+				"ariaServiceNo": {
+					"type": "string"
+				},
+				"chargeType": {
+					"type": "string",
+					"enum": [
+						"CHARGE",
+						"CHARGE-DEL-POSTAL",
+						"CHARGE-DEL-AIRMAIL"
+					]
+				},
+				"serviceNameTranslations": {
+					"title": "serviceNameTranslations",
+					"type": "object",
+					"$ref": "file:///C:/Users/bhara/Downloads/OneDrive_2_09-11-2021/JSON%20Schema%20-%20SubsGetEligibleOfferingsResponse.json#/definitions/solmTranslationGroup"
+				},
+				"ariaVATGroupID": {
+					"type": "string"
+				},
+				"ariaVATRate": {
+					"type": "number"
+				},
+				"subsRetrieveContractCustomRateTier": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsRetrieveContractCustomRateTier"
+					}
+				}
+			},
+			"required": [
+				"ariaServiceID",
+				"ariaServiceNo",
+				"chargeType",
+				"serviceNameTranslations",
+				"ariaVATGroupID",
+				"ariaVATRate",
+				"subsRetrieveContractCustomRateTier"
+			]
+		},
+		"subsRetrieveContractCustomRateTier": {
+			"type": "object",
+			"properties": {
+				"tierNo": {
+					"type": "integer"
+				},
+				"tierDescTranslations": {
+					"title": "tierDescTranslations",
+					"type": "object",
+					"$ref": "file:///C:/Users/bhara/Downloads/OneDrive_2_09-11-2021/JSON%20Schema%20-%20SubsGetEligibleOfferingsResponse.json#/definitions/solmTranslationGroup"
+				},
+				"tierFrom": {
+					"type": "integer"
+				},
+				"tierTo": {
+					"type": "integer"
+				},
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"tierNo",
+				"tierDescTranslations",
+				"tierFrom",
+				"tierTo",
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT"
+			]
+		}
+	}
+}

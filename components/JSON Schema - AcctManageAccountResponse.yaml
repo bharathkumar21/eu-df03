@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "acctManageAccountResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"acctManageAccountResponseDetails": {"title": "acctManageAccountResponseDetails","type": "array","minItems": 1,"items": {"$ref": "#/definitions/acctManageAccountResponseDetails"}}
+	},
+	"required": ["resultInfo", "acctManageAccountResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"acctManageAccountResponseDetails": {"type": "object",
+			"properties": {
+				"actionDirective": {"type": "string", "enum": ["ASSIGN", "MODIFY", "CANCEL", "STATUS"]},
+				"actionResultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+				"ariaAccountID": {"type": "string", "maxLength": 50},
+				"ariaAccountNo": {"type": "integer"}
+			},
+			"required": ["actionDirective", "actionResultInfo", "ariaAccountID", "ariaAccountNo"], 
+			"additionalProperties": false
+		}
+	}
+}

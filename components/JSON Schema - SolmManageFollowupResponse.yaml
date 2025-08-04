@@ -1,0 +1,125 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "olmManageFollowupRequest",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"solmManageFollowupResponseDetails": {
+			"$ref": "#/definitions/solmManageFollowupResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"solmManageFollowupResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmManageFollowupResponseInfo": {
+			"type": "object",
+			"properties": {
+				"followupID": {
+					"type": "string"
+				},
+				"followupDate": {
+					"type": "string"
+				},
+				"followupObjectType": {
+					"type": "string",
+					"enum": [
+						"COMPLAINT"
+					]
+				},
+				"followupObjectID": {
+					"type": "string"
+				},
+				"followupAction": {
+					"type": "string"
+				},
+				"followupNotes": {
+					"type": "string"
+				},
+				"followupStatus": {
+					"type": "string",
+					"enum": [
+						"PENDING",
+						"COMPLETE",
+						"CANCELLED"
+					]
+				},
+				"followupActionOwner": {
+					"type": "string"
+				},
+				"followupOutcome": {
+					"type": "string"
+				},
+				"followupUpdateDate": {
+					"type": "string"
+				},
+				"followupUpdateUser": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"followupID",
+				"followupDate",
+				"followupObjectType",
+				"followupObjectID",
+				"followupAction",
+				"followupNotes",
+				"followupStatus",
+				"followupActionOwner",
+				"followupOutcome",
+				"followupUpdateDate",
+				"followupUpdateUser"
+			]
+		},
+		"solmManageFollowupResponseActionInfo": {
+			"type": "object",
+			"properties": {
+				"solmManageFollowupAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY"
+					]
+				}
+			},
+			"required": [
+				"solmManageFollowupAction"
+			]
+		},
+		"solmManageFollowupResponseDetails": {
+			"type": "object",
+			"properties": {
+				"solmManageFollowupResponseActionInfo": {
+					"$ref": "#/definitions/solmManageFollowupResponseActionInfo"
+				},
+				"solmManageFollowupResponseInfo": {
+					"$ref": "#/definitions/solmManageFollowupResponseInfo"
+				}
+			},
+			"required": [
+				"solmManageFollowupResponseActionInfo"
+			]
+		}
+	}
+}

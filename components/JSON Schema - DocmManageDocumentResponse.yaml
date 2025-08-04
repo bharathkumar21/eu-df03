@@ -1,0 +1,109 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"description": "Comment describing your JSON Schema",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "file:///C:/Users/bhara/Downloads/JSON%20Schema%20-%20DocmRetrieveDocumentsResponse.json#/definitions/resultInfoDetails"
+		},
+		"docmManageDocumentResponseInfo": {
+			"$ref": "#/definitions/docmManageDocumentResponseInfo"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"docmManageDocumentResponseInfo"
+	],
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"docmManageDocumentResponseInfo": {
+			"type": "object",
+			"properties": {
+				"ariaInvoiceNo": {
+					"type": "integer"
+				},
+				"ariaCreditNoteNo": {
+					"type": "integer"
+				},
+				"docmManageDocumentCatchupInfo": {
+					"$ref": "#/definitions/docmManageDocumentCatchupInfo"
+				}
+			},
+			"required": [
+				"ariaInvoiceNo",
+				"ariaCreditNoteNo"
+			]
+		},
+		"docmManageDocumentCatchupInfo": {
+			"type": "array",
+			"items": [
+				{
+					"type": "object",
+					"properties": {
+						"ariaInvoiceNo": {
+							"type": "integer"
+						},
+						"ariaStatementNo": {
+							"type": "integer"
+						},
+						"ariaOrderID": {
+							"type": "string"
+						},
+						"ariaOrderNo": {
+							"type": "integer"
+						},
+						"ariaMPIID": {
+							"type": "string"
+						},
+						"ariaMPINo": {
+							"type": "integer"
+						},
+						"ariaNewAnniversaryDate": {
+							"type": "string"
+						},
+						"ariaNextInvoiceDate": {
+							"type": "string"
+						},
+						"invoiceAmountExclVAT": {
+							"type": "number"
+						},
+						"invoiceAmountVAT": {
+							"type": "number"
+						},
+						"invoiceAmountInclVAT": {
+							"type": "number"
+						}
+					},
+					"required": [
+						"ariaInvoiceNo",
+						"ariaStatementNo",
+						"ariaOrderID",
+						"ariaOrderNo",
+						"ariaMPIID",
+						"ariaMPINo",
+						"ariaNewAnniversaryDate",
+						"ariaNextInvoiceDate",
+						"invoiceAmountExclVAT",
+						"invoiceAmountVAT",
+						"invoiceAmountInclVAT"
+					]
+				}
+			]
+		}
+	}
+}

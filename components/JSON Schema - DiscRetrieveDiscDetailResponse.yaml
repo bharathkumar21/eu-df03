@@ -1,0 +1,211 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discRetrieveDiscDetailResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"discRetrieveDiscDetailList": {
+			"title": "discRetrieveDiscDetailList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/discRetrieveDiscDetailList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"discRetrieveDiscDetailList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"discRetrieveDiscDetailInfo": {
+			"type": "object",
+			"properties": {
+				"discID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"discStatus": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"discEligibilityCount": {
+					"type": "integer"
+				},
+				"discPercentage": {
+					"type": "number"
+				},
+				"discGLCode": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discCouponCode": {
+					"type": "string",
+					"maxLength": 30
+				},
+				"discValueType": {
+
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+					"P",
+					"V"
+					]
+					},
+				"discValue": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"discID",
+				"discName",
+				"discDesc",
+				"discStatus",
+				"discEligibilityCount",
+				"discGLCode",
+				"discCouponCode"
+			],
+			"additionalProperties": false
+		},
+		"discRetrieveDiscDetailAddInfo": {
+			"type": "object",
+			"properties": {
+				"discNameTranslations": {
+					"title": "discNameTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				},
+				"discDescTranslations": {
+					"title": "discDescTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				}
+			},
+			"required": [
+				"discNameTranslations",
+				"discDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"discRetrieveDiscDetailList": {
+			"type": "object",
+			"properties": {
+				"discRetrieveDiscDetailInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discRetrieveDiscDetailInfo"
+				},
+				"discRetrieveDiscDetailAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discRetrieveDiscDetailAddInfo"
+				}
+			},
+			"required": [
+				"discRetrieveDiscDetailInfo",
+				"discRetrieveDiscDetailAddInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

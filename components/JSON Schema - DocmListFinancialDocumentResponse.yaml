@@ -1,0 +1,514 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "DocmListFinancialDocumentResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"$ref": "#/definitions/resultInfo"
+		},
+		"docmListFinancialDocumentPaging": {
+			"type": "object",
+			"$ref": "#/definitions/docmListFinancialDocumentPaging"
+		},
+		"docmListFinancialDocumentList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/docmListFinancialDocumentList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"docmListFinancialDocumentPaging",
+		"docmListFinancialDocumentList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfo": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+
+		},
+		"docmListFinancialDocumentPaging": {
+			"type": "object",
+			"properties": {
+				"pagingRowLimit": {
+					"type": "integer"
+				},
+				"pagingRowValue": {
+					"type": "string"
+				}
+			},
+			"required": [],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentList": {
+			"type": "object",
+			"properties": {
+				"documentType": {
+					"type": "string",
+					"enum": ["INVOICE",
+						"CREDITNOTE"
+					]
+				},
+				"documentDate": {
+					"type": "string"
+				},
+				"transID": {
+					"type": "string"
+				},
+				"docmListFinancialDocumentInvoice": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentInvoice"
+				},
+				"docmListFinancialDocumentCreditnote": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentCreditnote"
+				},
+				"docmListFinancialDocumentRef": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/docmListFinancialDocumentRef"
+					}
+				}
+			},
+			"required": [
+				"documentType",
+				"documentDate",
+				"transID"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentInvoice": {
+			"type": "object",
+			"properties": {
+				"ariaInvoiceNo": {
+					"type": "integer"
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaStatementNo": {
+					"type": "integer"
+				},
+				"customerInvRef": {
+					"type": "string"
+				},
+				"invoiceType": {
+					"type": "string",
+					"enum": [
+						"RECURRING",
+						"PRORATED",
+						"CAMPAIGN",
+						"FINAL"
+					]
+				},
+				"invoiceDate": {
+					"type": "string"
+				},
+				"invoiceDueDate": {
+					"type": "string"
+				},
+				"invoiceStatus": {
+					"type": "string",
+					"enum": [
+						"PAID",
+						"PARTIAL",
+						"UNPAID",
+						"VOIDED/REMOVED",
+						"MIGRATED"
+					]
+				},
+				"amountExclVAT": {
+					"type": "number"
+				},
+				"amountVAT": {
+					"type": "number"
+				},
+				"amountInclVAT": {
+					"type": "number"
+				},
+				"amountDue": {
+					"type": "number"
+				},
+				"currencyCode": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaInvoiceNo",
+				"ariaBillingGroupNo",
+				"ariaBillingGroupID",
+				"ariaStatementNo",
+				"customerInvRef",
+				"invoiceDate",
+				"invoiceDueDate",
+				"invoiceStatus",
+				"amountExclVAT",
+				"amountVAT",
+				"amountInclVAT",
+				"amountDue",
+				"currencyCode"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentCreditnote": {
+			"type": "object",
+			"properties": {
+				"ariaCreditnoteNo": {
+					"type": "integer"
+				},
+				"ariaCreditnoteID": {
+					"type": "string"
+				},
+				"creditnoteDate": {
+					"type": "string"
+				},
+				"creditnoteStatus": {
+					"type": "string",
+					"enum": [
+						"RAISED",
+						"COMPLETE",
+						"FAILED"
+					]
+				},
+				"createdDate": {
+					"type": "string"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"updatedDate": {
+					"type": "string"
+				},
+				"amountExclVAT": {
+					"type": "number"
+				},
+				"amountVAT": {
+					"type": "number"
+				},
+				"amountInclVAT": {
+					"type": "number"
+				},
+				"creditCustomerComments": {
+					"description": "an optional nullable string attribute that contains the customer facing comments that can be added to the credit note in ARIA. If not available, the attribute contains NULL.",
+					"type": "string"
+				},
+				"creditComments": {
+					"description": "an optional nullable string attribute that contains the additional comments added to the credit note in ARIA. If not available, the attribute contains NULL.",
+					"type": "string"
+				},
+				"reasonCode": {
+					"type": "integer"
+				},
+				"creditNoteType": {
+					"type": "string",
+					"enum": [
+						"INVOICE",
+						"GENERAL",
+						"PRICE-CHANGE",
+						"CANCELLATION"
+					]
+				}
+			},
+			"required": [
+				"ariaCreditnoteNo",
+				"ariaCreditnoteID",
+				"creditnoteDate",
+				"creditnoteStatus",
+				"createdDate",
+				"createdBy",
+				"updatedDate",
+				"amountExclVAT",
+				"amountVAT",
+				"amountInclVAT",
+				"reasonCode",
+				"creditNoteType"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentRef": {
+			"type": "object",
+			"properties": {
+				"refTransType": {
+					"type": "string",
+					"enum": [
+						"INVOICE",
+						"CREDITNOTE",
+						"CASHCREDIT",
+						"PAYMENT"
+					]
+				},
+				"refTransDate": {
+					"type": "string"
+				},
+				"refTransID": {
+					"type": "string"
+				},
+				"refTimingCode": {
+					"type": "string"
+				},
+				"refTransAmount": {
+					"type": "number"
+				},
+				"docmListFinancialDocumentRefInvoice": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentRefInvoice"
+				},
+				"docmListFinancialDocumentRefCreditnote": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentRefCreditnote"
+				},
+				"docmListFinancialDocumentRefCashCredit": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentRefCashCredit"
+				},
+				"docmListFinancialDocumentRefPayment": {
+					"type": "object",
+					"$ref": "#/definitions/docmListFinancialDocumentRefPayment"
+				}
+			},
+			"required": [
+				"refTransType",
+				"refTransDate",
+				"refTransID",
+				"refTransAmount"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentRefInvoice": {
+			"type": "object",
+			"properties": {
+
+				"ariaInvoiceNo": {
+					"type": "integer"
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaStatementNo": {
+					"type": "integer"
+				},
+				"customerInvRef": {
+					"type": "string"
+				},
+				"invoiceDate": {
+					"type": "string"
+				},
+				"invoiceDueDate": {
+					"type": "string"
+				},
+				"invoiceStatus": {
+					"type": "string",
+					"enum": ["PAID", "PARTIAL", "UNPAID", "VOIDED/REMOVED", "MIGRATED"]
+				},
+				"amountExclVAT": {
+					"type": "number"
+				},
+				"amountVAT": {
+					"type": "number"
+				},
+				"amountInclVAT": {
+					"type": "number"
+				},
+				"amountDue": {
+					"type": "number"
+				},
+				"currencyCode": {
+					"type": "string"
+				}
+
+
+			},
+			"required": [
+				"ariaInvoiceNo",
+				"ariaBillingGroupNo",
+				"ariaBillingGroupID",
+				"ariaStatementNo",
+				"customerInvRef",
+				"invoiceDate",
+				"invoiceDueDate",
+				"invoiceStatus",
+				"amountExclVAT",
+				"amountVAT",
+				"amountInclVAT",
+				"amountDue",
+				"currencyCode"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentRefCreditnote": {
+			"type": "object",
+			"properties": {
+
+				"ariaCreditnoteNo": {
+					"type": "integer"
+				},
+				"ariaCreditnoteID": {
+					"type": "string"
+				},
+				"creditnoteDate": {
+					"type": "string"
+				},
+				"creditnoteStatus": {
+					"type": "string",
+					"enum": [
+						"RAISED", "COMPLETE", "FAILED"
+					]
+				},
+				"createdDate": {
+					"type": "string"
+				},
+				"createdBy": {
+					"type": "string"
+				},
+				"updatedDate": {
+					"type": "string"
+				},
+				"amountExclVAT": {
+					"type": "number"
+				},
+				"amountVAT": {
+					"type": "number"
+				},
+				"amountInclVAT": {
+					"type": "number"
+				},
+				"creditCustomerComments": {
+					"type": "string"
+				},
+				"creditComments": {
+					"type": "string"
+				},
+				"reasonCode": {
+					"type": "integer"
+				},
+				"creditNoteType": {
+					"type": "string",
+					"enum": ["INVOICE", "GENERAL", "PRICE-CHANGE", "CANCELLATION"]
+				}
+
+			},
+			"required": [
+				"ariaCreditnoteNo",
+				"ariaCreditnoteID",
+				"creditnoteDate",
+				"creditnoteStatus",
+				"createdDate",
+				"createdBy",
+				"updatedDate",
+				"amountExclVAT",
+				"amountVAT",
+				"amountInclVAT",
+				"reasonCode",
+				"creditNoteType"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentRefPayment": {
+			"type": "object",
+			"properties": {
+				"paymentID": {
+					"type": "string"
+				},
+				"ariaTransNo": {
+					"type": "integer"
+				},
+				"paymentSource": {
+					"type": "string",
+					"enum": [
+						"MANUAL",
+						"BANK",
+						"CREDITCARD",
+						"DIRECTDEBIT",
+						"MIGRATION",
+						"INTERNAL"
+					]
+				},
+				"paymentOrigin": {
+					"type": "string"
+				},
+				"paymentDate": {
+					"type": "string"
+				},
+				"paymentRegistrationDate": {
+					"type": "string"
+				},
+				"paymentAmount": {
+					"type": "number"
+				},
+				"paymentThresholdAmount": {
+					"type": "number"
+				},
+				"paymentBankReference": {
+					"type": "string"
+				},
+				"paymentCurrency": {
+					"type": "string"
+				}
+
+
+			},
+			"required": [
+				"paymentID",
+				"ariaTransNo",
+				"paymentSource",
+				"paymentOrigin",
+				"paymentDate",
+				"paymentRegistrationDate",
+				"paymentAmount",
+				"paymentThresholdAmount",
+				"paymentCurrency"
+			],
+			"additionalProperties": false
+		},
+		"docmListFinancialDocumentRefCashCredit": {
+			"type": "object",
+			"properties": {
+				"ariaTransNo": {
+					"type": "integer"
+				},
+				"cashCreditDate": {
+					"type": "string"
+				},
+				"cashCreditAmount": {
+					"type": "number"
+				},
+				"reasonCode": {
+					"type": "integer"
+				},
+				"reasonCodeText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaTransNo",
+				"cashCreditDate",
+				"cashCreditAmount",
+				"reasonCode",
+				"reasonCodeText"
+			],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymGWCallbackStatusResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {"type": "object", "$ref": "#/definitions/resultInfoDetails"}
+    },
+    "required": ["resultInfo"],
+    "additionalProperties": false,
+    
+    "definitions": {
+        "resultInfoDetails": {"type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {"type": "integer"},
+                "resultText": {"type": "string"}
+            },
+            "required": ["resultCode","resultText"]
+        }
+    }
+}

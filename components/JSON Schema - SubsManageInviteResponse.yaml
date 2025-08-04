@@ -1,0 +1,138 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsManageInviteResponse",
+	"description": "Created on 14-January-2020 by Aasim Saeed for ARIA Systems - please append updates here",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"type": "object",
+			"$ref": "#/definitions/resultInfo"
+		},
+		"subsManageInviteResponseDetails": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/subsManageInviteResponseDetails"
+			}
+		}
+	},
+	"required": [
+		"resultInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfo": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string",
+					"maxLength": 1000
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"subsManageInviteActionInfo": {
+			"subsManageInviteAction": {
+				"type": "string",
+				"maxLength": 6,
+				"enum": [
+					"CREATE",
+					"ACCEPT",
+					"REJECT",
+					"REVOKE"
+				]
+			},
+			"type": "string",
+			"maxLength": 6,
+			"additionalProperties": false,
+			"enum": [
+				"CREATE",
+				"ACCEPT",
+				"REJECT",
+				"REVOKE"
+			]
+		},
+		"subsManageInviteInfo": {
+			"type": "object",
+			"properties": {
+				"sharingUUID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"sharingMemberAriaAccountID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"sharingMemberAriaAccountNo": {
+					"type": "integer"
+				},
+				"sharingMemberAriaMPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"sharingMemberAriaMPINo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"sharingUUID"
+			],
+			"additionalProperties": false
+		},
+		"subsManageInviteResponseDetails": {
+			"type": "object",
+			"properties": {
+				"subsManageInviteInfo": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageInviteInfo"
+				},
+				"subsManageInviteResponseInfo": {
+					"type": "object",
+					"properties": {
+						"subsManageInviteAction": {
+							"type": "string",
+							"enum": [
+								"CREATE",
+								"ACCEPT",
+								"REJECT",
+								"REVOKE"
+							]
+						},
+						"actionResultInfo": {
+							"type": "object",
+							"properties": {
+								"resultCode": {
+									"type": "integer"
+								},
+								"resultText": {
+									"type": "string",
+									"maxLength": 1000
+								}
+							},
+							"required": [
+								"resultCode",
+								"resultText"
+							]
+						}
+					},
+					"required": [
+						"subsManageInviteAction",
+						"actionResultInfo"
+					]
+				}
+			},
+			"required": [
+				"subsManageInviteInfo",
+				"subsManageInviteResponseInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

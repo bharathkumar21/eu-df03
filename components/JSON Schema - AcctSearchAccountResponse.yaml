@@ -1,0 +1,73 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "acctSearchAccountResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"acctSearchAccountResponseDetails": {"$ref": "#/definitions/acctSearchAccountResponseDetails"}
+	},
+	"required": ["resultInfo", "acctSearchAccountResponseDetails"],
+	"additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		 "acctSearchAccountContactDetails": {"type": "object",
+			 "properties": {
+				 "firstName": {"type": "string","maxLength": 32},
+				 "middleInitials": {"type": "string", "maxLength": 2},
+				 "lastName": {"type": "string", "maxLength": 32},
+				 "fullName": {"type": "string", "maxLength": 100},
+				 "addressLine1": {"type": "string","maxLength": 300},
+				 "addressLine2": {"type": "string","maxLength": 300},
+				 "addressLine3": {"type": "string","maxLength": 300},
+				 "countryCode": {"type": "string","maxLength": 2},
+				 "postalCode": {"type": "string","maxLength": 15},
+				 "postalCity": {"type": "string","maxLength": 32},
+				 "addrLocality": {"type": "string", "maxLength": 32},
+				 "addrStateProv": {"type": "string", "maxLength": 10},
+				 "streetName": {"type": "string", "maxLength": 300},
+ 				 "streetNo": {"type": "string", "maxLength": 300},
+				 "flatNo": {"type": "string", "maxLength": 300},
+				 "flatSpec": {"type": "string", "maxLength": 300},
+				 "flagFloor": {"type": "string", "maxLength": 300},
+				 "entranceNo": {"type": "string", "maxLength": 300},
+				 "homePhone": {"type": "string","maxLength": 25},
+				 "cellPhone": {"type": "string","maxLength": 25},
+				 "workPhone": {"type": "string","maxLength": 25},
+				 "emailAddress": {"type": "string","maxLength": 320}
+			},
+			 "required": ["firstName", "middleInitials", "lastName", "fullName", "addressLine1", "addressLine2", "addressLine3", "countryCode", "postalCode", "postalCity", "addrLocality", "addrStateProv", "streetName", "streetNo", "flatNo", "flatSpec", "flagFloor", "entranceNo", "homePhone", "cellPhone", "workPhone", "emailAddress"],
+			 "additionalProperties": false
+		},
+		"acctSearchAccountResponseList": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string", "maxLength": 50},
+				"ariaAccountNo": {"type": "integer"},
+				"userID": {"type": "string", "maxLength": 32},
+				"acctCurrencyCode": {"type": "string"},
+				"acctBalance": {"type": "number"},
+				"acctStatusCode": {"type": "integer"}, 
+				"contactDetails": {"$ref": "#/definitions/acctSearchAccountContactDetails"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "userID", "acctCurrencyCode", "acctBalance", "acctStatusCode", "contactDetails"], 
+			"additionalProperties": false
+		},
+
+		"acctSearchAccountResponseDetails": {"type": "object",
+			"properties": {
+				"accountResultSet": {"title": "acctSearchAccountResponseList", "type": "array", "minItems": 0, "items": {"$ref": "#/definitions/acctSearchAccountResponseList"}}
+			},
+			"required": ["accountResultSet"], 
+			"additionalProperties": false
+		}
+	}
+}

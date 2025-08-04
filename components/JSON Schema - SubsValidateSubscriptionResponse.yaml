@@ -1,0 +1,236 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "SubsValidateSubscriptionResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsValidateSubscriptionImpact": {
+			"type": "object",
+			"properties": {
+				"currentPlanCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				},
+				"currentPlanChargesMonthly": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				},
+				"futurePlanCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				},
+				"futurePlanChargesMonthly": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				},
+				"diffPlanCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				},
+				"diffPlanChargesMonthly": {
+					"$ref": "#/definitions/subsValidateSubscriptionRates"
+				}
+			},
+			"required": [
+				"currentPlanCharges",
+				"currentPlanChargesMonthly",
+				"futurePlanCharges",
+				"futurePlanChargesMonthly",
+				"diffPlanCharges",
+				"diffPlanChargesMonthly"
+			],
+			"additionalProperties": false
+		},
+		"subsValidateSubscriptionErrors": {
+			"$ref": "#/definitions/resultInfoDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsValidateSubscriptionImpact",
+		"subsValidateSubscriptionErrors"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsValidateSubscriptionRates": {
+			"type": "object",
+			"properties": {
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"ariaScheduleID": {
+					"type": "string"
+				},
+				"ariaScheduleNo": {
+					"type": "integer"
+				},
+				"scheduleNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"billingFreqRecurring": {
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"type": "number"
+				},
+				"subscriptionCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionCharges"
+				},
+				"deliveryCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionCharges"
+				},
+				"otherCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionCharges"
+				},
+				"totalCharges": {
+					"$ref": "#/definitions/subsValidateSubscriptionCharges"
+				},
+				"subsValidateSubscriptionBillingFrequency": {
+					"$ref": "#/definitions/subsValidateSubscriptionBillingFrequency"
+				}
+			},
+			"required": [
+				"ariaPlanID",
+				"ariaPlanNo",
+				"ariaScheduleID",
+				"ariaScheduleNo",
+				"scheduleNameTranslations",
+				"currencyCode",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"subscriptionCharges",
+				"deliveryCharges",
+				"otherCharges",
+				"totalCharges",
+				"subsValidateSubscriptionBillingFrequency"
+			],
+			"additionalProperties": false
+		},
+		"subsValidateSubscriptionBillingFrequency": {
+			"description": "The data elements of the BillingFrequency are used to define the billing frequencies for the recurring and usage-based charges",
+			"type": "object",
+			"properties": {
+				"billingFrequencyRecurringType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyUsageType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY",
+						"QUARTERLY",
+						"ANNUAL"
+					]
+				},
+				"billingFrequencyRecurring": {
+					"type": "integer"
+				},
+				"billingFrequencyUsage": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"billingFrequencyRecurringType",
+				"billingFrequencyUsageType",
+				"billingFrequencyRecurring",
+				"billingFrequencyUsage"
+			]
+		},
+		"subsValidateSubscriptionCharges": {
+			"type": "object",
+			"properties": {
+				"costExclVAT": {
+					"type": "number"
+				},
+				"costVAT": {
+					"type": "number"
+				},
+				"costInclVAT": {
+					"type": "number"
+				},
+				"discountedCostExclVAT": {
+					"type": "number"
+				},
+				"discountedCostVAT": {
+					"type": "number"
+				},
+				"discountedCostInclVAT": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"costExclVAT",
+				"costVAT",
+				"costInclVAT",
+				"discountedCostExclVAT",
+				"discountedCostVAT",
+				"discountedCostInclVAT"
+			],
+			"additionalProperties": false
+		}
+	}
+}

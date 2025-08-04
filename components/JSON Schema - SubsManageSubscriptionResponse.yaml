@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "subsManageSubscriptionResponse",
+  "type": "object",
+  "properties": {
+    "resultInfo": {
+      "$ref": "#/definitions/resultInfoDetails"
+    },
+    "subsManageSubscriptionAccountResponseDetails": {
+      "$ref": "#/definitions/subsManageSubscriptionAccountResponseDetails"
+    },
+    "subsManageSubscriptionResponseDetails": {
+      "title": "subsManageSubscriptionResponseDetails",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/subsManageSubscriptionResponseDetails"
+      }
+    }
+  },
+  "required": [
+    "resultInfo",
+    "subsManageSubscriptionAccountResponseDetails"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "resultInfoDetails": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "integer"
+        },
+        "resultText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "resultCode",
+        "resultText"
+      ],
+      "additionalProperties": false
+    },
+    "subsManageSubscriptionResponseDetails": {
+      "type": "object",
+      "properties": {
+        "ariaPINo": {
+          "type": "integer"
+        },
+        "ariaPIID": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "ariaPlanNo": {
+          "type": "integer"
+        },
+        "ariaPlanID": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "subsManageSubscriptionInvoiceDetails": {
+          "type": "object",
+          "properties": {
+            "ariaInvoiceNo": {
+              "type": "integer"
+            },
+            "ariaBillingGroupID": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "ariaBillingGroupNo": {
+              "type": "integer"
+            },
+            "totalAmountInclVAT": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "ariaInvoiceNo",
+            "ariaBillingGroupNo",
+            "ariaBillingGroupID",
+            "totalAmountInclVAT"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "ariaPINo",
+        "ariaPIID",
+        "ariaPlanNo",
+        "ariaPlanID"
+      ],
+      "additionalProperties": false
+    },
+    "subsManageSubscriptionAccountResponseDetails": {
+      "type": "object",
+      "properties": {
+        "ariaAccountID": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "ariaAccountNo": {
+          "type": "integer"
+        },
+        "userID": {
+          "type": "string",
+          "maxLength": 32
+        }
+      },
+      "required": [
+        "ariaAccountID",
+        "ariaAccountNo",
+        "userID"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

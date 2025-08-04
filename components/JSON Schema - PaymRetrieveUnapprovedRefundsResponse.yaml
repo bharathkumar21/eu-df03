@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "paymRetrieveUnapprovedRefundsResponse",
+  "additionalProperties": false,
+  "properties": {
+    "resultInfo": {
+      "$ref": "#/definitions/resultInfoDetails"
+    },
+    "PaymRetrieveUnapprovedRefundsResponseDetails": {
+      "type": "array",
+      "title": "PaymRetrieveUnapprovedRefundsResponseDetails",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/PaymRetrieveUnapprovedRefundsResponseDetails" }
+    }
+  },
+  "required": [
+    "resultInfo",
+    "PaymRetrieveUnapprovedRefundsResponseDetails"
+  ],
+  "definitions": {
+    "resultInfoDetails": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resultCode": { "type": "integer" },
+        "resultText": { "type": "string" }
+      },
+      "required": [ "resultCode", "resultText" ]
+    },
+    "PaymRetrieveUnapprovedRefundsResponseDetails": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PaymRetrieveUnapprovedRefundsAccountInfo": {
+          "$ref": "#/definitions/PaymRetrieveUnapprovedRefundsAccountInfo"
+        },
+        "PaymRetrieveUnapprovedRefundsRefundInfo": {
+          "$ref": "#/definitions/PaymRetrieveUnapprovedRefundsRefundInfo"
+        }
+      },
+      "required": [ "PaymRetrieveUnapprovedRefundsRefundInfo" ]
+    },
+    "PaymRetrieveUnapprovedRefundsAccountInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ariaAccountNo": { "type": "integer" },
+        "ariaAccountID": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "custName": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "custAddrLine1": { "type": "string" },
+        "custAddrLine2": { "type": "string" },
+        "custAddrLine3": { "type": "string" },
+        "custAddrLine4": { "type": "string" },
+        "custPostalCode": { "type": "string" },
+        "custPostalCity": { "type": "string" },
+        "custCountryCode": { "type": "string" }       
+      }
+    },
+    "PaymRetrieveUnapprovedRefundsRefundInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "refundID": { "type": "string" },
+        "refundStatus": {
+          "type": "string",
+          "enum": [ "COMPLETE" ]
+        },
+		"refundTransferStatus": {
+          "type": "string",
+          "enum": [ "PENDING" ]
+        },
+        "refundSource": {
+          "type": "string",
+          "enum": [ "CSR", "CUSTOMER", "SYSTEM" ]
+        },
+        "refundMethod": {
+          "type": "string",
+          "enum": [ "BANK", "ORIGINAL", "CHEQUE" ]
+        },
+        "refundDate": { "type": "string" },
+        "refundUpdateDate": { "type": "string" },
+        "refundPostingDate": { "type": "string" },
+        "refundTransferDate": { "type": "string" },
+        "refundAmount": { "type": "number" },
+        "paymentID": { "type": "string" },
+        "refundProcess": {
+          "type": "string",
+          "enum": [ "STANDARD", "INTERNAL" ]
+        }
+      }
+    }
+  }
+}

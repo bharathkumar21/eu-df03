@@ -1,0 +1,76 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "bndlRetrieveBndlSelectionResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"bndlRetrieveBndlSelectionList": {"title": "bndlRetrieveBndlSelectionList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/bndlRetrieveBndlSelectionList"}}
+	},
+	 "required": ["resultInfo", "bndlRetrieveBndlSelectionList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "string"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+
+		"bndlRetrieveBndlSelectionInfo": {"type": "object",
+			"properties": {
+				"bndlCheckSeqNo": {"type": "integer"},
+				"bndlStartDate": {"type": "string", "maxLength": 10},
+				"bndlEndDate": {"type": "string", "maxLength": 10},
+				"bndlID": {"type": "string", "maxLength": 100}
+			},
+			"required": ["bndlCheckSeqNo", "bndlStartDate", "bndlEndDate", "bndlID"], 
+			"additionalProperties": false
+		},
+		"bndlRetrieveBndlSelectionAddInfo": {"type": "object",
+			"properties": {
+				"bndlName": {"type": "string", "maxLength": 100},
+				"bndlNameTranslations": {"title": "discNameTranslations","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationGroup"}},
+				"bndlDesc": {"type": "string", "maxLength": 1000}, 
+				"bndlDescTranslations": {"title": "discDescTranslations","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationGroup"}},
+				"bndlStatus": {"type": "string", "maxLength": 20, "enum": ["DEFINITION", "TRIAL", "ACTIVE", "INACTIVE", "DEPRECATED"]},
+				"bndlCriteriaCode": {"type": "string", "maxlenght": 20, "enum": ["DATES", "PRICE", "COUNT", "PRICE-COUNT"]},
+				"bndlEligibilityCount": {"type": "integer"},
+				"bndlEligibilityPrice": {"type": "number"},
+				"bndlPlanID": {"type": "string", "maxLength": 100},
+				"bndlRecurringRSID": {"type": "string", "maxLength": 100},
+				"bndlGLCode": {"type": "string", "maxLength": 100}
+			},	
+			"required": ["bndlName", "bndlNameTranslations", "bndlDesc", "bndlDescTranslations", "bndlStatus", "bndlCriteriaCode", "bndlEligibilityCount", "bndlEligibilityPrice", "bndlPlanID", "bndlRecurringRSID", "bndlGLCode"], 
+			"additionalProperties": false
+		},
+		"bndlRetrieveBndlSelectionList": {"type": "object",
+			"properties": {
+				"bndlRetrieveBndlSelectionInfo": {"type": "object", "$ref": "#/definitions/bndlRetrieveBndlSelectionInfo"},
+				"bndlRetrieveBndlSelectionAddInfo": {"type": "object", "$ref": "#/definitions/bndlRetrieveBndlSelectionAddInfo"}
+			},
+			"required": ["bndlRetrieveBndlSelectionInfo", "bndlRetrieveBndlSelectionAddInfo"],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymGWCollectRecurringPaymentResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {"type": "object", "$ref": "#/definitions/resultInfoDetails"},
+        "paymGWCollectRecurringPaymentResponseDetails": {"type": "object", "$ref": "#/definitions/paymGWCollectRecurringPaymentResponseDetails"}
+    },
+    "required": ["resultInfo","paymGWCollectRecurringPaymentResponseDetails"],
+    "additionalProperties": false,
+    
+    "definitions": {
+        "resultInfoDetails": {"type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {"type": "integer"},
+                "resultText": {"type": "string"}
+            },
+            "required": ["resultCode","resultText"]
+        },
+        
+ 		"paymGWCollectRecurringPaymentResponseDetails": {"type": "object",
+			"properties": {
+				"gatewayPaymentID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayStatus": {"type": "string"},
+				"gatewayStatusCode": {"type": "string"},
+				"gatewayStatusText": {"type": "string"}
+			},	
+			"required": ["gatewayPaymentID","gatewayExternalID","gatewayStatus", "gatewayStatusCode", "gatewayStatusText"],
+			"additionalProperties": false
+        }
+    }
+}

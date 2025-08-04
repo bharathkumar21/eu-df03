@@ -1,0 +1,40 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "solmRetrieveLocaleResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"solmRetrieveLocaleListResponse": {"title": "solmRetrieveLocaleListResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/solmRetrieveLocaleListResponse"}}
+	},
+	 "required": ["resultInfo", "solmRetrieveLocaleListResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "number","multipleOf": 1.0},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"solmRetrieveLocaleInfo": {"type": "object",
+			"properties": {
+				"localeID": {"type": "string", "maxlength": 100},
+				"localeName": {"type": "string", "maxLength": 1000} 
+			},
+			"required": ["localeID", "localeName"], 
+			"additionalProperties": false
+		},
+		"solmRetrieveLocaleListResponse": {"type": "object",
+			"properties": {
+				"solmRetrieveLocaleInfo": {"type": "object", "$ref": "#/definitions/solmRetrieveLocaleInfo"}
+			},
+			"required": ["solmRetrieveLocaleInfo"],
+			"additionalProperties": false
+		}
+	}
+}

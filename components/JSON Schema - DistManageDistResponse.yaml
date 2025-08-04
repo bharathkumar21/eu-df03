@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "distManageDistResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"distManageDistAddresses": {"title": "distManageDistAddresses","type": "array","minItems": 1,"items": {"$ref": "#/definitions/distManageDistAddresses"}}
+	},
+	 "required": ["resultInfo"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"distManageDistAddresses": {"type": "object",
+			"properties": {
+				"distDate": {"type": "string"},
+				"distDays": {"type": "string"},
+				"distAddrNo": {"type": "integer"}
+			},
+			"required": ["distDate", "distDays", "distAddrNo"], 
+			"additionalProperties": false
+		}
+	}
+}

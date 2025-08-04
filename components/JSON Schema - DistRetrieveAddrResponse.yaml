@@ -1,0 +1,334 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "distRetrieveAddrResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"distRetrieveAddrList": {
+			"title": "distRetrieveAddrList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/distRetrieveAddrList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"distRetrieveAddrList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"distRetrieveAddrInfo": {
+			"type": "object",
+			"properties": {
+				"distAddrType": {
+					"type": "integer"
+				},
+				"distAddrNo": {
+					"type": "integer"
+				},
+				"distAddrName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"distAddrLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrLine4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distApartmentNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distCoAddr": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDirections": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddrCountryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"distAddrPostalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"distAddrCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"distAddrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"distStreetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distStreetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distFlatFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distEntranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distPublAddrNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo4": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo5": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distAddInfo6": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"distDistributionMethod": {
+					"type": "string"
+				},
+				"distDistributionRoute": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"distAddrNo",
+				"distAddrName",
+				"distAddrLine1",
+				"distAddrLine2",
+				"distAddrLine3",
+				"distAddrCountryCode",
+				"distAddrPostalCode",
+				"distAddrCity",
+				"distAddrLocality",
+				"distAddrStateProv",
+				"distStreetName",
+				"distStreetNo",
+				"distFlatNo",
+				"distFlatSpec",
+				"distFlatFloor",
+				"distEntranceNo",
+				"distPublAddrNo",
+				"distAddInfo1",
+				"distAddInfo2",
+				"distAddInfo3",
+				"distAddInfo4",
+				"distAddInfo5",
+				"distAddInfo6",
+				"distAddrLine4",
+				"distApartmentNo",
+				"distCoAddr",
+				"distDirections",
+				"distDistributionMethod",
+				"distDistributionRoute"
+			],
+			"additionalProperties": false
+		},
+		"distRetrieveAddrAddInfo": {
+			"type": "object",
+			"properties": {
+				"distAddrType": {
+					"type": "integer"
+				},
+				"distAddrTypeTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"distAddrType",
+				"distAddrTypeTranslations"
+			],
+			"additionalProperties": false
+		},
+		"distRetrieveAddrStatus": {
+			"type": "object",
+			"properties": {
+				"addressCreatedDate": {
+					"type": "string"
+				},
+				"addressUpdateDate": {
+					"type": "string"
+				},
+				"addressStatusDate": {
+					"type": "string"
+				},
+				"addressStatus": {
+					"type": "string",
+					"enum": [
+						"ACTIVE",
+						"INACTIVE"
+					]
+				},
+				"addressTitleCode": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"addressCreatedDate",
+				"addressUpdateDate",
+				"addressStatusDate",
+				"addressStatus"
+			],
+			"additionalProperties": false
+		},
+		"distRetrieveAddrList": {
+			"type": "object",
+			"properties": {
+				"distRetrieveAddrInfo": {
+					"type": "object",
+					"$ref": "#/definitions/distRetrieveAddrInfo"
+				},
+				"distRetrieveAddrAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/distRetrieveAddrAddInfo"
+				},
+				"distRetrieveAddrStatus": {
+					"type": "object",
+					"$ref": "#/definitions/distRetrieveAddrStatus"
+				}
+			},
+			"required": [
+				"distRetrieveAddrInfo",
+				"distRetrieveAddrAddInfo",
+				"distRetrieveAddrStatus"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

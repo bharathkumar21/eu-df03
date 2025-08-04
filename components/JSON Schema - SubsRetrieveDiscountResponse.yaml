@@ -1,0 +1,297 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "SubsManageDiscountsResponse",
+	"description": "JSON Schema for use with management of titles",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"subsRetrieveDiscountsResponseDetails": {
+			"$ref": "#/definitions/subsRetrieveDiscountsResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"subsRetrieveDiscountsResponseDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveDiscountsDetails": {
+			"type": "object",
+			"properties": {
+				"discountID": {
+					"type": "string"
+				},
+				"discountName": {
+					"type": "string"
+				},
+				"discNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"discountDesc": {
+					"type": "string"
+				},
+				"discDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"discountType": {
+					"type": "string",
+					"enum": [
+						"PERCENTAGE",
+						"AMOUNT"
+					]
+				},
+				"discountPercentage": {
+					"type": "string"
+				},
+				"discountAmount": {
+					"type": "number"
+				},
+				"discountStatus": {
+					"type": "string",
+					"enum": [
+						"DEFINITION",
+						"TRIAL",
+						"ACTIVE",
+						"INACTIVE",
+						"DEPRECATED"
+					]
+				}
+
+			},
+			"required": [
+				"discountID",
+				"discountName",
+				"discNameTranslations",
+				"discountDesc",
+				"discDescTranslations",
+				"discountType",
+				"discountPercentage",
+				"discountAmount",
+				"discountStatus"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveDiscountsDiscountRules": {
+			"type": "object",
+			"properties": {
+				"ruleID": {
+					"type": "string"
+				},
+				"ruleName": {
+					"type": "string"
+				},
+				"ruleScope": {
+					"type": "string",
+					"enum": [
+						"ALL-CHARGE",
+						"ALL-PLAN-CHARGE",
+						"ALL-PLAN-CHARGE-PLAN",
+						"ALL-PLAN-CHARGE-SERVICE",
+						"SPEC-PLAN-SERVICE",
+						"RECURRING-CHARGE",
+						"USAGE-CHARGE",
+						"ACTIVATION-CHARGE",
+						"ALL-NSO-CHARGE",
+						"SPEC-NSO-CHARGE"
+					]
+				},
+				"ruleType": {
+					"type": "string",
+					"enum": [
+						"PERCENTAGE",
+						"AMOUNT"
+					]
+				},
+				"rulePercentage": {
+					"type": "string"
+				},
+				"ruleAmount": {
+					"type": "number"
+				},
+				"ruleDisplayMethod": {
+					"type": "string",
+					"enum": [
+						"COMBINED",
+						"SEPARATE"
+					]
+				},
+				"ruleDurationMethod": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"DURATION",
+						"USES"
+					]
+				},
+				"ruleDurationMonths": {
+					"type": "string"
+				},
+				"ruleDurationUses": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ruleID",
+				"ruleName",
+				"ruleScope",
+				"ruleType",
+				"rulePercentage",
+				"ruleAmount",
+				"ruleDisplayMethod",
+				"ruleDurationMethod",
+				"ruleDurationMonths",
+				"ruleDurationUses"
+			]
+		},
+		"subsRetrieveDiscountsCouponDetails": {
+			"type": "object",
+			"properties": {
+				"couponCode": {
+					"type": "string"
+				},
+				"couponStartDate": {
+					"type": "string"
+				},
+				"couponEndDate": {
+					"type": "string"
+				},
+				"couponScope": {
+					"type": "string",
+					"enum": [
+						"ACCOUNT",
+						"SUBSCRIPTION",
+						"BOTH"
+					]
+				},
+				"couponDiscountRules": {
+					"title": "couponDiscountRules",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsRetrieveDiscountsDiscountRules"
+					}
+				}
+			},
+			"required": [
+				"couponCode",
+				"couponStartDate",
+				"couponEndDate",
+				"couponScope",
+				"couponDiscountRules"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveDiscounts": {
+			"type": "object",
+			"properties": {
+				"subsRetrieveDiscountsDetails": {
+					"type": "object",
+					"$ref": "#/definitions/subsRetrieveDiscountsDetails"
+				},
+				"subsRetrieveDiscountsCouponDetails": {
+					"type": "object",
+					"$ref": "#/definitions/subsRetrieveDiscountsCouponDetails"
+				}
+			},
+			"required": [
+				"subsRetrieveDiscountsDetails",
+				"subsRetrieveDiscountsCouponDetails"
+			],
+			"additionalProperties": false
+		},
+		"subsRetrieveDiscountsList": {
+			"title": "subsRetrieveDiscountsList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/subsRetrieveDiscounts"
+			}
+		},
+		"subsRetrieveDiscountsResponseDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"discountList": {
+					"type": "array",
+					"$ref": "#/definitions/subsRetrieveDiscountsList"
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaMPIID",
+				"ariaMPINo",
+				"discountList"
+			],
+			"additionalProperties": false
+		}
+	}
+}

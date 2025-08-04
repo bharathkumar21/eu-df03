@@ -1,0 +1,210 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discManageDiscDetailResponse",
+	"description": "JSON Schema for use with management of titles",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"discManageDiscDetailListResponse": {
+			"title": "discManageDiscDetailListResponse",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/discManageDiscDetailListResponse"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"discManageDiscDetailListResponse"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailInfo": {
+			"type": "object",
+			"properties": {
+				"discID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"discStatus": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"discEligibilityCount": {
+					"type": "integer"
+				},
+				"discPercentage": {
+					"type": "number"
+				},
+				"discGLCode": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discCouponCode": {
+					"type": "string",
+					"maxLength": 30
+				},
+				"discValueType": {
+
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+					"P",
+					"V"
+					]
+					},
+				"discValue": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"discID",
+				"discName",
+				"discDesc",
+				"discStatus",
+				"discEligibilityCount",
+				"discGLCode",
+				"discCouponCode"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailActionInfoResponse": {
+			"type": "object",
+			"properties": {
+				"discManageDiscDetailAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				},
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"discManageDiscDetailAction",
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailAddInfo": {
+			"type": "object",
+			"properties": {
+				"discNameTranslations": {
+					"title": "discNameTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				},
+				"discDescTranslations": {
+					"title": "discDescTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				}
+			},
+			"required": [
+				"discNameTranslations",
+				"discDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailListResponse": {
+			"type": "object",
+			"properties": {
+				"discManageDiscDetailActionInfoResponse": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailActionInfoResponse"
+				},
+				"discManageDiscDetailInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailInfo"
+				},
+				"discManageDiscDetailAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailAddInfo"
+				}
+			},
+			"required": [
+				"discManageDiscDetailActionInfoResponse",
+				"discManageDiscDetailInfo",
+				"discManageDiscDetailAddInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageHolidayResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"titleManageHolidayCountryInfo": {"type": "object", "$ref": "#/definitions/titleManageHolidayCountryInfo"},
+		"titleManageHolidayDetailsResponse": {"title": "titleManageHolidayDetailsResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageHolidayDetailsResponse"}}
+	},
+	 "required": ["resultInfo", "titleManageHolidayCountryInfo", "titleManageHolidayDetailsResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"titleManageHolidayCountryInfo": {"type": "object",
+			"properties": {
+				"countryCode": {"type": "string", "maxLength": 2},
+				"holidayYear": {"type": "integer"}
+			},
+			"required": ["countryCode", "holidayYear"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayInfo": {"type": "object",
+			"properties": {
+				"holidayDate": {"type": "string", "maxLength": 10},
+				"holidayName": {"type": "string", "maxLength": 100},
+				"holidayOneLiner": {"type": "string", "maxLength": 1000},
+				"holidayType": {"type": "string", "maxLength": 10, "enum": ["NATIONAL", "STATE", "REGIONAL", "LOCAL"]}
+			},
+			"required": ["holidayDate", "holidayName", "holidayOneLiner", "holidayType"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayActionInfoResponse": {"type": "object",
+			"properties": {
+				"titleManageHolidayAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["titleManageHolidayAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayDetailsResponse": {"type": "object",
+			"properties": {
+				"titleManageHolidayActionInfoResponse": {"type": "object", "$ref": "#/definitions/titleManageHolidayActionInfoResponse"},
+				"titleManageHolidayInfo": {"type": "object", "$ref": "#/definitions/titleManageHolidayInfo"}
+			},
+			"required": ["titleManageHolidayActionInfoResponse", "titleManageHolidayInfo"],
+			"additionalProperties": false
+		}
+	}
+}

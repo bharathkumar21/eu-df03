@@ -1,0 +1,287 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "compManageComplaintCodeResponse",
+  "type": "object",
+  "properties": {
+    "resultInfo": {
+      "$ref": "#/definitions/resultInfoDetails"
+    },
+    "compManageComplaintCodeListResponse": {
+      "title": "compManageComplaintCodeListResponse",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/compManageComplaintCodeListResponse"
+      }
+    }
+  },
+  "required": [
+    "resultInfo",
+    "compManageComplaintCodeListResponse"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "resultInfoDetails": {
+      "type": "object",
+      "properties": {
+        "resultCode": {
+          "type": "integer"
+        },
+        "resultText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "resultCode",
+        "resultText"
+      ],
+      "additionalProperties": false
+    },
+    "solmTranslationEntry": {
+      "type": "object",
+      "properties": {
+        "solmLocaleID": {
+          "type": "string"
+        },
+        "solmRefTransText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "solmLocaleID",
+        "solmRefTransText"
+      ],
+      "additionalProperties": false
+    },
+    "solmTranslationGroup": {
+      "type": "object",
+      "properties": {
+        "solmRefTransNo": {
+          "type": "integer"
+        },
+        "solmTranslationEntry": {
+          "title": "solmTranslationEntry",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/solmTranslationEntry"
+          }
+        }
+      },
+      "required": [
+        "solmRefTransNo",
+        "solmTranslationEntry"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCodeTitleList": {
+      "type": "object",
+      "properties": {
+        "titleCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "titleCode"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCreditSettings": {
+      "type": "object",
+      "properties": {
+        "requestSourceID": {
+          "type": "string",
+          "enum": [
+            "CSR",
+            "WEB",
+            "ANY"
+          ]
+        },
+        "creditType": {
+          "type": "string",
+          "enum": [
+            "CASH",
+            "SERVICE"
+          ]
+        },
+        "complaintAllowedCash": {
+          "type": "boolean"
+        },
+        "complaintAllowedService": {
+          "type": "boolean"
+        },
+        "creditAllowedCash": {
+          "type": "boolean"
+        },
+        "creditAllowedService": {
+          "type": "boolean"
+        },
+        "creditAutomaticallyCash": {
+          "type": "boolean"
+        },
+        "ariaCashCreditReasonCode": {
+          "type": "integer"
+        },
+        "ariaServiceCreditReasonCode": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requestSourceID",
+        "complaintAllowedCash",
+        "complaintAllowedService"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCodeInfo": {
+      "type": "object",
+      "properties": {
+        "compCodeID": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "compCodeName": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "compCodeDesc": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "compAvailableForSupport": {
+          "type": "boolean"
+        },
+        "compAvailableForSelfService": {
+          "type": "boolean"
+        },
+        "compExportToDistSystem": {
+          "type": "boolean"
+        },
+        "compAllowCustomerChange": {
+          "type": "boolean"
+        },
+        "compGroupID": {
+          "type": "string"
+        },
+        "compDistSystemCodeID": {
+          "type": "string"
+        },
+        "remarkToCarrier": {
+          "type": "boolean"
+        },
+        "possibleWithActiveDelay": {
+          "type": "boolean"
+        },
+        "possibleWithNoDelivery": {
+          "type": "boolean"
+        },
+        "possibleWithUnsecureDelivery": {
+          "type": "boolean"
+        },
+        "possibleBeforeDeliveryDeadline": {
+          "type": "boolean"
+        },
+        "possibleToOrderSubsequentDelivery": {
+          "type": "boolean"
+        },
+        "compManageComplaintCreditSettings": {
+          "title": "compManageComplaintCreditSettings",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/compManageComplaintCreditSettings"
+          }
+        },
+        "compRedeliveryTitleList": {
+          "title": "compManageComplaintCodeTitleList",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/compManageComplaintCodeTitleList"
+          }
+        }
+      },
+      "required": [
+        "compCodeID",
+        "compCodeName",
+        "compCodeDesc",
+        "compAvailableForSupport",
+        "compAvailableForSelfService",
+        "compExportToDistSystem",
+        "compAllowCustomerChange",
+        "compGroupID",
+        "compDistSystemCodeID",
+        "compRedeliveryTitleList"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCodeAddInfo": {
+      "type": "object",
+      "properties": {
+        "compCodeNameTranslations": {
+          "title": "compCodeNameTranslations",
+          "type": "object",
+          "$ref": "#/definitions/solmTranslationGroup"
+        },
+        "compCodeDescTranslations": {
+          "title": "compCodeDescTranslations",
+          "type": "object",
+          "$ref": "#/definitions/solmTranslationGroup"
+        }
+      },
+      "required": [
+        "compCodeNameTranslations",
+        "compCodeDescTranslations"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCodeInfoResponse": {
+      "type": "object",
+      "properties": {
+        "actionCode": {
+          "type": "string",
+          "enum": [
+            "ADD",
+            "MODIFY",
+            "REMOVE"
+          ]
+        },
+        "resultCode": {
+          "type": "integer"
+        },
+        "resultText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "actionCode",
+        "resultCode",
+        "resultText"
+      ],
+      "additionalProperties": false
+    },
+    "compManageComplaintCodeListResponse": {
+      "type": "object",
+      "properties": {
+        "compManageComplaintCodeInfoResponse": {
+          "type": "object",
+          "$ref": "#/definitions/compManageComplaintCodeInfoResponse"
+        },
+        "compManageComplaintCodeInfo": {
+          "type": "object",
+          "$ref": "#/definitions/compManageComplaintCodeInfo"
+        },
+        "compManageComplaintCodeAddInfo": {
+          "type": "object",
+          "$ref": "#/definitions/compManageComplaintCodeAddInfo"
+        }
+      },
+      "required": [
+        "compManageComplaintCodeInfoResponse",
+        "compManageComplaintCodeInfo",
+        "compManageComplaintCodeAddInfo"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

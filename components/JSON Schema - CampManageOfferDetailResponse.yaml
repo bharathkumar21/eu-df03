@@ -1,0 +1,229 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campManageOfferDetailResponse",
+	"description": "API used to create, modify, or remove offers from AMPS. This API provides the ability to create and modify offers and their configuration",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"campManageOfferDetailResponseList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/campManageOfferDetailResponseListItem"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"campManageOfferDetailResponseList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"campManageOfferDetailCampaign": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string"
+				}
+			}
+		},
+		"campManageOfferDetailActionInfo": {
+			"type": "object",
+			"properties": {
+				"offerActionNo": {
+					"type": "integer"
+				},
+				"offerActionType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER",
+						"CONTINUE",
+						"TERMINATE"
+					]
+				},
+				"offerActionDurationUnit": {
+					"type": "string",
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"offerActionDuration": {
+					"type": "integer"
+				},
+				"offerActionEndDate": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offerActionType",
+				"offerActionDurationUnit"
+			]
+		},
+		"campManageOfferDetailInfo": {
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				},
+				"offerName": {
+					"type": "string"
+				},
+				"offerNameTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offerDesc": {
+					"type": "string"
+				},
+				"offerDescTranslations": {
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"offerType": {
+					"type": "string",
+					"enum": [
+						"ROLLOVER"
+					]
+				},
+				"offerStatus": {
+					"type": "string",
+					"enum": [
+						"DEFINITION",
+						"ACTIVE",
+						"DEPRECATED"
+					]
+				},
+				"initialTitleCode": {
+					"type": "string"
+				},
+				"initialAriaPlanID": {
+					"type": "string"
+				},
+				"initialAriaRateScheduleID": {
+					"type": "string"
+				},
+				"campManageOfferDetailActionInfo": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/campManageOfferDetailActionInfo"
+					}
+				},
+				"campManageOfferDetailCampaign": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/campManageOfferDetailCampaign"
+					}
+				}
+			},
+			"required": [
+				"offerID",
+				"offerName",
+				"offerNameTranslations",
+				"offerDesc",
+				"offerDescTranslations",
+				"offerType",
+				"offerStatus",
+				"campManageOfferDetailActionInfo"
+				"initialTitleCode",
+				"initialAriaPlanID",
+				"initialAriaRateScheduleID"
+			]
+		},
+		"campManageOfferDetailResponseListItem": {
+			"type": "object",
+			"properties": {
+				"resultInfo": {
+					"$ref": "#/definitions/resultInfoDetails"
+				},
+				"campManageOfferDetailAction": {
+					"type": "object",
+					"properties": {
+						"actionCode": {
+							"type": "string",
+							"enum": [
+								"ADD",
+								"MODIFY",
+								"REMOVE"
+							]
+						}
+					},
+					"required": [
+						"actionCode"
+					]
+				},
+				"campManageOfferDetailInfo": {
+					"$ref": "#/definitions/campManageOfferDetailInfo"
+				}
+			},
+			"required": [
+				"resultInfo",
+				"campManageOfferDetailAction",
+				"campManageOfferDetailInfo"
+			]
+		}
+	}
+}

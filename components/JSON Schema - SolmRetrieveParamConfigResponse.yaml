@@ -1,0 +1,166 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "solmRetrieveParamConfigResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"solmRetrieveParamConfigList": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/solmRetrieveParamConfigList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"solmRetrieveParamConfigList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"solmRetrieveParamConfigList": {
+			"type": "object",
+			"properties": {
+				"paramID": {
+					"type": "string"
+				},
+				"paramName": {
+					"type": "string"
+				},
+				"paramDesc": {
+					"type": "string"
+				},
+				"paramGroup": {
+					"type": "string",
+					"enum": [
+						"ACCESS",
+						"ACCOUNT",
+						"AMPS",
+						"BUNDLE",
+						"CAMPAIGN",
+						"COMPLAINT",
+						"DISCOUNT",
+						"DISTRIBUTION",
+						"DOCUMENT",
+						"FINANCIAL",
+						"PAYMENT",
+						"PRODUCT",
+						"SOLUTION",
+						"SUBSCRIPTION",
+						"TAX",
+						"TITLE"
+					]
+				},
+				"paramType": {
+					"type": "string",
+					"enum": [
+						"INTEGER",
+						"DECIMAL",
+						"STRING",
+						"DATE",
+						"DATETIME",
+						"URL",
+						"FILENAME"
+					]
+				},
+				"paramCount": {
+					"type": "integer"
+				},
+				"paramDefaulted": {
+					"type": "boolean"
+				},
+				"solmRetrieveParamConfigValidValues": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmRetrieveParamConfigValues"
+					}
+				},
+				"solmRetrieveParamConfigValues": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmRetrieveParamConfigValues"
+					}
+				},
+				"solmRetrieveParamConfigUpdates": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmRetrieveParamConfigUpdates"
+					}
+				}
+			},
+			"required": [
+				"paramID",
+				"paramName",
+				"paramDesc",
+				"paramGroup",
+				"paramType",
+				"paramCount",
+				"paramDefaulted"
+			]
+		},
+		"solmRetrieveParamConfigValueList": {
+			"type": "object",
+			"properties": {
+				"paramValue": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"paramValue"
+			]
+		},
+		"solmRetrieveParamConfigUpdateList": {
+			"type": "object",
+			"properties": {
+				"paramUpdateUserID": {
+					"type": "string"
+				},
+				"paramUpdateDateTime": {
+					"type": "string"
+				},
+				"paramValueListBefore": {
+					"type": "string"
+				},
+				"paramValueListAfter": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"paramUpdateUserID",
+				"paramUpdateDateTime",
+				"paramValueListBefore",
+				"paramValueListAfter"
+			]
+		},
+		"solmRetrieveParamConfigValidValues": {
+			"$ref": "#/definitions/solmRetrieveParamConfigValueList"
+		},
+		"solmRetrieveParamConfigValues": {
+			"$ref": "#/definitions/solmRetrieveParamConfigValueList"
+		},
+		"solmRetrieveParamConfigUpdates": {
+			"$ref": "#/definitions/solmRetrieveParamConfigUpdateList"
+		}
+	}
+}

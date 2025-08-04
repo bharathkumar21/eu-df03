@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageTitleOwnersResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"titleManageTitleOwnersListResponse": {"title": "titleManageTitleOwnersListResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageTitleOwnersListResponse"}}
+	},
+	 "required": ["resultInfo", "titleManageTitleOwnersListResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"titleManageTitleOwnersInfo": {"type": "object",
+			"properties": {
+				"titleOwnerID": {"type": "string", "maxLength": 20},
+				"titleOwnerName": {"type": "string", "maxLength": 100},
+				"titleOwnerDesc": {"type": "string", "maxLength": 1000}
+			},
+			"required": ["titleOwnerID", "titleOwnerName", "titleOwnerDesc"], 
+			"additionalProperties": false
+		},
+		"titleManageTitleOwnersInfoResponse": {"type": "object",
+			"properties": {
+				"titleManageTitleOwnersAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["titleManageTitleOwnersAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"titleManageTitleOwnersListResponse": {"type": "object",
+			"properties": {
+				"titleManageTitleOwnersInfoResponse": {"type": "object", "$ref": "#/definitions/titleManageTitleOwnersInfoResponse"},
+				"titleManageTitleOwnersInfo": {"type": "object", "$ref": "#/definitions/titleManageTitleOwnersInfo"}
+			},
+			"required": ["titleManageTitleOwnersInfoResponse", "titleManageTitleOwnersInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

@@ -1,0 +1,55 @@
+﻿{
+	"type": "object",
+    "title": "AcctChangePermAddressResponse",
+    "properties": {
+        "resultInfo": {
+            "$ref": "#/definitions/resultInfoDetails"
+        },
+        "AcctChangePermAddressResponseDetails": {
+            "$ref": "#/definitions/AcctChangePermAddressResponseDetails"
+        }
+    },
+    "required": [
+        "resultInfo",
+        "AcctChangePermAddressResponseDetails"
+    ],
+    "additionalProperties": false,
+	"definitions": {
+        "resultInfoDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {
+                    "type": "integer"
+                },
+                "resultText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resultCode",
+                "resultText"
+            ]
+        },
+        "AcctChangePermAddressResponseDetails": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "distAddressNo": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "ariaAccountID",
+                "ariaAccountNo",
+                "distAddressNo"
+            ],
+            "additionalProperties": false
+        }
+	}
+}

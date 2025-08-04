@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymGWCollectOnetimePaymentResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {"type": "object", "$ref": "#/definitions/resultInfoDetails"},
+        "paymGWCollectOnetimePaymentResponseDetails": {"type": "object", "$ref": "#/definitions/paymGWCollectOnetimePaymentResponseDetails"}
+    },
+    "required": ["resultInfo","paymGWCollectOnetimePaymentResponseDetails"],
+    "additionalProperties": false,
+    
+    "definitions": {
+        "resultInfoDetails": {"type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {"type": "integer"},
+                "resultText": {"type": "string"}
+            },
+            "required": ["resultCode","resultText"]
+        },
+        
+ 		"paymGWCollectOnetimePaymentResponseDetails": {"type": "object",
+			"properties": {
+				"gatewayPaymentID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayStatus": {"type": "string"},
+				"gatewayStatusCode": {"type": "string"},
+				"gatewayStatusText": {"type": "string"}
+			},	
+			"required": ["gatewayPaymentID","gatewayExternalID","gatewayStatus", "gatewayStatusCode", "gatewayStatusText"],
+			"additionalProperties": false
+        }
+    }
+}

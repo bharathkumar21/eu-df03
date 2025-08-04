@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymGWIssueRefundResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {"type": "object", "$ref": "#/definitions/resultInfoDetails"},
+        "paymGWIssueRefundResponseDetails": {"type": "object", "$ref": "#/definitions/paymGWIssueRefundResponseDetails"}
+    },
+    "required": ["resultInfo","paymGWIssueRefundResponseDetails"],
+    "additionalProperties": false,
+    
+    "definitions": {
+        "resultInfoDetails": {"type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {"type": "integer"},
+                "resultText": {"type": "string"}
+            },
+            "required": [
+				"resultCode",
+				"resultText"
+            ]
+        },
+        
+ 		"paymGWIssueRefundResponseDetails": {"type": "object",
+			"properties": {
+				"gatewayPaymentID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayStatus": {"type": "string"},
+				"gatewayStatusCode": {"type": "string"},
+				"gatewayStatusText": {"type": "string"}
+			},	
+			"required": [
+				"gatewayPaymentID", 
+				"gatewayExternalID", 
+				"gatewayStatus", 
+				"gatewayStatusCode", 
+				"gatewayStatusText"
+			],
+			"additionalProperties": false
+        }
+    }
+}

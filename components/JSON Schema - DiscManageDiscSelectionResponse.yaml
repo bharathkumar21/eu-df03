@@ -1,0 +1,53 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discManageDiscSelectionResponse",
+	"type": "object",
+	"properties": 
+	{
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"discManageDiscSelectionListResponse": {"title": "discManageDiscSelectionListResponse", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/discManageDiscSelectionListResponse"}}
+	},
+	 "required": ["resultInfo", "discManageDiscSelectionListResponse"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		
+		"discManageDiscSelectionInfo": {"type": "object",
+			"properties": {
+				"discCheckSeqNo": {"type": "integer"},
+				"discStartDate": {"type": "string", "maxLength": 10},
+				"discEndDate": {"type": "string", "maxLength": 10},
+				"discID": {"type": "string", "maxLength": 100}
+			},
+			"required": ["discCheckSeqNo", "discStartDate", "discEndDate", "discID"], 
+			"additionalProperties": false
+		},
+		"discManageDiscSelectionInfoResponse": {"type": "object",
+			"properties": {
+				"discManageDiscSelectionAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]},
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},	
+			"required": ["discManageDiscSelectionAction", "resultCode", "resultText"], 
+			"additionalProperties": false
+		},
+		"discManageDiscSelectionListResponse": {"type": "object",
+			"properties": {
+				"discManageDiscSelectionInfoResponse": {"type": "object", "$ref": "#/definitions/discManageDiscSelectionInfoResponse"},
+				"discManageDiscSelectionInfo": {"type": "object", "$ref": "#/definitions/discManageDiscSelectionInfo"}
+			},
+			"required": ["discManageDiscSelectionInfoResponse", "discManageDiscSelectionInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

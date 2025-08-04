@@ -1,0 +1,232 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"title": "PaymRetrieveTransactionsResponse",
+	"additionalProperties": false,
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"PaymRetrieveTransactionsResponseDetails": {
+			"$ref": "#/definitions/PaymRetrieveTransactionsResponseDetails"
+		}
+	},
+	"required": [
+		"resultInfo",
+		"PaymRetrieveTransactionsResponseDetails"
+	],
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			]
+		},
+		"PaymRetrieveTransactionsList": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"paymentID": {
+					"type": "string"
+				},
+				"ariaTransactionID": {
+					"type": "string"
+				},
+				"paymentType": {
+					"type": "string",
+					"enum": [
+						"PAYMENT",
+						"VOIDED-PAYMENT",
+						"REFUND",
+						"VOIDED-REFUND"
+					]
+				},
+				"paymentSource": {
+					"type": "string",
+					"enum": [
+						"MANUAL",
+						"BANK",
+						"CREDITCARD",
+						"MIGRATION",
+						"DIRECTDEBIT"
+					]
+				},
+				"paymentOrigin": {
+					"type": "string"
+				},
+				"paymentDate": {
+					"type": "string"
+				},
+				"paymentRegistrationDate": {
+					"type": "string"
+				},
+				"paymentInvoiceRef": {
+					"type": "string"
+				},
+				"paymentBankAccount": {
+					"type": "string"
+				},
+				"paymentBankRef": {
+					"type": "string"
+				},
+				"paymentAmount": {
+					"type": "number"
+				},
+				"paymentCurrency": {
+					"type": "string"
+				},
+				"paymentMatching": {
+					"type": "string"
+				},
+				"paymentThresholdAmount": {
+					"type": "number"
+				},
+				"paymentStatus": {
+					"type": "string",
+					"enum": [
+						"PENDING",
+						"APPLIED",
+						"FAILED",
+						"VOIDED"
+					]
+				},
+				"paymentExternalID": {
+					"type": "string"
+				},
+				"paymentExternalDestID": {
+					"type": "string"
+				},
+				"paymentClientReceiptID": {
+					"type": "string"
+				},
+				"paymentReferenceCode": {
+					"type": "string"
+				},
+				"paymentReceiptNo": {
+					"type": "string"
+				},
+				"paymentAgreementID": {
+					"type": "string"
+				},
+				"paymentAuditRef": {
+					"type": "string"
+				},
+				"PaymRetrieveTransactionsTitleDetails": {
+					"$ref": "#/definitions/PaymRetrieveTransactionsTitleDetails"
+				}
+			},
+			"required": [
+				"paymentID",
+				"ariaTransactionID",
+				"paymentType",
+				"paymentSource",
+				"paymentDate",
+				"paymentRegistrationDate",
+				"paymentInvoiceRef",
+				"paymentBankAccount",
+				"paymentBankRef",
+				"paymentAmount",
+				"paymentCurrency",
+				"paymentMatching",
+				"paymentThresholdAmount",
+				"paymentStatus"
+			]
+		},
+		"PaymRetrieveTransactionsTitleDetails": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"titleName": {
+					"type": "string"
+				},
+				"titleDesc": {
+					"type": "string"
+				},
+				"titleNameTranslations": {
+					"title": "titleNameTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDescTranslations": {
+					"title": "titleDescTranslations",
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleNameTranslations",
+				"titleDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"PaymRetrieveTransactionsResponseDetails": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"PaymRetrieveTransactionsList": {
+					"type": "array",
+					"title": "PaymRetrieveTransactionsList",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/PaymRetrieveTransactionsList"
+					}
+				}
+			},
+			"required": [
+				"PaymRetrieveTransactionsList"
+			]
+		}
+	}
+}

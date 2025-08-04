@@ -1,0 +1,558 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageTitleRequest",
+	"description": "JSON Schema for use with management of titles",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"TitleManageTitleList": {
+			"title": "TitleManageTitleList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/TitleManageTitleList"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"TitleManageTitleList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitlePaymentOptionInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionID": {
+					"type": "string"
+				},
+				"titlePayOptionVariant": {
+					"type": "string"
+				},
+				"titlePayTermID": {
+					"type": "string"
+				},
+				"titlePayTermDefault": {
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
+				}
+			},
+			"required": [
+				"titlePayOptionID",
+				"titlePayOptionVariant",
+				"titlePayTermID",
+				"titlePayTermDefault"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitlePaymentOptionList": {
+			"type": "object",
+			"properties": {
+				"titleManageTitlePaymentOptionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitlePaymentOptionInfo"
+				}
+			},
+			"required": [
+				"titleManageTitlePaymentOptionInfo"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleDunningOptionInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionID": {
+					"type": "string"
+				},
+				"titlePayOptionVariant": {
+					"type": "string"
+				},
+				"titleDunProcID": {
+					"type": "string"
+				},
+				"titleDunProcDefault": {
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
+				}
+			},
+			"required": [
+				"titlePayOptionID",
+				"titlePayOptionVariant",
+				"titleDunProcID",
+				"titleDunProcDefault"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleDunningOptionList": {
+			"type": "object",
+			"properties": {
+				"titleManageTitleDunningOptionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleDunningOptionInfo"
+				}
+			},
+			"required": [
+				"titleManageTitleDunningOptionInfo"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleCompanyAddress": {
+			"type": "object",
+			"properties": {
+				"titleCompanyFullName": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine1": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine2": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine3": {
+					"type": "string"
+				},
+				"titleCompanyCity": {
+					"type": "string"
+				},
+				"titleCompanyLocality": {
+					"type": "string"
+				},
+				"titleCompanyStateProvince": {
+					"type": "string"
+				},
+				"titleCompanyPostalCode": {
+					"type": "string"
+				},
+				"titleCompanyCountryCode": {
+					"type": "string"
+				},
+				"titleCompanyCountryName": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleCompanyFullName",
+				"titleCompanyAddressLine1",
+				"titleCompanyAddressLine2",
+				"titleCompanyAddressLine3",
+				"titleCompanyCity",
+				"titleCompanyLocality",
+				"titleCompanyStateProvince",
+				"titleCompanyPostalCode",
+				"titleCompanyCountryCode",
+				"titleCompanyCountryName"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleCompanyContact": {
+			"type": "object",
+			"properties": {
+				"titlePrimaryPhoneNumber": {
+					"type": "string"
+				},
+				"titlePrimaryEmailAddress": {
+					"type": "string"
+				},
+				"titlePrimaryFaxNumber": {
+					"type": "string"
+				},
+				"titlePrimaryURL": {
+					"type": "string"
+				},
+				"titleSecondaryPhoneNumber": {
+					"type": "string"
+				},
+				"titleSecondaryEmailAddress": {
+					"type": "string"
+				},
+				"titleSecondaryFaxNumber": {
+					"type": "string"
+				},
+				"titleSecondaryURL": {
+					"type": "string"
+				},
+				"titleServicePhoneNumber": {
+					"type": "string"
+				},
+				"titleServiceEmailAddress": {
+					"type": "string"
+				},
+				"titleServiceFaxNumber": {
+					"type": "string"
+				},
+				"titleServiceURL": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titlePrimaryPhoneNumber",
+				"titlePrimaryEmailAddress",
+				"titlePrimaryFaxNumber",
+				"titlePrimaryURL",
+				"titleSecondaryPhoneNumber",
+				"titleSecondaryEmailAddress",
+				"titleSecondaryFaxNumber",
+				"titleSecondaryURL",
+				"titleServicePhoneNumber",
+				"titleServiceEmailAddress",
+				"titleServiceFaxNumber",
+				"titleServiceURL"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleCompanyInfo": {
+			"type": "object",
+			"properties": {
+				"titleCompanyName": {
+					"type": "string"
+				},
+				"titleCompanyID": {
+					"type": "string"
+				},
+				"titleCompanyVATNumber": {
+					"type": "string"
+				},
+				"titleCompanyBusinessReg": {
+					"type": "string"
+				},
+				"titleCompanyBankAccount": {
+					"type": "string"
+				},
+				"titleCompanyIBAN": {
+					"type": "string"
+				},
+				"titleCompanySWIFTAddress": {
+					"type": "string"
+				},
+				"titleCompanyLogoReference": {
+					"type": "string"
+				},
+				"titleCompanyAddress": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleCompanyAddress"
+				},
+				"titleCompanyContact": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleCompanyContact"
+				}
+			},
+			"required": [
+				"titleCompanyName",
+				"titleCompanyID",
+				"titleCompanyVATNumber",
+				"titleCompanyBusinessReg",
+				"titleCompanyBankAccount",
+				"titleCompanyIBAN",
+				"titleCompanySWIFTAddress",
+				"titleCompanyLogoReference",
+				"titleCompanyAddress",
+				"titleCompanyContact"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleInfo": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDistSystem": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleDistType": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"FULL",
+						"DELTA"
+					]
+				},
+				"titleDistAdvDays": {
+					"type": "integer"
+				},
+				"titleDistDaysOfWeek": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"titleDistTimeOfDay": {
+					"type": "string",
+					"maxLength": 8
+				},
+				"titleDistNextExecution": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"titlePublCalStart": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titlePublCalEnd": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleOwnerID": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"titleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"titleDistTitleCode": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"titleAccessTitleCode": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"titleDistPublTiming": {
+					"type": "string",
+					"maxLength": 1
+				},
+				"titleCountryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"titleLogoReference": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleDistSystem",
+				"titleDistType",
+				"titleDistAdvDays",
+				"titleDistDaysOfWeek",
+				"titleDistTimeOfDay",
+				"titleDistNextExecution",
+				"titlePublCalStart",
+				"titlePublCalEnd",
+				"titleOwnerID",
+				"titleDomain",
+				"titleDistTitleCode",
+				"titleAccessTitleCode",
+				"titleDistPublTiming",
+				"titleCountryCode",
+				"titleLogoReference"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleERPInfo": {
+			"type": "object",
+			"properties": {
+				"titleERPGLCode": {
+					"type": "string"
+				},
+				"TitleERPBankAcctNo": {
+					"type": "string"
+				},
+				"TitleERPBankClearingCd": {
+					"type": "string"
+				},
+				"TitleERPBankSwift": {
+					"type": "string"
+				},
+				"TitleERPCompanyCode": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleERPGLCode",
+				"TitleERPBankAcctNo",
+				"TitleERPBankClearingCd",
+				"TitleERPBankSwift",
+				"TitleERPCompanyCode"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleActionInfo": {
+			"type": "object",
+			"properties": {
+				"titleManageTitleAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"titleManageTitleAction"
+			],
+			"additionalProperties": false
+		},
+		"titleManageTitleAddInfo": {
+			"type": "object",
+			"properties": {
+				"titleNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titleNameTranslations",
+				"titleDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"TitleManageTitleList": {
+			"type": "object",
+			"properties": {
+				"titleManageTitleActionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleActionInfo"
+				},
+				"titleManageTitleInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleInfo"
+				},
+				"titleManageTitleAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleAddInfo"
+				},
+				"titleManageTitleCompanyInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleCompanyInfo"
+				},
+				"titleManageTitlePaymentOptionList": {
+					"title": "titleManageTitlePaymentOptionList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/titleManageTitlePaymentOptionList"
+					}
+				},
+				"titleManageTitleERPInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageTitleERPInfo"
+				},
+				"titleDfltCollGroupID": {
+					"type": "string"
+				},
+				"titleManageTitleDunningOptionList": {
+					"title": "titleManageTitleDunningOptionList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/titleManageTitleDunningOptionList"
+					}
+				}
+			},
+			"required": [
+				"titleManageTitleActionInfo",
+				"titleManageTitleInfo",
+				"titleManageTitleAddInfo",
+				"titleManageTitleCompanyInfo",
+				"titleManageTitlePaymentOptionList",
+				"titleManageTitleERPInfo",
+				"titleDfltCollGroupID",
+				"titleManageTitleDunningOptionList"
+			],
+			"additionalProperties": false
+		}
+	}
+}

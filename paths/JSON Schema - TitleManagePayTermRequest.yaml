@@ -1,0 +1,192 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "TitleManagePayTermRequest",
+    "description": "JSON Schema for use with Titles",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "titleManagePayOptionsList": {
+            "title": "titleManagePayTermsActionInfo",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/titleManagePayTermsList"
+            }
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "titleManagePayTermsList",
+        "titleManagePayTermsActionInfo",
+        "solmTranslationEntry",
+        "titleManagePayTermsInfo"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "solmTranslationEntry": {
+            "type": "object",
+            "properties": {
+                "solmLocaleID": {
+                    "type": "string"
+                },
+                "solmRefTransText": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "solmLocaleID",
+                "solmRefTransText"
+            ],
+            "additionalProperties": false
+        },
+        "titleManagePayTermsList": {
+            "type": "object",
+            "properties": {
+                "titleManagePayTermsActionInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/titleManagePayTermsActionInfo"
+                },
+                "titleManagePayTermsInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/titleManagePayTermsInfo"
+                }
+            },
+            "required": [
+                "titleManagePayTermsActionInfo",
+                "titleManagePayTermsInfo"
+            ],
+            "additionalProperties": false
+        },
+        "titleManagePayTermsActionInfo": {
+            "type": "object",
+            "properties": {
+                "titleManagePayTermsAction": {
+                    "type": "string",
+                    "enum": [
+                        "ADD",
+                        "MODIFY",
+                        "REMOVE"
+                    ]
+                }
+            },
+            "required": [
+                "titleManagePayOptionsAction"
+            ],
+            "additionalProperties": false
+        },
+        "titleManagePayTermsInfo": {
+            "type": "object",
+            "properties": {
+                "titlePayTermID": {
+                    "type": "string"
+                },
+                "titlePayTermName": {
+                    "type": "string"
+                },
+                "titlePayTermNameTranslations": {
+                    "type": "object",
+                    "properties": {
+                        "solmRefTransNo": {
+                            "type": "string"
+                        },
+                        "solmTranslationEntry": {
+                            "title": "solmTranslationEntry",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/definitions/solmTranslationEntry"
+                            }
+                        }
+                    }
+                },
+                "titlePayTermDesc": {
+                    "type": "string"
+                },
+                "titlePayTermDescTranslations": {
+                    "type": "object",
+                    "properties": {
+                        "solmRefTransNo": {
+                            "type": "string"
+                        },
+                        "solmTranslationEntry": {
+                            "title": "solmTranslationEntry",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/definitions/solmTranslationEntry"
+                            }
+                        }
+                    },
+                    "required": [
+                        "solmRefTransNo",
+                        "solmTranslationEntry"
+                    ],
+                    "additionalProperties": false
+                },
+                "titlePayBillLagDays": {
+                    "type": "integer"
+                },
+                "titlePayDaysUntilDue": {
+                    "type": "integer"
+                },
+                "titlePayDaysUntilDueOption": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "titlePayTermID",
+                "titlePayTermName",
+                "titlePayTermNameTranslations",
+                "titlePayTermDesc",
+                "titlePayTermDescTranslationsc",
+                "titlePayBillLagDays",
+                "titlePayDaysUntilDue",
+                "titlePayDaysUntilDueOption"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

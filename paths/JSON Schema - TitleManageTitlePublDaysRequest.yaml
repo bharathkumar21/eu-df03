@@ -1,0 +1,60 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageTitlePublDaysRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleManageTitlePublDaysTitleInfo": {"type": "object", "$ref": "#/definitions/titleManageTitlePublDaysTitleInfo"},
+		"titleManageTitlePublDaysDetails": {"title": "titleManageTitlePublDaysList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageTitlePublDaysDetails"}}
+	},
+	 "required": ["msgAuthDetails", "titleManageTitlePublDaysTitleInfo", "titleManageTitlePublDaysDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		"titleManageTitlePublDaysTitleInfo": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string", "maxLength": 10}
+			},
+			"required": ["titleCode"], 
+			"additionalProperties": false
+		},
+		"titleManageTitlePublDaysInfo": {"type": "object",
+			"properties": {
+				"titlePublDaysEffective": {"type": "string", "maxLength": 10},
+				"titlePublDays": {"type": "string", "maxLength": 7}
+			},
+			"required": ["titlePublDaysEffective", "titlePublDays"], 
+			"additionalProperties": false
+		},
+		"titleManageTitlePublDaysActionInfo": {"type": "object",
+			"properties": {
+				"titleManageTitlePublDaysAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["titleManageTitlePublDaysAction"], 
+			"additionalProperties": false
+		},
+		"titleManageTitlePublDaysDetails": {"type": "object",
+			"properties": {
+				"titleManageTitlePublDaysActionInfo": {"type": "object", "$ref": "#/definitions/titleManageTitlePublDaysActionInfo"},
+				"titleManageTitlePublDaysInfo": {"type": "object", "$ref": "#/definitions/titleManageTitlePublDaysInfo"}
+			},
+			"required": ["titleManageTitlePublDaysActionInfo", "titleManageTitlePublDaysInfo"],
+			"additionalProperties": false
+		}
+	}
+}

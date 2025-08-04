@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleRetrieveTitlesRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleRetrieveTitlesInfoDetails": {"type": "object","$ref": "#/definitions/titleRetrieveTitlesInfoDetails"}
+	},
+	 "required": ["msgAuthDetails", "titleRetrieveTitlesInfoDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"titleRetrieveTitlesInfoDetails": {"type": "object",
+			"properties": {
+				"specificTitle": {"type": "string", "enum": ["ALL", "SPECIFIC"]},
+				"titleCode": {"type": "string"}
+			},	
+			"required": ["titleCode"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

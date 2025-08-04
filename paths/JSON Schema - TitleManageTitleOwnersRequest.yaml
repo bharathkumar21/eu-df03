@@ -1,0 +1,55 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageTitleOwnersRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleManageTitleOwnersList": {"title": "titleManageTitleOwnersList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageTitleOwnersList"}}
+	},
+	 "required": ["msgAuthDetails", "titleManageTitleOwnersList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+
+		"titleManageTitleOwnersInfo": {"type": "object",
+			"properties": {
+				"titleOwnerID": {"type": "string", "maxLength": 20},
+				"titleOwnerName": {"type": "string", "maxLength": 100},
+				"titleOwnerDesc": {"type": "string", "maxLength": 1000}
+			},
+			"required": ["titleOwnerID", "titleOwnerName", "titleOwnerDesc"], 
+			"additionalProperties": false
+		},
+		"titleManageTitleOwnersActionInfo": {"type": "object",
+			"properties": {
+				"titleManageTitleOwnersAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["titleManageTitleOwnersAction"], 
+			"additionalProperties": false
+		},
+		"titleManageTitleOwnersList": {"type": "object",
+			"properties": {
+				"titleManageTitleOwnersActionInfo": {"type": "object", "$ref": "#/definitions/titleManageTitleOwnersActionInfo"},
+				"titleManageTitleOwnersInfo": {"type": "object", "$ref": "#/definitions/titleManageTitleOwnersInfo"}
+			},
+			"required": ["titleManageTitleOwnersActionInfo", "titleManageTitleOwnersInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

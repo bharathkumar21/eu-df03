@@ -1,0 +1,76 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"$id": "# /properties/msgAuthDetails",
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"signatureVersion",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrievePayOptionsCriteria": {
+			"type": "object",
+			"properties": {
+				"requestSource": {
+					"type": "string",
+					"enum": [
+						"CSR",
+						"WEB"
+					]
+				},
+				"requestAction": {
+					"type": "string",
+					"enum": [
+						"ANY",
+						"CREATE",
+						"UPDATE"
+					]
+				}
+			},
+			"required": [
+				"requestSource",
+				"requestAction"
+			],
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"titleRetrievePayOptionsCriteria"
+	]
+}

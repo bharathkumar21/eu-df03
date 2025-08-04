@@ -1,0 +1,68 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "AccAccessControlC1Request",
+	"description": "Structure used to send AccessControl requests to Celera One",
+	"type": "object",
+	"properties": {
+		"pid": {
+			"type": "string"
+		},
+		"first_name": {
+			"type": "string"
+		},
+		"last_name": {
+			"type": "string"
+		},
+		"aria_account_no": {
+			"type": "integer"
+		},
+		"quantity": {
+			"type": "integer"
+		},
+		"active_products": {
+			"type": "array",
+			"minItems": 1,
+			"items": [
+				{
+					"$ref": "#/definitions/activeProducts"
+				}
+			]
+		},
+		"email": {
+			"type": "string"
+		},
+		"password": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"pid",
+		"first_name",
+		"last_name",
+		"aria_account_no",
+		"quantity",
+		"active_products",
+		"email"
+	],
+	"definitions": {
+		"activeProducts": {
+			"type": "object",
+			"properties": {
+				"accessTitleCode": {
+					"type": "string"
+				},
+				"accessFeature": {
+					"type": "string"
+				},
+				"eligibleForSharing": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"accessTitleCode",
+				"accessFeature",
+				"eligibleForSharing"
+			]
+		}
+	}
+}

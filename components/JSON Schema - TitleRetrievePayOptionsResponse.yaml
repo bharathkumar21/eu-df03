@@ -1,0 +1,368 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$id": "# /properties/resultInfo",
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrievePayOptionsResponseDetails": {
+			"title": "titleRetrievePayOptionsResponseDetails",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/titleRetrievePayOptionsResponseDetails"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"titleRetrievePayOptionsResponseDetails"
+	],
+	"definitions": {
+		"titleRetrievePayOptionsResponseDetails": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionID": {
+					"type": "string"
+				},
+				"titlePayOptionVariant": {
+					"type": "string"
+				},
+				"titlePayOptionCustInvRefCalc": {
+					"type": "string"
+				},
+				"titlePayOptionCustInvRefWeight": {
+					"type": "string"
+				},
+				"titlePayOptionType": {
+					"type": "string"
+				},
+				"titlePayOptionName": {
+					"type": "string"
+				},
+				"titlePayOptionNameTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "integer"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					},
+					"required": [
+						"solmRefTransNo",
+						"solmTranslationEntry"
+					],
+					"additionalProperties": false
+				},
+				"titlePayOptionDesc": {
+					"type": "string"
+				},
+				"titlePayOptionDescTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "integer"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					},
+					"required": [
+						"solmRefTransNo",
+						"solmTranslationEntry"
+					],
+					"additionalProperties": false
+				},
+				"titlePayOptionVariantName": {
+					"type": "string"
+				},
+				"titlePayOptionVariantNameTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "integer"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					},
+					"required": [
+						"solmRefTransNo",
+						"solmTranslationEntry"
+					],
+					"additionalProperties": false
+				},
+				"titlePayOptionVariantDesc": {
+					"type": "string"
+				},
+				"titlePayOptionVariantDescTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "integer"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					},
+					"required": [
+						"solmRefTransNo",
+						"solmTranslationEntry"
+					],
+					"additionalProperties": false
+				},
+				"titlePayOptionNew": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR",
+						"ANY"
+					]
+				},
+				"titlePayOptionNewDflt": {
+					"type": "boolean"
+				},
+				"titlePayOptionUpdate": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR",
+						"ANY"
+					]
+				},
+				"TitlePayOptionUpdateDflt": {
+					"type": "boolean"
+				},
+				"titlePayOptionBillTiming": {
+					"type": "string",
+					"enum": [
+						"ARIA",
+						"CUTOFF"
+					]
+				},
+				"titlePayOptionBillTimingCutoff": {
+					"type": "integer"
+				},
+				"titlePayOptionGatewayType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"INTERNAL",
+						"EXTERNAL"
+					]
+				},
+				"titlePayOptionGatewayID": {
+					"type": "string"
+				},
+				"titlePayOptionGatewayColl": {
+					"type": "string",
+					"enum": [
+						"ALL",
+						"NOT-FIRST"
+					]
+				},
+				"titlePayOptionDocInitialGen": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"FIRST-DIRECT",
+						"ALL-DIRECT"
+					]
+				},
+				"titlePayOptionDocPartnerGen": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"SAVE-ONLY-ALL",
+						"SAVE-AND-SEND-ALL"
+					]
+				},
+				"titlePayOptionDocFormatID": {
+					"type": "string"
+				},
+				"titlePayOptionDocFormatVersion": {
+					"type": "string"
+				},
+				"titlePayOptionDocDestID": {
+					"type": "string"
+				},
+				"titlePayOptionDocDestType": {
+					"type": "string",
+					"enum": [
+						"SFTP",
+						"REST"
+					]
+				},
+				"titlePayOptionDocDestLocation": {
+					"type": "string"
+				},
+				"titlePayOptionCaptureType": {
+					"type": "string",
+					"enum": [
+						"BANK",
+						"CC-ONLINE",
+						"CC-OFFLINE"
+					]
+				},
+				"titlePayOptionCustInvRefGen": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"NEW",
+						"EAN"
+					]
+				},
+				"TitlePayOptionSelectionRule": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"STANDARD",
+						"AVT-WITH",
+						"AVT-WITHOUT",
+						"WITH",
+						"WITHOUT"
+					]
+				},
+				"titlePayOptionDocDist": {
+					"type": "string"
+
+				},
+				"titlePayOptionUnderPayThresh": {
+					"type": "integer"
+				},
+				"titlePayOptionUnderPayActionInside": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"WRITEOFF"
+					]
+				},
+				"titlePayOptionOverPayThresh": {
+					"type": "integer"
+				},
+				"titlePayOptionManualRefund": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"ORIGINAL",
+						"ANY"
+					]
+				},
+				"titlePayOptionOverPayActionInside": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"REFUND"
+					]
+				},
+				"titlePayOptionOverPayActionOutside": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"REFUND"
+					]
+				},
+				"titlePayOptionReactivateTime": {
+					"type": "integer"
+				},
+				"titlePayOptionDocDistDesc": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titlePayOptionID",
+				"titlePayOptionVariant",
+				"titlePayOptionName",
+				"titlePayOptionNameTranslations",
+				"titlePayOptionDesc",
+				"titlePayOptionDescTranslations",
+				"titlePayOptionVariantName",
+				"titlePayOptionVariantNameTranslations",
+				"titlePayOptionVariantDesc",
+				"titlePayOptionVariantDescTranslations",
+				"titlePayOptionNew",
+				"titlePayOptionNewDflt",
+				"titlePayOptionUpdate",
+				"TitlePayOptionUpdateDflt",
+				"titlePayOptionBillTiming",
+				"titlePayOptionBillTimingCutoff",
+				"titlePayOptionGatewayType",
+				"titlePayOptionGatewayID",
+				"titlePayOptionGatewayColl",
+				"titlePayOptionDocInitialGen",
+				"titlePayOptionDocPartnerGen",
+				"titlePayOptionDocFormatID",
+				"titlePayOptionDocFormatVersion",
+				"titlePayOptionDocDestID",
+				"titlePayOptionDocDestType",
+				"titlePayOptionDocDestLocation",
+				"titlePayOptionCaptureType",
+				"titlePayOptionCustInvRefGen",
+				"TitlePayOptionSelectionRule",
+				"titlePayOptionDocDist",
+				"titlePayOptionUnderPayThresh",
+				"titlePayOptionUnderPayActionInside",
+				"titlePayOptionOverPayThresh",
+				"titlePayOptionManualRefund",
+				"titlePayOptionOverPayActionInside",
+				"titlePayOptionOverPayActionOutside",
+				"titlePayOptionReactivateTime",
+				"titlePayOptionDocDistDesc",
+				"titlePayOptionType"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		}
+	}
+}

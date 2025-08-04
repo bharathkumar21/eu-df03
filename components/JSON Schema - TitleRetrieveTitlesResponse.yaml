@@ -1,0 +1,639 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleRetrieveTitlesResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {
+			"$ref": "#/definitions/resultInfoDetails"
+		},
+		"titleRetrieveTitlesList": {
+			"title": "titleRetrieveTitlesList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/titleRetrieveTitlesList"
+			}
+		}
+	},
+	"required": [
+		"resultInfo",
+		"titleRetrieveTitlesList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"resultInfoDetails": {
+			"type": "object",
+			"properties": {
+				"resultCode": {
+					"type": "integer"
+				},
+				"resultText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resultCode",
+				"resultText"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitleERPInfo": {
+			"type": "object",
+			"properties": {
+				"titleERPGLCode": {
+					"type": "string"
+				},
+				"TitleERPBankAcctNo": {
+					"type": "string"
+				},
+				"TitleERPBankClearingCd": {
+					"type": "string"
+				},
+				"TitleERPBankSwift": {
+					"type": "string"
+				},
+				"TitleERPCompanyCode": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleERPGLCode",
+				"TitleERPBankAcctNo",
+				"TitleERPBankClearingCd",
+				"TitleERPBankSwift",
+				"TitleERPCompanyCode"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesTitleInfo": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDistSystem": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleDistType": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"FULL",
+						"DELTA"
+					]
+				},
+				"titleDistAdvDays": {
+					"type": "integer"
+				},
+				"titleDistDaysOfWeek": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"titleDistTimeOfDay": {
+					"type": "string",
+					"maxLength": 8
+				},
+				"titleDistNextExecution": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"titlePublCalStart": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titlePublCalEnd": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleOwnerID": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"titleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"titleDistTitleCode": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"titleAccessTitleCode": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"titleDistPublTiming": {
+					"type": "string",
+					"maxLength": 1
+				},
+				"titleCountryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"titleLogoReference": {
+					"type": "string"
+				},
+				"titleDfltCollGroupID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleCode",
+				"titleName",
+				"titleDesc",
+				"titleDistSystem",
+				"titleDistType",
+				"titleDistAdvDays",
+				"titleDistDaysOfWeek",
+				"titleDistTimeOfDay",
+				"titleDistNextExecution",
+				"titlePublCalStart",
+				"titlePublCalEnd",
+				"titleOwnerID",
+				"titleDomain",
+				"titleDistTitleCode",
+				"titleAccessTitleCode",
+				"titleDistPublTiming",
+				"titleCountryCode",
+				"titleLogoReference"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesTitleAddInfo": {
+			"type": "object",
+			"properties": {
+				"titleNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleOwnerName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleOwnerDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDistSystemName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDistSystemDesc": {
+					"type": "string",
+					"maxLength": 1000
+				}
+			},
+			"required": [
+				"titleNameTranslations",
+				"titleDescTranslations",
+				"titleOwnerName",
+				"titleOwnerDesc",
+				"titleDistSystemName",
+				"titleDistSystemDesc"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesCompanyAddress": {
+			"type": "object",
+			"properties": {
+				"titleCompanyFullName": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine1": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine2": {
+					"type": "string"
+				},
+				"titleCompanyAddressLine3": {
+					"type": "string"
+				},
+				"titleCompanyCity": {
+					"type": "string"
+				},
+				"titleCompanyLocality": {
+					"type": "string"
+				},
+				"titleCompanyStateProvince": {
+					"type": "string"
+				},
+				"titleCompanyPostalCode": {
+					"type": "string"
+				},
+				"titleCompanyCountryCode": {
+					"type": "string"
+				},
+				"titleCompanyCountryName": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titleCompanyFullName",
+				"titleCompanyAddressLine1",
+				"titleCompanyAddressLine2",
+				"titleCompanyAddressLine3",
+				"titleCompanyCity",
+				"titleCompanyLocality",
+				"titleCompanyStateProvince",
+				"titleCompanyPostalCode",
+				"titleCompanyCountryCode",
+				"titleCompanyCountryName"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesCompanyContact": {
+			"type": "object",
+			"properties": {
+				"titlePrimaryPhoneNumber": {
+					"type": "string"
+				},
+				"titlePrimaryEmailAddress": {
+					"type": "string"
+				},
+				"titlePrimaryFaxNumber": {
+					"type": "string"
+				},
+				"titlePrimaryURL": {
+					"type": "string"
+				},
+				"titleSecondaryPhoneNumber": {
+					"type": "string"
+				},
+				"titleSecondaryEmailAddress": {
+					"type": "string"
+				},
+				"titleSecondaryFaxNumber": {
+					"type": "string"
+				},
+				"titleSecondaryURL": {
+					"type": "string"
+				},
+				"titleServicePhoneNumber": {
+					"type": "string"
+				},
+				"titleServiceEmailAddress": {
+					"type": "string"
+				},
+				"titleServiceFaxNumber": {
+					"type": "string"
+				},
+				"titleServiceURL": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"titlePrimaryPhoneNumber",
+				"titlePrimaryEmailAddress",
+				"titlePrimaryFaxNumber",
+				"titlePrimaryURL",
+				"titleSecondaryPhoneNumber",
+				"titleSecondaryEmailAddress",
+				"titleSecondaryFaxNumber",
+				"titleSecondaryURL",
+				"titleServicePhoneNumber",
+				"titleServiceEmailAddress",
+				"titleServiceFaxNumber",
+				"titleServiceURL"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesCompanyInfo": {
+			"type": "object",
+			"properties": {
+				"titleCompanyName": {
+					"type": "string"
+				},
+				"titleCompanyID": {
+					"type": "string"
+				},
+				"titleCompanyVATNumber": {
+					"type": "string"
+				},
+				"titleCompanyBusinessReg": {
+					"type": "string"
+				},
+				"titleCompanyBankAccount": {
+					"type": "string"
+				},
+				"titleCompanyIBAN": {
+					"type": "string"
+				},
+				"titleCompanySWIFTAddress": {
+					"type": "string"
+				},
+				"titleCompanyLogoReference": {
+					"type": "string"
+				},
+				"titleCompanyAddress": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesCompanyAddress"
+				},
+				"titleCompanyContact": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesCompanyContact"
+				}
+			},
+			"required": [
+				"titleCompanyName",
+				"titleCompanyID",
+				"titleCompanyVATNumber",
+				"titleCompanyBusinessReg",
+				"titleCompanyBankAccount",
+				"titleCompanyIBAN",
+				"titleCompanySWIFTAddress",
+				"titleCompanyLogoReference",
+				"titleCompanyAddress",
+				"titleCompanyContact"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesPaymentOptionInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionID": {
+					"type": "string"
+				},
+				"titlePayOptionVariant": {
+					"type": "string"
+				},
+				"titlePayTermID": {
+					"type": "string"
+				},
+				"titlePayTermDefault": {
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
+				}
+			},
+			"required": [
+				"titlePayOptionID",
+				"titlePayOptionVariant",
+				"titlePayTermID",
+				"titlePayTermDefault"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesPaymentOptionAddInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionName": {
+					"type": "string"
+				},
+				"titlePayOptionDesc": {
+					"type": "string"
+				},
+				"titlePayTermName": {
+					"type": "string"
+				},
+				"titlePayTermDesc": {
+					"type": "string"
+				},
+				"titlePayTermDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titlePayTermNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titlePayOptionName",
+				"titlePayOptionDesc",
+				"titlePayTermName",
+				"titlePayTermDesc",
+				"titlePayTermDescTranslations",
+				"titlePayTermNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesPaymentOptionList": {
+			"type": "object",
+			"properties": {
+				"titleRetrieveTitlesPaymentOptionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesPaymentOptionInfo"
+				},
+				"titleRetrieveTitlesPaymentOptionAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesPaymentOptionAddInfo"
+				}
+			},
+			"required": [
+				"titleRetrieveTitlesPaymentOptionInfo",
+				"titleRetrieveTitlesPaymentOptionAddInfo"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesDunningOptionInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionID": {
+					"type": "string"
+				},
+				"titlePayOptionVariant": {
+					"type": "string"
+				},
+				"titleDunProcID": {
+					"type": "string"
+				},
+				"titleDunProcDefault": {
+					"type": "string",
+					"enum": [
+						"YES",
+						"NO"
+					]
+				}
+			},
+			"required": [
+				"titlePayOptionID",
+				"titlePayOptionVariant",
+				"titleDunProcID",
+				"titleDunProcDefault"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesDunningOptionAddInfo": {
+			"type": "object",
+			"properties": {
+				"titlePayOptionName": {
+					"type": "string"
+				},
+				"titlePayOptionDesc": {
+					"type": "string"
+				},
+				"titleDunProcName": {
+					"type": "string"
+				},
+				"titleDunProcDesc": {
+					"type": "string"
+				},
+				"titleDunProcDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDunProcNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				}
+			},
+			"required": [
+				"titlePayOptionName",
+				"titlePayOptionDesc",
+				"titleDunProcName",
+				"titleDunProcDesc",
+				"titleDunProcDescTranslations",
+				"titleDunProcNameTranslations"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesDunningOptionList": {
+			"type": "object",
+			"properties": {
+				"titleRetrieveTitlesDunningOptionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesDunningOptionInfo"
+				},
+				"titleRetrieveTitlesDunningOptionAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesDunningOptionAddInfo"
+				}
+			},
+			"required": [
+				"titleRetrieveTitlesDunningOptionInfo",
+				"titleRetrieveTitlesDunningOptionAddInfo"
+			],
+			"additionalProperties": false
+		},
+		"titleRetrieveTitlesList": {
+			"type": "object",
+			"properties": {
+				"titleRetrieveTitlesTitleInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesTitleInfo"
+				},
+				"titleRetrieveTitlesTitleAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesTitleAddInfo"
+				},
+				"titleRetrieveTitlesCompanyInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitlesCompanyInfo"
+				},
+				"titleRetrieveTitlesPaymentOptionList": {
+					"title": "titleRetrieveTitlesPaymentOptionList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/titleRetrieveTitlesPaymentOptionList"
+					}
+				},
+				"titleRetrieveTitleERPInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleRetrieveTitleERPInfo"
+				},
+				"titleRetrieveTitlesDunningOptionList": {
+					"title": "titleRetrieveTitlesDunningOptionList",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/titleRetrieveTitlesDunningOptionList"
+					}
+				}
+			},
+			"required": [
+				"titleRetrieveTitlesTitleInfo",
+				"titleRetrieveTitlesTitleAddInfo",
+				"titleRetrieveTitlesCompanyInfo",
+				"titleRetrieveTitlesPaymentOptionList",
+				"titleRetrieveTitleERPInfo",
+				"titleRetrieveTitlesDunningOptionList"
+			],
+			"additionalProperties": false
+		}
+	}
+}

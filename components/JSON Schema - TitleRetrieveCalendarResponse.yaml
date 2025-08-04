@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleRetrieveCalendarResponse",
+	"type": "object",
+	"properties": {
+		"resultInfo": {"$ref": "#/definitions/resultInfoDetails"},
+		"titleRetrieveCalendarTitleInfo": {"type": "object", "$ref": "#/definitions/titleRetrieveCalendarTitleInfo"},
+		"titleRetrieveCalendarList": {"title": "titleRetrieveCalendarList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleRetrieveCalendarInfo"}}
+	},
+	 "required": ["resultInfo", "titleRetrieveCalendarTitleInfo", "titleRetrieveCalendarList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"resultInfoDetails": {"type": "object",
+			"properties": {
+				"resultCode": {"type": "integer"},
+				"resultText": {"type": "string"}
+			},
+			"required": ["resultCode","resultText"],
+			"additionalProperties": false
+		},
+		"titleRetrieveCalendarTitleInfo": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string", "maxLength": 10},
+				"calendarStartDate": {"type": "string"},
+				"calendarEndDate": {"type": "string"}
+			},
+			"required": ["titleCode"], 
+			"additionalProperties": false
+		},
+		"titleRetrieveCalendarInfo": {"type": "object",
+			"properties": {
+				"titlePublDate": {"type": "string", "maxLength": 10},
+				"titlePublDateType": {"type": "string", "maxLength": 1},
+				"titlePublOriginalDate": {"type": "string", "maxLength": 10},
+				"titlePublWeekNo": {"type": "integer"},
+				"titlePublWeekNoYear": {"type": "integer"},
+				"titlePublDayOfWeek": {"type": "integer"},
+				"titleEarliestDeliveryChangeDate": {"type": "string"},
+				"titleDistFileGenDate": {"type": "string"}, 
+				"titleDistDateStart": {"type": "string"},
+				"titleDistDateEnd": {"type": "string"},
+				"dateID": {"type": "string"}
+			},
+			"required": ["titlePublDate", "titlePublDateType", "titlePublOriginalDate", "titlePublWeekNo", "titlePublWeekNoYear", "titlePublDayOfWeek", "titleEarliestDeliveryChangeDate", "dateID"], 
+			"additionalProperties": false
+		}
+	}
+}

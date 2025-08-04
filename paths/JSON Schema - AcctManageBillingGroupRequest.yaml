@@ -1,0 +1,605 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "acctManageBillingGroupRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"acctManageBillingGroupDetails": {
+			"title": "acctManageBillingGroupDetails",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/acctManageBillingGroupDetails"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"acctManageBillingGroupDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupContactDetails": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"middleInitials": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"lastName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"fullName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"addressLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"countryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"postalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"postalCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"streetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"streetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"entranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"homePhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"cellPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"workPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"emailAddress": {
+					"type": "string",
+					"maxLength": 320
+				}
+			},
+			"required": [
+				"firstName",
+				"middleInitials",
+				"lastName",
+				"fullName",
+				"addressLine1",
+				"addressLine2",
+				"addressLine3",
+				"countryCode",
+				"postalCode",
+				"postalCity",
+				"addrLocality",
+				"addrStateProv",
+				"streetName",
+				"streetNo",
+				"flatNo",
+				"flatSpec",
+				"flatFloor",
+				"entranceNo",
+				"homePhone",
+				"cellPhone",
+				"workPhone",
+				"emailAddress"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupPayMethodInfo": {
+			"type": "object",
+			"properties": {
+				"primaryPaymentMethodID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"backupPaymentMethodID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaAgreementID": {
+					"type": "string"
+				},
+				"ariaPaymentMethodType": {
+					"type": "integer"
+				},
+				"cardType": {
+					"type": "integer"
+				}
+			},
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupPayTermInfo": {
+			"type": "object",
+			"properties": {
+				"paymentTerms": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"paymentTermID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"paymentEANNum": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"paymentEANRequisitionNum": {
+					"type": "string",
+					"maxLength": 50
+				}
+			},
+			"required": [
+				"paymentTerms",
+				"paymentTermID",
+				"paymentEANNum",
+				"paymentEANRequisitionNum"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupPayOptionInfo": {
+			"type": "object",
+			"properties": {
+				"payOptionID": {
+					"type": "string"
+				},
+				"payOptionVariant": {
+					"type": "string"
+				},
+				"payOptionEANNum": {
+					"type": "string"
+				},
+				"payOptionEANRequisitionNum": {
+					"type": "string"
+				},
+				"payOptionName": {
+					"type": "string"
+				},
+				"payOptionNameTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "string"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					}
+				},
+				"payOptionDesc": {
+					"type": "string"
+				},
+				"payOptionDescTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "string"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					}
+				},
+				"payOptionVariantName": {
+					"type": "string"
+				},
+				"payOptionVariantNameTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "string"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					}
+				},
+				"payOptionVariantDesc": {
+					"type": "string"
+				},
+				"payOptionVariantDescTranslations": {
+					"type": "object",
+					"properties": {
+						"solmRefTransNo": {
+							"type": "string"
+						},
+						"solmTranslationEntry": {
+							"title": "solmTranslationEntry",
+							"type": "array",
+							"minItems": 1,
+							"items": {
+								"$ref": "#/definitions/solmTranslationEntry"
+							}
+						}
+					}
+				}
+			},
+			"required": [
+				"payOptionID",
+				"payOptionVariant",
+				"payOptionEANNum",
+				"payOptionEANRequisitionNum",
+				"payOptionName",
+				"payOptionNameTranslations",
+				"payOptionDesc",
+				"payOptionDescTranslations",
+				"payOptionVariantName",
+				"payOptionVariantNameTranslations",
+				"payOptionVariantDesc",
+				"payOptionVariantDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupDetailsADD": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"billingGroupStatus": {
+					"type": "string",
+					"enum": [
+						"ACTIVE",
+						"INACTIVE"
+					]
+				},
+				"requestSourceID": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR"
+					]
+				},
+				"notifyMethod": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"NONE",
+						"HTML",
+						"TEXT",
+						"PDF",
+						"XML"
+					]
+				},
+				"paymentOption": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"TERMS",
+						"METHODS"
+					]
+				},
+				"titlePayOptionDocDist": {
+					"type": "string"
+				},
+				"paymentTermInfo": {
+					"title": "acctManageBillingGroupPayTermInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayTermInfo"
+				},
+				"paymentMethodInfo": {
+					"title": "acctManageBillingGroupPayMethodInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayMethodInfo"
+				},
+				"statementContactNo": {
+					"type": "integer"
+				},
+				"statementContactDetails": {
+					"title": "acctManageBillingGroupContactDetails",
+					"$ref": "#/definitions/acctManageBillingGroupContactDetails"
+				},
+				"payOptionInfo": {
+					"title": "acctManageBillingGroupPayOptionInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayOptionInfo"
+				}
+			},
+			"required": [
+				"billingGroupStatus",
+				"requestSourceID",
+				"notifyMethod",
+				"paymentOption",
+				"statementContactNo",
+				"statementContactDetails"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupDetailsMODIFY": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaBillingGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"requestSourceID": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR"
+					]
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"billingGroupName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"billingGroupDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"billingGroupStatus": {
+					"type": "string",
+					"enum": [
+						"ACTIVE",
+						"INACTIVE"
+					]
+				},
+				"notifyMethod": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"NONE",
+						"HTML",
+						"TEXT",
+						"PDF",
+						"XML"
+					]
+				},
+				"paymentOption": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"TERMS",
+						"METHODS"
+					]
+				},
+				"titlePayOptionDocDist": {
+					"type": "string"
+				},
+				"paymentTermInfo": {
+					"title": "acctManageBillingGroupPayTermInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayTermInfo"
+				},
+				"paymentMethodInfo": {
+					"title": "acctManageBillingGroupPayMethodInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayMethodInfo"
+				},
+				"statementContactNo": {
+					"type": "integer"
+				},
+				"statementContactDetails": {
+					"title": "acctManageBillingGroupContactDetails",
+					"$ref": "#/definitions/acctManageBillingGroupContactDetails"
+				},
+				"payOptionInfo": {
+					"title": "acctManageBillingGroupPayOptionInfo",
+					"$ref": "#/definitions/acctManageBillingGroupPayOptionInfo"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupNo": {
+					"type": "integer"
+				},
+				"dunningGroupName": {
+					"type": "string"
+				},
+				"dunningGroupDesc": {
+					"type": "string"
+				},
+				"dunningProcessID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaBillingGroupID",
+				"requestSourceID",
+				"ariaBillingGroupNo",
+				"billingGroupName",
+				"billingGroupDesc",
+				"billingGroupStatus",
+				"notifyMethod",
+				"paymentOption",
+				"statementContactNo",
+				"statementContactDetails",
+				"ariaDunningGroupID",
+				"ariaDunningGroupNo",
+				"dunningGroupName",
+				"dunningGroupDesc",
+				"dunningProcessID"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupDetailsREMOVE": {
+			"type": "object",
+			"properties": {
+				"ariaBillingGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaBillingGroupNo": {
+					"type": "integer"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"ariaBillingGroupID",
+				"ariaBillingGroupNo",
+				"ariaDunningGroupID",
+				"ariaDunningGroupNo"
+			],
+			"additionalProperties": false
+		},
+		"acctManageBillingGroupDetails": {
+			"type": "object",
+			"properties": {
+				"actionDirective": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"acctManageBillingGroupDetailsADD": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageBillingGroupDetailsADD"
+				},
+				"acctManageBillingGroupDetailsMODIFY": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageBillingGroupDetailsMODIFY"
+				},
+				"acctManageBillingGroupDetailsREMOVE": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageBillingGroupDetailsREMOVE"
+				}
+			},
+			"required": [
+				"actionDirective",
+				"ariaAccountNo",
+				"ariaAccountID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

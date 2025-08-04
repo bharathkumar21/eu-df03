@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	
+	"title": "AcctCompleteCCUpdateRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"acctCompleteCCUpdateDetails": {"type": "object","$ref": "#/definitions/acctCompleteCCUpdateDetails"}
+	},
+	 "required": ["msgAuthDetails", "acctCompleteCCUpdateDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"acctCompleteCCUpdateDetails": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"createNewBillingGroup": {"type": "boolean"},
+				"ariaPaymentMethodNo": {"type": "integer"},
+				"ariaBillingGroupID": {"type": "string"},
+				"ariaBillingGroupNo": {"type": "integer"},
+				"titleCode": {"type": "string"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "createNewBillingGroup", "ariaPaymentMethodNo", "ariaBillingGroupID", "ariaBillingGroupNo"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

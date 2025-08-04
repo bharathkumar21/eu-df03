@@ -1,0 +1,189 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "olmManageFollowupRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"solmManageFollowupDetails": {
+			"$ref": "#/definitions/solmManageFollowupDetails"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"solmManageFollowupDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"solmManageFollowupInfo": {
+			"type": "object",
+			"properties": {
+				"followupID": {
+					"type": "string"
+				},
+				"followupDate": {
+					"type": "string"
+				},
+				"followupObjectType": {
+					"type": "string",
+					"enum": [
+						"COMPLAINT"
+					]
+				},
+				"followupObjectID": {
+					"type": "string"
+				},
+				"followupAction": {
+					"type": "string"
+				},
+				"followupNotes": {
+					"type": "string"
+				},
+				"followupStatus": {
+					"type": "string",
+					"enum": [
+						"PENDING",
+						"COMPLETE",
+						"CANCELLED"
+					]
+				},
+				"followupActionOwner": {
+					"type": "string"
+				},
+				"followupOutcome": {
+					"type": "string"
+				},
+				"followupUpdateDate": {
+					"type": "string"
+				},
+				"followupUpdateUser": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"followupID",
+				"followupDate",
+				"followupObjectType",
+				"followupObjectID",
+				"followupAction",
+				"followupNotes",
+				"followupStatus",
+				"followupActionOwner",
+				"followupOutcome",
+				"followupUpdateDate",
+				"followupUpdateUser"
+			]
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "integer"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"solmManageFollowupActionInfo": {
+			"type": "object",
+			"properties": {
+				"solmManageFollowupAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY"
+					]
+				}
+			},
+			"required": [
+				"solmManageFollowupAction"
+			]
+		},
+		"solmManageFollowupDetails": {
+			"type": "object",
+			"properties": {
+				"solmManageFollowupActionInfo": {
+					"$ref": "#/definitions/solmManageFollowupActionInfo"
+				},
+				"solmManageFollowupADD": {
+					"$ref": "#/definitions/solmManageFollowupInfo"
+				},
+				"solmManageFollowupMODIFY": {
+					"$ref": "#/definitions/solmManageFollowupInfo"
+				}
+			},
+			"required": [
+				"solmManageFollowupActionInfo"
+			]
+		}
+	}
+}

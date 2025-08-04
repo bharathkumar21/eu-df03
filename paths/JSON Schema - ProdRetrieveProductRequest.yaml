@@ -1,0 +1,84 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "prodRetrieveProductRequest",
+	"description": "The overall request structure for ProdRetrieveProduct",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"prodRetrieveProductCriteria": {
+			"$ref": "#/definitions/prodRetrieveProductCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"prodRetrieveProductCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"description": "A generic structure used to hold the authentication part of the inbound request. The userID found in this structure is used to represent the user that made the updates.",
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"prodRetrieveProductCriteria": {
+			"description": "A mandatory structure that holds the criteria to be used when returning parameters.",
+			"type": "object",
+			"properties": {
+				"countryCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"titleCode": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"countryCode"
+			]
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+	 "title": "subsRetrieveSubscriptionRequest",
+	 "type": "object",
+	 "properties": {
+		 "msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		 "subsRetrieveSubscriptionCriteria": {"type": "object","$ref": "#/definitions/subsRetrieveSubscriptionCriteria"}
+	},
+	 "required": ["msgAuthDetails","subsRetrieveSubscriptionCriteria"],
+	 "additionalProperties": false,
+
+	 "definitions": {
+		"msgAuthDetails": {"type": "object",
+			"properties": {
+				"clientNo": {"type": "integer"},
+				"authKey": {"type": "string"},
+				"requestDateTime": {"type": "string"},
+				"signatureValue": {"type": "string"},
+				"signatureVersion": {"type": "string"},
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"userID": {"type": "string"}
+			},
+			"required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			"additionalProperties": false
+		},
+
+		"subsRetrieveSubscriptiontitleFiltering": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string"},
+				"titleDomain": {"type": "string"}
+			},
+			"required": ["titleCode", "titleDomain"],
+			"additionalProperties": false
+		},
+		
+		"subsRetrieveSubscriptionCriteria": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string", "maxLength": 50},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaMPIID": {"type": "string", "maxLength": 50},
+				"ariaMPINo": {"type": "integer"},
+				"returnLevelOfDetail": {"type": "string", "enum": ["SUMMARY", "DETAIL"]},
+				"returnLevelOfHistory": {"type": "string", "enum": ["ALL", "ACTIVE-ONLY", "HISTORICAL-ONLY"]},
+				"titleFiltering": {"title": "titleFiltering", "type": "array", "minItems": 0, "items": {"$ref": "#/definitions/subsRetrieveSubscriptiontitleFiltering"}}
+			},
+			"required":["ariaAccountID", "ariaAccountNo", "returnLevelOfDetail", "returnLevelOfHistory","titleFiltering"],
+			"additionalProperties": false
+		}
+	}
+}

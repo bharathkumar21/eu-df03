@@ -1,0 +1,75 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "accRefreshAccountAccessRequest",
+	"description": "AMPS API used to request access refresh for the account",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"accRefreshAccountAccessDetails": {
+			"$ref": "#/definitions/accRefreshAccountAccessDetails"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"accRefreshAccountAccessDetails"
+	],
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"accRefreshAccountAccessDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID"
+			]
+		}
+	}
+}

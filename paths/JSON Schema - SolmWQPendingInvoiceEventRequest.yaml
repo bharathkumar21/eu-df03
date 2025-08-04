@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "SolmWQPendingInvoiceEventRequest",
+  "type": "object",
+  "properties": {
+    "eventGUID": {
+      "type": "string"
+    },
+    "eventVersion": {
+      "type": "number"
+    },
+    "eventTransID": {
+      "type": "integer"
+    },
+    "eventNo": {
+      "type": "integer"
+    },
+    "ariaClientNo": {
+      "type": "integer"
+    },
+    "ariaAccountNo": {
+      "type": "integer"
+    },
+    "ariaInvoiceNo": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "eventGUID",
+    "eventVersion",
+    "eventTransID",
+	"eventNo",
+	"ariaClientNo",
+	"ariaAccountNo",
+	"ariaInvoiceNo"
+  ],
+  "additionalProperties": false
+}

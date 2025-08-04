@@ -1,0 +1,385 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymManageRefundRequest",
+    "description": "JSON Schema for use with Refunds",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "paymManageRefundList": {
+            "title": "paymManageRefundList",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/paymManageRefundList"
+            }
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "paymManageRefundList"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundList": {
+            "type": "object",
+            "properties": {
+                "paymManageRefundActionInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundActionInfo"
+                },
+                "paymManageRefundADD": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundADD"
+                },
+                "paymManageRefundMODIFY": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundMODIFY"
+                },
+                "paymManageRefundCANCEL": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundCANCEL"
+                },
+                "paymManageRefundAPPROVE": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundAPPROVE"
+                },
+                "paymManageRefundTRANSFER": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundTRANSFER"
+                }
+            },
+            "required": [
+                "paymManageRefundActionInfo"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundActionInfo": {
+            "type": "object",
+            "properties": {
+                "paymManageRefundAction": {
+                    "type": "string",
+                    "enum": [
+                        "ADD",
+                        "MODIFY",
+                        "CANCEL",
+                        "APPROVE",
+                        "TRANSFER"
+                    ]
+                }
+            },
+            "required": [
+                "paymManageRefundAction"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundADD": {
+            "type": "object",
+            "properties": {
+                "paymManageRefundRefundInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundRefundInfo"
+                },
+                "paymManageRefundRefundDetails": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundRefundDetails"
+                }
+            },
+            "required": [
+                "paymManageRefundRefundInfo",
+                "paymManageRefundRefundDetails"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundMODIFY": {
+            "type": "object",
+            "properties": {
+                "paymManageRefundRefundInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundRefundInfo"
+                },
+                "paymManageRefundRefundDetails": {
+                    "type": "object",
+                    "$ref": "#/definitions/paymManageRefundRefundDetails"
+                }
+            },
+            "required": [
+                "paymManageRefundRefundInfo",
+                "paymManageRefundRefundDetails"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundCANCEL": {
+            "type": "object",
+            "properties": {
+                "refundID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "refundID"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundAPPROVE": {
+            "type": "object",
+            "properties": {
+                "refundID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "refundID"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundTRANSFER": {
+            "type": "object",
+            "properties": {
+                "refundID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "refundID"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundRefundInfo": {
+            "type": "object",
+            "properties": {
+                "refundID": {
+                    "type": "string"
+                },
+                "refundNote": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "refundSource": {
+                    "type": "string",
+                    "enum": [
+                        "CSR",
+                        "CUSTOMER",
+                        "SYSTEM"
+                    ]
+                },
+                "refundStatus": {
+                    "type": "string",
+                    "enum": [
+                        "PENDING",
+                        "COMPLETE",
+                        "APPROVED",
+                        "POSTED",
+                        "CANCELED"
+                    ]
+                },"refundTransferStatus": {
+                    "type": "string",
+                    "enum": [
+                        "PENDING",
+                        "EXECUTED",
+                        "FAILED"
+                    ]
+                },
+                "refundTransferFilename": {
+                    "type": "string"
+                },
+                "refundTransferDate": {
+                    "type": "string"
+                },
+                "refundDate": {
+                    "type": "string"
+                },
+                "refundMethod": {
+                    "type": "string",
+                    "enum": [
+                        "BANK",
+                        "ORIGINAL",
+                        "CHEQUE"
+                    ]
+                },
+                "refundAmount": {
+                    "type": "number"
+                },
+                "paymentID": {
+                    "type": "string"
+                },
+                "refundProcess": {
+                    "type": "string",
+                    "enum": [
+                        "STANDARD",
+                        "INTERNAL"
+                    ]
+                }
+            },
+            "required": [
+                "refundID",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "refundSource",
+                "refundStatus",
+                "refundDate",
+                "refundMethod",
+                "refundAmount",
+                "paymentID",
+                "refundProcess"
+            ],
+            "additionalProperties": false
+        },
+        "paymManageRefundRefundDetails": {
+            "type": "object",
+            "properties": {
+                "paymentID": {
+                    "type": "string"
+                },
+                "transType": {
+                    "type": "string",
+                    "enum": [
+                        "PAYMENT",
+                        "REFUND"
+                    ]
+                },
+                "transSource": {
+                    "type": "string",
+                    "enum": [
+                        "BANK",
+                        "CREDITCARD"
+                    ]
+                },
+                "custFullName": {
+                    "type": "string"
+                },
+                "custAddrLine1": {
+                    "type": "string"
+                },
+                "custAddrLine2": {
+                    "type": "string"
+                },
+                "custAddrLine3": {
+                    "type": "string"
+                },
+                "custAddrLine4": {
+                    "type": "string"
+                },
+                "custPostalCode": {
+                    "type": "string"
+                },
+                "custPostalCity": {
+                    "type": "string"
+                },
+                "custCountryCode": {
+                    "type": "string"
+                },
+                "custAddrLocality": {
+                    "type": "string"
+                },
+                "custAddrStateProv": {
+                    "type": "string"
+                },
+                "custCoAddr": {
+                    "type": "string"
+                },
+                "custStreetName": {
+                    "type": "string"
+                },
+                "custStreetNo": {
+                    "type": "string"
+                },
+                "custFlatNo": {
+                    "type": "string"
+                },
+                "custFlatSpec": {
+                    "type": "string"
+                },
+                "custFlatFloor": {
+                    "type": "string"
+                },
+                "custEntranceNo": {
+                    "type": "string"
+                },
+                "custApartmentNo": {
+                    "type": "string"
+                },
+                "bankAcctNumber": {
+                    "type": "string"
+                },
+                "bankIBANNumber": {
+                    "type": "string"
+                },
+                "bankSWIFTAddr": {
+                    "type": "string"
+                },
+                "paymentTransNo": {
+                    "type": "string"
+                },
+                "paymentReceiptNo": {
+                    "type": "string"
+                },
+                "paymentBankDate": {
+                    "type": "string"
+                },
+                "paymentAgreementID": {
+                    "type": "string"
+                },
+                "paymentAuditRef": {
+                    "type": "string"
+                },
+                "customerInvRef": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "paymentID",
+                "transType",
+                "transSource"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

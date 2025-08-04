@@ -1,0 +1,121 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "PaymGWCallbackStatusRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"PaymGWCallbackStatusDetails": {
+			"type": "object",
+			"$ref": "#/definitions/PaymGWCallbackStatusDetails"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"PaymGWCallbackStatusDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"PaymGWCallbackStatusDetails": {
+			"type": "object",
+			"properties": {
+				"gatewayPaymentType": {
+					"type": "string",
+					"enum": [
+						"PAYMENT-RECURRING",
+						"PAYMENT-ONETIME",
+						"REFUND",
+						"AGREEMENT-CANCELLATION"
+					]
+				},
+				"gatewayAgreementID": {
+					"type": "string"
+				},
+				"gatewayExternalID": {
+					"type": "string"
+				},
+				"gatewayPaymentID": {
+					"type": "string"
+				},
+				"gatewayAmount": {
+					"type": "number"
+				},
+				"gatewayPaymentDate": {
+					"type": "string"
+				},
+				"gatewayStatus": {
+					"type": "string",
+					"enum": [
+						"EXECUTED",
+						"PENDING",
+						"EXPIRED",
+						"EXPIRED-CANCEL",
+						"REJECTED",
+						"REJECTED-CANCEL",
+						"FAILED"
+					]
+				},
+				"gatewayStatusCode": {
+					"type": "string"
+				},
+				"gatewayStatusText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"gatewayPaymentType",
+				"gatewayAgreementID",
+				"gatewayExternalID",
+				"gatewayPaymentID",
+				"gatewayAmount",
+				"gatewayPaymentDate",
+				"gatewayStatus",
+				"gatewayStatusCode",
+				"gatewayStatusText"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

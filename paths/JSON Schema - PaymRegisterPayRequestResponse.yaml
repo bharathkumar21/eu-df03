@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "paymRegisterPayRequestResponse",
+    "type": "object",
+    "properties": {
+        "resultInfo": {"type": "object", "$ref": "#/definitions/resultInfoDetails"},
+        "paymRegisterPayRequestResponseDetails": {"type": "object", "$ref": "#/definitions/paymRegisterPayRequestResponseDetails"}
+    },
+    "required": ["resultInfo","paymRegisterPayRequestResponseDetails"],
+    "additionalProperties": false,
+    
+    "definitions": {
+        "resultInfoDetails": {"type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "resultCode": {"type": "integer"},
+                "resultText": {"type": "string"}
+            },
+            "required": ["resultCode","resultText"]
+        },
+        
+ 		"paymRegisterPayRequestResponseDetails": {"type": "object",
+			"properties": {
+				"paymPayRequestID": {"type": "string"},
+				"paymPayGatewayID": {"type": "string"},
+				"paymPayRequestStatus": {"type": "string", "enum": ["PENDING-RESERVATION", "AGREEMENT", "PENDING-CONFIRMATION"]},
+				"gatewayAgreementID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayReservedAmount": {"type": "number"},
+				"gatewayAmount": {"type": "number"},
+				"gatewayPaymentID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaBillingGroupNo": {"type": "integer"},
+				"createDateTime": {"type": "string"},
+				"updateDateTime": {"type": "string"}
+			},	
+			"required": ["paymPayRequestStatus","paymPayGatewayID","gatewayAgreementID", "gatewayExternalID", "gatewayReservedAmount", "gatewayAmount", "createDateTime", "updateDateTime"],
+			"additionalProperties": false
+        }
+    }
+}

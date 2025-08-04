@@ -1,0 +1,146 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "AcctManagePayMethodRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"acctManagePayMethodDetails": {
+			"type": "object",
+			"$ref": "#/definitions/acctManagePayMethodDetails"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"acctManagePayMethodDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"acctManagePayMethodADD": {
+			"type": "object",
+			"properties": {
+				"ariaAgreementID": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"cardType": {
+					"type": "integer"
+				}				
+			},
+			"required": [
+				"ariaAgreementID",
+				"ariaAccountID",
+				"ariaAccountNo"
+			],
+			"additionalProperties": false
+		},
+		"acctManagePayMethodActionInfo": {
+			"type": "object",
+			"properties": {
+				"acctManagePayMethodAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"acctManagePayMethodAction"
+			],
+			"additionalProperties": false
+		},
+		"acctManagePayMethodREMOVE": {
+			"type": "object",
+			"properties": {
+				"ariaPayMethodID": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaPayMethodNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"ariaPayMethodID",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaPayMethodNo"
+			],
+			"additionalProperties": false
+		},
+		"acctManagePayMethodDetails": {
+			"type": "object",
+			"properties": {
+				"acctManagePayMethodActionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/acctManagePayMethodActionInfo"
+				},
+				"acctManagePayMethodREMOVE": {
+					"type": "object",
+					"$ref": "#/definitions/acctManagePayMethodREMOVE"
+				},
+				"acctManagePayMethodADD": {
+					"type": "object",
+					"$ref": "#/definitions/acctManagePayMethodADD"
+				}
+			},
+			"required": [
+				"acctManagePayMethodActionInfo"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

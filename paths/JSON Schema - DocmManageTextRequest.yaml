@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "docmManageTextRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"docmManageTextDocumentList": {"title": "docmManageTextDocumentList", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/docmManageTextDocumentList"}}
+	},
+	"required": ["msgAuthDetails", "docmManageTextDocumentList"],
+	"additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID", "solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "string"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+		
+		"docmManageTextTextList": {"type": "object",
+			"properties": {
+				"docmTextNumber": {"type": "integer"},
+				"docmTextValue": {"type": "string"},
+				"textValueTranslations": {"title": "textValueTranslations","type": "object", "$ref": "#/definitions/solmTranslationGroup"}
+			},	
+			"required": ["docmTextNumber", "docmTextValue", "textValueTranslations"], 
+			"additionalProperties": false
+		},
+		"docmManageTextActionInfo": {"type": "object",
+			"properties": {
+				"docmManageTextAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["docmManageTextAction"], 
+			"additionalProperties": false
+		},
+		"docmManageTextInfo": {"type": "object",
+			"properties": {
+				"docmDocumentType": {"type": "string", "maxLength": 20, "enum": ["INVOICE", "CREDIT-NOTE", "DUNNING-NOTICE"]},
+				"docmTextGroupID": {"type": "string", "maxLength": 10},
+				"docmManageTextTextList": {"title": "docmManageTextTextList", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/docmManageTextTextList"}}
+			},	
+			"required": ["docmDocumentType", "docmTextGroupID", "docmManageTextTextList"], 
+			"additionalProperties": false
+		},
+		"docmManageTextDocumentList": {"type": "object",
+			"properties": {
+				"docmManageTextActionInfo": {"title": "docmManageTextActionInfo", "type": "object", "$ref": "#/definitions/docmManageTextActionInfo"},
+				"docmManageTextInfo": {"title": "docmManageTextInfo", "type": "object", "$ref": "#/definitions/docmManageTextInfo"}
+			},	
+			"required": ["docmManageTextActionInfo", "docmManageTextInfo"], 
+			"additionalProperties": false
+		}
+	}
+}

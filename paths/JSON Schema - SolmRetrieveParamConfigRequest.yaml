@@ -1,0 +1,96 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "solmRetrieveParamConfigRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"solmRetrieveParamConfigCriteria": {
+			"$ref": "#/definitions/solmRetrieveParamConfigCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"solmRetrieveParamConfigCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmRetrieveParamConfigCriteria": {
+			"type": "object",
+			"properties": {
+				"returnLevel": {
+					"type": "string",
+					"enum": [
+						"ALL",
+						"SPECIFIC"
+					]
+				},
+				"paramGroup": {
+					"type": "string",
+					"enum": [
+						"ACCESS",
+						"ACCOUNT",
+						"AMPS",
+						"BUNDLE",
+						"CAMPAIGN",
+						"COMPLAINT",
+						"DISCOUNT",
+						"DISTRIBUTION",
+						"DOCUMENT",
+						"FINANCIAL",
+						"PAYMENT",
+						"PRODUCT",
+						"SOLUTION",
+						"SUBSCRIPTION",
+						"TAX",
+						"TITLE"
+					]
+				}
+			},
+			"required": [
+				"returnLevel"
+			]
+		}
+	}
+}

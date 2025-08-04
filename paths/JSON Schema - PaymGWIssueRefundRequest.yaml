@@ -1,0 +1,76 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "paymGWIssueRefundRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object", "$ref": "#/definitions/msgAuthDetails"},
+		"paymGWIssueRefundDetails": {"type": "object", "$ref": "#/definitions/paymGWIssueRefundDetails"}
+	},
+	"required": [
+		"msgAuthDetails",
+		"paymGWIssueRefundDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"paymGWIssueRefundDetails": {
+			"type": "object",
+			"properties": {
+				"gatewayRequestType": {"type": "string", "enum": ["ONETIME"]},
+				"paymPayRequestID": {"type": "string"},
+				"paymPayGatewayID": {"type": "string"},
+				"gatewayAgreementID": {"type": "string"},
+				"gatewayPaymentID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayAmount": {"type": "number"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaAccountID": {"type": "string"},
+				"ariaBillingGroupNo": {"type": "integer"},
+				"ariaBillingGroupID": {"type": "string"},
+				"gatewayRefundDate": {"type": "string"},
+				"titleCode": {"type": "string"},
+				"titleName": {"type": "string"},
+				"origGatewayPaymentID": {"type": "string"}
+			},
+			"required": [
+				"gatewayRequestType",
+				"paymPayRequestID",
+				"paymPayGatewayID",
+				"gatewayAgreementID",
+				"gatewayExternalID",
+				"gatewayAmount",
+				"ariaAccountNo",
+				"ariaAccountID",
+				"ariaBillingGroupNo",
+				"ariaBillingGroupID",
+				"gatewayRefundDate",
+				"titleCode",
+				"titleName"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {"type": "integer"},
+				"authKey": {	"type": "string"	},
+				"requestDateTime": {"type": "string"},
+				"signatureValue": {"type": "string"},
+				"signatureVersion": {"type": "string"},
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"userID": {"type": "string"}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

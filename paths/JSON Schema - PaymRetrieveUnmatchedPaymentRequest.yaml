@@ -1,0 +1,98 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "PaymRetrieveUnmatchedPaymentRequest",
+	"description": "Part of WFMAPS-12",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"paymRetrieveUnmatchedPaymentCriteria": {
+			"type": "object",
+			"properties": {
+				"paymentStartDate ": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"paymentEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"paymentStatus": {
+					"type": "string",
+					"enum": [
+						"ALL",
+						"PENDING",
+						"APPROVED",
+						"REJECTED",
+						"FAILED"
+					]
+				},
+				"paymentMatchStatus": {
+					"type": "string",
+					"enum": [
+						"ALL",
+						"UNMATCHED",
+						"MATCHED",
+						"POSTED"
+					]
+				},
+				"paymentAmount": {
+					"type": "number"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"paymRetrieveUnmatchedPaymentCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion"
+			],
+			"additionalProperties": false
+		}
+	}
+}

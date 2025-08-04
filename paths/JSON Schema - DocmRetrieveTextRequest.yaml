@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "docmRetrieveTextRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"docmRetrieveTextDetailSearch": {"type": "object","$ref": "#/definitions/docmRetrieveTextDetailSearch"}
+	},
+	 "required": ["msgAuthDetails", "docmRetrieveTextDetailSearch"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"docmRetrieveTextDetailSearch": {"type": "object",
+			"properties": {
+				"specificSearch": {"type": "string", "enum": ["ALL", "SPECIFIC"]},
+				"docmDocumentType": {"type": "string", "maxLength": 20, "enum": ["INVOICE", "CREDIT-NOTE", "DUNNING-NOTICE"]},
+				"docmTextGroupID": {"type": "string", "maxLength": 10}
+			},	
+			"required": ["specificSearch", "docmDocumentType", "docmTextGroupID"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,284 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageDunningRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"titleManageDunningList": {
+			"title": "titleManageDunningList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/titleManageDunningList"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"titleManageDunningList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"titleManageDunningStepList": {
+			"type": "object",
+			"properties": {
+				"titleDunStepNo": {
+					"type": "integer"
+				},
+				"titleDunStepDuration": {
+					"type": "integer"
+				},
+				"titleDunStepEliminateFee": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"NONE",
+						"PREVIOUS"
+					],
+					"description": "Deprecated since V2.21"
+				},
+				"titleDunStepFinalInvoiceAction": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"NONE",
+						"FINAL-INVOICE"
+					],
+					"description": "Deprecated since V2.21"
+				},
+				"titleDunStepOrigInvoiceAction": {
+					"type": "string",
+					"maxLength": 20,
+					"enum": [
+						"NONE",
+						"VOID-INVOICE"
+					],
+					"description": "Deprecated since V2.21"
+				},
+				"titleDunStepActions": {
+					"title": "titleDunStepActions",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/titleDunStepActions"
+					}
+				}
+			},
+			"required": [
+				"titleDunStepNo",
+				"titleDunStepDuration",
+				"titleDunStepEliminateFee",
+				"titleDunStepFinalInvoiceAction",
+				"titleDunStepOrigInvoiceAction"
+			],
+			"additionalProperties": false
+		},
+		"titleManageDunningInfo": {
+			"type": "object",
+			"properties": {
+				"titleDunProcID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDunProcName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"titleDunProcNameTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleDunProcDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDunProcDescTranslations": {
+					"type": "object",
+					"$ref": "#/definitions/solmTranslationGroup"
+				},
+				"titleManageDunningStepList": {
+					"title": "titleManageDunningStepList",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/titleManageDunningStepList"
+					}
+				},
+				"titleDunType": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"ARIA-SUBSCRIPTION",
+						"ARIA-CONSOLIDATE",
+						"AMPS-INVOICE",
+						"AMPS-BALANCE"
+					]
+				}
+			},
+			"required": [
+				"titleDunProcID",
+				"titleDunProcName",
+				"titleDunProcNameTranslations",
+				"titleDunProcDesc",
+				"titleDunProcDescTranslations",
+				"titleManageDunningStepList"
+			],
+			"additionalProperties": false
+		},
+		"titleDunStepActions": {
+			"type": "object",
+			"properties": {
+				"titleDunActionNo": {
+					"type": "integer"
+				},
+				"titleDunActionType": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"NONE",
+						"EMAIL",
+						"CALL",
+						"SMS",
+						"NOTICE",
+						"FINAL",
+						"SUSPEND",
+						"TERMINATE",
+						"FEE"
+					]
+				},
+				"titleDunActionInfo1": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDunActionInfo2": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"titleDunActionInfo3": {
+					"type": "string",
+					"maxLength": 1000
+				}
+			},
+			"required": [
+				"titleDunActionNo",
+				"titleDunActionType"
+			],
+			"additionalProperties": false
+		},
+		"titleManageDunningActionInfo": {
+			"type": "object",
+			"properties": {
+				"titleManageDunningAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"titleManageDunningAction"
+			],
+			"additionalProperties": false
+		},
+		"titleManageDunningList": {
+			"type": "object",
+			"properties": {
+				"titleManageDunningActionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageDunningActionInfo"
+				},
+				"titleManageDunningInfo": {
+					"type": "object",
+					"$ref": "#/definitions/titleManageDunningInfo"
+				}
+			},
+			"required": [
+				"titleManageDunningActionInfo",
+				"titleManageDunningInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

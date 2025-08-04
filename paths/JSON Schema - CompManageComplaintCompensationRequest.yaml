@@ -1,0 +1,152 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compManageComplaintCompensationRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"compManageComplaintCompensationData": {
+			"type": "object",
+			"$ref": "#/definitions/compManageComplaintCompensationData"
+		},
+		"compManageComplaintCompensationActionInfo": {
+			"type": "object",
+			"$ref": "#/definitions/compManageComplaintCompensationActionInfo"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"compManageComplaintCompensationData",
+		"compManageComplaintCompensationActionInfo"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintCompensationActionInfo": {
+			"type": "object",
+			"properties": {
+				"actionCode": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"actionCode"
+			],
+			"additionalProperties": false
+		},
+		"compManageComplaintCompensationData": {
+			"type": "object",
+			"properties": {
+				"complaintValueID": {
+					"type": "string"
+				},
+				"compensationType": {
+					"type": "string",
+					"enum": [
+						"RETAIL",
+						"CAMPAIGN",
+						"PRODUCT",
+						"DEFAULT"
+					]
+				},
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				},
+				"campaignID": {
+					"type": "string"
+				},
+				"effectiveDate": {
+					"type": "string"
+				},
+				"complaintValueMon": {
+					"type": "number"
+				},
+				"complaintValueTue": {
+					"type": "number"
+				},
+				"complaintValueWed": {
+					"type": "number"
+				},
+				"complaintValueThu": {
+					"type": "number"
+				},
+				"complaintValueFri": {
+					"type": "number"
+				},
+				"complaintValueSat": {
+					"type": "number"
+				},
+				"complaintValueSun": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"compensationType",
+				"effectiveDate",
+				"complaintValueMon",
+				"complaintValueTue",
+				"complaintValueWed",
+				"complaintValueThu",
+				"complaintValueFri",
+				"complaintValueSat",
+				"complaintValueSun"
+			],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,314 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "acctSearchAccountRequest",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "acctSearchAccountCriteria": {
+            "type": "object",
+            "$ref": "#/definitions/acctSearchAccountCriteria"
+        },
+        "acctSearchAccountAddressCriteria": {
+            "type": "object",
+            "$ref": "#/definitions/acctSearchAccountAddressCriteria"
+        },
+        "acctSearchAccountContactCriteria": {
+            "type": "object",
+            "$ref": "#/definitions/acctSearchAccountContactCriteria"
+        },
+        "acctSearchAccountSpecDetails": {
+            "type": "object",
+            "$ref": "#/definitions/acctSearchAccountSpecDetails"
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "acctSearchAccountCriteria",
+        "acctSearchAccountSpecDetails"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "acctSearchAccountContactCriteria": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "middleInitials": {
+                    "type": "string",
+                    "maxLength": 2
+                },
+                "lastName": {
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "fullName": {
+                    "type": "string",
+                    "maxLength": 100
+                },
+                "addressLine1": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "addressLine2": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "addressLine3": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "countryCode": {
+                    "type": "string",
+                    "maxLength": 2
+                },
+                "postalCode": {
+                    "type": "string",
+                    "maxLength": 15
+                },
+                "postalCity": {
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "addrLocality": {
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "addrStateProv": {
+                    "type": "string",
+                    "maxLength": 10
+                },
+                "streetName": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "streetNo": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "flatNo": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "flatSpec": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "flagFloor": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "entranceNo": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "homePhone": {
+                    "type": "string",
+                    "maxLength": 25
+                },
+                "cellPhone": {
+                    "type": "string",
+                    "maxLength": 25
+                },
+                "workPhone": {
+                    "type": "string",
+                    "maxLength": 25
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "maxLength": 320
+                }
+            },
+            "required": [
+                "firstName",
+                "middleInitials",
+                "lastName",
+                "fullName",
+                "addressLine1",
+                "addressLine2",
+                "addressLine3",
+                "countryCode",
+                "postalCode",
+                "postalCity",
+                "addrLocality",
+                "addrStateProv",
+                "streetName",
+                "streetNo",
+                "flatNo",
+                "flatSpec",
+                "flagFloor",
+                "entranceNo",
+                "homePhone",
+                "cellPhone",
+                "workPhone",
+                "emailAddress"
+            ],
+            "additionalProperties": false
+        },
+        "acctSearchAccountSpecDetails": {
+            "type": "object",
+            "properties": {
+                "returnLimitRows": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "returnLimitRows"
+            ],
+            "additionalProperties": false
+        },
+        "acctSearchAccountCriteria": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaPINo": {
+                    "type": "integer"
+                },
+                "ariaPIID": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "ariaInvoiceNo": {
+                    "type": "integer"
+                },
+                "ariaStatementNo": {
+                    "type": "integer"
+                },
+                "ariaSeqStatementNo ": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "custInvoiceRef ": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "userID": {
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "maxLength": 25
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "maxLength": 320
+                },
+                "migratedCustomerID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ariaAccountID",
+                "ariaAccountNo",
+                "ariaPINo",
+                "ariaPIID",
+                "ariaInvoiceNo",
+                "ariaStatementNo",
+                "ariaSeqStatementNo",
+                "custInvoiceRef",
+                "userID",
+                "phoneNumber",
+                "emailAddress"
+            ],
+            "additionalProperties": false
+        },
+        "acctSearchAccountAddressCriteria": {
+            "type": "object",
+            "properties": {
+                "searchFirstName": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchLastName": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchFullName": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchStreetName": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchStreetNo": {
+                    "type": "integer"
+                },
+                "searchPostalCode": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchCity": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "searchCountryCode": {
+                    "type": "string",
+                    "maxLength": 10
+                }
+            },
+            "required": [
+                "searchFirstName",
+                "searchLastName",
+                "searchFullName",
+                "searchStreetName",
+                "searchStreetNo",
+                "searchPostalCode",
+                "searchCity",
+                "searchCountryCode"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

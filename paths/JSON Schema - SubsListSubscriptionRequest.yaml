@@ -1,0 +1,111 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsListSubscriptionRequest",
+	"description": "Request structure to list subscriptions for a given account",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"subsListSubscriptionCriteria": {
+			"$ref": "#/definitions/subsListSubscriptionCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"subsListSubscriptionCriteria"
+	],
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			]
+		},
+		"subsListSubscriptionCriteria": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"titleFiltering": {
+					"title": "titleFiltering",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"$ref": "#/definitions/subsListSubscriptionTitleFiltering"
+					}
+				},
+				"pagination": {
+					"$ref": "#/definitions/subsListSubscriptionPaginationCriteria"
+				}
+			}
+		},
+		"subsListSubscriptionTitleFiltering": {
+			"type": "object",
+			"properties": {
+				"titleCode": {
+					"type": "string"
+				},
+				"titleDomain": {
+					"type": "string"
+				}
+			}
+		},
+		"subsListSubscriptionPaginationCriteria": {
+			"type": "object",
+			"properties": {
+				"maxEntries": {
+					"type": "integer"
+				},
+				"lastRowNo": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}

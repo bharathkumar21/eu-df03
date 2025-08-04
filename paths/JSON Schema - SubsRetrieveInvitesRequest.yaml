@@ -1,0 +1,78 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsRetrieveInvitesRequest",
+	"description": "API required to retrieve invitations for a given subscription. For owners it will show a list of members with which the current subscription is shared. For members it will show who is the owner of the main subscription.",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"subsRetrieveInvitesCriteria": {
+			"$ref": "#/definitions/subsRetrieveInvitesCriteria"
+		}
+	},
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion"
+			]
+		},
+		"subsRetrieveInvitesCriteria": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"sharingInviteType": {
+					"type": "string",
+					"enum": [
+						"MASTER",
+						"MEMBER"
+					]
+				}
+			},
+			"required": [
+				"sharingInviteType"
+			]
+		}
+	}
+}

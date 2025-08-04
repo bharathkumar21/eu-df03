@@ -1,0 +1,81 @@
+﻿{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+	 "title": "SubsRetrieveChgOptionsRequest",
+	 "type": "object",
+	 "properties": {
+		 "msgAuthDetails": {"$ref": "#/definitions/msgAuthDetails"},
+        "subsRetrieveChgOptionsCriteria": {
+            "$ref": "#/definitions/subsRetrieveChgOptionsCriteria"
+        }
+    },
+	 "required": ["msgAuthDetails",
+        "subsRetrieveChgOptionsCriteria"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "subsRetrieveChgOptionsCriteria": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaPINo": {
+                    "type": "integer"
+                },
+                "ariaPIID": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "maxLength": 3
+                },
+                "requestSourceID": {
+                    "type": "string"
+                },
+                "productType": {
+                    "type": "string",
+                    "enum": [
+                        "ANY",
+                        "DIGITAL",
+                        "PRINT",
+                        "COMBO"
+                    ]
+                },
+                "productSegment": {
+                    "type": "string"
+                },
+                "checkCampaigns": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "ariaAccountID",
+                "ariaAccountNo",
+                "ariaPINo",
+                "ariaPIID",
+                "countryCode",
+                "requestSourceID",
+                "productType",
+                "productSegment",
+                "checkCampaigns"
+            ],
+            "additionalProperties": false
+        },
+        "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

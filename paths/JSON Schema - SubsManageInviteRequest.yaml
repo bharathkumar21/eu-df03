@@ -1,0 +1,225 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "subsManageInviteRequest",
+    "description": "Defines the action to perform for invites and the associated data. Is defined as an array allowing multiple actions to be taken in a single API call, for example revoking multiple invitations at the same time",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "subsManageInviteDetails": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/subsManageInviteDetails"
+            }
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "subsManageInviteDetails"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageInviteActionInfo": {
+            "subsManageInviteAction": {
+                "type": "string",
+                "maxLength": 6,
+                "enum": [
+                    "CREATE",
+                    "ACCEPT",
+                    "REJECT",
+                    "REVOKE"
+                ]
+            },
+            "type": "string",
+            "maxLength": 6,
+            "additionalProperties": false,
+            "enum": [
+                "CREATE",
+                "ACCEPT",
+                "REJECT",
+                "REVOKE"
+            ]
+        },
+        "subsManageInviteCREATE": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaMPIID": {
+                    "type": "string"
+                },
+                "ariaMPINo": {
+                    "type": "integer"
+                },
+                "sharingExpiryDate": {
+                    "type": "string",
+                    "maxLength": 100
+                },
+                "sharingMemberAriaAccountID": {
+                    "type": "string"
+                },
+                "sharingMemberAriaAccountNo": {
+                    "type": "integer"
+                },
+                "sharingMemberEmail": {
+                    "type": "string",
+                    "maxLength": 300
+                },
+                "sharingMemberPhoneNo": {
+                    "type": "string",
+                    "maxLength": 40
+                },
+                "sharingMemberExternalID": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "subsManageInviteREJECT": {
+            "type": "object",
+            "properties": {
+                "sharingUUID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sharingUUID"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageInviteACCEPT": {
+            "type": "object",
+            "properties": {
+                "sharingUUID": {
+                    "type": "string"
+                },
+                "sharingMemberAriaAccountID": {
+                    "type": "string"
+                },
+                "sharingMemberAriaAccountNo": {
+                    "type": "integer"
+                },
+                "newNonbillableGroup": {
+                    "type": "boolean"
+                },
+                "newAriaBillingGroupID": {
+                    "type": "string"
+                },
+                "newAriaDunningGroupID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sharingUUID"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageInviteREVOKE": {
+            "type": "object",
+            "properties": {
+                "sharingUUID": {
+                    "type": "string"
+                },
+                "sharingMemberAriaAccountID": {
+                    "type": "string"
+                },
+                "sharingMemberAriaAccountNo": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "sharingUUID"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageInviteDetails": {
+            "type": "object",
+            "properties": {
+                "subsManageInviteActionInfo": {
+                    "type": "object",
+                    "properties": {
+                        "subsManageInviteAction": {
+                            "type": "string",
+                            "enum": [
+                                "CREATE",
+                                "ACCEPT",
+                                "REJECT",
+                                "REVOKE"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "subsManageInviteAction"
+                    ]
+                },
+                "subsManageInviteCREATE": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageInviteCREATE"
+                },
+                "subsManageInviteACCEPT": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageInviteACCEPT"
+                },
+                "subsManageInviteREJECT": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageInviteREJECT"
+                },
+                "subsManageInviteREVOKE": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageInviteREVOKE"
+                }
+            },
+            "required": [
+                "subsManageInviteActionInfo"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

@@ -1,0 +1,155 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "PaymManageUnmatchedPaymentRequest",
+	"description": "Part of WFMAPS-12",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"paymManageUnmatchedPaymentDetails": {
+			"type": "object",
+			"properties": {
+				"paymManageUnmatchedPaymentActionInfo": {
+					"type": "object",
+					"properties": {
+						"paymManageUnmatchedPaymentAction": {
+							"type": "string",
+							"enum": [
+								"APPROVE",
+								"MODIFY",
+								"REJECT"
+							]
+						}
+					},
+					"required": [
+						"paymManageUnmatchedPaymentAction"
+					],
+					"additionalProperties": false
+				},
+				"paymManageUnmatchedPaymentMODIFY": {
+					"type": "object",
+					"properties": {
+						"paymentID": {
+							"type": "string"
+						},
+						"ariaAccountNo": {
+							"type": "integer"
+						},
+						"ariaAccountID": {
+							"type": "string"
+						},
+						"paymentSource": {
+							"type": "string"
+						},
+						"paymentOrigin": {
+							"type": "string",
+							"enum": [
+								"BANK",
+								"CREDITCARD",
+								"MANUAL"
+							]
+						},
+						"paymentNote": {
+							"type": "string"
+						},
+						"paymManageUnmatchedPaymentInvoices": {
+							"type": "array",
+							"items": [
+								{
+									"type": "object",
+									"properties": {
+										"ariaInvoiceSeqNo": {
+											"type": "integer"
+										},
+										"ariaInvoiceNo": {
+											"type": "integer"
+										}
+									},
+									"additionalProperties": false
+								}
+							],
+							"additionalItems": false
+						}
+					},
+					"required": [
+						"paymentID"
+					],
+					"additionalProperties": false
+				},
+				"paymManageUnmatchedPaymentAPPROVE": {
+					"type": "object",
+					"properties": {
+						"paymentID": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"paymentID"
+					],
+					"additionalProperties": false
+				},
+				"paymManageUnmatchedPaymentREJECT ": {
+					"type": "object",
+					"properties": {
+						"paymentID": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"paymentID"
+					],
+					"additionalProperties": false
+				}
+			},
+			"required": [
+				"paymManageUnmatchedPaymentActionInfo"
+			],
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"paymManageUnmatchedPaymentDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion"
+			],
+			"additionalProperties": false
+		}
+	}
+}

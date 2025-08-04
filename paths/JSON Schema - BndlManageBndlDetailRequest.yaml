@@ -1,0 +1,92 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "bndlManageBndlDetailRequest",
+	"description": "JSON Schema for use with management of titles",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"bndlManageBndlDetailList": {"title": "bndlManageBndlDetailList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/bndlManageBndlDetailList"}}
+	},
+	 "required": ["msgAuthDetails", "bndlManageBndlDetailList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "string"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+
+		"bndlManageBndlDetailInfo": {"type": "object",
+			"properties": {
+				"bndlID": {"type": "string", "maxLength": 100},
+				"bndlName": {"type": "string", "maxLength": 100},
+				"bndlDesc": {"type": "string", "maxLength": 1000}, 
+				"bndlStatus": {"type": "string", "maxLength": 20, "enum": ["DEFINITION", "TRIAL", "ACTIVE", "INACTIVE", "DEPRECATED"]},
+				"bndlCriteriaCode": {"type": "string", "maxlenght": 20, "enum": ["DATES", "PRICE", "COUNT", "PRICE-COUNT"]},
+				"bndlEligibilityCount": {"type": "integer"},
+				"bndlEligibilityPrice": {"type": "number"},
+				"bndlPlanID": {"type": "string", "maxLength": 100},
+				"bndlRecurringRSID": {"type": "string", "maxLength": 100},
+				"bndlGLCode": {"type": "string", "maxLength": 100}
+			},
+			"required": ["bndlID", "bndlName", "bndlDesc", "bndlStatus", "bndlCriteriaCode", "bndlEligibilityCount", "bndlEligibilityPrice", "bndlPlanID", "bndlRecurringRSID", "bndlGLCode"], 
+			"additionalProperties": false
+		},
+
+		"bndlManageBndlDetailActionInfo": {"type": "object",
+			"properties": {
+				"bndlManageBndlDetailAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["bndlManageBndlDetailAction"], 
+			"additionalProperties": false
+		},
+		
+		"bndlManageBndlDetailAddInfo": {"type": "object",
+			"properties": {
+				"bndlNameTranslations": {"title": "discNameTranslations","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationGroup"}},
+				"bndlDescTranslations": {"title": "discDescTranslations","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationGroup"}}
+			},	
+			"required": ["bndlNameTranslations", "bndlDescTranslations"], 
+			"additionalProperties": false
+		},
+		
+		"bndlManageBndlDetailList": {"type": "object",
+			"properties": {
+				"bndlManageBndlDetailActionInfo": {"type": "object", "$ref": "#/definitions/bndlManageBndlDetailActionInfo"},
+				"bndlManageBndlDetailInfo": {"type": "object", "$ref": "#/definitions/bndlManageBndlDetailInfo"},
+				"bndlManageBndlDetailAddInfo": {"type": "object", "$ref": "#/definitions/bndlManageBndlDetailAddInfo"}
+			},
+			"required": ["bndlManageBndlDetailActionInfo", "bndlManageBndlDetailInfo", "bndlManageBndlDetailAddInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

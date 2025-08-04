@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "campRetrieveCampDetailRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"campRetrieveCampDetailSearch": {"type": "object","$ref": "#/definitions/campRetrieveCampDetailSearch"}
+	},
+	 "required": ["msgAuthDetails", "campRetrieveCampDetailSearch"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"campRetrieveCampDetailSearch": {"type": "object",
+			"properties": {
+				"specificSearch": {"type": "string", "enum": ["ALL", "SPECIFIC"]},
+				"campID": {"type": "string", "maxLength": 100}
+			},	
+			"required": ["specificSearch", "campID"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

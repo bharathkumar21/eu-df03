@@ -1,0 +1,401 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "acctManageAccountRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"acctManageAccountDetails": {
+			"title": "acctManageAccountDetails",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/acctManageAccountDetails"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"acctManageAccountDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountContactDetails": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"middleInitials": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"lastName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"fullName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"addressLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"countryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"postalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"postalCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"streetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"streetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flagFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"entranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"homePhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"cellPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"workPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"emailAddress": {
+					"type": "string",
+					"maxLength": 320
+				},
+				"birthDate": {
+					"type": "string",
+					"maxLength": 10
+				}
+			},
+			"required": [
+				"firstName",
+				"middleInitials",
+				"lastName",
+				"fullName",
+				"addressLine1",
+				"addressLine2",
+				"addressLine3",
+				"countryCode",
+				"postalCode",
+				"postalCity",
+				"addrLocality",
+				"addrStateProv",
+				"streetName",
+				"streetNo",
+				"flatNo",
+				"flatSpec",
+				"flagFloor",
+				"entranceNo",
+				"homePhone",
+				"cellPhone",
+				"workPhone",
+				"emailAddress"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountAddInfo": {
+			"type": "object",
+			"properties": {
+				"accountInfo01": {
+					"type": "string"
+				},
+				"accountInfo02": {
+					"type": "string"
+				},
+				"accountInfo03": {
+					"type": "string"
+				},
+				"accountInfo04": {
+					"type": "string"
+				},
+				"accountInfo05": {
+					"type": "string"
+				},
+				"accountInfo06": {
+					"type": "string"
+				},
+				"accountInfo07": {
+					"type": "string"
+				},
+				"accountInfo08": {
+					"type": "string"
+				},
+				"accountInfo09": {
+					"type": "string"
+				},
+				"accountInfo10": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"acctManageAccountDetailsASSIGN": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"newAriaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"newUserID": {
+					"type": "string",
+					"maxLength": 32
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID",
+				"newAriaAccountID",
+				"newUserID"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountDetailsMODIFY": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ownerTitleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"ownerTitleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"ownerContactDetails": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountContactDetails"
+				},
+				"channelCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"reservationCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"sourceCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"reservationCodeDate": {
+					"type": "string"
+				},
+				"consentCodeDate": {
+					"type": "string"
+				},
+				"consentCode": {
+					"type": "string"
+				},
+				"taxpayerID": {
+					"type": "string"
+				},
+				"taxpayerExemptionLevel": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"FULL"
+					]
+				},
+				"customerType": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID",
+				"ownerTitleCode",
+				"ownerTitleDomain",
+				"ownerContactDetails",
+				"consentCode",
+				"taxpayerID",
+				"taxpayerExemptionLevel"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountDetailsCANCEL": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountDetailsSTATUS": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"newStatusCode": {
+					"type": "string",
+					"enum": [
+						"ACTIVATE",
+						"DEACTIVATE",
+						"BANNED"
+					]
+				}
+			},
+			"required": [
+				"ariaAccountNo",
+				"ariaAccountID",
+				"newStatusCode"
+			],
+			"additionalProperties": false
+		},
+		"acctManageAccountDetails": {
+			"type": "object",
+			"properties": {
+				"actionDirective": {
+					"type": "string",
+					"enum": [
+						"ASSIGN",
+						"MODIFY",
+						"CANCEL",
+						"STATUS"
+					]
+				},
+				"acctManageAccountAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountAddInfo"
+				},
+				"acctManageAccountDetailsASSIGN": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountDetailsASSIGN"
+				},
+				"acctManageAccountDetailsMODIFY": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountDetailsMODIFY"
+				},
+				"acctManageAccountDetailsCANCEL": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountDetailsCANCEL"
+				},
+				"acctManageAccountDetailsSTATUS": {
+					"type": "object",
+					"$ref": "#/definitions/acctManageAccountDetailsSTATUS"
+				}
+			},
+			"required": [
+				"actionDirective"
+			],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "DocmRetrieveDocumentsRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"DocmRetrieveDocumentsCriteria": {
+			"type": "object",
+			"$ref": "#/definitions/DocmRetrieveDocumentsCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"DocmRetrieveDocumentsCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"DocmRetrieveDocumentsCriteria": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"dateRangeStart": {
+					"type": "string"
+				},
+				"dateRangeEnd": {
+					"type": "string"
+				},
+				"detailLevel": {
+					"type": "string",
+					"enum": [
+						"LIST",
+						"DETAIL"
+					]
+				},
+				"ariaInvoiceNo": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaMPIID",
+				"ariaMPINo",
+				"dateRangeStart",
+				"dateRangeEnd"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

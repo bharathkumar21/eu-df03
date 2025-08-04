@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compRetrieveComplaintRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object", "$ref": "#/definitions/msgAuthDetails"},
+		"compRetrieveComplaintSearch": {"type": "object", "$ref": "#/definitions/compRetrieveComplaintSearch"}
+	},
+	 "required": ["msgAuthDetails", "compRetrieveComplaintSearch"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"compRetrieveComplaintSearch": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaMPIID": {"type": "string"},
+				"ariaMPINo": {"type": "integer"},
+				"complaintID": {"type": "string"},
+				"dateRangeStart": {"type": "string"},
+				"dateRangeEnd": {"type": "string"}
+			},	
+			"required": ["ariaAccountID", "ariaAccountNo", "ariaMPIID", "ariaMPINo", "complaintID", "dateRangeStart", "dateRangeEnd"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

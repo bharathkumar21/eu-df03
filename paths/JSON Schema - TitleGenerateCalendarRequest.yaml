@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleGenerateCalendarRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleGenerateCalendarDetails": {"type": "object","$ref": "#/definitions/titleGenerateCalendarDetails"}
+	},
+	 "required": ["msgAuthDetails", "titleGenerateCalendarDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+
+		"titleGenerateCalendarDetails": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string"},
+				"calendarStartDate": {"type": "string"},
+				"calendarEndDate": {"type": "string"}
+			},
+			"required": ["titleCode", "calendarStartDate", "calendarEndDate"], 
+			"additionalProperties": false
+		}
+	}
+}

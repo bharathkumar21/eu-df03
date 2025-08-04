@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "PaymRetrieveTransactionsRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"PaymRetrieveTransactionsCriteria": {"type": "object","$ref": "#/definitions/PaymRetrieveTransactionsCriteria"}
+	},
+	 "required": ["msgAuthDetails", "PaymRetrieveTransactionsCriteria"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"PaymRetrieveTransactionsCriteria": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"dateRangeStart": {"type": "string"},
+				"dateRangeEnd": {"type": "string"}
+			},	
+			"required": ["ariaAccountID","ariaAccountNo","dateRangeStart", "dateRangeEnd"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,928 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsManageSubscriptionRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"subsManageSubscriptionAccountDetails": {
+			"type": "object",
+			"$ref": "#/definitions/subsManageSubscriptionAccountDetails"
+		},
+		"subsManageSubscriptionDetails": {
+			"title": "subsManageSubscriptionDetails",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/subsManageSubscriptionDetails"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"subsManageSubscriptionAccountDetails",
+		"subsManageSubscriptionDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionAccountDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ownerTitleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"ownerTitleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"countryCode": {
+					"type": "string",
+					"maxLength": 2
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ownerTitleCode",
+				"ownerTitleDomain",
+				"countryCode"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionCampaignDetail": {
+			"type": "object",
+			"properties": {
+				"campaignID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"campaignDurationLength": {
+					"type": "integer"
+				},
+				"campaignDurationUnit": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"DAYS",
+						"WEEKS",
+						"MONTHS"
+					]
+				},
+				"campaignDurationEndDate": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"campaignBillingCode": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"IMMEDIATE",
+						"ANNIVERSARY"
+					]
+				},
+				"campaignBillingSKU": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"campaignBillingPrice": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"campaignID",
+				"campaignDurationLength",
+				"campaignDurationUnit",
+				"campaignDurationEndDate",
+				"campaignBillingCode",
+				"campaignBillingSKU",
+				"campaignBillingPrice"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionBundlePIList": {
+			"type": "object",
+			"properties": {
+				"BundlePIID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"BundlePIID"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionBundleDetail": {
+			"type": "object",
+			"properties": {
+				"bundleID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"bundlePlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"bundleRecurringRSID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"bundleGLCode": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"subsManageSubscriptionBundlePIList": {
+					"title": "subsManageSubscriptionBundlePIList",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsManageSubscriptionBundlePIList"
+					}
+				}
+			},
+			"required": [
+				"bundleID",
+				"bundlePlanID",
+				"bundleRecurringRSID",
+				"bundleGLCode",
+				"subsManageSubscriptionBundlePIList"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDiscountDetail": {
+			"type": "object",
+			"properties": {
+				"discountID": {
+					"type": "string"
+				},
+				"discountPct": {
+					"type": "number"
+				},
+				"discountValueType": {
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+						"P",
+						"V"
+					]
+				}
+			},
+			"required": [
+				"discountID"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionAddrInfoDelivery": {
+			"type": "object",
+			"properties": {
+				"distAddrNo": {
+					"type": "integer"
+				},
+				"distDeliveryDays": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"distAddrNo",
+				"distDeliveryDays"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionAddrInfo": {
+			"type": "object",
+			"properties": {
+				"distEffectiveStartDate": {
+					"type": "string"
+				},
+				"distEffectiveEndDate": {
+					"type": "string"
+				},
+				"distAddrDeliveryList": {
+					"title": "subsManageSubscriptionAddrInfoDelivery",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsManageSubscriptionAddrInfoDelivery"
+					}
+				}
+			},
+			"required": [
+				"distEffectiveStartDate",
+				"distEffectiveEndDate",
+				"distAddrDeliveryList"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsADD": {
+			"type": "object",
+			"properties": {
+				"activationDate": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPlanNo": {
+					"type": "integer"
+				},
+				"ariaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaPlanRateScheduleID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"productType": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"productTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"titleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"titleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"numberOfUnits": {
+					"type": "integer"
+				},
+				"ariaBillingGroupID": {
+					"type": "string"
+				},
+				"ariaDunningGroupID": {
+					"type": "string"
+				},
+				"currencyCode": {
+					"type": "string",
+					"maxLength": 3
+				},
+				"billingFreqRecurring": {
+					"type": "integer"
+				},
+				"billingFreqUsage": {
+					"type": "integer"
+				},
+				"selectedDeliveryDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"selectedDeliveryCharges": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"subsManageSubscriptionCampaignDetail": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionCampaignDetail"
+				},
+				"subsManageSubscriptionDiscountDetail": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDiscountDetail"
+				},
+				"subsManageSubscriptionBundleDetail": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionBundleDetail"
+				},
+				"channelCode": {
+					"type": "string"
+				},
+				"sourceCode": {
+					"type": "string"
+				},
+				"subsManageSubscriptionAddrInfo": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionAddrInfo"
+				},
+				"initialStatusCode": {
+					"description": "If not present in the request, a value of 1 (ACTIVE) is considered the default setting",
+					"type": "integer",
+					"enum": [
+						0,
+						1,
+						31,
+						41,
+						61
+					],
+					"default": 1
+				},
+				"subsManageSubscriptionAddInfo": {
+					"$ref": "#/definitions/subsManageSubscriptionAddInfo"
+				},
+				"subsManageSubscriptionContractDetails": {
+					"$ref": "#/definitions/subsManageSubscriptionContractDetails"
+				},
+				"subsManageSubscriptionOfferDetail": {
+					"$ref": "#/definitions/subsManageSubscriptionOfferDetail"
+				},
+				"nonbillableGroup": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"ariaPlanNo",
+				"ariaPlanID",
+				"productType",
+				"productTypeVariant",
+				"titleCode",
+				"titleDomain",
+				"numberOfUnits",
+				"ariaBillingGroupID",
+				"ariaDunningGroupID",
+				"currencyCode",
+				"billingFreqRecurring",
+				"billingFreqUsage",
+				"selectedDeliveryDays",
+				"selectedDeliveryCharges"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsREPLACE": {
+			"type": "object",
+			"properties": {
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"newAriaPlanNo": {
+					"type": "integer"
+				},
+				"newAriaPlanID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"newAriaPlanRateScheduleID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"productType": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"productTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"numberOfUnits": {
+					"type": "integer"
+				},
+				"selectedDeliveryDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"selectedDeliveryCharges": {
+					"type": "string",
+					"maxLength": 20
+				},
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"changeOption": {
+					"type": "string",
+					"enum": [
+						"ANY",
+						"PAID"
+					]
+				},
+				"changeDate": {
+					"type": "string"
+				},
+				"distAddrNo": {
+					"type": "integer"
+				},
+				"subsManageSubscriptionContractDetails": {
+					"$ref": "#/definitions/subsManageSubscriptionContractDetails"
+				},
+				"newNonbillableGroup": {
+					"type": "boolean"
+				},
+				"newAriaBillingGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"newAriaDunningGroupID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"ariaPINo",
+				"ariaPIID",
+				"newAriaPlanNo",
+				"newAriaPlanID",
+				"productType",
+				"productTypeVariant",
+				"numberOfUnits",
+				"selectedDeliveryDays",
+				"selectedDeliveryCharges",
+				"changeMethod",
+				"changeDate"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsMODIFY": {
+			"type": "object",
+			"properties": {
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"numberOfUnits": {
+					"type": "integer"
+				},
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"changeDate": {
+					"type": "string"
+				},
+				"productType": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"DIGITAL",
+						"PRINT",
+						"COMBO"
+					]
+				},
+				"productTypeVariant": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"FLEX-DAYS"
+					]
+				},
+				"selectedDeliveryDays": {
+					"type": "string",
+					"maxLength": 7
+				},
+				"channelCode": {
+					"type": "string"
+				},
+				"sourceCode": {
+					"type": "string"
+				},
+				"newStatusCode": {
+					"type": "integer",
+					"enum": [
+						0,
+						1,
+						41,
+						61,
+						-3,
+						-2,
+						-1
+					]
+				},
+				"subsManageSubscriptionAddInfo": {
+					"$ref": "#/definitions/subsManageSubscriptionAddInfo"
+				}
+			},
+			"required": [
+				"ariaPINo",
+				"ariaPIID",
+				"numberOfUnits",
+				"changeMethod",
+				"changeDate"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsCANCEL": {
+			"type": "object",
+			"properties": {
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"requestSourceID": {
+					"type": "string",
+					"enum": [
+						"WEB",
+						"CSR"
+					]
+				},
+				"cancelAction": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"SUSPENSION",
+						"CANCELLATION",
+						"TERMINATION"
+					]
+				},
+				"cancelReasonCode": {
+					"type": "string"
+				},
+				"cancelReasonText": {
+					"type": "string",
+					"maxLength": 3000
+				},
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"changeDate": {
+					"type": "string"
+				},
+				"cancelDeliveryDate": {
+					"type": "string"
+				},
+				"changeOption": {
+					"type": "string",
+					"enum": [
+						"ANY",
+						"PAID"
+					]
+				}
+			},
+			"required": [
+				"ariaPINo",
+				"ariaPIID",
+				"requestSourceID",
+				"cancelAction",
+				"cancelReasonCode",
+				"cancelReasonText",
+				"changeMethod",
+				"changeDate",
+				"cancelDeliveryDate"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsASSIGN": {
+			"type": "object",
+			"properties": {
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaBillingGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"ariaDunningGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"changeMethod": {
+					"type": "string",
+					"enum": [
+						"STANDARD",
+						"IMMEDIATE",
+						"ANNIVERSARY",
+						"SPECIFIC-DATE"
+					]
+				},
+				"changeDate": {
+					"type": "string"
+				},
+				"newNonbillableGroup": {
+					"type": "boolean"
+				},
+				"newAriaBillingGroupID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"newAriaDunningGroupID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"ariaPINo",
+				"ariaPIID",
+				"ariaBillingGroupID",
+				"ariaDunningGroupID",
+				"changeMethod",
+				"changeDate"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionDetailsQUEUE": {
+			"type": "object",
+			"properties": {
+				"ariaPINo": {
+					"type": "integer"
+				},
+				"ariaPIID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"groupQueueID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"queueID": {
+					"type": "string",
+					"maxLength": 100
+				}
+			},
+			"required": [
+				"ariaPINo",
+				"ariaPIID",
+				"groupQueueID",
+				"queueID"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionAddInfo": {
+			"type": "object",
+			"properties": {
+				"subjectID": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"subjectInfo1": {
+					"type": "string"
+				},
+				"subjectInfo2": {
+					"type": "string"
+				},
+				"subjectInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo1": {
+					"type": "string"
+				},
+				"subscriptionInfo2": {
+					"type": "string"
+				},
+				"subscriptionInfo3": {
+					"type": "string"
+				},
+				"subscriptionInfo4": {
+					"type": "string"
+				},
+				"subscriptionInfo5": {
+					"type": "string"
+				}
+			}
+		},
+		"subsManageSubscriptionDetails": {
+			"type": "object",
+			"properties": {
+				"actionDirective": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REPLACE",
+						"CANCEL",
+						"ASSIGN",
+						"QUEUE"
+					]
+				},
+				"subsManageSubscriptionDetailsADD": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsADD"
+				},
+				"subsManageSubscriptionDetailsMODIFY": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsMODIFY"
+				},
+				"subsManageSubscriptionDetailsREPLACE": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsREPLACE"
+				},
+				"subsManageSubscriptionDetailsCANCEL": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsCANCEL"
+				},
+				"subsManageSubscriptionDetailsASSIGN": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsASSIGN"
+				},
+				"subsManageSubscriptionDetailsQUEUE": {
+					"type": "object",
+					"$ref": "#/definitions/subsManageSubscriptionDetailsQUEUE"
+				}
+			},
+			"required": [
+				"actionDirective"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionContractDetails": {
+			"description": "an optional structure that contain details on the contract to add for the subscription. The structure is optional, and if not present, no user-defined contract will be added.",
+			"type": "object",
+			"properties": {
+				"ariaContractNo": {
+					"type": "integer"
+				},
+				"ariaContractID": {
+					"type": "string"
+				},
+				"contractType": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"CONTINUE",
+						"CONTINUE-RESET",
+						"RENEW",
+						"RENEW-RESET",
+						"TERMINATE",
+						"TERMINATE-PRORATE",
+						"ROLLOVER"
+					]
+				},
+				"contractDuration": {
+					"type": "integer"
+				},
+				"contractStartDate": {
+					"type": "string"
+				},
+				"contractEndDate": {
+					"type": "string"
+				},
+				"contractComments": {
+					"type": "string"
+				},
+				"subsManageSubscriptionContractRollover": {
+					"$ref": "#/definitions/subsManageSubscriptionContractRollover"
+				}
+			},
+			"required": [
+				"contractType",
+				"contractStartDate"
+			]
+		},
+		"subsManageSubscriptionContractRollover": {
+			"description": "an optional structure the holds all information on rollovers to another plan or rate schedule for this contract. Is required only if contractType equals \"ROLLOVER\". ",
+			"type": "object",
+			"properties": {
+				"rolloverAriaPlanNo": {
+					"type": "integer"
+				},
+				"rolloverAriaPlanID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleID": {
+					"type": "string"
+				},
+				"rolloverAriaScheduleNo": {
+					"type": "integer"
+				},
+				"subsManageSubscriptionContractCustomRate": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/subsManageSubscriptionContractCustomRate"
+					}
+				}
+			}
+		},
+		"subsManageSubscriptionContractCustomRate": {
+			"description": "an optional array structure that contains an array of all services where a custom rate is to be applied. If not present, the standard rates from the product catalog will be used.",
+			"type": "object",
+			"properties": {
+				"ariaServiceID": {
+					"type": "string"
+				},
+				"ariaServiceNo": {
+					"type": "integer"
+				},
+				"subsManageSubscriptionContractCustomRateTier": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/subsManageSubscriptionContractCustomRateTier"
+					}
+				}
+			},
+			"required": [
+				"subsManageSubscriptionContractCustomRateTier"
+			],
+			"additionalProperties": false
+		},
+		"subsManageSubscriptionContractCustomRateTier": {
+			"description": "a mandatory array structure contains an array of all price tiers associated with the service and for which a charge is defined. ",
+			"type": "object",
+			"properties": {
+				"tierNo": {
+					"type": "integer"
+				},
+				"tierFrom": {
+					"type": "integer"
+				},
+				"tierTo": {
+					"type": "integer"
+				},
+				"costAmount": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"tierNo",
+				"tierFrom",
+				"costAmount"
+			]
+		},
+		"subsManageSubscriptionOfferDetail": {
+			"description": "an optional structure that contains details on any offer to assign to the new subscription. If not present, then no offers will be added.",
+			"type": "object",
+			"properties": {
+				"offerID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"offerID"
+			]
+		}
+	}
+}

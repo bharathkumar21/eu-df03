@@ -1,0 +1,43 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "PaymRegisterPayRequestRequest",
+	"type": "object",
+    "properties": {
+        "msgAuthDetails": {"type": "object", "$ref": "#/definitions/msgAuthDetails"},
+        "paymRegisterPayRequestDetails": {"type": "object", "$ref": "#/definitions/paymRegisterPayRequestDetails"}
+    },
+    "required": ["msgAuthDetails","paymRegisterPayRequestDetails"],
+    "additionalProperties": false,
+
+	"definitions": {
+ 		"paymRegisterPayRequestDetails": {"type": "object",
+			"properties": {
+				"paymPayRequestStatus": {"type": "string", "enum": ["PENDING-RESERVATION", "AGREEMENT", "PENDING-CONFIRMATION"]},
+				"paymPayGatewayID": {"type": "string"},
+				"gatewayAgreementID": {"type": "string"},
+				"gatewayExternalID": {"type": "string"},
+				"gatewayPaymentID": {"type": "string"},
+				"gatewayReservedAmount": {"type": "number"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaBillingGroupNo": {"type": "integer"}
+			},	
+			"required": ["paymPayRequestStatus","paymPayGatewayID","gatewayAgreementID", "gatewayExternalID", "gatewayReservedAmount"],
+			"additionalProperties": false
+		},
+
+		"msgAuthDetails": {"type": "object",
+			"properties": {
+				"clientNo": {"type": "integer"},
+				"authKey": {"type": "string"},
+				"requestDateTime": {"type": "string"},
+				"signatureValue": {"type": "string"},
+				"signatureVersion": {"type": "string"},
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"userID": {"type": "string"}
+			},
+			"required": ["clientNo","authKey","requestDateTime","signatureValue","signatureVersion","ariaAccountID","ariaAccountNo","userID"],
+			"additionalProperties": false
+		}
+	}
+}

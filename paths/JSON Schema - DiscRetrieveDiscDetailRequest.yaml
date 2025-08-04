@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discRetrieveDiscDetailRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"discRetrieveDiscDetailSearch": {"type": "object","$ref": "#/definitions/discRetrieveDiscDetailSearch"}
+	},
+	 "required": ["msgAuthDetails", "discRetrieveDiscDetailSearch"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"discRetrieveDiscDetailSearch": {"type": "object",
+			"properties": {
+				"specificSearch": {"type": "string", "enum": ["ALL", "SPECIFIC"]},
+				"discID": {"type": "string", "maxLength": 100}
+			},	
+			"required": ["specificSearch", "discID"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

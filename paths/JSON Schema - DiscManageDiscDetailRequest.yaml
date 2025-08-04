@@ -1,0 +1,227 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discManageDiscDetailRequest",
+	"description": "JSON Schema for use with management of titles",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"discManageDiscDetailList": {
+			"title": "discManageDiscDetailList",
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/definitions/discManageDiscDetailList"
+			}
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"discManageDiscDetailList"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailInfo": {
+			"type": "object",
+			"properties": {
+				"discID": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discDesc": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"discStatus": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"discEligibilityCount": {
+					"type": "integer"
+				},
+				"discPercentage": {
+					"type": "number"
+				},
+				"discGLCode": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"discCouponCode": {
+					"type": "string",
+					"maxLength": 30
+				},
+				"discValueType": {
+
+					"type": "string",
+					"maxLength": 1,
+					"enum": [
+					"P",
+					"V"
+					]
+					},
+				"discValue": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"discID",
+				"discName",
+				"discDesc",
+				"discStatus",
+				"discEligibilityCount",
+				"discGLCode",
+				"discCouponCode"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailActionInfo": {
+			"type": "object",
+			"properties": {
+				"discManageDiscDetailAction": {
+					"type": "string",
+					"enum": [
+						"ADD",
+						"MODIFY",
+						"REMOVE"
+					]
+				}
+			},
+			"required": [
+				"discManageDiscDetailAction"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailAddInfo": {
+			"type": "object",
+			"properties": {
+				"discNameTranslations": {
+					"title": "discNameTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				},
+				"discDescTranslations": {
+					"title": "discDescTranslations",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationGroup"
+					}
+				}
+			},
+			"required": [
+				"discNameTranslations",
+				"discDescTranslations"
+			],
+			"additionalProperties": false
+		},
+		"discManageDiscDetailList": {
+			"type": "object",
+			"properties": {
+				"discManageDiscDetailActionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailActionInfo"
+				},
+				"discManageDiscDetailInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailInfo"
+				},
+				"discManageDiscDetailAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/discManageDiscDetailAddInfo"
+				}
+			},
+			"required": [
+				"discManageDiscDetailActionInfo",
+				"discManageDiscDetailInfo",
+				"discManageDiscDetailAddInfo"
+			],
+			"additionalProperties": false
+		}
+	}
+}

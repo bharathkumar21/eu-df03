@@ -1,0 +1,97 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "compRetrieveComplaintCompensationRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"compRetrieveComplaintCompensationCriteria": {
+			"type": "object",
+			"$ref": "#/definitions/compRetrieveComplaintCompensationCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"compRetrieveComplaintCompensationCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"compRetrieveComplaintCompensationCriteria": {
+			"type": "object",
+			"properties": {
+				"compensationType": {
+					"type": "array",
+					"items": {
+						"enum": [
+							"RETAIL",
+							"CAMPAIGN",
+							"PRODUCT",
+							"DEFAULT"
+						]
+					}
+				},
+				"complaintCodeID": {
+					"type": "string"
+				},
+				"titleCode": {
+					"type": "string"
+				},
+				"ariaPlanID": {
+					"type": "string"
+				},
+				"ariaRateScheduleID": {
+					"type": "string"
+				},
+				"campaignID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"compensationType"
+			],
+			"additionalProperties": false
+		}
+	}
+}

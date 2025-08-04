@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "SubsRetrieveDiscountsRequest",
+    "description": "JSON Schema for use with Discounts",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "subsRetrieveDiscountsCriteria": {
+            "type": "object",
+            "$ref": "#/definitions/subsRetrieveDiscountsCriteria"
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "subsRetrieveDiscountsCriteria"
+    ],
+    "additionalProperties": false,
+	 "definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		
+        "subsRetrieveDiscountsCriteria": {"type": "object",
+            "properties": {
+                "ariaAccountID": {"type": "string"},
+                "ariaAccountNo": {"type": "integer"},
+                "ariaMPIID": {"type": "string"},
+                "ariaMPINo": {"type": "integer"},
+                "LevelofDetail": {"type": "string", "enum": ["ALL"]}
+            },
+            "required": ["ariaAccountID","ariaAccountNo","ariaMPIID","ariaMPINo","LevelofDetail"],
+            "additionalProperties": false
+        }
+    }
+}

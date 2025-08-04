@@ -1,0 +1,107 @@
+{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+
+	 "title": "subsManageIndividualRequest",
+	 "type": "object",
+	 "properties": {
+		 "msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		 "subsManageIndividualSubscriptionDetails": {"type": "object","$ref": "#/definitions/subsManageIndividualSubscriptionDetails"},
+		 "subsManageIndividualDetails": {"title": "subsManageIndividualDetails","type": "array","minItems": 1,"items": {"$ref": "#/definitions/subsManageIndividualDetails"}}
+	},
+	 "required": ["msgAuthDetails","subsManageIndividualSubscriptionDetails","subsManageIndividualDetails"],
+	 "additionalProperties": false, 
+	 
+	 "definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		
+		 "subsManageIndividualSubscriptionDetails": {"type": "object",
+			 "properties": {
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "ariaMPIID": {"type": "string"},
+				 "ariaMPINo": {"type": "integer"}
+			},
+			 "required": ["ariaAccountID", "ariaAccountNo", "ariaMPIID", "ariaMPINo"],
+			 "additionalProperties": false
+		},
+		"subsManageIndividualAddrInfo": {"type": "object",
+			"properties": {
+				"distAddrType": {"type": "integer"},
+				"distAddrNo": {"type": "integer"},
+				"distAddrName": {"type": "string","maxLength": 100},
+				"distAddrLine1": {"type": "string", "maxLength": 300},
+				"distAddrLine2": {"type": "string", "maxLength": 300},
+				"distAddrLine3": {"type": "string", "maxLength": 300},
+				"distAddrCountryCode": {"type": "string", "maxLength": 2},
+				"distAddrPostalCode": {"type": "string", "maxLength": 15},
+				"distAddrCity": {"type": "string", "maxLength": 32},
+				"distAddrLocality": {"type": "string", "maxLength": 32},
+				"distAddrStateProv": {"type": "string", "maxLength": 10},
+				"distStreetName": {"type": "string", "maxLength": 300},
+				"distStreetNo": {"type": "string", "maxLength": 300},
+				"distFlatNo": {"type": "string", "maxLength": 300},
+				"distFlatSpec": {"type": "string", "maxLength": 300},
+				"distFlatFloor": {"type": "string", "maxLength": 300},
+				"distEntranceNo": {"type": "string", "maxLength": 300},
+				"distPublAddrNo": {"type": "string", "maxLength": 300}
+			},
+			"required": ["distAddrNo", "distAddrName", "distAddrLine1", "distAddrLine2", "distAddrLine3", "distAddrCountryCode", "distAddrPostalCode", "distAddrCity", "distAddrLocality", "distAddrStateProv","distStreetName", "distStreetNo", "distFlatNo", "distFlatSpec", "distFlatFloor", "distEntranceNo", "distPublAddrNo"], 
+			"additionalProperties": false
+		},
+
+		 "subsManageIndividualDetailsADD": {"type": "object",
+			 "properties": {
+				 "subjectName": {"type": "string"},
+				 "subjectID": {"type": "string"},
+				 "subsManageIndividualAddrInfo": {"type": "object","$ref": "#/definitions/subsManageIndividualAddrInfo"},
+				 "distDeliveryDays": {"type": "string", "maxLength": 7}
+			},
+			 "required": ["subjectName", "subjectID", "subsManageIndividualAddrInfo", "distDeliveryDays"],
+			 "additionalProperties": false
+		},
+		
+		 "subsManageIndividualDetailsMODIFY": {"type": "object",
+			 "properties": {
+ 				 "ariaPINo": {"type": "integer"},
+				 "ariaPIID": {"type": "string", "maxLength": 100},
+				 "subjectName": {"type": "string"},
+				 "subjectID": {"type": "string"}
+			},
+			 "required": ["ariaPINo", "ariaPIID", "subjectName", "subjectID"],
+			 "additionalProperties": false
+		},
+		
+		 "subsManageIndividualDetailsREMOVE": {"type": "object",
+			 "properties": {
+ 				 "ariaPINo": {"type": "integer"},
+				 "ariaPIID": {"type": "string", "maxLength": 100}
+			},
+			 "required": ["ariaPINo", "ariaPIID"],
+			 "additionalProperties": false
+		},
+		
+		 "subsManageIndividualDetails": {"type": "object",
+			 "properties": {
+				 "actionDirective": {"type": "string","enum": ["ADD", "REMOVE"]},
+				 "subsManageIndividualDetailsADD": {"type": "object", "$ref": "#/definitions/subsManageIndividualDetailsADD"},
+				 "subsManageIndividualDetailsMODIFY": {"type": "object", "$ref": "#/definitions/subsManageIndividualDetailsMODIFY"},
+				 "subsManageIndividualDetailsREMOVE": {"type": "object", "$ref": "#/definitions/subsManageIndividualDetailsREMOVE"}
+			},
+			 "required": ["actionDirective"],
+			 "additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,380 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "acctCreateAccountRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"acctCreateAccountRequestDetails": {
+			"type": "object",
+			"$ref": "#/definitions/acctCreateAccountRequestDetails"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"acctCreateAccountRequestDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"acctCreateAccountContactDetails": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"middleInitials": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"lastName": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"fullName": {
+					"type": "string",
+					"maxLength": 100
+				},
+				"addressLine1": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine2": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"addressLine3": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"countryCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"postalCode": {
+					"type": "string",
+					"maxLength": 15
+				},
+				"postalCity": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrLocality": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"addrStateProv": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"streetName": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"streetNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatSpec": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"flatFloor": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"entranceNo": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"homePhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"cellPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"workPhone": {
+					"type": "string",
+					"maxLength": 25
+				},
+				"emailAddress": {
+					"type": "string",
+					"maxLength": 320
+				},
+				"birthDate": {
+					"type": "string",
+					"maxLength": 10
+				}
+			},
+			"required": [
+				"firstName",
+				"middleInitials",
+				"lastName",
+				"fullName",
+				"addressLine1",
+				"addressLine2",
+				"addressLine3",
+				"countryCode",
+				"postalCode",
+				"postalCity",
+				"addrLocality",
+				"addrStateProv",
+				"streetName",
+				"streetNo",
+				"flatNo",
+				"flatSpec",
+				"flatFloor",
+				"entranceNo",
+				"homePhone",
+				"cellPhone",
+				"workPhone",
+				"emailAddress"
+			],
+			"additionalProperties": false
+		},
+		"acctCreateAccountAddInfo": {
+			"type": "object",
+			"properties": {
+				"accountInfo01": {
+					"type": "string"
+				},
+				"accountInfo02": {
+					"type": "string"
+				},
+				"accountInfo03": {
+					"type": "string"
+				},
+				"accountInfo04": {
+					"type": "string"
+				},
+				"accountInfo05": {
+					"type": "string"
+				},
+				"accountInfo06": {
+					"type": "string"
+				},
+				"accountInfo07": {
+					"type": "string"
+				},
+				"accountInfo08": {
+					"type": "string"
+				},
+				"accountInfo09": {
+					"type": "string"
+				},
+				"accountInfo10": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"acctCreateAccountPayOptionInfo": {
+			"type": "object",
+			"properties": {
+				"payOptionID": {
+					"type": "string"
+				},
+				"payOptionVariant": {
+					"type": "string"
+				},
+				"paymentEANNum": {
+					"type": "string"
+				},
+				"paymentEANRequisitionNum": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"payOptionID",
+				"payOptionVariant",
+				"paymentEANNum",
+				"paymentEANRequisitionNum"
+			],
+			"additionalProperties": false
+		},
+		"acctCreateAccountRequestDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"currencyCode": {
+					"type": "string",
+					"maxLength": 3
+				},
+				"localeCode": {
+					"type": "string"
+				},
+				"languageCode": {
+					"type": "string",
+					"maxLength": 2
+				},
+				"userID": {
+					"type": "string",
+					"maxLength": 32
+				},
+				"notifyMethod": {
+					"type": "string",
+					"maxLength": 32,
+					"enum": [
+						"NONE",
+						"HTML",
+						"TEXT",
+						"PDF",
+						"XML"
+					]
+				},
+				"accountContact": {
+					"type": "object",
+					"$ref": "#/definitions/acctCreateAccountContactDetails"
+				},
+				"ownerTitleCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"ownerTitleDomain": {
+					"type": "string",
+					"maxLength": 300
+				},
+				"customerType": {
+					"type": "string"
+				},
+				"paymentTerms": {
+					"type": "string",
+					"maxLength": 100,
+					"enum": [
+						"BANKGIRO",
+						"EHF"
+					]
+				},
+				"paymentEANNum": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"paymentEANRequisitionNum": {
+					"type": "string",
+					"maxLength": 50
+				},
+				"acctBillDay": {
+					"type": "integer"
+				},
+				"channelCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"reservationCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"sourceCode": {
+					"type": "string",
+					"maxLength": 10
+				},
+				"requestSource": {
+					"type": "string",
+					"maxLength": 10,
+					"enum": [
+						"WEB",
+						"CSR"
+					]
+				},
+				"acctCreateAccountPayOptionInfo": {
+					"type": "object",
+					"$ref": "#/definitions/acctCreateAccountPayOptionInfo"
+				},
+				"acctCreateAccountAddInfo": {
+					"type": "object",
+					"$ref": "#/definitions/acctCreateAccountAddInfo"
+				},
+				"reservationCodeDate": {
+					"type": "string"
+				},
+				"consentCodeDate": {
+					"type": "string"
+				},
+				"consentCode": {
+					"type": "string"
+				},
+				"taxpayerID": {
+					"type": "string"
+				},
+				"taxpayerExemptionLevel": {
+					"type": "string",
+					"enum": [
+						"NONE",
+						"FULL"
+					]
+				}
+			},
+			"required": [
+				"consentCode",
+				"taxpayerID",
+				"taxpayerExemptionLevel",
+				"ariaAccountID",
+				"currencyCode",
+				"localeCode",
+				"languageCode",
+				"userID",
+				"notifyMethod",
+				"accountContact",
+				"ownerTitleCode",
+				"ownerTitleDomain",
+				"customerType",
+				"paymentTerms",
+				"paymentEANNum",
+				"paymentEANRequisitionNum",
+				"acctBillDay"
+			],
+			"additionalProperties": false
+		},
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,186 @@
+{
+	"type": "object",
+	"title": "AcctChangePermAddressRequest",
+	"properties": {
+		"msgAuthDetails": {
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"AcctChangePermAddressRequestDetails": {
+			"$ref": "#/definitions/AcctChangePermAddressRequestDetails"
+		}
+	},
+	"required": ["msgAuthDetails",
+	"AcctChangePermAddressRequestDetails"],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": ["clientNo",
+			"authKey",
+			"requestDateTime",
+			"signatureValue",
+			"signatureVersion",
+			"ariaAccountID",
+			"ariaAccountNo",
+			"userID"],
+			"additionalProperties": false
+		},
+		"AcctChangePermAddressRequestDetails": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"dateEffective": {
+					"type": "string"
+				},
+				"distAddressNo": {
+					"type": "integer"
+				},
+				"distAddressType": {
+					"type": "string"
+				},
+				"acctDeliveryAddress": {
+					"$ref": "#/definitions/AcctChangePermAddressDistAddress"
+				}
+			},
+			"required": ["ariaAccountID",
+			"ariaAccountNo",
+			"ariaMPIID",
+			"ariaMPINo",
+			"dateEffective",
+			"distAddressNo",
+			"distAddressType",
+			"acctDeliveryAddress"],
+			"additionalProperties": false
+		},
+		"AcctChangePermAddressDistAddress": {
+			"type": "object",
+			"properties": {
+				"distAddrType": {
+					"type": "string"
+				},
+				"distAddrName": {
+					"type": "string"
+				},
+				"distAddrLine1": {
+					"type": "string"
+				},
+				"distAddrLine2": {
+					"type": "string"
+				},
+				"distAddrLine3": {
+					"type": "string"
+				},
+				"distAddrLine4": {
+					"type": "string"
+				},
+				"distCoAddr": {
+					"type": "string"
+				},
+				"distAddrCity": {
+					"type": "string"
+				},
+				"distAddrPostalCode": {
+					"type": "string"
+				},
+				"distAddrCountryCode": {
+					"type": "string"
+				},
+				"distAddrLocality": {
+					"type": "string"
+				},
+				"distAddrStateProv": {
+					"type": "string"
+				},
+				"distStreetName": {
+					"type": "string"
+				},
+				"distStreetNo": {
+					"type": "string"
+				},
+				"distFlatNo": {
+					"type": "string"
+				},
+				"distFlatSpec": {
+					"type": "string"
+				},
+				"distFlatFloor": {
+					"type": "string"
+				},
+				"distEntranceNo": {
+					"type": "string"
+				},
+				"distPublAddrNo": {
+					"type": "string"
+				},
+				"distApartmentNo": {
+					"type": "string"
+				},
+				"distDirections": {
+					"type": "string"
+				},
+				"distAddInfo1": {"type": "string", "maxLength": 300},
+				"distAddInfo2": {"type": "string", "maxLength": 300},
+				"distAddInfo3": {"type": "string", "maxLength": 300}		
+			},
+			"required": ["distAddrType",
+			"distAddrName",
+			"distAddrLine1",
+			"distAddrLine2",
+			"distAddrLine3",
+			"distAddrLine4",
+			"distCoAddr",
+			"distAddrCity",
+			"distAddrPostalCode",
+			"distAddrCountryCode",
+			"distAddrLocality",
+			"distAddrStateProv",
+			"distStreetName",
+			"distStreetNo",
+			"distFlatNo",
+			"distFlatSpec",
+			"distFlatFloor",
+			"distEntranceNo",
+			"distPublAddrNo",
+			"distApartmentNo",
+			"distDirections","distAddInfo1","distAddInfo2","distAddInfo3"],
+			"additionalProperties": false
+		}
+	}
+}

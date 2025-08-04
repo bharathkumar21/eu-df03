@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "DistDistributionRequest", "type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"distDistributionDetails": {"type": "object","$ref": "#/definitions/distDistributionDetails"}
+	},
+	 "required": ["msgAuthDetails", "distDistributionDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+
+		"distDistributionDetails": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string"},
+				"titleName": {"type": "string"},
+				"titleDistSystem": {"type": "string"},
+				"titleDistType": {"type": "string"},
+				"titleDistTitleCode": {"type": "string"},
+				"titleDistPublTiming": {"type": "string"},
+				"distSelectDate": {"type": "string"},
+				"distExecuteDate": {"type": "string"},
+				"distOverride": {"type": "boolean"}
+			},
+			"required": ["titleCode", "titleName", "titleDistSystem", "titleDistType", "titleDistTitleCode", "distSelectDate", "distExecuteDate", "distOverride"], 
+			"additionalProperties": false
+		}
+	}
+}

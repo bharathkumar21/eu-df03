@@ -1,0 +1,285 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PaymGWCollectOnetimePayRequestRequest",
+  "type": "object",
+  "properties": {
+    "msgAuthDetails": {
+      "type": "object",
+      "$ref": "#/definitions/msgAuthDetails"
+    },
+    "PaymGWCollectOnetimePayRequestDetails": {
+      "type": "object",
+      "$ref": "#/definitions/PaymGWCollectOnetimePayRequestDetails"
+    }
+  },
+  "required": [
+    "msgAuthDetails",
+    "PaymGWCollectOnetimePayRequestDetails"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "PaymGWCollectOnetimePayRequestDetails": {
+      "type": "object",
+      "properties": {
+        "gatewayRequestType": {
+          "type": "string",
+          "enum": [
+            "CAPTURE",
+            "ONETIME",
+            "RECURRING"
+          ]
+        },
+        "paymRequestID": {
+          "type": "string"
+        },
+        "paymPayGatewayID": {
+          "type": "string"
+        },
+        "gatewayAgreementID": {
+          "type": "string"
+        },
+        "gatewayPaymentID": {
+          "type": "string"
+        },
+        "gatewayExternalID": {
+          "type": "string"
+        },
+        "gatewayAmount": {
+          "type": "number"
+        },
+        "ariaAccountNo": {
+          "type": "integer"
+        },
+        "ariaBillingGroupNo": {
+          "type": "integer"
+        },
+        "gatewayInvoiceNo": {
+          "type": "integer"
+        },
+        "gatewayStatementNo": {
+          "type": "integer"
+        },
+        "gatewayInvoiceDate": {
+          "type": "string"
+        },
+        "gatewayInvoiceDueDate": {
+          "type": "string"
+        },
+        "gatewayNextInvoiceDate": {
+          "type": "string"
+        },
+        "ariaAccountID": {
+          "type": "string"
+        },
+        "ariaBillingGroupID": {
+          "type": "string"
+        },
+        "titleCode": {
+          "type": "string"
+        },
+        				"PaymGWCollectPaymentInvoiceDetails": {
+						  "type": "object",
+						  "properties": {
+							"ariaInvoiceNo": {
+							  "type": "integer"
+							},
+							"ariaStatementNo": {
+							  "type": "integer"
+							},
+							"customerInvRef": {
+							  "type": "string"
+							},
+							"ariaInvoiceDate": {
+							  "type": "string"
+							},
+							"ariaInvoiceDueDate": {
+							  "type": "string"
+							},
+							"totalAmountExclVAT": {
+							  "type": "number"
+							},
+							"totalAmountVAT": {
+							  "type": "number"
+							},
+							"totalAmountInclVAT": {
+							  "type": "number"
+							},
+							"totalAmountDue": {
+							  "type": "number"
+							},
+						 "PaymGWCollectPaymentInvoiceLines": {
+						 "title": "PaymGWCollectPaymentInvoiceLines",
+							"type": "array",
+							"items": {
+							  "type": "object",
+							  "minItems": 1,
+							  "properties": {
+								"ariaLineNo": { 
+									"type": "integer"
+								},
+								"ariaServiceNo": { 
+									"type": "integer"
+									},
+								"ariaServiceName": {
+									"type": "string"
+									},
+								"ariaServiceDesc": { 
+									"type": "string" 
+								},
+								"ariaLineType": {
+								  "type": "integer",
+								  "enum": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+								},
+								"ariaUnits": { 
+									"type": "number" 
+									},
+								"ariaUnitPriceInclVAT": {
+								"type": "number" 
+								},
+								"ariaUnitPriceExclVAT": {
+								"type": "number" 
+								},
+								"ariaUnitPriceVAT": { 
+								"type": "number"
+								},
+								"amountExclVAT": {
+								"type": "number"
+								},
+								"amountVAT": {
+								"type": "number"
+								},
+								"amountInclVAT": {
+								"type": "number"
+								},
+								"taxGroupID": {
+								"type": "string" 
+								},
+								"taxGroupName": {
+								"type": "string"
+								},
+								"taxPercentage": {
+								"type": "number" 
+								},
+								"startDate": {
+								"type": "string"
+								},
+								"endDate": {
+								"type": "string"
+								},
+								"discountID": {
+								"type": "string"
+								},
+								"discountName": {
+								"type": "string"
+								},
+								"discountDesc": {
+								"type": "string"
+								},
+								"creditReasonText": { 
+								"type": "string"
+								},
+								"creditReasonDesc": {
+								"type": "string"
+								}
+							  },
+							  "required": [
+								"ariaLineNo",
+								"ariaServiceNo",
+								"ariaServiceName",
+								"ariaServiceDesc",
+								"ariaLineType",
+								"ariaUnits",
+								"ariaUnitPriceInclVAT",
+								"ariaUnitPriceExclVAT",
+								"ariaUnitPriceVAT",
+								"amountExclVAT",
+								"amountVAT",
+								"amountInclVAT",
+								"startDate",
+								"endDate"
+							  ],
+							  "additionalProperties": false
+							}
+						  }
+						  },
+						  "required": [
+							"ariaInvoiceNo",
+							"ariaStatementNo",
+							"customerInvRef",
+							"ariaInvoiceDate",
+							"ariaInvoiceDueDate",
+							"totalAmountExclVAT",
+							"totalAmountVAT",
+							"totalAmountInclVAT",
+							"totalAmountDue",
+							"PaymGWCollectPaymentInvoiceLines"
+						  ],
+						  "additionalProperties": false
+						},
+        "titleName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gatewayRequestType",
+        "paymRequestID",
+        "paymPayGatewayID",
+        "gatewayAgreementID",
+        "gatewayExternalID",
+        "gatewayAmount",
+        "ariaAccountNo",
+        "ariaBillingGroupNo",
+        "gatewayInvoiceNo",
+        "gatewayStatementNo",
+        "gatewayInvoiceDate",
+        "gatewayInvoiceDueDate",
+        "gatewayNextInvoiceDate",
+        "ariaAccountID",
+        "ariaBillingGroupID",
+        "titleCode",
+        "titleName"
+      ],
+      "additionalProperties": false
+    },
+    "msgAuthDetails": {
+      "type": "object",
+      "properties": {
+        "clientNo": {
+          "type": "integer"
+        },
+        "authKey": {
+          "type": "string"
+        },
+        "requestDateTime": {
+          "type": "string"
+        },
+        "signatureValue": {
+          "type": "string"
+        },
+        "signatureVersion": {
+          "type": "string"
+        },
+        "ariaAccountID": {
+          "type": "string"
+        },
+        "ariaAccountNo": {
+          "type": "integer"
+        },
+        "userID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clientNo",
+        "authKey",
+        "requestDateTime",
+        "signatureValue",
+        "signatureVersion",
+        "ariaAccountID",
+        "ariaAccountNo",
+        "userID"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

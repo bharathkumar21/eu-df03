@@ -1,0 +1,114 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "subsCreateSubscriptionOfferRequest",
+	"description": "API used to assign an offer to an existing subscription, for example as part of the retention process. An offer can only be assigned to a subscription if the subscription is ACTIVE. If a specific date cancellation is registered on a future date, then the offer cannot be added either. When an offer is applied, an AMPS event will be triggered. An AMPS event is also triggered when rolling over from one plan to another. ",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"subsCreateSubscriptionOfferInfo": {
+			"$ref": "#/definitions/subsCreateSubscriptionOfferInfo"
+		}
+	},
+	"required": [
+		"msgAuthDetails"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {
+			"type": "object",
+			"properties": {
+				"solmRefTransNo": {
+					"type": "string"
+				},
+				"solmTranslationEntry": {
+					"title": "solmTranslationEntry",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/solmTranslationEntry"
+					}
+				}
+			},
+			"required": [
+				"solmRefTransNo",
+				"solmTranslationEntry"
+			],
+			"additionalProperties": false
+		},
+		"solmTranslationEntry": {
+			"type": "object",
+			"properties": {
+				"solmLocaleID": {
+					"type": "string"
+				},
+				"solmRefTransText": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"solmLocaleID",
+				"solmRefTransText"
+			],
+			"additionalProperties": false
+		},
+		"subsCreateSubscriptionOfferInfo": {
+			"type": "object",
+			"properties": {
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaMPINo": {
+					"type": "integer"
+				},
+				"ariaMPIID": {
+					"type": "string"
+				},
+				"offerID": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "SubsValidateSubscriptionRequest",
+    "additionalProperties": false,
+    "properties": {
+        "msgAuthDetails": {
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "subsValidateSubscriptionCriteria": {
+            "$ref": "#/definitions/subsValidateSubscriptionCriteria"
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "subsValidateSubscriptionCriteria"
+    ],
+    "definitions": {
+        "subsValidateSubscriptionCriteria": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaPINo": {
+                    "type": "integer"
+                },
+                "ariaPIID": {
+                    "type": "string"
+                },
+                "ariaPlanID": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "maxLength": 3
+                },
+                "requestSourceID": {
+                    "type": "string"
+                },
+                "ariaScheduleID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ariaAccountID",
+                "ariaAccountNo",
+                "ariaPINo",
+                "ariaPIID",
+                "ariaPlanID",
+                "ariaScheduleID",
+                "countryCode",
+                "requestSourceID"
+            ]
+        },
+        "msgAuthDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ]
+        }
+    }
+}

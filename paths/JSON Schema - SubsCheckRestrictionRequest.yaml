@@ -1,0 +1,46 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "subsCheckRestrictionRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object", "$ref": "#/definitions/msgAuthDetails"},
+		"subsCheckRestrictionCriteria": {"type": "object",	"$ref": "#/definitions/subsCheckRestrictionCriteria"}
+	},
+	 "required": ["msgAuthDetails", "subsCheckRestrictionCriteria"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"subsCheckRestrictionCriteria": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string"},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaPlanID": {"type": "string"},
+				"ariaPlanNo": {"type": "integer"},
+				"ariaScheduleID": {"type": "string"},
+				"ariaScheduleNo": {"type": "integer"},
+				"distAddrNo": {"type": "integer"},
+				"distPostalCode": {"type": "string"},
+				"distCountryCode": {"type": "string"},
+				"discountID": {"type": "string"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "ariaPlanID", "ariaPlanNo", "ariaScheduleID", "ariaScheduleNo", "distAddrNo", "distPostalCode", "distCountryCode", "discountID"], 
+			"additionalProperties": false
+		},
+		
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+     "$schema": "http://json-schema.org/draft-04/schema#",
+     "title": "acctRetriveAccountRequest",
+     "type": "object",
+     "properties": {
+         "msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+         "acctRetrieveAccountCriteria": {"type": "object","$ref": "#/definitions/acctRetrieveAccountCriteria"}
+    },
+     "required": ["msgAuthDetails","acctRetrieveAccountCriteria"],
+     "additionalProperties": false,
+	 "definitions": {
+		"msgAuthDetails": {"type": "object",
+			"properties": {
+			"clientNo": {"type": "integer"},
+			"authKey": {"type": "string"},
+			"requestDateTime": {"type": "string"},
+			"signatureValue": {"type": "string"},
+			"signatureVersion": {"type": "string"},
+			"ariaAccountID": {"type": "string"},
+			"ariaAccountNo": {"type": "integer"},
+			"userID": {"type": "string"}
+			},
+			"required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			"additionalProperties": false
+		},
+		"acctRetrieveAccountTitleFiltering": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string"},
+				"titleDomain": {"type": "string"}
+			},
+			"required": ["titleCode", "titleDomain"],
+			"additionalProperties": false
+		},
+		"acctRetrieveAccountCriteria": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string", "maxLength": 50},
+				"ariaAccountNo": {"type": "integer"},
+				"titleFiltering": {"title": "titleFiltering", "type": "array", "minItems": 0, "items": {"$ref": "#/definitions/acctRetrieveAccountTitleFiltering"}}
+			},
+			"required":["ariaAccountID", "ariaAccountNo", "titleFiltering"],
+			"additionalProperties": false
+		}
+	}
+}

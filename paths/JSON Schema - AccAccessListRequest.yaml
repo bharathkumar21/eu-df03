@@ -1,0 +1,51 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "accAccessListRequest",
+	"type": "object",
+	"properties": 
+	{
+		"accAccessListAcctInfo": {"type": "object", "$ref": "#/definitions/accAccessListAcctInfo"},
+		"accAccessListTitleList": {"title": "accAccessListTitleList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/accAccessListTitleList"}}
+	},
+	 "required": ["accAccessListAcctInfo", "accAccessListTitleList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"accAccessListAcctInfo": {"type": "object",
+			"properties": {
+				"ariaAccountID": {"type": "string", "maxLength": 50},
+				"ariaAccountNo": {"type": "integer"},
+				"ariaUserID": {"type": "string", "maxLength": 32},
+				"ariaAddAccountID": {"type": "string", "maxLength": 100}, 
+				"numberOfAllotments": {"type": "integer"}
+			},
+			"required": ["ariaAccountID", "ariaAccountNo", "ariaUserID", "ariaAddAccountID", "numberOfAllotments"], 
+			"additionalProperties": false
+		},
+		"accAccessListTitleInfo": {"type": "object",
+			"properties": {
+				"titleCode": {"type": "string", "maxLength": 10},
+				"accessTitleCode": {"type": "string", "maxLength": 100},
+				"titleDomain": {"type": "string", "maxLength": 1000},
+				"eligibleForSharing": {"type": "boolean"}
+			},
+			"required": ["titleCode", "accessTitleCode", "titleDomain", "eligibleForSharing"], 
+			"additionalProperties": false
+		},
+		"accAccessListTitleAccessInfo": {"type": "object",
+			"properties": {
+				"accessFeature": {"type": "string"}
+			},	
+			"required": ["accessFeature"], 
+			"additionalProperties": false
+		},
+		"accAccessListTitleList": {"type": "object",
+			"properties": {
+				"accAccessListTitleInfo": {"type": "object", "$ref": "#/definitions/accAccessListTitleInfo"},
+				"accAccessListTitleAccessInfo": {"title": "accAccessListTitleAccessInfo", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/accAccessListTitleAccessInfo"}}
+			},
+			"required": ["accAccessListTitleInfo", "accAccessListTitleAccessInfo"],
+			"additionalProperties": false
+		}
+	}
+}

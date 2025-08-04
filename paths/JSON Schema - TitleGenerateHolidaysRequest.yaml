@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleGenerateHolidaysRequest",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleGenerateHolidayDetails": {"type": "object","$ref": "#/definitions/titleGenerateHolidayDetails"}
+	},
+	 "required": ["msgAuthDetails", "titleGenerateHolidayDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		"titleGenerateHolidayDetails": {"type": "object",
+			"properties": {
+				"countryCode": {"type": "string"},
+				"holidayYear": {"type": "integer"}
+			},
+			"required": ["countryCode", "holidayYear"], 
+			"additionalProperties": false
+		}
+	}
+}

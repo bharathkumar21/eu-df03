@@ -1,0 +1,63 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "titleManageHolidayRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"titleManageHolidayCountryInfo": {"type": "object", "$ref": "#/definitions/titleManageHolidayCountryInfo"},
+		"titleManageHolidayDetails": {"title": "TitleManageHolidayList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/titleManageHolidayDetails"}}
+	},
+	 "required": ["msgAuthDetails", "titleManageHolidayCountryInfo", "titleManageHolidayDetails"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		"titleManageHolidayCountryInfo": {"type": "object",
+			"properties": {
+				"countryCode": {"type": "string", "maxLength": 2},
+				"holidayYear": {"type": "integer"}
+			},
+			"required": ["countryCode", "holidayYear"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayInfo": {"type": "object",
+			"properties": {
+				"holidayDate": {"type": "string", "maxLength": 10},
+				"holidayName": {"type": "string", "maxLength": 100},
+				"holidayOneLiner": {"type": "string", "maxLength": 1000},
+				"holidayType": {"type": "string", "maxLength": 10, "enum": ["NATIONAL", "STATE", "REGIONAL", "LOCAL"]}
+			},
+			"required": ["holidayDate", "holidayName", "holidayOneLiner", "holidayType"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayActionInfo": {"type": "object",
+			"properties": {
+				"titleManageHolidayAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["titleManageHolidayAction"], 
+			"additionalProperties": false
+		},
+		"titleManageHolidayDetails": {"type": "object",
+			"properties": {
+				"titleManageHolidayActionInfo": {"type": "object", "$ref": "#/definitions/titleManageHolidayActionInfo"},
+				"titleManageHolidayInfo": {"type": "object", "$ref": "#/definitions/titleManageHolidayInfo"}
+			},
+			"required": ["titleManageHolidayActionInfo", "titleManageHolidayInfo"],
+			"additionalProperties": false
+		}
+	}
+}

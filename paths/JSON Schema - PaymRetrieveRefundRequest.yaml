@@ -1,0 +1,91 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "PaymRetrieveRefundRequest",
+	"description": "JSON Schema for use with Refund",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"type": "object",
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"PaymRetrieveRefundCriteria": {
+			"type": "object",
+			"$ref": "#/definitions/paymRetrieveRefundCriteria"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"PaymRetrieveRefundCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"paymRetrieveRefundCriteria": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"refundStatus": {
+					"type": "string",
+					"enum": [
+						"ALL",
+						"PENDING",
+						"COMPLETE",
+						"APPROVED",
+						"POSTED",
+						"CANCELLED"
+					]
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"refundStatus"
+			],
+			"additionalProperties": false
+		}
+	}
+}

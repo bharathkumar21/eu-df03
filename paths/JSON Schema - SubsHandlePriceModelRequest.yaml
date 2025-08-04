@@ -1,0 +1,29 @@
+{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+
+	 "title": "subsHandlePriceModelRequest",
+	 "type": "object",
+	 "properties": {
+		 "subsHandlePriceModelDetails": {"type": "object","$ref": "#/definitions/subsHandlePriceModelDetails"}
+	},
+	 "required": ["subsHandlePriceModelDetails"],
+	 "additionalProperties": false, 
+	 
+	 "definitions": {
+		 "subsHandlePriceModelDetails": {"type": "object",
+			 "properties": {
+				 "productPriceModel": {"type": "string", "maxLength": 20},
+				 "ariaPlanNo": {"type": "integer"},
+				 "ariaPlanID": {"type": "string", "maxLength": 100},
+				 "ariaPlanRateScheduleID": {"type": "string", "maxLength": 100},
+				 "ariaPlanRateScheduleNo": {"type": "integer"},
+				 "countryCode": {"type": "string"},
+				 "discountID": {"type": "string"},
+				 "discountPct": {"type": "integer"},
+				 "baseDate": {"type": "string"}
+			},
+			 "required": ["productPriceModel", "ariaPlanNo", "ariaPlanID", "ariaPlanRateScheduleID", "ariaPlanRateScheduleNo", "countryCode", "discountID", "discountPct", "baseDate"],
+			 "additionalProperties": false
+		}
+	}
+}

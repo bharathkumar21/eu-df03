@@ -1,0 +1,40 @@
+{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+
+	 "title": "subsRetrieveIndividualRequest",
+	 "type": "object",
+	 "properties": {
+		 "msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		 "subsRetrieveIndividualCriteria": {"type": "object","$ref": "#/definitions/subsRetrieveIndividualCriteria"}
+	},
+	 "required": ["msgAuthDetails", "subsRetrieveIndividualCriteria"],
+	 "additionalProperties": false, 
+	 
+	 "definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		
+		 "subsRetrieveIndividualCriteria": {"type": "object",
+			 "properties": {
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "ariaMPINo": {"type": "integer"},
+				 "ariaMPIID": {"type": "string"}
+			},
+			 "required":["ariaAccountID", "ariaAccountNo", "ariaMPINo", "ariaMPIID"],
+			 "additionalProperties": false
+		}
+	}
+}

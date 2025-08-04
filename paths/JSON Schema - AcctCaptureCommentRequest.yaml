@@ -1,0 +1,99 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "AcctCaptureCommentRequest",
+	"type": "object",
+	"properties": {
+	  "msgAuthDetails": {
+		"type": "object",
+		"$ref": "#/definitions/msgAuthDetails"
+	  },
+	  "acctCaptureCommentCriteria": {
+		"type": "object",
+		"title": "acctCaptureCommentCriteria",
+		"$ref": "#/definitions/acctCaptureCommentCriteria"
+	  }
+	},
+	"required": [
+	  "msgAuthDetails",
+	  "acctCaptureCommentCriteria"
+	],
+	"additionalProperties": false,
+	"definitions": {
+	  "msgAuthDetails": {
+		"type": "object",
+		"properties": {
+		  "clientNo": {
+			"type": "integer"
+		  },
+		  "authKey": {
+			"type": "string"
+		  },
+		  "requestDateTime": {
+			"type": "string"
+		  },
+		  "signatureValue": {
+			"type": "string"
+		  },
+		  "signatureVersion": {
+			"type": "string"
+		  },
+		  "ariaAccountID": {
+			"type": "string"
+		  },
+		  "ariaAccountNo": {
+			"type": "integer"
+		  },
+		  "userID": {
+			"type": "string"
+		  }
+		},
+		"required": [
+		  "clientNo",
+		  "authKey",
+		  "requestDateTime",
+		  "signatureValue",
+		  "signatureVersion",
+		  "ariaAccountID",
+		  "ariaAccountNo",
+		  "userID"
+		],
+		"additionalProperties": false
+	  },
+	  "acctCaptureCommentCriteria": {
+		"type": "object",
+		"properties": {
+		  "ariaAccountID": {
+			"type": "string"
+		  },
+		  "ariaAccountNo": {
+			"type": "integer"
+		  },
+		  "acctCommentAuthor": {
+			"type": "string"
+		  },
+		  "acctCommentDateTime": {
+			"type": "string"
+		  },
+		  "acctCommentText": {
+			"type": "string"
+		  },
+		  "acctApplicationID": {
+			"type": "string"
+		  },
+		  "acctApplicationDateTime": {
+			"type": "string"
+		  }
+		},
+		"required": [
+		  "ariaAccountID",
+		  "ariaAccountNo",
+		  "acctCommentAuthor",
+		  "acctCommentDateTime",
+		  "acctCommentText",
+		  "acctApplicationID",
+		  "acctApplicationDateTime"
+		],
+		"additionalProperties": false
+	  }
+	}
+  }

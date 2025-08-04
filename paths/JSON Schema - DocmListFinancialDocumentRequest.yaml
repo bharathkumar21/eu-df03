@@ -1,0 +1,125 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "docmListFinancialDocumentRequest",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "docmListFinancialDocumentCriteria": {
+            "type": "object",
+            "$ref": "#/definitions/docmListFinancialDocumentCriteria"
+        },
+        "docmListFinancialDocumentPaging ": {
+            "type": "object",
+            "$ref": "#/definitions/docmListFinancialDocumentPaging"
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "docmListFinancialDocumentCriteria"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "docmListFinancialDocumentCriteria": {
+            "description": " a mandatory structure that holds the criteria to be applied by the process.",
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string",
+                    "maxLength": 50
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "dateRangeStart": {
+                    "type": "string",
+                    "maxLength": 255
+                },
+                "dateRangeEnd": {
+                    "type": "string",
+                    "maxLength": 255
+                },
+                "returnLevelOfDetail": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "enum": [
+                        "REFERENCES",
+
+                        "OVERVIEW"
+                    ]
+                },
+                "returnDocumentType": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "enum": [
+                        "ALL",
+                        "INVOICE",
+                        "CREDITNOTE"
+                    ]
+                }
+            },
+            "required": [
+                "returnDocumentType",
+                "returnLevelOfDetail"
+            ],
+            "additionalProperties": false
+        },
+        "docmListFinancialDocumentPaging": {
+            "type": "object",
+            "properties": {
+                "pagingRowLimit": {
+                    "type": "integer"
+                },
+                "pagingRowValue": {
+                    "type": "string"
+                    
+                }
+            },
+            "required": [
+            ],
+            "additionalProperties": false
+        }
+    }
+}

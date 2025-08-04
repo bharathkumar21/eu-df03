@@ -1,0 +1,186 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"title": "DocmManageDocumentRequest",
+	"description": "This API is used to manipulate documents in different ways, for example issuing a credit note, reversing an invoice fully, reissue an invoice, etc.",
+	"type": "object",
+	"properties": {
+		"msgAuthDetails": {
+			"$ref": "#/definitions/msgAuthDetails"
+		},
+		"docmManageDocumentActionInfo": {
+			"$ref": "#/definitions/docmManageDocumentActionInfo"
+		},
+		"docmManageDocumentInfo": {
+			"$ref": "#/definitions/docmManageDocumentInfo"
+		}
+	},
+	"required": [
+		"msgAuthDetails",
+		"docmManageDocumentActionInfo",
+		"docmManageDocumentInfo"
+	],
+	"definitions": {
+		"msgAuthDetails": {
+			"type": "object",
+			"properties": {
+				"clientNo": {
+					"type": "integer"
+				},
+				"authKey": {
+					"type": "string"
+				},
+				"requestDateTime": {
+					"type": "string"
+				},
+				"signatureValue": {
+					"type": "string"
+				},
+				"signatureVersion": {
+					"type": "string"
+				},
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"userID": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"clientNo",
+				"authKey",
+				"requestDateTime",
+				"signatureValue",
+				"signatureVersion",
+				"ariaAccountID",
+				"ariaAccountNo",
+				"userID"
+			],
+			"additionalProperties": false
+		},
+		"docmManageDocumentActionInfo": {
+			"type": "object",
+			"properties": {
+				"actionDirective": {
+					"type": "string",
+					"enum": [
+						"REVERSE"
+					]
+				},
+				"actionOption": {
+					"type": "string",
+					"enum": [
+						"REVERSE",
+						"REFUND",
+						"ADJUST",
+						"REISSUE"
+					]
+				}
+			},
+			"required": [
+				"actionDirective",
+				"actionOption"
+			]
+		},
+		"docmManageDocumentInfo": {
+			"type": "object",
+			"properties": {
+				"ariaAccountID": {
+					"type": "string"
+				},
+				"ariaAccountNo": {
+					"type": "integer"
+				},
+				"ariaInvoiceNo": {
+					"type": "integer"
+				},
+				"reversalLevel": {
+					"type": "string",
+					"enum": [
+						"FULL",
+						"PARTIAL"
+					]
+				},
+				"newBillingFrequencyType": {
+					"type": "string",
+					"enum": [
+						"DAILY",
+						"WEEKLY",
+						"MONTHLY"
+					]
+				},
+				"newBillingFrequency": {
+					"type": "integer"
+				},
+				"docmManageDocumentInfoCreditList": {
+					"$ref": "#/definitions/docmManageDocumentInfoCreditList"
+				}
+			},
+			"required": [
+				"ariaAccountID",
+				"ariaAccountNo",
+				"ariaInvoiceNo",
+				"reversalLevel",
+				"newBillingFrequencyType",
+				"newBillingFrequency",
+				"docmManageDocumentInfoCreditList"
+			]
+		},
+		"docmManageDocumentInfoCreditList": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"ariaTransactionID": {
+						"type": "integer"
+					},
+					"chargeLineType": {
+						"type": "string",
+						"enum": [
+							"CREDIT",
+							"CHARGE"
+						]
+					},
+					"ariaMPINo": {
+						"type": "integer"
+					},
+					"ariaPINo": {
+						"type": "integer"
+					},
+					"ariaOrderItemNo": {
+						"type": "integer"
+					},
+					"ariaServiceNo": {
+						"type": "integer"
+					},
+					"serviceTaxGroupID": {
+						"type": "string"
+					},
+					"chargeAmountExclVAT": {
+						"type": "number"
+					},
+					"chargeAmountVAT": {
+						"type": "number"
+					},
+					"chargeAmountInclVAT": {
+						"type": "number"
+					}
+				},
+				"required": [
+					"ariaTransactionID",
+					"chargeLineType",
+					"ariaMPINo",
+					"ariaPINo",
+					"ariaOrderItemNo",
+					"ariaServiceNo",
+					"serviceTaxGroupID",
+					"chargeAmountExclVAT",
+					"chargeAmountVAT",
+					"chargeAmountInclVAT"
+				]
+			}
+		}
+	}
+}

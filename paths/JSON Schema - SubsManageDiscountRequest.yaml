@@ -1,0 +1,147 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "SubsManageDiscountsRequest",
+    "description": "JSON Schema for use with Discounts",
+    "type": "object",
+    "properties": {
+        "msgAuthDetails": {
+            "type": "object",
+            "$ref": "#/definitions/msgAuthDetails"
+        },
+        "subsManageDiscountsSubscriptionDetails": {
+            "type": "object",
+            "$ref": "#/definitions/subsManageDiscountsSubscriptionDetails"
+        },
+        "subsManageDiscountsDetailList": {
+            "title": "subsManageDiscountsDetailList",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/subsManageDiscountsDetailList"
+            }
+        }
+    },
+    "required": [
+        "msgAuthDetails",
+        "subsManageDiscountsSubscriptionDetails",
+        "subsManageDiscountsDetailList"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "msgAuthDetails": {
+            "type": "object",
+            "properties": {
+                "clientNo": {
+                    "type": "integer"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "requestDateTime": {
+                    "type": "string"
+                },
+                "signatureValue": {
+                    "type": "string"
+                },
+                "signatureVersion": {
+                    "type": "string"
+                },
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientNo",
+                "authKey",
+                "requestDateTime",
+                "signatureValue",
+                "signatureVersion",
+                "ariaAccountID",
+                "ariaAccountNo",
+                "userID"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageDiscountsSubscriptionDetails": {
+            "type": "object",
+            "properties": {
+                "ariaAccountID": {
+                    "type": "string"
+                },
+                "ariaAccountNo": {
+                    "type": "integer"
+                },
+                "ariaMPIID": {
+                    "type": "string"
+                },
+                "ariaMPINo": {
+                    "type": "integer"
+                }
+            },
+                "required": [
+                    "ariaAccountID",
+                    "ariaAccountNo",
+                    "ariaMPIID",
+                    "ariaMPINo"
+                ],
+                "additionalProperties": false
+        },
+        "subsManageDiscountsDetailInfo": {
+            "type": "object",
+            "properties": {
+                "discountID": {
+                    "type": "string"
+                },
+                "existingDiscountID": {
+                    "type": "string"
+                }
+            },
+                "required": [
+                    "discountID",
+                    "existingDiscountID"
+                ],
+                "additionalProperties": false
+        },
+        "subsManageDiscountsDetailActionInfo": {
+            "type": "object",
+            "properties": {
+                "subsManageDiscountsDetailAction": {
+                    "type": "string",
+                    "enum": [
+                        "ADD",
+                        "MODIFY",
+                        "REMOVE"
+                    ]
+                }
+            },
+            "required": [
+                "subsManageDiscountsDetailAction"
+            ],
+            "additionalProperties": false
+        },
+        "subsManageDiscountsDetailList": {
+            "type": "object",
+            "properties": {
+                "subsManageDiscountsDetailActionInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageDiscountsDetailActionInfo"
+                },
+                "subsManageDiscountsDetailInfo": {
+                    "type": "object",
+                    "$ref": "#/definitions/subsManageDiscountsDetailInfo"
+                }
+            },
+            "required": [
+                "subsManageDiscountsDetailActionInfo",
+                "subsManageDiscountsDetailInfo"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "distManageAddrTypeRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"distManageAddrTypeList": {"title": "distManageAddrTypeList", "type": "array","minItems": 1, "items": {"$ref": "#/definitions/distManageAddrTypeList"}}
+	},
+	 "required": ["msgAuthDetails", "distManageAddrTypeList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+		"solmTranslationEntry": {"type": "object",
+			"properties": {
+				"solmLocaleID": {"type": "string"},
+				"solmRefTransText": {"type": "string"}
+			},
+			"required": ["solmLocaleID","solmRefTransText"],
+			"additionalProperties": false
+		},
+		"solmTranslationGroup": {"type": "object",
+			"properties": {
+				"solmRefTransNo": {"type": "string"},
+				"solmTranslationEntry": {"title": "solmTranslationEntry","type": "array","minItems": 1,"items": {"$ref": "#/definitions/solmTranslationEntry"}}
+			},
+			"required": ["solmRefTransNo","solmTranslationEntry"],
+			"additionalProperties": false
+		},
+
+		"distManageAddrTypeInfo": {"type": "object",
+			"properties": {
+				"distAddrType": {"type": "integer"},
+				"distAddrTypeName": {"type": "string", "maxLength": 100} 
+			},
+			"required": ["distAddrType", "distAddrTypeName"], 
+			"additionalProperties": false
+		},
+		"distManageAddrTypeActionInfo": {"type": "object",
+			"properties": {
+				"distManageAddrTypeAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["distManageAddrTypeAction"], 
+			"additionalProperties": false
+		},
+		"distManageAddrTypeAddInfo": {"type": "object",
+			"properties": {
+				"distManageAddrTypeTrans": {"type": "object","$ref": "#/definitions/solmTranslationGroup"}
+			},	
+			"required": ["distManageAddrTypeTrans"], 
+			"additionalProperties": false
+		},
+		"distManageAddrTypeList": {"type": "object",
+			"properties": {
+				"distManageAddrTypeActionInfo": {"type": "object", "$ref": "#/definitions/distManageAddrTypeActionInfo"},
+				"distManageAddrTypeInfo": {"type": "object", "$ref": "#/definitions/distManageAddrTypeInfo"},
+				"distManageAddrTypeAddInfo": {"type": "object", "$ref": "#/definitions/distManageAddrTypeAddInfo"}
+			},
+			"required": ["distManageAddrTypeActionInfo", "distManageAddrTypeInfo", "distManageAddrTypeAddInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

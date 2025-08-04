@@ -1,0 +1,66 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"title": "distChangeAddrRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"distChangeAddrList": {"title": "distChangeAddrList","type": "array","minItems": 1,"items": {"$ref": "#/definitions/distChangeAddrList"}}
+	},
+	 "required": ["msgAuthDetails", "distChangeAddrList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		"distChangeAddrInfo": {"type": "object",
+			"properties": {
+				"ariaAccountNo": {"type": "integer"},
+				"ariaAccountID": {"type": "string"},
+				"distEffectiveStartDate": {"type": "string"},
+				"distEffectiveEndDate": {"type": "string"},
+				"forceAddrChange": {"type": "boolean"},
+				"distTitleCodeList": {"title": "distTitleCodeList","type": "array","minItems": 1,"items": {"$ref": "#/definitions/distChangeAddrTitleCode"}}
+			},	
+			"required": ["ariaAccountNo", "distEffectiveStartDate", "distEffectiveEndDate", "distTitleCodeList"], 
+			"additionalProperties": false
+		},
+		"distChangeAddrDeliveryList": {"type": "object",
+			"properties": {
+				"distAddrNo": {"type": "integer"},
+				"distDeliveryDays": {"type": "string"}
+			},
+			"required": ["distAddrNo", "distDeliveryDays"], 
+			"additionalProperties": false
+		},
+		"distChangeAddrTitleCode": {"type": "object",
+			"properties": {
+				"distTitleCode": {"type": "string"},
+				"distAriaMpiNo": {"type": "integer"}
+			},
+			"required": ["distTitleCode", "distAriaMpiNo"],
+			"additionalProperties": false
+		},
+		"distChangeAddrList": {"type": "object",
+			"properties": {
+				"distChangeAddrInfo": {"type": "object","$ref": "#/definitions/distChangeAddrInfo"},
+				"distChangeAddrDeliveryList": {"title": "distChangeAddrDeliveryList","type": "array","minItems": 1,"items": {"$ref": "#/definitions/distChangeAddrDeliveryList"}}
+			},
+			"required": ["distChangeAddrInfo", "distChangeAddrDeliveryList"], 
+			"additionalProperties": false
+		},
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		}
+	}
+}

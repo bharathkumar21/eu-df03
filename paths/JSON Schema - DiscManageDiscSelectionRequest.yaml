@@ -1,0 +1,56 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "discManageDiscSelectionRequest",
+	"type": "object",
+	"properties": 
+	{
+		"msgAuthDetails": {"type": "object","$ref": "#/definitions/msgAuthDetails"},
+		"discManageDiscSelectionList": {"title": "discManageDiscSelectionList", "type": "array", "minItems": 1, "items": {"$ref": "#/definitions/discManageDiscSelectionList"}}
+	},
+	 "required": ["msgAuthDetails", "discManageDiscSelectionList"],
+	 "additionalProperties": false,
+
+	"definitions": {
+		 "msgAuthDetails": {"type": "object",
+			 "properties": {
+				 "clientNo": {"type": "integer"},
+				 "authKey": {"type": "string"},
+				 "requestDateTime": {"type": "string"},
+				 "signatureValue": {"type": "string"},
+				 "signatureVersion": {"type": "string"},
+				 "ariaAccountID": {"type": "string"},
+				 "ariaAccountNo": {"type": "integer"},
+				 "userID": {"type": "string"}
+			},
+			 "required": ["clientNo", "authKey", "requestDateTime", "signatureValue", "signatureVersion", "ariaAccountID", "ariaAccountNo", "userID"],
+			 "additionalProperties": false
+		},
+
+		"discManageDiscSelectionInfo": {"type": "object",
+			"properties": {
+				"discCheckSeqNo": {"type": "integer"},
+				"discStartDate": {"type": "string", "maxLength": 10},
+				"discEndDate": {"type": "string", "maxLength": 10},
+				"discID": {"type": "string", "maxLength": 100}
+			},
+			"required": ["discCheckSeqNo", "discStartDate", "discEndDate", "discID"], 
+			"additionalProperties": false
+		},
+		"discManageDiscSelectionActionInfo": {"type": "object",
+			"properties": {
+				"discManageDiscSelectionAction": {"type": "string", "enum": ["ADD", "MODIFY", "REMOVE"]}
+			},	
+			"required": ["discManageDiscSelectionAction"], 
+			"additionalProperties": false
+		},
+		"discManageDiscSelectionList": {"type": "object",
+			"properties": {
+				"discManageDiscSelectionActionInfo": {"type": "object", "$ref": "#/definitions/discManageDiscSelectionActionInfo"},
+				"discManageDiscSelectionInfo": {"type": "object", "$ref": "#/definitions/discManageDiscSelectionInfo"}
+			},
+			"required": ["discManageDiscSelectionActionInfo", "discManageDiscSelectionInfo"],
+			"additionalProperties": false
+		}
+
+	}
+}

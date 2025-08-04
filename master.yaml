@@ -1,0 +1,457 @@
+
+openapi: 3.0.3
+info:
+  title: Modular API Documentation
+  version: 1.0.0
+paths:
+  /SampleAPI:
+    $ref: './paths/SampleAPI.yaml'
+  /JSON Schema - SubsHandlePriceModelRequest:
+    $ref: './paths/JSON Schema - SubsHandlePriceModelRequest.yaml'
+  /JSON Schema - BndlRetrieveBndlDetailRequest:
+    $ref: './paths/JSON Schema - BndlRetrieveBndlDetailRequest.yaml'
+  /JSON Schema - AcctRetrieveAccountRequest:
+    $ref: './paths/JSON Schema - AcctRetrieveAccountRequest.yaml'
+  /JSON Schema - DocmManageDocumentRequest:
+    $ref: './paths/JSON Schema - DocmManageDocumentRequest.yaml'
+  /JSON Schema - TitleRetrieveTitleOwnersRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveTitleOwnersRequest.yaml'
+  /JSON Schema - SubsRetrieveDiscountRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveDiscountRequest.yaml'
+  /JSON Schema - SolmManageLocaleRequest:
+    $ref: './paths/JSON Schema - SolmManageLocaleRequest.yaml'
+  /JSON Schema - TitleRetrievePayOptionsRequest:
+    $ref: './paths/JSON Schema - TitleRetrievePayOptionsRequest.yaml'
+  /JSON Schema - AcctPrepareCCUpdateRequest:
+    $ref: './paths/JSON Schema - AcctPrepareCCUpdateRequest.yaml'
+  /JSON Schema - SubsManageSubscriptionRequest:
+    $ref: './paths/JSON Schema - SubsManageSubscriptionRequest.yaml'
+  /JSON Schema - CampRetrieveCampDetailRequest:
+    $ref: './paths/JSON Schema - CampRetrieveCampDetailRequest.yaml'
+  /JSON Schema - TitleRetrieveCalendarRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveCalendarRequest.yaml'
+  /JSON Schema - SubsRetrieveChgOptionsRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveChgOptionsRequest.yaml'
+  /JSON Schema - AcctChangePermAddressRequest:
+    $ref: './paths/JSON Schema - AcctChangePermAddressRequest.yaml'
+  /JSON Schema - CompCheckComplaintEligibilityRequest:
+    $ref: './paths/JSON Schema - CompCheckComplaintEligibilityRequest.yaml'
+  /JSON Schema - TitleManagePayTermRequest:
+    $ref: './paths/JSON Schema - TitleManagePayTermRequest.yaml'
+  /JSON Schema - AccRefreshAccountAccessRequest:
+    $ref: './paths/JSON Schema - AccRefreshAccountAccessRequest.yaml'
+  /JSON Schema - AccAccessListRequest:
+    $ref: './paths/JSON Schema - AccAccessListRequest.yaml'
+  /JSON Schema - ProdRetrieveProductRequest:
+    $ref: './paths/JSON Schema - ProdRetrieveProductRequest.yaml'
+  /JSON Schema - TitleManageTitlePublDaysRequest:
+    $ref: './paths/JSON Schema - TitleManageTitlePublDaysRequest.yaml'
+  /JSON Schema - CompManageComplaintRequest:
+    $ref: './paths/JSON Schema - CompManageComplaintRequest.yaml'
+  /JSON Schema - SubsCreateSubscriptionOfferRequest:
+    $ref: './paths/JSON Schema - SubsCreateSubscriptionOfferRequest.yaml'
+  /JSON Schema - AcctManageBillingGroupRequest:
+    $ref: './paths/JSON Schema - AcctManageBillingGroupRequest.yaml'
+  /JSON Schema - PaymGWCollectOnetimePaymentRequest:
+    $ref: './paths/JSON Schema - PaymGWCollectOnetimePaymentRequest.yaml'
+  /JSON Schema - SolmWQPendingInvoiceEventRequest:
+    $ref: './paths/JSON Schema - SolmWQPendingInvoiceEventRequest.yaml'
+  /JSON Schema - AcctCaptureCommentRequest:
+    $ref: './paths/JSON Schema - AcctCaptureCommentRequest.yaml'
+  /JSON Schema - SubsValidateSubscriptionRequest:
+    $ref: './paths/JSON Schema - SubsValidateSubscriptionRequest.yaml'
+  /JSON Schema - PaymRetrieveTransactionsRequest:
+    $ref: './paths/JSON Schema - PaymRetrieveTransactionsRequest.yaml'
+  /JSON Schema - SubsRetrieveSubscriptionRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveSubscriptionRequest.yaml'
+  /JSON Schema - SubsListSubscriptionRequest:
+    $ref: './paths/JSON Schema - SubsListSubscriptionRequest.yaml'
+  /JSON Schema - DocmRetrieveFinancialDocumentRequest:
+    $ref: './paths/JSON Schema - DocmRetrieveFinancialDocumentRequest.yaml'
+  /JSON Schema - PaymRegisterPayRequestResponse:
+    $ref: './paths/JSON Schema - PaymRegisterPayRequestResponse.yaml'
+  /JSON Schema - AcctCompleteCCUpdateRequest:
+    $ref: './paths/JSON Schema - AcctCompleteCCUpdateRequest.yaml'
+  /JSON Schema - CampManageOfferDetailRequest:
+    $ref: './paths/JSON Schema - CampManageOfferDetailRequest.yaml'
+  /JSON Schema - DocmRetrieveDocumentsRequest:
+    $ref: './paths/JSON Schema - DocmRetrieveDocumentsRequest.yaml'
+  /JSON Schema - TitleManageCalendarRequest:
+    $ref: './paths/JSON Schema - TitleManageCalendarRequest.yaml'
+  /JSON Schema - AcctRetrieveCommentRequest:
+    $ref: './paths/JSON Schema - AcctRetrieveCommentRequest.yaml'
+  /JSON Schema - DistManageDistRequest:
+    $ref: './paths/JSON Schema - DistManageDistRequest.yaml'
+  /JSON Schema - TitleRetrieveDunningRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveDunningRequest.yaml'
+  /JSON Schema - PaymManageRefundRequest:
+    $ref: './paths/JSON Schema - PaymManageRefundRequest.yaml'
+  /JSON Schema - SubsManageInviteRequest:
+    $ref: './paths/JSON Schema - SubsManageInviteRequest.yaml'
+  /JSON Schema - SubsManageContractRequest:
+    $ref: './paths/JSON Schema - SubsManageContractRequest.yaml'
+  /JSON Schema - AcctCreateAccountRequest:
+    $ref: './paths/JSON Schema - AcctCreateAccountRequest.yaml'
+  /JSON Schema - TitleRetrieveTitlePublDaysRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveTitlePublDaysRequest.yaml'
+  /JSON Schema - TitleRetrieveHolidaysRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveHolidaysRequest.yaml'
+  /JSON Schema - DiscRetrieveDiscDetailRequest:
+    $ref: './paths/JSON Schema - DiscRetrieveDiscDetailRequest.yaml'
+  /JSON Schema - SolmRetrieveLocaleRequest:
+    $ref: './paths/JSON Schema - SolmRetrieveLocaleRequest.yaml'
+  /JSON Schema - SolmManageParamConfigRequest:
+    $ref: './paths/JSON Schema - SolmManageParamConfigRequest.yaml'
+  /JSON Schema - AcctSearchAccountV2Request:
+    $ref: './paths/JSON Schema - AcctSearchAccountV2Request.yaml'
+  /JSON Schema - CompRetrieveComplaintCompensationRequest:
+    $ref: './paths/JSON Schema - CompRetrieveComplaintCompensationRequest.yaml'
+  /JSON Schema - DocmManageTextRequest:
+    $ref: './paths/JSON Schema - DocmManageTextRequest.yaml'
+  /JSON Schema - SubsRetrieveIndividualRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveIndividualRequest.yaml'
+  /JSON Schema - TitleManageDunningRequest:
+    $ref: './paths/JSON Schema - TitleManageDunningRequest.yaml'
+  /JSON Schema - SubsManageIndividualRequest:
+    $ref: './paths/JSON Schema - SubsManageIndividualRequest.yaml'
+  /JSON Schema - TitleGenerateHolidaysRequest:
+    $ref: './paths/JSON Schema - TitleGenerateHolidaysRequest.yaml'
+  /JSON Schema - CampManageCampPrefCodesRequest:
+    $ref: './paths/JSON Schema - CampManageCampPrefCodesRequest.yaml'
+  /JSON Schema - CampRetrieveCampSelectionRequest:
+    $ref: './paths/JSON Schema - CampRetrieveCampSelectionRequest.yaml'
+  /JSON Schema - AcctRetrieveBillingGroupRequest:
+    $ref: './paths/JSON Schema - AcctRetrieveBillingGroupRequest.yaml'
+  /JSON Schema - TitleManagePayOptionsRequest:
+    $ref: './paths/JSON Schema - TitleManagePayOptionsRequest.yaml'
+  /JSON Schema - AcctManagePayMethodRequest:
+    $ref: './paths/JSON Schema - AcctManagePayMethodRequest.yaml'
+  /JSON Schema - PaymRetrieveRefundRequest:
+    $ref: './paths/JSON Schema - PaymRetrieveRefundRequest.yaml'
+  /JSON Schema - DistDistributionRequest:
+    $ref: './paths/JSON Schema - DistDistributionRequest.yaml'
+  /JSON Schema - PaymRetrieveUnmatchedPaymentRequest:
+    $ref: './paths/JSON Schema - PaymRetrieveUnmatchedPaymentRequest.yaml'
+  /JSON Schema - AcctGDPRShowAccountDataRequest:
+    $ref: './paths/JSON Schema - AcctGDPRShowAccountDataRequest.yaml'
+  /JSON Schema - DiscManageDiscSelectionRequest:
+    $ref: './paths/JSON Schema - DiscManageDiscSelectionRequest.yaml'
+  /JSON Schema - CompManageComplaintCodeRequest:
+    $ref: './paths/JSON Schema - CompManageComplaintCodeRequest.yaml'
+  /JSON Schema - AcctSearchAccountRequest:
+    $ref: './paths/JSON Schema - AcctSearchAccountRequest.yaml'
+  /JSON Schema - SubsCheckRestrictionRequest:
+    $ref: './paths/JSON Schema - SubsCheckRestrictionRequest.yaml'
+  /JSON Schema - BndlManageBndlSelectionRequest:
+    $ref: './paths/JSON Schema - BndlManageBndlSelectionRequest.yaml'
+  /JSON Schema - BndlManageBndlDetailRequest:
+    $ref: './paths/JSON Schema - BndlManageBndlDetailRequest.yaml'
+  /JSON Schema - CompRetrieveComplaintRequest:
+    $ref: './paths/JSON Schema - CompRetrieveComplaintRequest.yaml'
+  /JSON Schema - CompRetrieveComplaintCodeRequest:
+    $ref: './paths/JSON Schema - CompRetrieveComplaintCodeRequest.yaml'
+  /JSON Schema - DiscRetrieveDiscSelectionRequest:
+    $ref: './paths/JSON Schema - DiscRetrieveDiscSelectionRequest.yaml'
+  /JSON Schema - DistRetrieveAddrTypeRequest:
+    $ref: './paths/JSON Schema - DistRetrieveAddrTypeRequest.yaml'
+  /JSON Schema - DistManageAddrRequest:
+    $ref: './paths/JSON Schema - DistManageAddrRequest.yaml'
+  /JSON Schema - CampManageCampSelectionRequest:
+    $ref: './paths/JSON Schema - CampManageCampSelectionRequest.yaml'
+  /JSON Schema - DiscManageDiscDetailRequest:
+    $ref: './paths/JSON Schema - DiscManageDiscDetailRequest.yaml'
+  /JSON Schema - DIstManageAddrTypeRequest:
+    $ref: './paths/JSON Schema - DIstManageAddrTypeRequest.yaml'
+  /JSON Schema - TitleManageTitleRequest:
+    $ref: './paths/JSON Schema - TitleManageTitleRequest.yaml'
+  /JSON Schema - TitleRetrieveTitlesRequest:
+    $ref: './paths/JSON Schema - TitleRetrieveTitlesRequest.yaml'
+  /JSON Schema - CampRetrieveCampPrefCodesRequest:
+    $ref: './paths/JSON Schema - CampRetrieveCampPrefCodesRequest.yaml'
+  /JSON Schema - TitleManageHolidayRequest:
+    $ref: './paths/JSON Schema - TitleManageHolidayRequest.yaml'
+  /JSON Schema - PaymRegisterPayRequestRequest:
+    $ref: './paths/JSON Schema - PaymRegisterPayRequestRequest.yaml'
+  /JSON Schema - SubsRetrieveInvitesRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveInvitesRequest.yaml'
+  /JSON Schema - SolmManageFollowupRequest:
+    $ref: './paths/JSON Schema - SolmManageFollowupRequest.yaml'
+  /JSON Schema - SubsManageDiscountRequest:
+    $ref: './paths/JSON Schema - SubsManageDiscountRequest.yaml'
+  /JSON Schema - AccRetrieveAccessListRequest:
+    $ref: './paths/JSON Schema - AccRetrieveAccessListRequest.yaml'
+  /JSON Schema - DistRetrieveAddrChgRequest:
+    $ref: './paths/JSON Schema - DistRetrieveAddrChgRequest.yaml'
+  /JSON Schema - DocmListFinancialDocumentRequest:
+    $ref: './paths/JSON Schema - DocmListFinancialDocumentRequest.yaml'
+  /JSON Schema - SubsGetEligibleOfferingsRequest:
+    $ref: './paths/JSON Schema - SubsGetEligibleOfferingsRequest.yaml'
+  /JSON Schema - PaymManageUnmatchedPaymentRequest:
+    $ref: './paths/JSON Schema - PaymManageUnmatchedPaymentRequest.yaml'
+  /JSON Schema - TitleManageTitleOwnersRequest:
+    $ref: './paths/JSON Schema - TitleManageTitleOwnersRequest.yaml'
+  /JSON Schema - CampManageCampDetailRequest:
+    $ref: './paths/JSON Schema - CampManageCampDetailRequest.yaml'
+  /JSON Schema - SolmRetrieveParamConfigRequest:
+    $ref: './paths/JSON Schema - SolmRetrieveParamConfigRequest.yaml'
+  /JSON Schema - AccAccessControlAIDRequest:
+    $ref: './paths/JSON Schema - AccAccessControlAIDRequest.yaml'
+  /JSON Schema - PaymGWCollectRecurringPaymentRequest:
+    $ref: './paths/JSON Schema - PaymGWCollectRecurringPaymentRequest.yaml'
+  /JSON Schema - PaymGWCallbackStatusRequest:
+    $ref: './paths/JSON Schema - PaymGWCallbackStatusRequest.yaml'
+  /JSON Schema - BndlRetrieveBndlSelectionRequest:
+    $ref: './paths/JSON Schema - BndlRetrieveBndlSelectionRequest.yaml'
+  /JSON Schema - CampRetrieveOfferDetailRequest:
+    $ref: './paths/JSON Schema - CampRetrieveOfferDetailRequest.yaml'
+  /JSON Schema - PaymRetrieveUnapprovedRefundsRequest:
+    $ref: './paths/JSON Schema - PaymRetrieveUnapprovedRefundsRequest.yaml'
+  /JSON Schema - TitleRetrievePayTermRequest:
+    $ref: './paths/JSON Schema - TitleRetrievePayTermRequest.yaml'
+  /JSON Schema - TitleGenerateCalendarRequest:
+    $ref: './paths/JSON Schema - TitleGenerateCalendarRequest.yaml'
+  /JSON Schema - CompManageComplaintCompensationRequest:
+    $ref: './paths/JSON Schema - CompManageComplaintCompensationRequest.yaml'
+  /JSON Schema - AcctGDPRDeleteAccountDataRequest:
+    $ref: './paths/JSON Schema - AcctGDPRDeleteAccountDataRequest.yaml'
+  /JSON Schema - SubsRetrieveContractRequest:
+    $ref: './paths/JSON Schema - SubsRetrieveContractRequest.yaml'
+  /JSON Schema - DistChangeAddrRequest:
+    $ref: './paths/JSON Schema - DistChangeAddrRequest.yaml'
+  /JSON Schema - PaymGWIssueRefundRequest:
+    $ref: './paths/JSON Schema - PaymGWIssueRefundRequest.yaml'
+  /JSON Schema - DistProcessAddrChangesRequest:
+    $ref: './paths/JSON Schema - DistProcessAddrChangesRequest.yaml'
+  /JSON Schema - DistRetrieveAddrRequest:
+    $ref: './paths/JSON Schema - DistRetrieveAddrRequest.yaml'
+  /JSON Schema - PaymManagePaymentRequest:
+    $ref: './paths/JSON Schema - PaymManagePaymentRequest.yaml'
+  /JSON Schema - AccAccessControlC1Request:
+    $ref: './paths/JSON Schema - AccAccessControlC1Request.yaml'
+  /JSON Schema - AcctManageAccountRequest:
+    $ref: './paths/JSON Schema - AcctManageAccountRequest.yaml'
+  /JSON Schema - DocmRetrieveTextRequest:
+    $ref: './paths/JSON Schema - DocmRetrieveTextRequest.yaml'
+
+components:
+  schemas:
+    SampleComponent:
+      $ref: './components/SampleComponent.yaml'
+    JSON Schema - SubsGetEligibleOfferingsResponse:
+      $ref: './components/JSON Schema - SubsGetEligibleOfferingsResponse.yaml'
+    JSON Schema - BndlRetrieveBndlSelectionResponse:
+      $ref: './components/JSON Schema - BndlRetrieveBndlSelectionResponse.yaml'
+    JSON Schema - TitleManageHolidayResponse:
+      $ref: './components/JSON Schema - TitleManageHolidayResponse.yaml'
+    JSON Schema - CompManageComplaintResponse:
+      $ref: './components/JSON Schema - CompManageComplaintResponse.yaml'
+    JSON Schema - SubsRetrieveChgOptionsResponse:
+      $ref: './components/JSON Schema - SubsRetrieveChgOptionsResponse.yaml'
+    JSON Schema - PaymGWCollectOnetimePaymentResponse:
+      $ref: './components/JSON Schema - PaymGWCollectOnetimePaymentResponse.yaml'
+    JSON Schema - DiscManageDiscSelectionResponse:
+      $ref: './components/JSON Schema - DiscManageDiscSelectionResponse.yaml'
+    JSON Schema - SubsRetrieveDiscountResponse:
+      $ref: './components/JSON Schema - SubsRetrieveDiscountResponse.yaml'
+    JSON Schema - DistManageAddrResponse:
+      $ref: './components/JSON Schema - DistManageAddrResponse.yaml'
+    JSON Schema - AcctGDPRShowAccountDataResponse:
+      $ref: './components/JSON Schema - AcctGDPRShowAccountDataResponse.yaml'
+    JSON Schema - DistChangeAddrResponse:
+      $ref: './components/JSON Schema - DistChangeAddrResponse.yaml'
+    JSON Schema - AccRetrieveAccessListResponse:
+      $ref: './components/JSON Schema - AccRetrieveAccessListResponse.yaml'
+    JSON Schema - CampManageCampSelectionResponse:
+      $ref: './components/JSON Schema - CampManageCampSelectionResponse.yaml'
+    .DS_Store:
+      $ref: './components/.DS_Store'
+    JSON Schema - CompRetrieveComplaintCodeResponse:
+      $ref: './components/JSON Schema - CompRetrieveComplaintCodeResponse.yaml'
+    JSON Schema - PaymGWCollectRecurringPaymentResponse:
+      $ref: './components/JSON Schema - PaymGWCollectRecurringPaymentResponse.yaml'
+    JSON Schema - TitleRetrievePayOptionsResponse:
+      $ref: './components/JSON Schema - TitleRetrievePayOptionsResponse.yaml'
+    JSON Schema - DistRetrieveAddrResponse:
+      $ref: './components/JSON Schema - DistRetrieveAddrResponse.yaml'
+    JSON Schema - AccAccessControlAIDResponse:
+      $ref: './components/JSON Schema - AccAccessControlAIDResponse.yaml'
+    JSON Schema - SubsCheckRestrictionResponse:
+      $ref: './components/JSON Schema - SubsCheckRestrictionResponse.yaml'
+    JSON Schema - PaymRetrieveUnmatchedPaymentResponse:
+      $ref: './components/JSON Schema - PaymRetrieveUnmatchedPaymentResponse.yaml'
+    JSON Schema - TitleRetrieveTitleOwnersResponse:
+      $ref: './components/JSON Schema - TitleRetrieveTitleOwnersResponse.yaml'
+    JSON Schema - CampRetrieveCampDetailResponse:
+      $ref: './components/JSON Schema - CampRetrieveCampDetailResponse.yaml'
+    JSON Schema - SolmRetrieveLocaleResponse:
+      $ref: './components/JSON Schema - SolmRetrieveLocaleResponse.yaml'
+    JSON Schema - AcctManagePayMethodResponse:
+      $ref: './components/JSON Schema - AcctManagePayMethodResponse.yaml'
+    JSON Schema - SubsListSubscriptionResponse:
+      $ref: './components/JSON Schema - SubsListSubscriptionResponse.yaml'
+    JSON Schema - CampRetrieveCampSelectionResponse:
+      $ref: './components/JSON Schema - CampRetrieveCampSelectionResponse.yaml'
+    JSON Schema - DistManageAddrTypeResponse:
+      $ref: './components/JSON Schema - DistManageAddrTypeResponse.yaml'
+    JSON Schema - PaymRetrieveTransactionsResponse:
+      $ref: './components/JSON Schema - PaymRetrieveTransactionsResponse.yaml'
+    JSON Schema - AccAccessControlC1Response:
+      $ref: './components/JSON Schema - AccAccessControlC1Response.yaml'
+    JSON Schema - DistRetrieveAddrTypeResponse:
+      $ref: './components/JSON Schema - DistRetrieveAddrTypeResponse.yaml'
+    JSON Schema - PaymGWCallbackStatusResponse:
+      $ref: './components/JSON Schema - PaymGWCallbackStatusResponse.yaml'
+    JSON Schema - AcctManageAccountResponse:
+      $ref: './components/JSON Schema - AcctManageAccountResponse.yaml'
+    JSON Schema - SolmManageParamConfigResponse:
+      $ref: './components/JSON Schema - SolmManageParamConfigResponse.yaml'
+    JSON Schema - SubsHandlePriceModelResponse:
+      $ref: './components/JSON Schema - SubsHandlePriceModelResponse.yaml'
+    JSON Schema - CampRetrieveOfferDetailResponse:
+      $ref: './components/JSON Schema - CampRetrieveOfferDetailResponse.yaml'
+    JSON Schema - DiscManageDiscDetailResponse:
+      $ref: './components/JSON Schema - DiscManageDiscDetailResponse.yaml'
+    JSON Schema - DistManageDistResponse:
+      $ref: './components/JSON Schema - DistManageDistResponse.yaml'
+    JSON Schema - TitleManageTitleResponse:
+      $ref: './components/JSON Schema - TitleManageTitleResponse.yaml'
+    JSON Schema - TitleRetrieveTitlePublDaysResponse:
+      $ref: './components/JSON Schema - TitleRetrieveTitlePublDaysResponse.yaml'
+    JSON Schema - BndlRetrieveBndlDetailResponse:
+      $ref: './components/JSON Schema - BndlRetrieveBndlDetailResponse.yaml'
+    JSON Schema - AcctPrepareCCUpdateResponse:
+      $ref: './components/JSON Schema - AcctPrepareCCUpdateResponse.yaml'
+    JSON Schema - AcctChangePermAddressResponse:
+      $ref: './components/JSON Schema - AcctChangePermAddressResponse.yaml'
+    JSON Schema - DiscRetrieveDiscSelectionResponse:
+      $ref: './components/JSON Schema - DiscRetrieveDiscSelectionResponse.yaml'
+    JSON Schema - CampManageOfferDetailResponse:
+      $ref: './components/JSON Schema - CampManageOfferDetailResponse.yaml'
+    JSON Schema - TitleManageTitleOwnersResponse:
+      $ref: './components/JSON Schema - TitleManageTitleOwnersResponse.yaml'
+    JSON Schema - AcctGDPRDeleteAccountDataResponse:
+      $ref: './components/JSON Schema - AcctGDPRDeleteAccountDataResponse.yaml'
+    JSON Schema - SubsRetrieveContractResponse:
+      $ref: './components/JSON Schema - SubsRetrieveContractResponse.yaml'
+    JSON Schema - BndlManageBndlDetailResponse:
+      $ref: './components/JSON Schema - BndlManageBndlDetailResponse.yaml'
+    JSON Schema - DocmListFinancialDocumentResponse:
+      $ref: './components/JSON Schema - DocmListFinancialDocumentResponse.yaml'
+    JSON Schema - DocmManageTextResponse:
+      $ref: './components/JSON Schema - DocmManageTextResponse.yaml'
+    JSON Schema - SolmManageFollowupResponse:
+      $ref: './components/JSON Schema - SolmManageFollowupResponse.yaml'
+    JSON Schema - TitleRetrieveCalendarResponse:
+      $ref: './components/JSON Schema - TitleRetrieveCalendarResponse.yaml'
+    JSON Schema - TitleManageCalendarResponse:
+      $ref: './components/JSON Schema - TitleManageCalendarResponse.yaml'
+    JSON Schema - AcctRetrieveAccountResponse:
+      $ref: './components/JSON Schema - AcctRetrieveAccountResponse.yaml'
+    JSON Schema - DistRetrieveAddrChgResponse:
+      $ref: './components/JSON Schema - DistRetrieveAddrChgResponse.yaml'
+    JSON Schema - SolmManageLocaleResponse:
+      $ref: './components/JSON Schema - SolmManageLocaleResponse.yaml'
+    JSON Schema - AcctManageBillingGroupResponse:
+      $ref: './components/JSON Schema - AcctManageBillingGroupResponse.yaml'
+    JSON Schema - DocmRetrieveDocumentsResponse:
+      $ref: './components/JSON Schema - DocmRetrieveDocumentsResponse.yaml'
+    JSON Schema - SubsRetrieveSubscriptionResponse:
+      $ref: './components/JSON Schema - SubsRetrieveSubscriptionResponse.yaml'
+    JSON Schema - TitleManagePayTermResponse:
+      $ref: './components/JSON Schema - TitleManagePayTermResponse.yaml'
+    JSON Schema - CampManageCampDetailResponse:
+      $ref: './components/JSON Schema - CampManageCampDetailResponse.yaml'
+    JSON Schema - PaymGWIssueRefundResponse:
+      $ref: './components/JSON Schema - PaymGWIssueRefundResponse.yaml'
+    JSON Schema - DocmRetrieveFinancialDocumentResponse:
+      $ref: './components/JSON Schema - DocmRetrieveFinancialDocumentResponse.yaml'
+    JSON Schema - PaymRetrieveRefundResponse:
+      $ref: './components/JSON Schema - PaymRetrieveRefundResponse.yaml'
+    JSON Schema - TitleGenerateHolidaysResponse:
+      $ref: './components/JSON Schema - TitleGenerateHolidaysResponse.yaml'
+    JSON Schema - CompManageComplaintCodeResponse:
+      $ref: './components/JSON Schema - CompManageComplaintCodeResponse.yaml'
+    JSON Schema - AcctCreateAccountResponse:
+      $ref: './components/JSON Schema - AcctCreateAccountResponse.yaml'
+    JSON Schema - PaymRetrieveUnapprovedRefundsResponse:
+      $ref: './components/JSON Schema - PaymRetrieveUnapprovedRefundsResponse.yaml'
+    JSON Schema - CompCheckComplaintEligibilityResponse:
+      $ref: './components/JSON Schema - CompCheckComplaintEligibilityResponse.yaml'
+    JSON Schema - SubsManageContractResponse:
+      $ref: './components/JSON Schema - SubsManageContractResponse.yaml'
+    JSON Schema - SubsManageIndividualResponse:
+      $ref: './components/JSON Schema - SubsManageIndividualResponse.yaml'
+    JSON Schema - TitleManageDunningResponse:
+      $ref: './components/JSON Schema - TitleManageDunningResponse.yaml'
+    JSON Schema - AcctRetrieveCommentResponse:
+      $ref: './components/JSON Schema - AcctRetrieveCommentResponse.yaml'
+    JSON Schema - TitleManageTitlePublDaysResponse:
+      $ref: './components/JSON Schema - TitleManageTitlePublDaysResponse.yaml'
+    JSON Schema - CampManageCampPrefCodesResponse:
+      $ref: './components/JSON Schema - CampManageCampPrefCodesResponse.yaml'
+    JSON Schema - AcctCaptureCommentResponse:
+      $ref: './components/JSON Schema - AcctCaptureCommentResponse.yaml'
+    JSON Schema - SolmRetrieveParamConfigResponse:
+      $ref: './components/JSON Schema - SolmRetrieveParamConfigResponse.yaml'
+    JSON Schema - DocmRetrieveTextResponse:
+      $ref: './components/JSON Schema - DocmRetrieveTextResponse.yaml'
+    JSON Schema - AcctRetrieveBillingGroupResponse:
+      $ref: './components/JSON Schema - AcctRetrieveBillingGroupResponse.yaml'
+    JSON Schema - PaymManageRefundResponse:
+      $ref: './components/JSON Schema - PaymManageRefundResponse.yaml'
+    JSON Schema - AccRefreshAccountAccessResponse:
+      $ref: './components/JSON Schema - AccRefreshAccountAccessResponse.yaml'
+    JSON Schema - TitleGenerateCalendarResponse:
+      $ref: './components/JSON Schema - TitleGenerateCalendarResponse.yaml'
+    JSON Schema - AcctSearchAccountResponse:
+      $ref: './components/JSON Schema - AcctSearchAccountResponse.yaml'
+    JSON Schema - SubsRetrieveInvitesResponse:
+      $ref: './components/JSON Schema - SubsRetrieveInvitesResponse.yaml'
+    JSON Schema - CampRetrieveCampPrefCodesResponse:
+      $ref: './components/JSON Schema - CampRetrieveCampPrefCodesResponse.yaml'
+    JSON Schema - AcctCompleteCCUpdateResponse:
+      $ref: './components/JSON Schema - AcctCompleteCCUpdateResponse.yaml'
+    JSON Schema - PaymManagePaymentResponse:
+      $ref: './components/JSON Schema - PaymManagePaymentResponse.yaml'
+    JSON Schema - CompRetrieveComplaintResponse:
+      $ref: './components/JSON Schema - CompRetrieveComplaintResponse.yaml'
+    JSON Schema - SubsManageInviteResponse:
+      $ref: './components/JSON Schema - SubsManageInviteResponse.yaml'
+    JSON Schema - TitleRetrieveTitlesResponse:
+      $ref: './components/JSON Schema - TitleRetrieveTitlesResponse.yaml'
+    JSON Schema - DocmManageDocumentResponse:
+      $ref: './components/JSON Schema - DocmManageDocumentResponse.yaml'
+    JSON Schema - SubsManageSubscriptionResponse:
+      $ref: './components/JSON Schema - SubsManageSubscriptionResponse.yaml'
+    JSON Schema - SubsRetrieveIndividualResponse:
+      $ref: './components/JSON Schema - SubsRetrieveIndividualResponse.yaml'
+    JSON Schema - SubsManageDiscountResponse:
+      $ref: './components/JSON Schema - SubsManageDiscountResponse.yaml'
+    JSON Schema - ProdRetrieveProductResponse:
+      $ref: './components/JSON Schema - ProdRetrieveProductResponse.yaml'
+    JSON Schema - TitleRetrievePayTermResponse:
+      $ref: './components/JSON Schema - TitleRetrievePayTermResponse.yaml'
+    JSON Schema - CompManageComplaintCompensationResponse:
+      $ref: './components/JSON Schema - CompManageComplaintCompensationResponse.yaml'
+    JSON Schema - BndlManageBndlSelectionResponse:
+      $ref: './components/JSON Schema - BndlManageBndlSelectionResponse.yaml'
+    JSON Schema - AcctSearchAccountV2Response:
+      $ref: './components/JSON Schema - AcctSearchAccountV2Response.yaml'
+    JSON Schema - SubsValidateSubscriptionResponse:
+      $ref: './components/JSON Schema - SubsValidateSubscriptionResponse.yaml'
+    JSON Schema - TitleManagePayOptionsResponse:
+      $ref: './components/JSON Schema - TitleManagePayOptionsResponse.yaml'
+    JSON Schema - CompRetrieveComplaintCompensationResponse:
+      $ref: './components/JSON Schema - CompRetrieveComplaintCompensationResponse.yaml'
+    JSON Schema - AccAccessListResponse:
+      $ref: './components/JSON Schema - AccAccessListResponse.yaml'
+    JSON Schema - DiscRetrieveDiscDetailResponse:
+      $ref: './components/JSON Schema - DiscRetrieveDiscDetailResponse.yaml'
+    JSON Schema - SubsCreateSubscriptionOfferResponse:
+      $ref: './components/JSON Schema - SubsCreateSubscriptionOfferResponse.yaml'
+    JSON Schema - TitleRetrieveDunningResponse:
+      $ref: './components/JSON Schema - TitleRetrieveDunningResponse.yaml'
+    JSON Schema - PaymManageUnmatchedPaymentResponse:
+      $ref: './components/JSON Schema - PaymManageUnmatchedPaymentResponse.yaml'
+    JSON Schema - TitleRetrieveHolidaysResponse:
+      $ref: './components/JSON Schema - TitleRetrieveHolidaysResponse.yaml'
